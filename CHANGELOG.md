@@ -1,3 +1,19 @@
+#### 1.7.6 (2024-04-14)
+
+##### Chores
+
+* **new-version:**  :bookmark: update version number in `package.json` file to `1.7.6` ([55b633b4](https://github.com/krypton225/sass-pire/commit/55b633b4d4dcc5a79c857a5f09991e2967fa7fcf))
+
+##### Other Changes
+
+*  update version number in `_banner.scss` file to latest one ([376611db](https://github.com/krypton225/sass-pire/commit/376611db78ddf53581d1e821db72ba2ac73d15ec))
+
+#### 1.7.6 (2024-04-14)
+
+##### Chores
+
+* **new-version:**  :bookmark: update version number in `package.json` file to `1.7.6` ([55b633b4](https://github.com/krypton225/sass-pire/commit/55b633b4d4dcc5a79c857a5f09991e2967fa7fcf))
+
 #### 1.5.1 (2024-01-26)
 
 ##### Documentation Changes
