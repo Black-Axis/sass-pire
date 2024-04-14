@@ -1,3 +1,17 @@
+#### 1.9.6 (2024-04-14)
+
+#### 1.8.6 (2024-04-14)
+
+##### Chores
+
+* **config-file:**  :hammer: add `tags:gitlab` & update `tags` to `tags:github` script ([25fc199b](https://github.com/ZexLabs/sass-pire/commit/25fc199ba2b1d504c368bd7579c20f001105e5c9))
+* **docs:**  :memo: add `CONTRIBUTING.md` file with its content ([f6a5bf17](https://github.com/ZexLabs/sass-pire/commit/f6a5bf1718c319eeaa5cd50b96e67211eafc6677))
+* **new-version:**  :bookmark: update version number for library to `1.8.6` ([378d41b2](https://github.com/ZexLabs/sass-pire/commit/378d41b20cc64fa2881241464e0006e5a553fc87))
+
+##### Documentation Changes
+
+* **docs:**  :memo: update `CHANGELOG.md` file with latest commit ([47207596](https://github.com/ZexLabs/sass-pire/commit/47207596eee9aa654e99cd9df53bd00c2757692f))
+
 #### 1.8.6 (2024-04-14)
 
 ##### Chores
