@@ -15,7 +15,8 @@
         "Khaled Mohamed"
     ],
     "bugs": {
-        "url": "https://github.com/krypton225/sass-pire/issues"
+        "url": "https://github.com/ZexLabs/sass-pire/issues",
+        "email": "ZexLabs@outlook.com"
     },
     "keywords": [
         "SCSS",
@@ -26,7 +27,7 @@
         "scss-library"
     ],
     "repository": {
-        "url": "https://github.com/krypton225/sass-pire",
+        "url": "https://github.com/ZexLabs/sass-pire",
         "type": "git"
     },
     "scripts": {

@@ -12,7 +12,7 @@
 
 // @license MIT
 
-// @repository: https://github.com/krypton225/sass-pire
+// @repository: https://github.com/ZexLabs/sass-pire
 
 // @namespace global
 
@@ -34,7 +34,7 @@
 $test-cases-has-position-map: (
     0: Dev.err("The parameter of has-pos function must be in a string type."),
     bottom-right: false,
-    0px: Dev.err("The parameter of has-pos function must be in a string type."),
+    0: Dev.err("The parameter of has-pos function must be in a string type."),
     344px: Dev.err("The parameter of has-pos function must be in a string type."),
     -0.5px: Dev.err("The parameter of has-pos function must be in a string type."),
     left: true,

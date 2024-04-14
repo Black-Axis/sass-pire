@@ -12,7 +12,7 @@
 
 // @license MIT
 
-// @repository: https://github.com/krypton225/sass-pire
+// @repository: https://github.com/ZexLabs/sass-pire
 
 // @namespace converters
 
@@ -33,7 +33,7 @@
 
 $test-cases-px-to-cm-map: (
     0: 0,
-    0px: Dev.err("The parameter dose not need a unit if it equals to zero."),
+    0: Dev.err("The parameter dose not need a unit if it equals to zero."),
     344px: "9.102cm",
     -0.5px: "-0.013cm",
     -92px: "-2.434cm",

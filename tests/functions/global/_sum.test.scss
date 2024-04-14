@@ -12,7 +12,7 @@
 
 // @license MIT
 
-// @repository: https://github.com/krypton225/sass-pire
+// @repository: https://github.com/ZexLabs/sass-pire
 
 // @namespace global
 
@@ -33,7 +33,7 @@
 
 $test-cases-sum-map: (
     (1, 2, 3): 6,
-    0px: Dev.err("The parameter of sum function must be in a list type."),
+    0: Dev.err("The parameter of sum function must be in a list type."),
     344px: Dev.err("The parameter of sum function must be in a list type."),
     -0.5px: Dev.err("The parameter of sum function must be in a list type."),
     -92px: Dev.err("The parameter of sum function must be in a list type."),
