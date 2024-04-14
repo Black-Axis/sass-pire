@@ -1,3 +1,21 @@
+#### 1.8.6 (2024-04-14)
+
+##### Chores
+
+* **new-version:**  :bookmark: update version number for library to `1.8.6` ([378d41b2](https://github.com/ZexLabs/sass-pire/commit/378d41b20cc64fa2881241464e0006e5a553fc87))
+
+#### 1.7.6 (2024-04-14)
+
+##### Chores
+
+* **docs:**  :memo: update docs in all files for `repository` flag to `ZexLabs` link ([822d124b](https://github.com/ZexLabs/sass-pire/commit/822d124b86756ab83217a39c8c5aef1f841e35ca))
+* **new-version:**  :bookmark: update version number in `package.json` file to `1.7.6` ([55b633b4](https://github.com/ZexLabs/sass-pire/commit/55b633b4d4dcc5a79c857a5f09991e2967fa7fcf))
+
+##### Other Changes
+
+*  update `CHANGELOG.md` file with latest commit ([1d229c3c](https://github.com/ZexLabs/sass-pire/commit/1d229c3c381b2b9945ef70c6022aab3664467f89))
+*  update version number in `_banner.scss` file to latest one ([376611db](https://github.com/ZexLabs/sass-pire/commit/376611db78ddf53581d1e821db72ba2ac73d15ec))
+
 #### 1.7.6 (2024-04-14)
 
 ##### Chores
