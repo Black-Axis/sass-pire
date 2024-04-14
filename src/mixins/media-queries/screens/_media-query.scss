@@ -65,6 +65,7 @@
 
     // stylelint-disable-next-line scss/dollar-variable-empty-line-before
     $breakpoints: (
+        "small": 280px,
         "mob-min": 320px,
         "mob": 400px,
         "mob-wide": 480px,
