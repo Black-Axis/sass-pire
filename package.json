@@ -1,6 +1,6 @@
 {
     "name": "sass-pire",
-    "version": "1.8.6",
+    "version": "1.9.6",
     "description": "Just a more mixins and functions with SCSS for more productive projects.",
     "markdown": "github",
     "license": "MIT",
@@ -37,7 +37,8 @@
         "upgrade": "ncu --upgrade",
         "lint": "npx stylelint ./src/**/*.scss",
         "cmt": "cz",
-        "tags": "git push repo --tags",
+        "tags:github": "git push repo --tags",
+        "tags:gitlab": "git push gitlab --tags",
         "log": "changelog generate",
         "gen:lock": "npm i --package-lock-only",
         "test:scss": "sass --no-source-map ./tests/test.scss:dist/test-styles.css --watch",
