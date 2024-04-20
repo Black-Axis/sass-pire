@@ -1,3 +1,13 @@
+#### 1.9.6 (2024-04-20)
+
+##### Chores
+
+* **docs:**  :memo: update `CHANGELOG.md` file ([8cc07295](https://github.com/ZexLabs/sass-pire/commit/8cc07295300f1f8173df61d8564932ff91bd2d8c))
+
+##### Other Changes
+
+*  add `html` tag for `scroll-behavior` property in `reset` file ([46460e17](https://github.com/ZexLabs/sass-pire/commit/46460e171d8925cd0f52ff66cc3b6dfe5a0b156a))
+
 #### 1.9.6 (2024-04-14)
 
 #### 1.8.6 (2024-04-14)
