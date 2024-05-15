@@ -1,0 +1,107 @@
+@charset "UTF-8";
+
+// @description
+// * mt mixin.
+// * This mixin generates CSS logical properties for margin-top.
+// * It will generate margin-top & margin-block-start properties.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/ZexLabs/sass-pire
+
+// @namespace logical-props
+
+// @module logical-props/mt
+
+// @dependencies:
+// * - meta.type-of (SASS function).
+// * - math.unit (SASS function).
+// * - list.index (SASS function).
+// * - Error.toggle (function).
+
+// @example
+// * .example {
+// *   @include mt(2rem);
+// * }
+
+// @output
+// * .example {
+// *    margin-block-start: 2rem;
+// *    margin-top: 2rem;
+// * }
+
+// @note
+// * This mixin is not useful for language which is written
+// * from top to bottom or bottom to top.
+
+@use "sass:meta";
+@use "sass:list";
+@use "sass:math";
+@use "../../development-utils/toggle-error-message" as Error;
+
+@mixin mt($value: 0) {
+    @if meta.type-of($value) != number {
+        content: Error.toggle("The parameter of mt mixin must be in a number type.");
+    } @else {
+        $get-unit: math.unit($value);
+
+        @if $get-unit != "" {
+            $all-units: (
+                cm,
+                mm,
+                in,
+                px,
+                pt,
+                pc,
+                "%",
+                em,
+                ex,
+                ch,
+                rem,
+                vw,
+                vh,
+                vmin,
+                vmax,
+                dpi,
+                dpcm,
+                dppx,
+                vw,
+                svw,
+                lvw,
+                dvw,
+                vh,
+                lvh,
+                dvh,
+                vi,
+                svi,
+                lvi,
+                vmin,
+                svmin,
+                lvmin,
+                dvmin,
+                vmax,
+                svmax,
+                lvmax,
+                dvmax,
+                vb,
+                lvb,
+                dvb
+            ) !default;
+
+            @if list.index($all-units, $get-unit) {
+                margin-block-start: $value;
+                margin-top: $value;
+            } @else {
+                content: Error.toggle("The parameter of mt mixin must be one of these values: (#{$all-units}).");
+            }
+        } @else {
+            content: Error.toggle("The parameter of mt mixin must have a unit.");
+        }
+    }
+}

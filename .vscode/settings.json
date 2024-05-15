@@ -38,7 +38,8 @@
         "config-file",
         "testing",
         "functions-map",
-        "security"
+        "security",
+        "mixins-logical-props"
     ],
     "cSpell.words": ["Giraudel"]
 }
