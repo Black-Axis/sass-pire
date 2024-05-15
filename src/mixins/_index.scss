@@ -47,3 +47,9 @@
 // * CSS grid properties.
 // @see grid
 @forward "grid-props";
+
+// * forwarding the "logical-props" module.
+// * The "logical-props" module likely provides utilities for handling
+// * logical properties in CSS.
+// @see logical-props
+@forward "logical-props";
