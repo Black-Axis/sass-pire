@@ -36,19 +36,19 @@
 // @example
 // * .example {
 // *   content: is-time(12s);
-// * };
+// * }
 
 // @output
 // * .example {
 // *   content: true;
-// * };
+// * }
 
 // @returns {boolean} - True if it's a time type, false if not.
 
 @use "sass:meta";
 @use "sass:list";
 @use "sass:math";
-@use "../../abstract/variables" as var;
+@use "../../abstract/global-variables" as var;
 @use "../../development-utils/toggle-error-message" as Error;
 
 @function is-time($value) {

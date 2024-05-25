@@ -24,6 +24,7 @@
 // * - meta.type-of (SASS function).
 // * - math.unit (SASS function).
 // * - list.index (SASS function).
+// * - var.$all-units (variable).
 // * - Error.toggle (function).
 
 // @param {Number} $side
@@ -49,6 +50,7 @@
 @use "sass:meta";
 @use "sass:list";
 @use "sass:math";
+@use "../../abstract/global-variables" as var;
 @use "../../development-utils/toggle-error-message" as Error;
 
 @mixin circle($one-side: 0) {
@@ -58,54 +60,12 @@
         $get-unit: math.unit($one-side);
 
         @if $get-unit != "" {
-            $all-units: (
-                cm,
-                mm,
-                in,
-                px,
-                pt,
-                pc,
-                "%",
-                em,
-                ex,
-                ch,
-                rem,
-                vw,
-                vh,
-                vmin,
-                vmax,
-                dpi,
-                dpcm,
-                dppx,
-                vw,
-                svw,
-                lvw,
-                dvw,
-                vh,
-                lvh,
-                dvh,
-                vi,
-                svi,
-                lvi,
-                vmin,
-                svmin,
-                lvmin,
-                dvmin,
-                vmax,
-                svmax,
-                lvmax,
-                dvmax,
-                vb,
-                lvb,
-                dvb
-            ) !default;
-
-            @if list.index($all-units, $get-unit) {
+            @if list.index(var.$all-units, $get-unit) {
                 width: #{$one-side};
                 height: #{$one-side};
                 border-radius: 50%;
             } @else {
-                content: Error.toggle("The parameter of circle mixin must be one of these values: (#{$all-units}).");
+                content: Error.toggle("The parameter of circle mixin must be one of these values: (#{var.$all-units}).");
             }
         } @else {
             content: Error.toggle("The parameter of circle mixin must have a unit.");

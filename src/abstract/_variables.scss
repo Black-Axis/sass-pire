@@ -14,38 +14,6 @@
 
 // stylelint-disable scss/dollar-variable-empty-line-before
 
-// * Units.
-
-$all-data-types: (number, string, bool, list, color, map, null) !default;
-
-$angle-units: (deg, turn, rad, grad) !default;
-
-$main-units: (#{"%"}, rem, px, em) !default;
-
-$time-units: (ms, s) !default;
-
-// * Flexbox.
-
-$flex-direction-props: (
-    -webkit-box-orient,
-    -webkit-box-direction,
-    -webkit-flex-direction,
-    -ms-flex-direction,
-    -moz-flex-direction,
-    -o-flex-direction,
-    flex-direction
-) !default;
-
-$flex-direction-column-values: (vertical, normal, column, column) !default;
-
-$flex-direction-column-reverse-values: (vertical, reverse, column-reverse, column-reverse) !default;
-
-$flex-direction-row-values: (horizontal, normal, row, row) !default;
-
-$flex-direction-row-reverse-values: (horizontal, reverse, row-reverse, row-reverse) !default;
-
-$directions-props-values: (inherit, initial, revert, revert-layer, unset, auto) !default;
-
 // * Grid.
 
 $column-gap-props: (-webkit-column-gap, -moz-column-gap, column-gap) !default;

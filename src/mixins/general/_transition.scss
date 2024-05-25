@@ -21,7 +21,7 @@
 // @module general/transition
 
 // @dependencies:
-// * - $time-units (variable).
+// * - var.$time-units (variable).
 // * - meta.type-of (SASS function).
 // * - prefix.prefixing-all (mixin).
 // * - is-in-list (function).
@@ -58,7 +58,7 @@
 @use "sass:meta";
 @use "sass:list";
 @use "sass:math";
-@use "../../abstract/variables" as var;
+@use "../../abstract/global-variables" as var;
 @use "../vendor-prefixes/prefix" as pref;
 @use "../../functions" as func;
 

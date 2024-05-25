@@ -21,8 +21,9 @@
 // @dependencies:
 // * - meta.type-of (SASS function).
 // * - math.unit (SASS function).
-// * - is-in-list (function).
-// * - toggle (function).
+// * - var.$all-units (variable).
+// * - func.is-in-list (function).
+// * - Error.toggle (function).
 
 // @param {Number} $one-side
 // * The length of one side of the square.
@@ -48,55 +49,14 @@
 @use "sass:meta";
 @use "sass:list";
 @use "sass:math";
+@use "../../abstract/global-variables" as var;
 @use "../../functions/global/is-in-list" as func;
 @use "../../development-utils/toggle-error-message" as Error;
 
 @mixin square($one-side: 1px) {
-    $all-units: (
-        cm,
-        mm,
-        in,
-        px,
-        pt,
-        pc,
-        "%",
-        em,
-        ex,
-        ch,
-        rem,
-        vw,
-        vh,
-        vmin,
-        vmax,
-        dpi,
-        dpcm,
-        dppx,
-        vw,
-        svw,
-        lvw,
-        dvw,
-        vh,
-        lvh,
-        dvh,
-        vi,
-        svi,
-        lvi,
-        vmin,
-        svmin,
-        lvmin,
-        dvmin,
-        vmax,
-        svmax,
-        lvmax,
-        dvmax,
-        vb,
-        lvb,
-        dvb
-    ) !default;
-
     @if meta.type-of($one-side) == number {
         @if not unitless($one-side) {
-            @if func.is-in-list($all-units, math.unit($one-side)) {
+            @if func.is-in-list(var.$all-units, math.unit($one-side)) {
                 width: $one-side;
                 height: $one-side;
             }

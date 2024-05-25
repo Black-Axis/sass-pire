@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/ZexLabs/sass-pire
+
+// @namespace abstract
+
+// @module abstract/global-variables
+
+// stylelint-disable scss/dollar-variable-empty-line-before
+
+$all-units: (
+    cm,
+    mm,
+    in,
+    px,
+    pt,
+    pc,
+    "%",
+    em,
+    ex,
+    ch,
+    rem,
+    vw,
+    vh,
+    vmin,
+    vmax,
+    dpi,
+    dpcm,
+    dppx,
+    vw,
+    svw,
+    lvw,
+    dvw,
+    vh,
+    lvh,
+    dvh,
+    vi,
+    svi,
+    lvi,
+    vmin,
+    svmin,
+    lvmin,
+    dvmin,
+    vmax,
+    svmax,
+    lvmax,
+    dvmax,
+    vb,
+    lvb,
+    dvb) !default;
+
+$data-types: (
+    number,
+    string,
+    bool,
+    list,
+    color,
+    map,
+    null) !default;
+
+$angle-units: (
+    deg,
+    turn,
+    rad,
+    grad) !default;
+
+$main-units: (
+    #{"%"},
+    rem,
+    px,
+    em) !default;
+
+$time-units: (
+    ms,
+    s) !default;

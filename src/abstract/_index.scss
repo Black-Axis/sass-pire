@@ -14,6 +14,12 @@
 // @see variables
 @forward "variables";
 
+// * forwarded global-variables.
+// * This module forwards the variables defined in the "global-variables" module.
+// * It allows you to use these variables in other files.
+// @see global-variables
+@forward "global-variables";
+
 // * forwarded config.
 // * This module forwards the configuration defined for library.
 // * It allows you to use these configurations in other files.
