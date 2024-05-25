@@ -6,6 +6,36 @@
 
 ##### Documentation Changes
 
+* **docs:**
+  *  :memo: add docs for `CHANGELOG.md` file ([b0e5c791](https://github.com/ZexLabs/sass-pire/commit/b0e5c791ecde7bc841d09cc8867f1c8b892cf826))
+  *  :memo: update docs for `mt` & `mb` mixins ([5b0c7948](https://github.com/ZexLabs/sass-pire/commit/5b0c7948552a89f92c8cedb3c67837bd6962db7f))
+
+##### New Features
+
+* **mixins-logical-props:**
+  *  :sparkles: add `margin-left` mixin ([2e05cce0](https://github.com/ZexLabs/sass-pire/commit/2e05cce052c7951a8391f9a3e86d0c63ac5f25c8))
+  *  :sparkles: add `margin-right` mixin with its logical-props ([464d4986](https://github.com/ZexLabs/sass-pire/commit/464d49866fcc6c8672fe9ef5881b5518783d4559))
+  *  :sparkles: add `margin-bottom` for logical properties ([feaf85ac](https://github.com/ZexLabs/sass-pire/commit/feaf85ac0349883b71e032923305fd5693f7d0b2))
+  *  :sparkles: add `mt` mixin for generate logical properties ([674af1b1](https://github.com/ZexLabs/sass-pire/commit/674af1b1ce2dcb925016d32d0d07b65e5a3f4088))
+
+##### Other Changes
+
+*  update all units to be one time in `global-variables` file ([6c5b32db](https://github.com/ZexLabs/sass-pire/commit/6c5b32db3d3c2a75069f43ca54d027358fe83366))
+*  update `CHANGELOG.md` file with latest commit ([7b3aef17](https://github.com/ZexLabs/sass-pire/commit/7b3aef17bb49eb098d6c10b860e9751570907eee))
+*  add `html` tag for `scroll-behavior` property in `reset` file ([46460e17](https://github.com/ZexLabs/sass-pire/commit/46460e171d8925cd0f52ff66cc3b6dfe5a0b156a))
+
+##### Refactors
+
+* **abstract:**  :fire: remove unused variables ([ec001961](https://github.com/ZexLabs/sass-pire/commit/ec00196153eaa979af9b648e7cc7f921b9ae1245))
+
+#### 1.9.6 (2024-05-25)
+
+##### Chores
+
+* **docs:**  :memo: update `CHANGELOG.md` file ([8cc07295](https://github.com/ZexLabs/sass-pire/commit/8cc07295300f1f8173df61d8564932ff91bd2d8c))
+
+##### Documentation Changes
+
 * **docs:**  :memo: update docs for `mt` & `mb` mixins ([5b0c7948](https://github.com/ZexLabs/sass-pire/commit/5b0c7948552a89f92c8cedb3c67837bd6962db7f))
 
 ##### New Features
