@@ -23,7 +23,7 @@
 
 // @dependencies:
 // * - meta.type-of (SASS function).
-// * - $main-units (variable).
+// * - var.$main-units (variable).
 // * - pref.prefixing-web (mixin).
 
 // @param {List} $val
@@ -72,7 +72,7 @@
 @use "sass:list";
 @use "sass:math";
 @use "../vendor-prefixes/prefix" as pref;
-@use "../../abstract" as var;
+@use "../../abstract/global-variables" as var;
 
 @mixin shadow($val...) {
     $box-shadow-values: (inherit, initial, revert, revert-layer, unset, none) !default;

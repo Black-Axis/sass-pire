@@ -26,9 +26,9 @@
 // @dependencies:
 // * - meta.type-of (SASS function).
 // * - math.unit (SASS function).
-// * - $angle-units (variable).
+// * - var.$angle-units (variable).
 // * - LibMixin.prefixing-all (mixin).
-// * - toggle (function).
+// * - Error.toggle (function).
 
 // @param {Number|String} $val
 // * The rotation value.
@@ -53,7 +53,7 @@
 @use "sass:meta";
 @use "sass:list";
 @use "sass:math";
-@use "../../abstract" as var;
+@use "../../abstract/global-variables" as var;
 @use "../vendor-prefixes/prefix" as LibMixin;
 @use "../../development-utils/toggle-error-message" as Error;
 

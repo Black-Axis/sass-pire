@@ -14,16 +14,6 @@
 
 // stylelint-disable scss/dollar-variable-empty-line-before
 
-// * Units.
-
-$all-data-types: (number, string, bool, list, color, map, null) !default;
-
-$angle-units: (deg, turn, rad, grad) !default;
-
-$main-units: (#{"%"}, rem, px, em) !default;
-
-$time-units: (ms, s) !default;
-
 // * Grid.
 
 $column-gap-props: (-webkit-column-gap, -moz-column-gap, column-gap) !default;

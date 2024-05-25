@@ -23,6 +23,7 @@
 // * - meta.type-of (SASS function).
 // * - math.unit (SASS function).
 // * - list.index (SASS function).
+// * - var.$all-units (variable).
 // * - Error.toggle (function).
 
 // @example
@@ -39,6 +40,7 @@
 @use "sass:meta";
 @use "sass:list";
 @use "sass:math";
+@use "../../abstract/global-variables" as var;
 @use "../../development-utils/toggle-error-message" as Error;
 
 @mixin ml($value: 0) {
@@ -48,53 +50,11 @@
         $get-unit: math.unit($value);
 
         @if $get-unit != "" {
-            $all-units: (
-                cm,
-                mm,
-                in,
-                px,
-                pt,
-                pc,
-                "%",
-                em,
-                ex,
-                ch,
-                rem,
-                vw,
-                vh,
-                vmin,
-                vmax,
-                dpi,
-                dpcm,
-                dppx,
-                vw,
-                svw,
-                lvw,
-                dvw,
-                vh,
-                lvh,
-                dvh,
-                vi,
-                svi,
-                lvi,
-                vmin,
-                svmin,
-                lvmin,
-                dvmin,
-                vmax,
-                svmax,
-                lvmax,
-                dvmax,
-                vb,
-                lvb,
-                dvb
-            ) !default;
-
-            @if list.index($all-units, $get-unit) {
+            @if list.index(var.$all-units, $get-unit) {
                 margin-inline-end: $value;
                 margin-left: $value;
             } @else {
-                content: Error.toggle("The parameter of ml mixin must be one of these values: (#{$all-units}).");
+                content: Error.toggle("The parameter of ml mixin must be one of these values: (#{var.$all-units}).");
             }
         } @else {
             content: Error.toggle("The parameter of ml mixin must have a unit.");

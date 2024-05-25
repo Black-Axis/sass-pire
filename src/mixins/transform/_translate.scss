@@ -28,9 +28,9 @@
 // @dependencies:
 // * - meta.type-of (SASS function).
 // * - math.unit (SASS function).
-// * - $main-units (variable).
+// * - var.var.$main-units (variable).
 // * - LibMixin.prefixing-all (mixin).
-// * - toggle (function).
+// * - Error.toggle (function).
 
 // @param {Number|String} $x
 // * The horizontal translation distance.
@@ -61,57 +61,17 @@
 @use "sass:meta";
 @use "sass:list";
 @use "sass:math";
+@use "../../abstract/global-variables" as var;
 @use "../vendor-prefixes/prefix" as LibMixin;
 @use "../../development-utils/toggle-error-message" as Error;
 
 @mixin translate($x: 1px, $y: $x) {
     $transform-props-values: (inherit, initial, revert, unset, none) !default;
-    $main-units: (
-        #{"%"},
-        cm,
-        mm,
-        in,
-        px,
-        pt,
-        pc,
-        em,
-        ex,
-        ch,
-        rem,
-        vw,
-        vh,
-        vmin,
-        vmax,
-        dpi,
-        dpcm,
-        dppx,
-        vw,
-        svw,
-        lvw,
-        dvw,
-        vh,
-        lvh,
-        dvh,
-        vi,
-        svi,
-        lvi,
-        vmin,
-        svmin,
-        lvmin,
-        dvmin,
-        vmax,
-        svmax,
-        lvmax,
-        dvmax,
-        vb,
-        lvb,
-        dvb
-    ) !default;
-
+    
     @if meta.type-of($x) == number and meta.type-of($y) == number {
-        @if not index($main-units, math.unit($x)) or not index($main-units, math.unit($y)) {
+        @if not index(var.$main-units, math.unit($x)) or not index(var.$main-units, math.unit($y)) {
             content: Error.toggle(
-                "The parameter of translate mixin must has one of these units: (#{$main-units})."
+                "The parameter of translate mixin must has one of these units: (#{var.$main-units})."
             );
         } @else {
             @include LibMixin.prefixing-all(transform, translate($x, $y));
@@ -125,19 +85,19 @@
             );
         }
     } @else if meta.type-of($x) == number and meta.type-of($y) == string {
-        @if index($main-units, math.unit($x)) and index($transform-props-values, $y) {
+        @if index(var.$main-units, math.unit($x)) and index($transform-props-values, $y) {
             @include LibMixin.prefixing-all(transform, translate($x, $y));
         } @else {
             content: Error.toggle(
-                "The parameter of translate mixin must has one of these units: (#{$main-units})."
+                "The parameter of translate mixin must has one of these units: (#{var.$main-units})."
             );
         }
     } @else if meta.type-of($x) == string and meta.type-of($y) == number {
-        @if index($main-units, math.unit($y)) and index($transform-props-values, $x) {
+        @if index(var.$main-units, math.unit($y)) and index($transform-props-values, $x) {
             @include LibMixin.prefixing-all(transform, translate($x, $y));
         } @else {
             content: Error.toggle(
-                "The parameter of translate mixin must has one of these units: (#{$main-units})."
+                "The parameter of translate mixin must has one of these units: (#{var.$main-units})."
             );
         }
     } @else {
