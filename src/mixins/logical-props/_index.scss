@@ -1,1 +1,23 @@
+@charset "UTF-8";
+
+// @description
+// * This file forwards the "converters", "list", "global", and
+// * "type-checks" modules.
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/ZexLabs/sass-pire
+
+// @namespace logical-props
+
+// * forwarding the "margin-top" module.
+// * This module likely contains margin-top logical props.
+// @see margin-top
 @forward "./margin-top";
+
+// * forwarding the "margin-bottom" module.
+// * This module likely contains margin-bottom logical props.
+// @see margin-bottom
+@forward "./margin-bottom";
