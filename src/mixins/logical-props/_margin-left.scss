@@ -1,0 +1,103 @@
+@charset "UTF-8";
+
+// @description
+// * ml mixin.
+// * This mixin generates CSS logical properties for margin-left.
+// * It will generate margin-left & margin-inline-end properties.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/ZexLabs/sass-pire
+
+// @namespace logical-props
+
+// @module logical-props/ml
+
+// @dependencies:
+// * - meta.type-of (SASS function).
+// * - math.unit (SASS function).
+// * - list.index (SASS function).
+// * - Error.toggle (function).
+
+// @example
+// * .example {
+// *   @include ml(2rem);
+// * }
+
+// @output
+// * .example {
+// *    margin-inline-end: 2rem;
+// *    margin-left: 2rem;
+// * }
+
+@use "sass:meta";
+@use "sass:list";
+@use "sass:math";
+@use "../../development-utils/toggle-error-message" as Error;
+
+@mixin ml($value: 0) {
+    @if meta.type-of($value) != number {
+        content: Error.toggle("The parameter of ml mixin must be in a number type.");
+    } @else {
+        $get-unit: math.unit($value);
+
+        @if $get-unit != "" {
+            $all-units: (
+                cm,
+                mm,
+                in,
+                px,
+                pt,
+                pc,
+                "%",
+                em,
+                ex,
+                ch,
+                rem,
+                vw,
+                vh,
+                vmin,
+                vmax,
+                dpi,
+                dpcm,
+                dppx,
+                vw,
+                svw,
+                lvw,
+                dvw,
+                vh,
+                lvh,
+                dvh,
+                vi,
+                svi,
+                lvi,
+                vmin,
+                svmin,
+                lvmin,
+                dvmin,
+                vmax,
+                svmax,
+                lvmax,
+                dvmax,
+                vb,
+                lvb,
+                dvb
+            ) !default;
+
+            @if list.index($all-units, $get-unit) {
+                margin-inline-end: $value;
+                margin-left: $value;
+            } @else {
+                content: Error.toggle("The parameter of ml mixin must be one of these values: (#{$all-units}).");
+            }
+        } @else {
+            content: Error.toggle("The parameter of ml mixin must have a unit.");
+        }
+    }
+}

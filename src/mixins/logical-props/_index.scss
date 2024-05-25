@@ -26,3 +26,8 @@
 // * This module likely contains margin-right logical props.
 // @see margin-right
 @forward "./margin-right";
+
+// * forwarding the "margin-left" module.
+// * This module likely contains margin-left logical props.
+// @see margin-left
+@forward "./margin-left";
