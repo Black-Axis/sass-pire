@@ -1,9 +1,9 @@
 @charset "UTF-8";
 
 // @description
-// * overflow-x mixin.
-// * This mixin generates CSS logical properties for overflow-x.
-// * It will generate overflow-x & overflow-inline properties.
+// * overflow-y mixin.
+// * This mixin generates CSS logical properties for overflow-y.
+// * It will generate overflow-y & overflow-block properties.
 
 // @access public
 
@@ -17,7 +17,7 @@
 
 // @namespace logical-props
 
-// @module logical-props/overflow-x
+// @module logical-props/overflow-y
 
 // @dependencies:
 // * - meta.type-of (SASS function).
@@ -27,13 +27,13 @@
 
 // @example
 // * .example {
-// *   @include overflow-x(hidden);
+// *   @include overflow-y(hidden);
 // * }
 
 // @output
 // * .example {
-// *    overflow-inline: hidden;
-// *    overflow-x: hidden;
+// *    overflow-block: hidden;
+// *    overflow-y: hidden;
 // * }
 
 @use "sass:meta";
@@ -42,19 +42,19 @@
 @use "../../abstract/global-variables" as var;
 @use "../../development-utils/toggle-error-message" as Error;
 
-@mixin overflow-x($value: visible) {
+@mixin overflow-y($value: visible) {
     @if meta.type-of($value) != string {
-        content: Error.toggle("The parameter of overflow-x mixin must be in a string type.");
+        content: Error.toggle("The parameter of overflow-y mixin must be in a string type.");
     } @else {
         @if list.index(var.$overflow-values, $value) {
-            overflow-inline: $value;
-            overflow-x: $value;
+            overflow-block: $value;
+            overflow-y: $value;
         } @else {
-            content: Error.toggle("The parameter of overflow-x mixin must be one of these values: (#{var.$overflow-values}).");
+            content: Error.toggle("The parameter of overflow-y mixin must be one of these values: (#{var.$overflow-values}).");
         }
     }
 }
 
-@mixin o-f-x($value: visible) {
-    @include overflow-x($value);
+@mixin o-f-y($value: visible) {
+    @include overflow-y($value);
 }

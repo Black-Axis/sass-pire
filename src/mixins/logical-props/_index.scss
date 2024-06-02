@@ -36,3 +36,8 @@
 // * This module likely contains overflow-x logical props.
 // @see overflow-x
 @forward "./overflow-x";
+
+// * forwarding the "overflow-y" module.
+// * This module likely contains overflow-y logical props.
+// @see overflow-y
+@forward "./overflow-y";
