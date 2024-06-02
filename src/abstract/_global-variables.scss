@@ -81,3 +81,16 @@ $main-units: (
 $time-units: (
     ms,
     s) !default;
+
+$overflow-values: (
+    scroll,
+    hidden,
+    auto,
+    visible,
+    clip,
+    inherit,
+    initial,
+    revert,
+    revert-layer,
+    unset
+) !default;
