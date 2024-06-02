@@ -41,3 +41,13 @@
 // * This module likely contains overflow-y logical props.
 // @see overflow-y
 @forward "./overflow-y";
+
+// * forwarding the "padding-top" module.
+// * This module likely contains padding-top logical props.
+// @see padding-top
+@forward "./padding-top";
+
+// * forwarding the "padding-bottom" module.
+// * This module likely contains padding-bottom logical props.
+// @see padding-bottom
+@forward "./padding-bottom";
