@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+// @description
+// * overflow-y mixin.
+// * This mixin generates CSS logical properties for overflow-y.
+// * It will generate overflow-y & overflow-block properties.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/ZexLabs/sass-pire
+
+// @namespace logical-props
+
+// @module logical-props/overflow-y
+
+// @dependencies:
+// * - meta.type-of (SASS function).
+// * - list.index (SASS function).
+// * - var.$overflow-values (variable).
+// * - Error.toggle (function).
+
+// @example
+// * .example {
+// *   @include overflow-y(hidden);
+// * }
+
+// @output
+// * .example {
+// *    overflow-block: hidden;
+// *    overflow-y: hidden;
+// * }
+
+@use "sass:meta";
+@use "sass:list";
+@use "sass:math";
+@use "../../abstract/global-variables" as var;
+@use "../../development-utils/toggle-error-message" as Error;
+
+@mixin overflow-y($value: visible) {
+    @if meta.type-of($value) != string {
+        content: Error.toggle("The parameter of overflow-y mixin must be in a string type.");
+    } @else {
+        @if list.index(var.$overflow-values, $value) {
+            overflow-block: $value;
+            overflow-y: $value;
+        } @else {
+            content: Error.toggle("The parameter of overflow-y mixin must be one of these values: (#{var.$overflow-values}).");
+        }
+    }
+}
+
+@mixin o-f-y($value: visible) {
+    @include overflow-y($value);
+}
