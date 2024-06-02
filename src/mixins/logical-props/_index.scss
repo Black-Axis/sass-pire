@@ -31,3 +31,8 @@
 // * This module likely contains margin-left logical props.
 // @see margin-left
 @forward "./margin-left";
+
+// * forwarding the "overflow-x" module.
+// * This module likely contains overflow-x logical props.
+// @see overflow-x
+@forward "./overflow-x";
