@@ -26,7 +26,7 @@ $base-font-size: 16;
 // * Please, Make the following variable as true if you need to render
 // * all resets in layer mode (using @layer feature) and false to
 // * render it in native mode.
-$use-layer-version: true !default;
+$use-layer-version: false !default;
 
 // @note
 // * Please, Make the following variable as true if you need to test
