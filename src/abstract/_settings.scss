@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/ZexLabs/sass-pire
+
+// @namespace abstract
+
+// @module abstract/settings
+
+// stylelint-disable scss/dollar-variable-empty-line-before
+
+$organization-name: "ZexLabs" !default;
+
+$lib-name: sass-pire !default;
+
+$brand-lib-name: sp !default;
+
+$author-names: ("Khaled Mohamed");
+
+$current-year: 2024;
+
+$current-version: "v1.9.6";

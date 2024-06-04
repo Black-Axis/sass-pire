@@ -23,7 +23,7 @@
 
 // @dependencies:
 // * - meta.type-of (SASS function).
-// * - Config.$brand-lib-name (config variable).
+// * - Settings.$brand-lib-name (settings variable).
 
 // @param {String} $brand-name
 // * The brand name or namespace for the color variables.
@@ -65,7 +65,7 @@
 
 // @note 1
 // * Make sure to include the "variables" module where the
-// * "$brand-lib-name" variable configuration is defined.
+// * "$brand-lib-name" settings variable is defined.
 
 // @note 2
 // * There are two mixins in this file.
@@ -77,9 +77,9 @@
 @use "sass:meta";
 @use "sass:list";
 @use "sass:string";
-@use "../../abstract/config" as Config;
+@use "../../abstract/settings" as Settings;
 
-@mixin generate-colors($brand-name: Config.$brand-lib-name, $color-map: ()) {
+@mixin generate-colors($brand-name: Settings.$brand-lib-name, $color-map: ()) {
     @if meta.type-of($brand-name) != string {
         @error "Brand name must be in string type.";
     }
@@ -103,7 +103,7 @@
             }
 
             @if $brand-name == "" or $brand-name == def {
-                --#{Config.$brand-lib-name}-#{string.to-lower-case($clr)}-clr: #{$val};
+                --#{Settings.$brand-lib-name}-#{string.to-lower-case($clr)}-clr: #{$val};
             } @else {
                 --#{string.to-lower-case($brand-name)}-#{string.to-lower-case($clr)}-clr: #{$val};
             }
@@ -111,6 +111,6 @@
     }
 }
 
-@mixin gen-clrs($brand-name: Config.$brand-lib-name, $color-map: ()) {
+@mixin gen-clrs($brand-name: Settings.$brand-lib-name, $color-map: ()) {
     @include generate-colors($brand-name, $color-map);
 }
