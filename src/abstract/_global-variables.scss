@@ -94,3 +94,5 @@ $overflow-values: (
     revert-layer,
     unset
 ) !default;
+
+$main-data-types: (number, string, bool) !default;

@@ -22,11 +22,11 @@
 // @update We updated the use of the list library of Sass.
 
 // @dependencies:
-// * - Config.$main-data-types (config variable).
 // * - meta.type-of (SASS function).
 // * - list.index (SASS function).
 // * - list.append (SASS function).
 // * - list.nth (SASS function).
+// * - var.$main-data-types (variable).
 // * - LibFunc.flatten-list (function).
 // * - Error.toggle (function).
 
@@ -61,7 +61,7 @@
 
 @use "sass:meta";
 @use "sass:list";
-@use "../../abstract/config" as Config;
+@use "../../abstract/global-variables" as var;
 @use "flatten-list" as LibFunc;
 @use "../../development-utils/toggle-error-message" as Error;
 
@@ -75,7 +75,7 @@
     }
 
     @if meta.type-of($list) != list {
-        @if list.index(Config.$main-data-types, $list) {
+        @if list.index(var.$main-data-types, $list) {
             $new-list: list.append($list, null);
 
             @return list.nth($new-list, 1);
