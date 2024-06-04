@@ -97,3 +97,8 @@
 // * font generation.
 // @see font-generator-vars
 @forward "font-generator-vars";
+
+// * forwarding the "reset" module.
+// * The "reset" module contains resets to be used in any web page.
+// @see reset
+@forward "reset";

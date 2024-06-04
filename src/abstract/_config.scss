@@ -27,6 +27,12 @@ $main-directions: (top, right, bottom, left) !default;
 $base-font-size: 16;
 
 // @note
+// * Please, Make the following variable as true if you need to render
+// * all resets in layer mode (using @layer feature) and false to
+// * render it in native mode.
+$use-layer-version: true !default;
+
+// @note
 // * Please, Make the following variable as true if you need to test
 // * any thing in tests modules and false if you need to add or update
 // * or remove any thing in src folder.
