@@ -39,7 +39,8 @@
         "testing",
         "functions-map",
         "security",
-        "mixins-logical-props"
+        "mixins-logical-props",
+        "settings"
     ],
     "cSpell.words": ["Giraudel"]
 }

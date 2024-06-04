@@ -17,6 +17,7 @@
 // @repository: https://github.com/ZexLabs/sass-pire
 
 @use "../abstract/config" as var;
+@use "../abstract/settings" as Settings;
 @use "../mixins/general/reset" as LibMixin1;
 @use "../base/banner" as LibMixin2;
 
@@ -24,7 +25,7 @@
 @include LibMixin2.banner;
 
 @if var.$use-layer-version == true {
-    @layer #{var.$brand-lib-name + "-reset"} {
+    @layer #{Settings.$brand-lib-name + "-reset"} {
         @include LibMixin1.reset;
     }
 } @else {

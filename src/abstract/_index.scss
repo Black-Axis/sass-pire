@@ -25,3 +25,9 @@
 // * It allows you to use these configurations in other files.
 // @see config
 @forward "config";
+
+// * forwarded settings.
+// * This module forwards the settings for library.
+// * It allows you to use these settings in other files.
+// @see settings
+@forward "settings";

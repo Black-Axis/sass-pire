@@ -30,18 +30,18 @@
 
 // stylelint-disable comment-empty-line-before
 
-@use "../abstract/config" as Config;
+@use "../abstract/settings" as Settings;
 
 @mixin banner() {
     /*
-        ***** #{Config.$lib-name} library v1.9.6
+        ***** #{Settings.$lib-name} library #{Settings.$current-version}
 
-        ***** Copyright © 2024 for #{Config.$lib-name} authors.
+        ***** Copyright © #{Settings.$current-year} for #{Settings.$lib-name} authors.
 
-        ***** All copyrights reserved to ZexLabs Organization owners.
+        ***** All copyrights reserved to #{Settings.$organization-name} Organization owners.
 
         ***** Author(s):
-        ***** #{Config.$author-names}.
+        ***** #{Settings.$author-names}.
 
         ***** Licensed under MIT.
      */
