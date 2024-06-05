@@ -17,20 +17,27 @@
 
 // @repository: https://github.com/ZexLabs/sass-pire
 
-// @namespace base
+// @namespace general
 
-// @example:
-// * In your base/reset.scss file, include the following line at the top:
+// @module general/banner
+
+// @dependencies:
+// * - var.$lib-name (variable).
+// * - var.$current-version (variable).
+// * - var.$current-year (variable).
+// * - var.$organization-name (variable).
+// * - var.$author-name (variable).
+
+// @note:
+// * In your ~/base/reset.scss file, include the following line at the top:
 // * @use "../abstract/variables" as var;
 // * @include banner();
 // * This will insert the library banner at the beginning of
 // * the compiled CSS file.
 
-// @see reset file
-
 // stylelint-disable comment-empty-line-before
 
-@use "../abstract/settings" as Settings;
+@use "../../abstract/settings" as Settings;
 
 @mixin banner() {
     /*

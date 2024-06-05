@@ -102,3 +102,10 @@
 // * The "reset" module contains resets to be used in any web page.
 // @see reset
 @forward "reset";
+
+// * forwarding the "banner" mixin from the "banner" module.
+// * The "banner" mixin is used to add a banner to the top
+// * of the compiled CSS file, providing information about
+// * the library, version, authors, and license.
+// @see banner
+@forward "banner";

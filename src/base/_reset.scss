@@ -19,7 +19,7 @@
 @use "../abstract/config" as var;
 @use "../abstract/settings" as Settings;
 @use "../mixins/general/reset" as LibMixin1;
-@use "../base/banner" as LibMixin2;
+@use "../mixins/general/banner" as LibMixin2;
 
 // * stylelint-disable-next-line at-rule-empty-line-before
 @include LibMixin2.banner;
