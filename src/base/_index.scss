@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+// @description
+// * This file forwards key elements from other modules
+// * for convenient inclusion in other stylesheets.
+
 // @author Khaled Mohamed
 
 // @license MIT
@@ -7,10 +11,6 @@
 // @repository: https://github.com/ZexLabs/sass-pire
 
 // @namespace base
-
-// @description
-// * This file forwards key elements from other modules
-// * for convenient inclusion in other stylesheets.
 
 // * forwarding the "reset" module.
 // * The "reset" module likely contains a set of styles
