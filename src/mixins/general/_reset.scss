@@ -12,7 +12,7 @@
 
 // @access private
 
-// @version 1.0.0
+// @version 1.1.0
 
 // @author Khaled Mohamed
 
@@ -80,6 +80,7 @@
 
     // * Set core body defaults
     body {
+        min-block-size: 100dvh;
         min-height: 100dvh;
         line-height: 1.5;
 
@@ -108,7 +109,9 @@
     video,
     canvas,
     svg {
+        max-inline-size: 100%;
         max-width: 100%;
+        block-size: auto;
         height: auto;
         display: block;
         font-style: italic;
