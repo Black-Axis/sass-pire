@@ -41,25 +41,28 @@
 
 // * forwarding the "get-sum-list" module.
 // * The "get-sum-list" module likely contains a function to get
-// * the centered element in the list from a given one.
+// * the summation of a values are passed to.
 // @see sum
 @forward "sum";
 
 // * forwarding the "trim-start" module.
-// * The "trim-start" module likely contains a function to get
-// * the centered element in the list from a given one.
+// * The "trim-start" module likely contains a function to trim
+// * the string from the start positions.
+// * We mean that: remove the spaces from start of string.
 // @see trim-start
 @forward "trim-start";
 
 // * forwarding the "trim-end" module.
-// * The "trim-end" module likely contains a function to get
-// * the centered element in the list from a given one.
+// * The "trim-end" module likely contains a function to trim
+// * the string from the end positions.
+// * We mean that: remove the spaces from end of string.
 // @see trim-end
 @forward "trim-end";
 
 // * forwarding the "trim-string" module.
-// * The "trim-string" module likely contains a function to get
-// * the centered element in the list from a given one.
+// * The "trim-string" module likely contains a function to trim
+// * the string from the start and end positions.
+// * We mean that: remove the spaces from start and end of string.
 // @see trim-string
 @forward "trim-string";
 
