@@ -1,0 +1,84 @@
+@charset "UTF-8";
+
+// @description
+// * clamp mixin.
+// * This function provides a simple way to control the all fluid
+// * typography to created for clamp function in native CSS.
+// * This function belongs to Aleksandar.
+// * You can find it here:
+// * https://www.aleksandrhovhannisyan.com/blog/fluid-type-scale-with-css-clamp/
+// * We updated some of his function to benefit from it.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/ZexLabs/sass-pire
+
+// @namespace general
+
+// @module general/clamp
+
+// @dependencies:
+// * - meta.type-of (SASS function).
+// * - math.unit (SASS function).
+// * - LibFunc.px-to-rem (function);
+
+// @param {Number} $min-px
+// * The minimum font size in pixel.
+
+// @param {Number} $max-px
+// * The maximum font size in pixel.
+
+// @param {Number} $min-breakpoint
+// * The minimum breakpoint in pixel.
+
+// @param {Number} $max-breakpoint
+// * The maximum breakpoint in pixel.
+
+// @example
+// * .example {
+// *   font-size: clamped(16px, 22px, 320px, 800px);
+// * }
+
+// @output
+// * .example {
+// *   font-size: clamp(1rem, 1.25vw + 0.75rem, 1.375rem);
+// * }
+
+// @note
+// * You can use this function to get other values like:
+// * margin, padding,..etc.
+
+@use "sass:meta";
+@use "sass:math";
+@use "../converters/pixel-to-rem" as LibFunc;
+@use "../../development-utils/toggle-error-message" as Error;
+
+@function clamped($min-px, $max-px, $min-breakpoint: 320px, $max-breakpoint: 1200px) {
+    @if meta.type-of($min-px) != number or
+        meta.type-of($max-px) != number or
+        meta.type-of($min-breakpoint) != number or
+        meta.type-of($max-breakpoint) != number {
+        @return Error.toggle("The parameters in clamped function must be in a number type.");
+    }
+
+    @if math.unit($min-px) != px or
+        math.unit($max-px) != px or
+        math.unit($min-breakpoint) != px or
+        math.unit($max-breakpoint) != px {
+        @return Error.toggle("The clamped function accepts argument with pixel unit only.");
+    }
+
+    $slope: math.div($max-px - $min-px, $max-breakpoint - $min-breakpoint);
+    $slope-vw: $slope * 100;
+    $intercept-rem: LibFunc.px-to-rem($min-px - $slope * $min-breakpoint);
+    $min-rem: LibFunc.px-to-rem($min-px);
+    $max-rem: LibFunc.px-to-rem($max-px);
+
+    @return clamp(#{$min-rem}, #{$slope-vw}vw + #{$intercept-rem}, #{$max-rem});
+}
