@@ -28,7 +28,10 @@
 // * - LibMixin1.prefixing-web (mixin);
 // * - LibMixin1.prefixing-web-o (mixin);
 
+@use "../../abstract/config" as var;
 @use "../../mixins/vendor-prefixes/prefix" as LibMixin1;
+@use "../../mixins/flex-props/flexbox/center" as LibMixin2;
+@use "../../mixins/media-queries/screens/media-query" as LibMixin3;
 
 @mixin reset() {
     // * Box sizing rules.
@@ -143,6 +146,72 @@
             @include LibMixin1.prefixing-web-o(transition-duration, 0.01ms);
 
             scroll-behavior: smooth;
+        }
+    }
+
+    noscript {
+        width: 100dvw;
+        height: 100dvh;
+        position: relative;
+
+        @include LibMixin2.flex-center-center;
+
+        font-size: 1.125rem;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 700;
+        background-color: #d4d4d4b6;
+
+        &::before {
+            $left: 50%;
+
+            content: url('data:image/svg+xml,<svg width="45px" height="45px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="%23c34b4b"><g id="SVGRepo_bgCarrier" stroke-width="0" /><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="%23CCCCCC" stroke-width="0.72" /><g id="SVGRepo_iconCarrier"><path d="M12 16H12.01M12 8V12M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="%23c34b4b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></g></svg>');
+            position: absolute;
+            inset-inline-start: $left;
+            left: $left;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+
+            @include LibMixin3.mq-gen(min, h, mob) {
+                $top: 42%;
+
+                inset-block-start: $top;
+                top: $top;
+            }
+
+            @include LibMixin3.mq-gen(min, h, mob-wide) {
+                $top: 48%;
+
+                inset-block-start: $top;
+                top: $top;
+            }
+
+            @include LibMixin3.mq-gen(min, h, xs) {
+                $top: 50%;
+
+                inset-block-start: $top;
+                top: $top;
+            }
+        }
+
+        &::after {
+            $padding-x: 2rem;
+            $top: 55%;
+            $left: 50%;
+
+            content: var.$no-script-text;
+            width: 100%;
+            padding-inline: $padding-x;
+            padding-right: $padding-x;
+            padding-left: $padding-x;
+            position: absolute;
+            inset-block-start: $top;
+            top: $top;
+            inset-inline-start: $left;
+            left: $left;
+            transform: translate(-50%, -25%);
+            z-index: 1;
+            text-align: center;
+            color: #c34b4b;
         }
     }
 }
