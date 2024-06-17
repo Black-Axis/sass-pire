@@ -118,10 +118,13 @@
 
     // * A elements that don't have a class get default styles
     a:not([class]) {
-        $text-decoration-ink-props: (-webkit-text-decoration-skip, text-decoration-skip-ink) !default;
+        $text-decoration-ink-props: (
+            -webkit-text-decoration-skip: auto,
+            text-decoration-skip-ink: auto
+        ) !default;
 
-        @each $prop, $val in $text-decoration-ink-props {
-            #{$prop}: auto;
+        @each $prop, $value in $text-decoration-ink-props {
+            #{$prop}: $value;
         }
     }
 
