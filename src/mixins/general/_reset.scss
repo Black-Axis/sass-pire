@@ -46,7 +46,7 @@
             -moz-box-sizing: border-box,
             -webkit-box-sizing: border-box,
             box-sizing: border-box
-        );
+        ) !default;
 
         @each $prop, $value in $box-sizing-props {
             #{$prop}: $value;
@@ -108,7 +108,7 @@
                 -webkit-hyphens: auto,
                 -ms-hyphens: auto,
                 hyphens: auto
-            );
+            ) !default;
 
             @each $prop, $value in $hyphens-props {
                 #{$prop}: $value;
