@@ -86,6 +86,7 @@
         list-style: none;
     }
 
+    // * Set default styles for menu tag
     menu {
         display: block;
         unicode-bidi: isolate;
@@ -159,6 +160,7 @@
         font: inherit;
     }
 
+    // * Reset styles of blockquote and q tag
     blockquote,
     q {
         quotes: none;
@@ -193,6 +195,7 @@
         }
     }
 
+    // * Add default styles for noscript tag with its default text
     noscript {
         width: 100dvw;
         height: 100dvh;
