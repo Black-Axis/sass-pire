@@ -101,8 +101,17 @@
 
         // stylelint-disable-next-line scss/selector-no-redundant-nesting-selector
         :where(&) {
-            hyphens: auto;
             overflow-wrap: break-word;
+
+            $hyphens-props: (
+                -webkit-hyphens: auto,
+                -ms-hyphens: auto,
+                hyphens: auto
+            );
+
+            @each $prop, $value in $hyphens-props {
+                #{$prop}: $value;
+            }
         }
     }
 
