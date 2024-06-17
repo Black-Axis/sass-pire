@@ -46,10 +46,41 @@
             -moz-box-sizing: border-box,
             -webkit-box-sizing: border-box,
             box-sizing: border-box
-        );
+        ) !default;
 
         @each $prop, $value in $box-sizing-props {
             #{$prop}: $value;
+        }
+    }
+
+    // * Set core root defaults
+    html,
+    html:focus-within {
+        scroll-behavior: smooth;
+    }
+
+    // * Set core body defaults
+    body {
+        min-block-size: 100dvh;
+        min-height: 100dvh;
+        line-height: 1.5;
+
+        // * This is for improve text rendering in the browsers
+        -webkit-font-smoothing: antialiased;
+
+        // stylelint-disable-next-line scss/selector-no-redundant-nesting-selector
+        :where(&) {
+            overflow-wrap: break-word;
+
+            $hyphens-props: (
+                -webkit-hyphens: auto,
+                -ms-hyphens: auto,
+                hyphens: auto
+            ) !default;
+
+            @each $prop, $value in $hyphens-props {
+                #{$prop}: $value;
+            }
         }
     }
 
@@ -81,47 +112,26 @@
     // * Remove list styles on ul, ol elements with a list role which suggests
     // * default styling will be removed
     ul[role="list"],
+    menu[role="list"],
     ol[role="list"] {
         list-style: none;
     }
 
-    // * Set core root defaults
-    html,
-    html:focus-within {
-        scroll-behavior: smooth;
-    }
-
-    // * Set core body defaults
-    body {
-        min-block-size: 100dvh;
-        min-height: 100dvh;
-        line-height: 1.5;
-
-        // * This is for improve text rendering in the browsers
-        -webkit-font-smoothing: antialiased;
-
-        // stylelint-disable-next-line scss/selector-no-redundant-nesting-selector
-        :where(&) {
-            overflow-wrap: break-word;
-
-            $hyphens-props: (
-                -webkit-hyphens: auto,
-                -ms-hyphens: auto,
-                hyphens: auto
-            );
-
-            @each $prop, $value in $hyphens-props {
-                #{$prop}: $value;
-            }
-        }
+    // * Set default styles for menu tag
+    menu {
+        display: block;
+        unicode-bidi: isolate;
     }
 
     // * A elements that don't have a class get default styles
     a:not([class]) {
-        $text-decoration-ink-props: (-webkit-text-decoration-skip, text-decoration-skip-ink) !default;
+        $text-decoration-ink-props: (
+            -webkit-text-decoration-skip: auto,
+            text-decoration-skip-ink: auto
+        ) !default;
 
-        @each $prop, $val in $text-decoration-ink-props {
-            #{$prop}: auto;
+        @each $prop, $value in $text-decoration-ink-props {
+            #{$prop}: $value;
         }
     }
 
@@ -150,6 +160,27 @@
         font: inherit;
     }
 
+    // * Reset styles of blockquote and q tag
+    blockquote,
+    q {
+        quotes: none;
+
+        &::before,
+        &::after {
+            content: none;
+        }
+    }
+
+    // * Removes spacing between cells in tables
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+    :where([hidden]) {
+        display: none;
+    }
+
     // * Remove all animations, transitions and smooth scroll for
     // * people that prefer not to see them
     @media (prefers-reduced-motion: reduce) {
@@ -168,6 +199,7 @@
         }
     }
 
+    // * Add default styles for noscript tag with its default text
     noscript {
         width: 100dvw;
         height: 100dvh;
