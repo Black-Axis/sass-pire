@@ -32,6 +32,7 @@
 @use "../../mixins/vendor-prefixes/prefix" as LibMixin1;
 @use "../../mixins/flex-props/flexbox/center" as LibMixin2;
 @use "../../mixins/media-queries/screens/media-query" as LibMixin3;
+@use "../../mixins/transform/translate" as LibMixin4;
 
 @mixin reset() {
     // * Box sizing rules.
@@ -186,7 +187,9 @@
             position: absolute;
             inset-inline-start: $left;
             left: $left;
-            transform: translate(-50%, -50%);
+
+            @include LibMixin4.translate(-50%, -50%);
+
             z-index: 1;
 
             @include LibMixin3.mq-gen(min, h, mob) {
@@ -226,7 +229,9 @@
             top: $top;
             inset-inline-start: $left;
             left: $left;
-            transform: translate(-50%, -25%);
+
+            @include LibMixin4.translate(-50%, -25%);
+
             z-index: 1;
             text-align: center;
             color: #c34b4b;
