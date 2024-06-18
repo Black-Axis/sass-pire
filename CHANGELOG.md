@@ -1,3 +1,55 @@
+#### 1.10.6 (2024-06-18)
+
+##### Documentation Changes
+
+* **mixins-general:**
+  *  :memo: add `docs` for tags & elements which were done in resets ([52b891b1](https://github.com/ZexLabs/sass-pire/commit/52b891b1e1a897621fe65671e519d3670b92bf2a))
+  *  :memo: update position of var in `dependencies` ([b8ba7184](https://github.com/ZexLabs/sass-pire/commit/b8ba71845ea1e3dfd22c12154070199312930050))
+* **functions-global:**  :memo: fix mistakes in docs of `function/global/_index.scss` file ([237085f2](https://github.com/ZexLabs/sass-pire/commit/237085f2e1edff90a7ebe09b2dfe6c2f7f4f13bc))
+* **mixins-transform:**  :memo: update position of var in `dependencies` ([a91f82c8](https://github.com/ZexLabs/sass-pire/commit/a91f82c8b047061a2bdfa144d0bf837c5f3da9bc))
+* **functions-type-checks:**
+  *  :memo: update position of var in `dependencies` ([d4d3790c](https://github.com/ZexLabs/sass-pire/commit/d4d3790cde8cfc846edc4bd44c42366cb3eaa8d5))
+  *  :memo: update position of var in `dependencies` ([f5d68795](https://github.com/ZexLabs/sass-pire/commit/f5d6879525b4eced6a02770650f5052489dc6dde))
+* **functions-converters:**  :memo: update position of var in `dependencies` ([7b3354cc](https://github.com/ZexLabs/sass-pire/commit/7b3354cc705361d4af8e40fd47a6529c64d8d674))
+* **development-utils:**  :memo: add `description` doc for `dev-utils_index.scss` ([2cc2088d](https://github.com/ZexLabs/sass-pire/commit/2cc2088d0c32b96daeb6ec8f176f026d41ed98b3))
+* **base:**  :memo: update `description` doc for `base/_index.scss` ([6485fd0d](https://github.com/ZexLabs/sass-pire/commit/6485fd0d41f4b1a07fb4da24d65bb9acf2ce95a2))
+* **abstract:**
+  *  :memo: add `description` doc for `_settings.scss` file ([789e3d59](https://github.com/ZexLabs/sass-pire/commit/789e3d5984d4f789939864b0f5bfd705cd93521e))
+  *  :memo: add `description` doc for `abstract/_index.scss` file ([2816e41c](https://github.com/ZexLabs/sass-pire/commit/2816e41c05a9c7320a64edcd0bb13c101912248e))
+  *  :memo: add `description` for `_global-variables.scss` file ([909660d3](https://github.com/ZexLabs/sass-pire/commit/909660d3331f4dd86a1ff6c9f5e487351dc26755))
+  *  :memo: add `description` in doc for `_config.scss` file ([1ca1ce38](https://github.com/ZexLabs/sass-pire/commit/1ca1ce382d78790f996f87db845275ea69248d9d))
+
+##### New Features
+
+* **mixins-general:**
+  *  :sparkles: add `hidden` prop as display none in `reset` mixin ([4555d3af](https://github.com/ZexLabs/sass-pire/commit/4555d3afb496def2fcabc13d6735742bfbf05f10))
+  *  :sparkles: add reset styles for `table` tag element in `reset` mixin ([5c1d0ed5](https://github.com/ZexLabs/sass-pire/commit/5c1d0ed540c3ce9cb89d8ce7cdeaff6a0b7f0c09))
+  *  :sparkles: add reset styles for `menu` tag element ([b62092a2](https://github.com/ZexLabs/sass-pire/commit/b62092a2b7cedba8301c33316252034a3d7dce3a))
+  *  :sparkles: add reset styles for `blockquote` & `q` element tags ([dc02a45b](https://github.com/ZexLabs/sass-pire/commit/dc02a45bdfd19fb04dd08dff5c8cef6fa7556aab))
+  *  :sparkles: add `logical-props` to reset file ([fbf8b5f5](https://github.com/ZexLabs/sass-pire/commit/fbf8b5f5d72969e78dcab9e939fcc349959f7f24))
+* **abstract:**  :sparkles: add `noscript` styles in `reset` mixin & connect with var in `config` file ([85784f97](https://github.com/ZexLabs/sass-pire/commit/85784f977954e56ba1fb2076992bf9a14bfaf3e2))
+* **functions-global:**  :sparkles: add `clamped` function with its details & doc ([87b9e235](https://github.com/ZexLabs/sass-pire/commit/87b9e23557fba9bc87653452a36e6e7c93754b45))
+
+##### Other Changes
+
+* //github.com/ZexLabs/sass-pire into dev ([51775d2d](https://github.com/ZexLabs/sass-pire/commit/51775d2d85a8d9455249012223fe7094378f9136))
+* //github.com/ZexLabs/sass-pire into dev ([7786f9b7](https://github.com/ZexLabs/sass-pire/commit/7786f9b798e17bcc1db4604f92c63bf9e7517017))
+* //github.com/ZexLabs/sass-pire into dev ([8f3b18ec](https://github.com/ZexLabs/sass-pire/commit/8f3b18ecc03dfbf7ea85dd0444bd0ad28c1c87f6))
+*  fix linter errors in `.eslintrc.js` file ([e2147819](https://github.com/ZexLabs/sass-pire/commit/e2147819d1823cc205b7b845e237b33d4bdafbde))
+* //github.com/ZexLabs/sass-pire into dev ([5608bbf1](https://github.com/ZexLabs/sass-pire/commit/5608bbf11965aa4983247dc9a902514ee367223b))
+* //github.com/ZexLabs/sass-pire into dev ([a4d70607](https://github.com/ZexLabs/sass-pire/commit/a4d706070bab6f6b1162ca9e2b28e8887c41cd1e))
+
+##### Refactors
+
+* **mixins-general:**
+  *  :recycle: update place of `html` & `body` tags at top of `reset` mixin ([e83dffb6](https://github.com/ZexLabs/sass-pire/commit/e83dffb6a3be431f06eaa4b79329ce4a1db60a67))
+  *  :recycle: add `!default` flag to maps in `reset` mixin ([e6e993fd](https://github.com/ZexLabs/sass-pire/commit/e6e993fd3706102f950489bc5f320b6c823562b1))
+  *  :recycle: update values in `reset` mixin in anchor element ([87dafd5b](https://github.com/ZexLabs/sass-pire/commit/87dafd5b7637814adb7c092d52952c5e51bfdfd3))
+  *  :recycle: add `vendor-prefixes` to `transform` in `reset` mixin ([3c0737ae](https://github.com/ZexLabs/sass-pire/commit/3c0737ae316532f21c9cf1668631a381fbe38da2))
+  *  :recycle: add `vendor-prefixes` to `hyphens` prop in `reset` mixin ([658354e7](https://github.com/ZexLabs/sass-pire/commit/658354e741dcdf1f8aae903f59d8b4b2dc379991))
+  *  :recycle: add `vendor-prefixes` to `box-sizing` prop in `reset` mixin ([49b5f586](https://github.com/ZexLabs/sass-pire/commit/49b5f586569f224613f8e724e92005eed0fa636b))
+  *  :recycle: add `banner` mixin in `mixins/general` directory ([0e508865](https://github.com/ZexLabs/sass-pire/commit/0e5088653a39dfeb17d26e7450226baba626ec33))
+
 #### 1.9.6 (2024-05-25)
 
 ##### Chores
