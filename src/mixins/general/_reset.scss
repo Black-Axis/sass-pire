@@ -269,4 +269,18 @@
             color: #c34b4b;
         }
     }
+
+    /* This is for accessibility purposes */
+    .sr-only {
+        $one-side: 1px;
+
+        width: 1px;
+        height: 1px;
+        border: 0;
+        margin: -1px;
+        padding: 0;
+        position: absolute;
+        clip: rect(0,0,0,0);
+        overflow: hidden;
+    }
 }
