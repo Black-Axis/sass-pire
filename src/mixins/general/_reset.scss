@@ -276,8 +276,8 @@
     .sr-only {
         $one-side: 1px;
 
-        width: 1px;
-        height: 1px;
+        width: $one-side;
+        height: $one-side;
         border: 0;
         margin: -1px;
         padding: 0;
