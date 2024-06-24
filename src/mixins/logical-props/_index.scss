@@ -51,3 +51,8 @@
 // * This module likely contains padding-bottom logical props.
 // @see padding-bottom
 @forward "./padding-bottom";
+
+// * forwarding the "top" module.
+// * This module likely contains top logical props.
+// @see top
+@forward "./top";
