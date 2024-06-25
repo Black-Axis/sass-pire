@@ -61,3 +61,8 @@
 // * This module likely contains bottom logical props.
 // @see bottom
 @forward "./bottom";
+
+// * forwarding the "right" module.
+// * This module likely contains right logical props.
+// @see right
+@forward "./right";
