@@ -1,13 +1,13 @@
 @charset "UTF-8";
 
 // @description
-// * mie mixin.
-// * This mixin generates CSS logical properties for margin-inline-end.
-// * It will generate -webkit-margin-end & margin-inline-end properties.
+// * pie mixin.
+// * This mixin generates CSS logical properties for padding-inline-end.
+// * It will generate -webkit-padding-end & padding-inline-end properties.
 
 // @access public
 
-// @version 1.1.0
+// @version 1.0.0
 
 // @author Khaled Mohamed
 
@@ -17,7 +17,7 @@
 
 // @namespace logical-props
 
-// @module logical-props/mie
+// @module logical-props/pie
 
 // @dependencies:
 // * - meta.type-of (SASS function).
@@ -28,13 +28,13 @@
 
 // @example
 // * .example {
-// *   @include mie(2rem);
+// *   @include pie(2rem);
 // * }
 
 // @output
 // * .example {
-// *    margin-inline-end: 2rem;
-// *    -webkit-margin-end: 2rem;
+// *    padding-inline-end: 2rem;
+// *    -webkit-padding-end: 2rem;
 // * }
 
 @use "sass:meta";
@@ -43,21 +43,21 @@
 @use "../../abstract/global-variables" as var;
 @use "../../development-utils/toggle-error-message" as Error;
 
-@mixin mie($value: 0) {
+@mixin pie($value: 0) {
     @if meta.type-of($value) != number {
-        content: Error.toggle("The parameter of mie mixin must be in a number type.");
+        content: Error.toggle("The parameter of pie mixin must be in a number type.");
     } @else {
         $get-unit: math.unit($value);
 
         @if $get-unit != "" {
             @if list.index(var.$all-units, $get-unit) {
-                margin-inline-end: $value;
-                -webkit-margin-end: $value;
+                padding-inline-end: $value;
+                -webkit-padding-end: $value;
             } @else {
-                content: Error.toggle("The parameter of mie mixin must be one of these values: (#{var.$all-units}).");
+                content: Error.toggle("The parameter of pie mixin must be one of these values: (#{var.$all-units}).");
             }
         } @else {
-            content: Error.toggle("The parameter of mie mixin must have a unit.");
+            content: Error.toggle("The parameter of pie mixin must have a unit.");
         }
     }
 }
