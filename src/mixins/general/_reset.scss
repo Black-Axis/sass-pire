@@ -211,6 +211,16 @@
         outline-offset: var(--outline-offset-size);
     }
 
+    // * Scroll margin allowance above anchor links
+    :target {
+        scroll-padding-block-start: 2rem;
+    }
+
+    // * Scroll margin allowance below focused elements to ensure they are clearly in view
+    :focus {
+        scroll-padding-block-end: 8vh;
+    }
+
     // * Remove all animations, transitions and smooth scroll for
     // * people that prefer not to see them
     @media (prefers-reduced-motion: reduce) {
