@@ -22,25 +22,15 @@
 // @see margin-block-end
 @forward "./margin-block-end";
 
-// * forwarding the "margin-inline-end" module.
-// * This module likely contains margin-inline-end logical props.
-// @see margin-inline-end
-@forward "./margin-inline-end";
-
 // * forwarding the "margin-inline-start" module.
 // * This module likely contains margin-inline-start logical props.
 // @see margin-inline-start
 @forward "./margin-inline-start";
 
-// * forwarding the "overflow-x" module.
-// * This module likely contains overflow-x logical props.
-// @see overflow-x
-@forward "./overflow-x";
-
-// * forwarding the "overflow-y" module.
-// * This module likely contains overflow-y logical props.
-// @see overflow-y
-@forward "./overflow-y";
+// * forwarding the "margin-inline-end" module.
+// * This module likely contains margin-inline-end logical props.
+// @see margin-inline-end
+@forward "./margin-inline-end";
 
 // * forwarding the "padding-block-start" module.
 // * This module likely contains padding-block-start logical props.
@@ -52,27 +42,22 @@
 // @see padding-block-end
 @forward "./padding-block-end";
 
-// * forwarding the "padding-inline-end" module.
-// * This module likely contains padding-inline-end logical props.
-// @see padding-inline-end
-@forward "./padding-inline-end";
-
 // * forwarding the "padding-inline-start" module.
 // * This module likely contains padding-inline-start logical props.
 // @see padding-inline-start
 @forward "./padding-inline-start";
 
-// * forwarding the "top" module.
-// * This module likely contains top logical props.
-// @see top
-@forward "./top";
+// * forwarding the "padding-inline-end" module.
+// * This module likely contains padding-inline-end logical props.
+// @see padding-inline-end
+@forward "./padding-inline-end";
 
-// * forwarding the "bottom" module.
-// * This module likely contains bottom logical props.
-// @see bottom
-@forward "./bottom";
+// * forwarding the "overflow-x" module.
+// * This module likely contains overflow-x logical props.
+// @see overflow-x
+@forward "./overflow-x";
 
-// * forwarding the "right" module.
-// * This module likely contains right logical props.
-// @see right
-@forward "./right";
+// * forwarding the "overflow-y" module.
+// * This module likely contains overflow-y logical props.
+// @see overflow-y
+@forward "./overflow-y";
