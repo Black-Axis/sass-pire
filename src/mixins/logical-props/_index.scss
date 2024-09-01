@@ -27,10 +27,10 @@
 // @see margin-inline-end
 @forward "./margin-inline-end";
 
-// * forwarding the "margin-left" module.
-// * This module likely contains margin-left logical props.
-// @see margin-left
-@forward "./margin-left";
+// * forwarding the "margin-inline-start" module.
+// * This module likely contains margin-inline-start logical props.
+// @see margin-inline-start
+@forward "./margin-inline-start";
 
 // * forwarding the "overflow-x" module.
 // * This module likely contains overflow-x logical props.
