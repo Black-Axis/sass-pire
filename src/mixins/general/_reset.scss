@@ -136,10 +136,21 @@
             text-decoration-skip-ink: auto
         ) !default;
 
+        // stylelint-disable-next-line scss/dollar-variable-empty-line-before
+        $text-decoration-line-props: (
+            -webkit-text-decoration-line: underline,
+            text-decoration-line: underline
+        ) !default;
+
         @each $prop, $value in $text-decoration-ink-props {
             #{$prop}: $value;
         }
 
+        @each $prop, $value in $text-decoration-line-props {
+            #{$prop}: $value;
+        }
+
+        text-decoration-thickness: max(0.08em, 1px);
         text-underline-offset: 0.15em;
     }
 
