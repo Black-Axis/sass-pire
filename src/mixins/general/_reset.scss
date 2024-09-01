@@ -139,6 +139,8 @@
         @each $prop, $value in $text-decoration-ink-props {
             #{$prop}: $value;
         }
+
+        text-underline-offset: 0.15em;
     }
 
     // * Make images easier to work with
