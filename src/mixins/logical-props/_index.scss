@@ -22,10 +22,10 @@
 // @see margin-block-end
 @forward "./margin-block-end";
 
-// * forwarding the "margin-end" module.
-// * This module likely contains margin-end logical props.
-// @see margin-end
-@forward "./margin-end";
+// * forwarding the "margin-inline-end" module.
+// * This module likely contains margin-inline-end logical props.
+// @see margin-inline-end
+@forward "./margin-inline-end";
 
 // * forwarding the "margin-left" module.
 // * This module likely contains margin-left logical props.

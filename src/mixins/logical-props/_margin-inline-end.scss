@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 // @description
-// * me mixin.
+// * mie mixin.
 // * This mixin generates CSS logical properties for margin-inline-end.
 // * It will generate -webkit-margin-end & margin-inline-end properties.
 
@@ -17,7 +17,7 @@
 
 // @namespace logical-props
 
-// @module logical-props/me
+// @module logical-props/mie
 
 // @dependencies:
 // * - meta.type-of (SASS function).
@@ -28,7 +28,7 @@
 
 // @example
 // * .example {
-// *   @include me(2rem);
+// *   @include mie(2rem);
 // * }
 
 // @output
@@ -43,7 +43,7 @@
 @use "../../abstract/global-variables" as var;
 @use "../../development-utils/toggle-error-message" as Error;
 
-@mixin me($value: 0) {
+@mixin mie($value: 0) {
     @if meta.type-of($value) != number {
         content: Error.toggle("The parameter of me mixin must be in a number type.");
     } @else {
