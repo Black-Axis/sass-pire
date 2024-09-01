@@ -136,9 +136,22 @@
             text-decoration-skip-ink: auto
         ) !default;
 
+        // stylelint-disable-next-line scss/dollar-variable-empty-line-before
+        $text-decoration-line-props: (
+            -webkit-text-decoration-line: underline,
+            text-decoration-line: underline
+        ) !default;
+
         @each $prop, $value in $text-decoration-ink-props {
             #{$prop}: $value;
         }
+
+        @each $prop, $value in $text-decoration-line-props {
+            #{$prop}: $value;
+        }
+
+        text-decoration-thickness: max(0.08em, 1px);
+        text-underline-offset: 0.15em;
     }
 
     // * Make images easier to work with
@@ -185,6 +198,27 @@
 
     :where([hidden]) {
         display: none;
+    }
+
+    :focus-visible {
+        --outline-offset-size: max(1px, 0.15em);
+        --outline-width: 0.063rem;
+        --outline-style: solid;
+        // stylelint-disable-next-line value-keyword-case
+        --outline-color: currentColor;
+
+        outline: var(--outline-width) var(--outline-style) var(--outline-color);
+        outline-offset: var(--outline-offset-size);
+    }
+
+    // * Scroll margin allowance above anchor links
+    :target {
+        scroll-padding-block-start: 2rem;
+    }
+
+    // * Scroll margin allowance below focused elements to ensure they are clearly in view
+    :focus {
+        scroll-padding-block-end: 8vh;
     }
 
     // * Remove all animations, transitions and smooth scroll for
