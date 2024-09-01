@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+// @description
+// * pie mixin.
+// * This mixin generates CSS logical properties for padding-inline-end.
+// * It will generate -webkit-padding-end & padding-inline-end properties.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/ZexLabs/sass-pire
+
+// @namespace logical-props
+
+// @module logical-props/pie
+
+// @dependencies:
+// * - meta.type-of (SASS function).
+// * - math.unit (SASS function).
+// * - list.index (SASS function).
+// * - var.$all-units (variable).
+// * - Error.toggle (function).
+
+// @example
+// * .example {
+// *   @include pie(2rem);
+// * }
+
+// @output
+// * .example {
+// *    padding-inline-end: 2rem;
+// *    -webkit-padding-end: 2rem;
+// * }
+
+@use "sass:meta";
+@use "sass:list";
+@use "sass:math";
+@use "../../abstract/global-variables" as var;
+@use "../../development-utils/toggle-error-message" as Error;
+
+@mixin pie($value: 0) {
+    @if meta.type-of($value) != number {
+        content: Error.toggle("The parameter of pie mixin must be in a number type.");
+    } @else {
+        $get-unit: math.unit($value);
+
+        @if $get-unit != "" {
+            @if list.index(var.$all-units, $get-unit) {
+                padding-inline-end: $value;
+                -webkit-padding-end: $value;
+            } @else {
+                content: Error.toggle("The parameter of pie mixin must be one of these values: (#{var.$all-units}).");
+            }
+        } @else {
+            content: Error.toggle("The parameter of pie mixin must have a unit.");
+        }
+    }
+}

@@ -52,6 +52,11 @@
 // @see padding-block-end
 @forward "./padding-block-end";
 
+// * forwarding the "padding-inline-end" module.
+// * This module likely contains padding-inline-end logical props.
+// @see padding-inline-end
+@forward "./padding-inline-end";
+
 // * forwarding the "top" module.
 // * This module likely contains top logical props.
 // @see top
