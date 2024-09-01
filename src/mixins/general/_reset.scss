@@ -200,6 +200,17 @@
         display: none;
     }
 
+    :focus-visible {
+        --outline-offset-size: max(1px, 0.15em);
+        --outline-width: 0.063rem;
+        --outline-style: solid;
+        // stylelint-disable-next-line value-keyword-case
+        --outline-color: currentColor;
+
+        outline: var(--outline-width) var(--outline-style) var(--outline-color);
+        outline-offset: var(--outline-offset-size);
+    }
+
     // * Remove all animations, transitions and smooth scroll for
     // * people that prefer not to see them
     @media (prefers-reduced-motion: reduce) {
