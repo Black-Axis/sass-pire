@@ -1,13 +1,13 @@
 @charset "UTF-8";
 
 // @description
-// * mt mixin.
-// * This mixin generates CSS logical properties for margin-top.
-// * It will generate margin-top & margin-block-start properties.
+// * mbs mixin.
+// * This mixin generates CSS logical properties for margin-block-start.
+// * It will generate -webkit-margin-before & margin-block-start properties.
 
 // @access public
 
-// @version 1.0.0
+// @version 1.1.0
 
 // @author Khaled Mohamed
 
@@ -17,7 +17,7 @@
 
 // @namespace logical-props
 
-// @module logical-props/mt
+// @module logical-props/mbs
 
 // @dependencies:
 // * - meta.type-of (SASS function).
@@ -28,13 +28,13 @@
 
 // @example
 // * .example {
-// *   @include mt(2rem);
+// *   @include mbs(2rem);
 // * }
 
 // @output
 // * .example {
 // *    margin-block-start: 2rem;
-// *    margin-top: 2rem;
+// *    -webkit-margin-before: 2rem;
 // * }
 
 @use "sass:meta";
@@ -43,21 +43,21 @@
 @use "../../abstract/global-variables" as var;
 @use "../../development-utils/toggle-error-message" as Error;
 
-@mixin mt($value: 0) {
+@mixin mbs($value: 0) {
     @if meta.type-of($value) != number {
-        content: Error.toggle("The parameter of mt mixin must be in a number type.");
+        content: Error.toggle("The parameter of mbs mixin must be in a number type.");
     } @else {
         $get-unit: math.unit($value);
 
         @if $get-unit != "" {
             @if list.index(var.$all-units, $get-unit) {
                 margin-block-start: $value;
-                margin-top: $value;
+                -webkit-margin-before: $value;
             } @else {
-                content: Error.toggle("The parameter of mt mixin must be one of these values: (#{var.$all-units}).");
+                content: Error.toggle("The parameter of mbs mixin must be one of these values: (#{var.$all-units}).");
             }
         } @else {
-            content: Error.toggle("The parameter of mt mixin must have a unit.");
+            content: Error.toggle("The parameter of mbs mixin must have a unit.");
         }
     }
 }
