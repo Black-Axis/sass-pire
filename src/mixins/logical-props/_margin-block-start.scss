@@ -1,13 +1,13 @@
 @charset "UTF-8";
 
 // @description
-// * mb mixin.
-// * This mixin generates CSS logical properties for margin-bottom.
-// * It will generate margin-bottom & margin-block-end properties.
+// * mbs mixin.
+// * This mixin generates CSS logical properties for margin-block-start.
+// * It will generate -webkit-margin-before & margin-block-start properties.
 
 // @access public
 
-// @version 1.0.0
+// @version 1.1.0
 
 // @author Khaled Mohamed
 
@@ -17,24 +17,24 @@
 
 // @namespace logical-props
 
-// @module logical-props/mb
+// @module logical-props/mbs
 
 // @dependencies:
 // * - meta.type-of (SASS function).
 // * - math.unit (SASS function).
 // * - list.index (SASS function).
-// * - var.$all-units (variable).
+// * - var.var.$all-units (variable).
 // * - Error.toggle (function).
 
 // @example
 // * .example {
-// *   @include mb(2rem);
+// *   @include mbs(2rem);
 // * }
 
 // @output
 // * .example {
-// *    margin-block-end: 2rem;
-// *    margin-bottom: 2rem;
+// *    margin-block-start: 2rem;
+// *    -webkit-margin-before: 2rem;
 // * }
 
 @use "sass:meta";
@@ -43,21 +43,21 @@
 @use "../../abstract/global-variables" as var;
 @use "../../development-utils/toggle-error-message" as Error;
 
-@mixin mb($value: 0) {
+@mixin mbs($value: 0) {
     @if meta.type-of($value) != number {
-        content: Error.toggle("The parameter of mb mixin must be in a number type.");
+        content: Error.toggle("The parameter of mbs mixin must be in a number type.");
     } @else {
         $get-unit: math.unit($value);
 
         @if $get-unit != "" {
             @if list.index(var.$all-units, $get-unit) {
-                margin-block-end: $value;
-                margin-bottom: $value;
+                margin-block-start: $value;
+                -webkit-margin-before: $value;
             } @else {
-                content: Error.toggle("The parameter of mb mixin must be one of these values: (#{var.$all-units}).");
+                content: Error.toggle("The parameter of mbs mixin must be one of these values: (#{var.$all-units}).");
             }
         } @else {
-            content: Error.toggle("The parameter of mb mixin must have a unit.");
+            content: Error.toggle("The parameter of mbs mixin must have a unit.");
         }
     }
 }

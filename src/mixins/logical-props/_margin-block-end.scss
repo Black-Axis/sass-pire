@@ -1,13 +1,13 @@
 @charset "UTF-8";
 
 // @description
-// * mr mixin.
-// * This mixin generates CSS logical properties for margin-right.
-// * It will generate margin-right & margin-inline-start properties.
+// * mbe mixin.
+// * This mixin generates CSS logical properties for margin-block-end.
+// * It will generate -webkit-margin-after & margin-block-end properties.
 
 // @access public
 
-// @version 1.0.0
+// @version 1.1.0
 
 // @author Khaled Mohamed
 
@@ -17,7 +17,7 @@
 
 // @namespace logical-props
 
-// @module logical-props/mr
+// @module logical-props/mbe
 
 // @dependencies:
 // * - meta.type-of (SASS function).
@@ -28,13 +28,13 @@
 
 // @example
 // * .example {
-// *   @include mr(2rem);
+// *   @include mbe(2rem);
 // * }
 
 // @output
 // * .example {
-// *    margin-inline-start: 2rem;
-// *    margin-right: 2rem;
+// *    margin-block-end: 2rem;
+// *    -webkit-margin-after: 2rem;
 // * }
 
 @use "sass:meta";
@@ -43,21 +43,21 @@
 @use "../../abstract/global-variables" as var;
 @use "../../development-utils/toggle-error-message" as Error;
 
-@mixin mr($value: 0) {
+@mixin mbe($value: 0) {
     @if meta.type-of($value) != number {
-        content: Error.toggle("The parameter of mr mixin must be in a number type.");
+        content: Error.toggle("The parameter of mbe mixin must be in a number type.");
     } @else {
         $get-unit: math.unit($value);
 
         @if $get-unit != "" {
             @if list.index(var.$all-units, $get-unit) {
-                margin-inline-start: $value;
-                margin-right: $value;
+                margin-block-end: $value;
+                -webkit-margin-after: $value;
             } @else {
-                content: Error.toggle("The parameter of mr mixin must be one of these values: (#{var.$all-units}).");
+                content: Error.toggle("The parameter of mbe mixin must be one of these values: (#{var.$all-units}).");
             }
         } @else {
-            content: Error.toggle("The parameter of mr mixin must have a unit.");
+            content: Error.toggle("The parameter of mbe mixin must have a unit.");
         }
     }
 }

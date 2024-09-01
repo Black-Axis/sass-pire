@@ -1,13 +1,13 @@
 @charset "UTF-8";
 
 // @description
-// * pt mixin.
-// * This mixin generates CSS logical properties for padding-top.
-// * It will generate padding-top & padding-block-start properties.
+// * pbs mixin.
+// * This mixin generates CSS logical properties for padding-block-start.
+// * It will generate -webkit-padding-before & padding-block-start properties.
 
 // @access public
 
-// @version 1.0.0
+// @version 1.1.0
 
 // @author Khaled Mohamed
 
@@ -17,7 +17,7 @@
 
 // @namespace logical-props
 
-// @module logical-props/pt
+// @module logical-props/pbs
 
 // @dependencies:
 // * - meta.type-of (SASS function).
@@ -28,13 +28,13 @@
 
 // @example
 // * .example {
-// *   @include pt(2rem);
+// *   @include pbs(2rem);
 // * }
 
 // @output
 // * .example {
 // *    padding-block-start: 2rem;
-// *    padding-top: 2rem;
+// *    -webkit-padding-before: 2rem;
 // * }
 
 @use "sass:meta";
@@ -43,21 +43,21 @@
 @use "../../abstract/global-variables" as var;
 @use "../../development-utils/toggle-error-message" as Error;
 
-@mixin pt($value: 0) {
+@mixin pbs($value: 0) {
     @if meta.type-of($value) != number {
-        content: Error.toggle("The parameter of pt mixin must be in a number type.");
+        content: Error.toggle("The parameter of pbs mixin must be in a number type.");
     } @else {
         $get-unit: math.unit($value);
 
         @if $get-unit != "" {
             @if list.index(var.$all-units, $get-unit) {
                 padding-block-start: $value;
-                padding-top: $value;
+                -webkit-padding-before: $value;
             } @else {
-                content: Error.toggle("The parameter of pt mixin must be one of these values: (#{var.$all-units}).");
+                content: Error.toggle("The parameter of pbs mixin must be one of these values: (#{var.$all-units}).");
             }
         } @else {
-            content: Error.toggle("The parameter of pt mixin must have a unit.");
+            content: Error.toggle("The parameter of pbs mixin must have a unit.");
         }
     }
 }

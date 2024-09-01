@@ -12,25 +12,25 @@
 
 // @namespace logical-props
 
-// * forwarding the "margin-top" module.
-// * This module likely contains margin-top logical props.
-// @see margin-top
-@forward "./margin-top";
+// * forwarding the "margin-block-start" module.
+// * This module likely contains margin-block-start logical props.
+// @see margin-block-start
+@forward "./margin-block-start";
 
-// * forwarding the "margin-bottom" module.
-// * This module likely contains margin-bottom logical props.
-// @see margin-bottom
-@forward "./margin-bottom";
+// * forwarding the "margin-block-end" module.
+// * This module likely contains margin-block-end logical props.
+// @see margin-block-end
+@forward "./margin-block-end";
 
-// * forwarding the "margin-right" module.
-// * This module likely contains margin-right logical props.
-// @see margin-right
-@forward "./margin-right";
+// * forwarding the "margin-inline-end" module.
+// * This module likely contains margin-inline-end logical props.
+// @see margin-inline-end
+@forward "./margin-inline-end";
 
-// * forwarding the "margin-left" module.
-// * This module likely contains margin-left logical props.
-// @see margin-left
-@forward "./margin-left";
+// * forwarding the "margin-inline-start" module.
+// * This module likely contains margin-inline-start logical props.
+// @see margin-inline-start
+@forward "./margin-inline-start";
 
 // * forwarding the "overflow-x" module.
 // * This module likely contains overflow-x logical props.
@@ -42,15 +42,15 @@
 // @see overflow-y
 @forward "./overflow-y";
 
-// * forwarding the "padding-top" module.
-// * This module likely contains padding-top logical props.
-// @see padding-top
-@forward "./padding-top";
+// * forwarding the "padding-block-start" module.
+// * This module likely contains padding-block-start logical props.
+// @see padding-block-start
+@forward "./padding-block-start";
 
-// * forwarding the "padding-bottom" module.
-// * This module likely contains padding-bottom logical props.
-// @see padding-bottom
-@forward "./padding-bottom";
+// * forwarding the "padding-block-end" module.
+// * This module likely contains padding-block-end logical props.
+// @see padding-block-end
+@forward "./padding-block-end";
 
 // * forwarding the "top" module.
 // * This module likely contains top logical props.
