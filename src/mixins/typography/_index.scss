@@ -17,3 +17,10 @@
 // * line break, is aligned.
 // @see text-align-last
 @forward "text-align-last";
+
+// * forwarding the "text-overflow" module.
+// * The "text-overflow" module probably provides utilities for
+// * how the last line of a block or a line, right before a forced
+// * line break, is aligned.
+// @see text-overflow
+@forward "text-overflow";

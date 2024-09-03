@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+// @description
+// * text-overflow mixin.
+// * This mixin provides a convenient way to set how hidden overflow
+// * content is signaled to users. It can be clipped, display an ellipsis
+// * ('…'), or display a custom string.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/ZexLabs/sass-pire
+
+// @namespace typography
+
+// @module typography/text-overflow
+
+// @dependencies:
+// * - meta.type-of (SASS function).
+// * - LibFunc.is-in-list (function).
+// * - Error.toggle (function).
+
+// @param {String} $value
+// * The value of the text-overflow CSS property.
+// * Default: clip.
+// * If a string, it can be:
+// * (clip, ellipsis, inherit, revert, revert-layer, unset).
+
+// @example
+// * .example {
+// *   @include text-overflow(ellipsis);
+// * }
+
+// @output
+// * .example {
+// *   -moz-text-overflow: ellipsis;
+// *   text-overflow: ellipsis;
+// * }
+
+@use "sass:meta";
+@use "sass:list";
+@use "../../functions/global/is-in-list" as LibFunc;
+@use "../../development-utils/toggle-error-message" as Error;
+
+@mixin text-overflow($value: clip) {
+    $text-overflow-props: (
+        -o-text-overflow,
+        text-overflow
+    ) !default;
+
+    // * stylelint-disable-next-line scss/dollar-variable-empty-line-before
+    $text-overflow-props-values: (
+        clip,
+        ellipsis,
+        inherit,
+        initial,
+        revert,
+        revert-layer,
+        unset
+    ) !default;
+
+    @if meta.type-of($value) == string {
+        @if LibFunc.is-in-list($text-overflow-props-values, $value) {
+            @each $prop in $text-overflow-props {
+                #{$prop}: $value;
+            }
+        } @else {
+            content: Error.toggle("The parameter of text-overflow mixin must has one of these values: (#{$text-overflow-props-values}).");
+        }
+    } @else {
+        content: Error.toggle("The parameter of text-overflow mixin must has one of these values: (#{$text-overflow-props-values}).");
+    }
+}
