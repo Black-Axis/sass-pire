@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+// @description
+// * line-text-trunc mixin.
+// * This mixin can handle both single-line and multi-line text, you can
+// * define the mixin with parameters to control the number of lines and
+// * whether the text should be truncated.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/ZexLabs/sass-pire
+
+// @namespace typography
+
+// @module typography/line-text-trunc
+
+// @dependencies:
+// * - meta.type-of (SASS function).
+// * - LibMixin.text-overflow (mixin).
+// * - Error.toggle (function).
+
+// @param {Number} $value
+// * The value of the text truncation in CSS.
+// * Default: 1.
+
+// @example 1
+// * .example {
+// *   @include line-text-trunc(1);
+// * }
+
+// @output 1
+// * .example {
+// *   -o-text-overflow: ellipsis;
+// *   text-overflow: ellipsis;
+// *   overflow: hidden;
+// *   display: -webkit-box;
+// *   -webkit-box-orient: vertical;
+// *   white-space: nowrap;
+// * }
+
+// @example 2
+// * .example {
+// *   @include line-text-trunc(2);
+// * }
+
+// @output 2
+// * .example {
+// *   -o-text-overflow: ellipsis;
+// *   text-overflow: ellipsis;
+// *   overflow: hidden;
+// *   display: -webkit-box;
+// *   -webkit-box-orient: vertical;
+// *   -webkit-line-clamp: 2;
+// *   line-clamp: 2;
+// * }
+
+@use "sass:meta";
+@use "./text-overflow" as LibMixin;
+@use "../../development-utils/toggle-error-message" as Error;
+
+@mixin line-text-trunc($lines: 1) {
+    @if meta.type-of($lines) != number {
+        content: Error.toggle("The value of line-text-trunc mixin must be in a number type.");
+    } @else {
+        @include LibMixin.text-overflow(ellipsis);
+        
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        
+        @if $lines <= 0 {
+            content: Error.toggle("The value of line-text-trunc argument must be bigger than or equal to one.");
+        } @else {
+            @if $lines == 1 {
+                white-space: nowrap;
+            } @else {
+                -webkit-line-clamp: $lines;
+                line-clamp: $lines;
+            }
+        }
+    }
+}
