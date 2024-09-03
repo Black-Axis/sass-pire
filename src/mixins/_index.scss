@@ -53,3 +53,9 @@
 // * logical properties in CSS.
 // @see logical-props
 @forward "logical-props";
+
+// * forwarding the "typography" module.
+// * The "typography" module likely provides utilities for handling
+// * typography properties in CSS.
+// @see typography
+@forward "typography";
