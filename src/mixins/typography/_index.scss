@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+// @description
+// * This file forwards various modules for CSS typography properties.
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/ZexLabs/sass-pire
+
+// @namespace mixins/typography
+
+// * forwarding the "text-align-last" module.
+// * The "text-align-last" module probably provides utilities for
+// * how the last line of a block or a line, right before a forced
+// * line break, is aligned.
+// @see text-align-last
+@forward "text-align-last";

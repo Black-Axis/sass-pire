@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+// @description
+// * text-align-last mixin.
+// * This mixin provides a convenient way to set how the last line of
+// * a block or a line, right before a forced line break, is aligned.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/ZexLabs/sass-pire
+
+// @reference: https://developer.mozilla.org/en-US/docs/Web/CSS/text-align-last
+
+// @namespace typography
+
+// @module typography/text-align-last
+
+// @dependencies:
+// * - meta.type-of (SASS function).
+// * - LibFunc.is-in-list (function).
+// * - Error.toggle (function).
+
+// @param {String} $value
+// * The value of the text-align-last CSS property.
+// * Default: auto.
+// * If a string, it can be:
+// * (auto, start, end, left, right, center, justify,
+// * inherit, revert, revert-layer, unset).
+
+// @example
+// * .example {
+// *   @include text-align-last(start);
+// * }
+
+// @output
+// * .example {
+// *   -moz-text-align-last: start;
+// *   text-align-last: start;
+// * }
+
+@use "sass:meta";
+@use "sass:list";
+@use "../../functions/global/is-in-list" as LibFunc;
+@use "../../development-utils/toggle-error-message" as Error;
+
+@mixin text-align-last($value: auto) {
+    $text-align-last-props: (
+        -moz-text-align-last,
+        text-align-last
+    ) !default;
+
+    // * stylelint-disable-next-line scss/dollar-variable-empty-line-before
+    $text-align-last-props-values: (
+        auto,
+        start,
+        end,
+        left,
+        right,
+        center,
+        justify,
+        inherit,
+        initial,
+        revert,
+        revert-layer,
+        unset
+    ) !default;
+
+    @if meta.type-of($value) == string {
+        @if LibFunc.is-in-list($text-align-last-props-values, $value) {
+            @each $prop in $text-align-last-props {
+                #{$prop}: $value;
+            }
+        } @else {
+            content: Error.toggle("The parameter of text-align-last mixin must has one of these values: (#{$text-align-last-props-values}).");
+        }
+    } @else {
+        content: Error.toggle("The parameter of text-align-last mixin must has one of these values: (#{$text-align-last-props-values}).");
+    }
+}
