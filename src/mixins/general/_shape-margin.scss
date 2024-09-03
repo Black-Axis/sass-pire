@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+// @description
+// * shape-margin mixin.
+// * This mixin generates CSS properties to set a margin for a CSS shape
+// * created using shape-outside CSS property.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/ZexLabs/sass-pire
+
+// @namespace general
+
+// @module general/shape-margin
+
+// @dependencies:
+// * - meta.type-of (SASS function).
+// * - math.unit (SASS function).
+// * - list.index (SASS function).
+// * - var.$all-units (variable).
+// * - Error.toggle (function).
+
+// @param {Number} $value
+// * The value of the shape-margin. It must be a number type.
+
+// @example
+// * .example {
+// *   @include shape-margin(50px);
+// * }
+
+// @output
+// * .example {
+// *   -webkit-shape-margin: 50px;
+// *   shape-margin: 50px;
+// * }
+
+@use "sass:meta";
+@use "sass:list";
+@use "sass:math";
+@use "../../abstract/global-variables" as var;
+@use "../../development-utils/toggle-error-message" as Error;
+
+@mixin shape-margin($value: 0) {
+    @if meta.type-of($value) != number {
+        content: Error.toggle("The parameter of shape-margin mixin must be in a number type.");
+    } @else {
+        $get-unit: math.unit($value);
+
+        @if $get-unit != "" {
+            @if list.index(var.$all-units, $get-unit) {
+                $shape-margin-props: (-webkit-shape-margin, shape-margin) !default;
+                
+                @each $prop in $shape-margin-props {
+                    #{$prop}: $value;
+                }
+            } @else {
+                content: Error.toggle("The parameter of shape-margin mixin must have one of these unit values: (#{var.$all-units}).");
+            }
+        } @else {
+            content: Error.toggle("The parameter of shape-margin mixin must have a unit.");
+        }
+    }
+}
+
+@mixin sh-margin($value: 0) {
+    @include shape-margin($value);
+}
