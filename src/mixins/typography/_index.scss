@@ -24,3 +24,10 @@
 // * line break, is aligned.
 // @see text-overflow
 @forward "text-overflow";
+
+// * forwarding the "line-text-truncation" module.
+// * The "line-text-truncation" module probably provides utilities for
+// * how the last line of a block or a line, right before a forced
+// * line break, is aligned.
+// @see line-text-truncation
+@forward "line-text-truncation";
