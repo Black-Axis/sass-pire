@@ -109,3 +109,9 @@
 // * the library, version, authors, and license.
 // @see banner
 @forward "banner";
+
+// * forwarding the "shape-margin" mixin from the "shape-margin" module.
+// * The "shape-margin" mixin sets a margin for a CSS shape created
+// * using shape-outside property.
+// @see shape-margin
+@forward "shape-margin";
