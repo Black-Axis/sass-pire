@@ -198,6 +198,12 @@
         border-spacing: 0;
     }
 
+    body > :is(header, main, footer),
+    section,
+    article {
+        container-type: inline-size;
+    }
+
     :where([hidden]) {
         display: none;
     }
