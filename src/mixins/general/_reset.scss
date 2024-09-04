@@ -198,7 +198,8 @@
         border-spacing: 0;
     }
 
-    body > :is(header, main, footer),
+    body > :is(header, footer),
+    main,
     section,
     article {
         container-type: inline-size;
