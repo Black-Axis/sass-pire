@@ -217,15 +217,20 @@ article {
     }
 }
 
-:focus-visible {
-    --outline-offset-size: max(1px, 0.15em);
-    --outline-width: 0.063rem;
-    --outline-style: solid;
-    // stylelint-disable-next-line value-keyword-case
-    --outline-color: currentColor;
+@supports selector(:focus-visible) {
+    :focus-visible {
+        // stylelint-disable-next-line value-keyword-case 
+        outline: max(1px, 0.15em) solid currentColor;
+        outline-offset: max(1px, 0.15em);
+    }
+}
 
-    outline: var(--outline-width) var(--outline-style) var(--outline-color);
-    outline-offset: var(--outline-offset-size);
+@supports not selector(:focus-visible) {
+    :focus {
+        // stylelint-disable-next-line value-keyword-case 
+        outline: max(1px, 0.15em) solid currentColor;
+        outline-offset: max(1px, 0.15em);
+    }
 }
 
 // * Scroll margin allowance above anchor links
