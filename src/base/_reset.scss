@@ -205,8 +205,16 @@ article {
     container-type: inline-size;
 }
 
-:where([hidden]) {
-    display: none;
+@supports selector(:where) {
+    :where([hidden]) {
+        display: none;
+    }
+}
+
+@supports not selector(:where) {
+    [hidden] {
+        display: none;
+    }
 }
 
 :focus-visible {
