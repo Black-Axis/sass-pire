@@ -25,12 +25,6 @@ $base-font-size: 16;
 $no-script-text: "JavaScript is disabled in your browser! Enable it.";
 
 // @note
-// * Please, Make the following variable as true if you need to render
-// * all resets in layer mode (using @layer feature) and false to
-// * render it in native mode.
-$use-layer-version: false !default;
-
-// @note
 // * Please, Make the following variable as true if you need to test
 // * any thing in tests modules and false if you need to add or update
 // * or remove any thing in src folder.

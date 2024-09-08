@@ -23,11 +23,4 @@
 
 // * stylelint-disable-next-line at-rule-empty-line-before
 @include LibMixin2.banner;
-
-@if var.$use-layer-version == true {
-    @layer #{Settings.$brand-lib-name + "-reset"} {
-        @include LibMixin1.reset;
-    }
-} @else {
-    @include LibMixin1.reset;
-}
+@include LibMixin1.reset;
