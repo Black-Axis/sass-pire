@@ -198,11 +198,23 @@ table {
     border-spacing: 0;
 }
 
-body> :is(header, footer),
-main,
-section,
-article {
-    container-type: inline-size;
+@supports selector(:is) {
+    body> :is(header, footer),
+    main,
+    section,
+    article {
+        container-type: inline-size;
+    }
+}
+
+@supports not selector(:is) {
+    body> header,
+    body> footer,
+    main,
+    section,
+    article {
+        container-type: inline-size;
+    }
 }
 
 @supports selector(:where) {
