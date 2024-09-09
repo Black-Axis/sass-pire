@@ -46,13 +46,13 @@
         "test": "concurrently \"npm run test:jest\" \"npm run test:scss\""
     },
     "devDependencies": {
-        "concurrently": "^8.2.2",
+        "concurrently": "^9.0.0",
         "cz-conventional-changelog": "^3.3.0",
-        "eslint": ">=9.9.1",
+        "eslint": ">=9.10.0",
         "eslint-config-google": "^0.14.0",
         "jest": "^29.7.0",
         "npm-check-updates": "^17.1.1",
-        "sass": "^1.77.8",
+        "sass": "^1.78.0",
         "sass-true": "^8.0.0",
         "stylelint": "^16.9.0",
         "stylelint-config-standard-scss": "^13.1.0"
