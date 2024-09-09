@@ -44,4 +44,4 @@ Please, set a new issue and labeled it as `Feature` and insert what you want.
 
 
 ## License
-[MIT](https://github.com/ZexLabs/sass-pire/blob/master/LICENSE.md)
+[MIT](https://github.com/Black-Axis/sass-pire/blob/master/LICENSE.md)
