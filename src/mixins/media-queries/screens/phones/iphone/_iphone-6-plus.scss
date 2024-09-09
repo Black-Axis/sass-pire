@@ -72,7 +72,7 @@
 
 @mixin iphone-6p($orientation-type: portrait) {
     @if meta.type-of($orientation-type) != string {
-        content: Error.toggle("The parameter of iphone-6p mixin must be in a string type.");
+        content: Error.throw("The parameter of iphone-6p mixin must be in a string type.");
     }
 
     $all-orientations-types: (landscape, land, l, portrait, port, p, all, "") !default;

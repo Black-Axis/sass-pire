@@ -25,7 +25,7 @@
 // @dependencies:
 // * - meta.type-of (SASS function).
 // * - LibFunc.is-in-list (function).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @param {Number|String} $value
 // * The value of column-gap property.
@@ -58,7 +58,7 @@
                 #{$one-item}: #{$value};
             }
         } @else {
-            content: Error.toggle(
+            content: Error.throw(
                 "The type parameter of col-gap mixin must be one of these values: (#{$column-gap-property-values})."
             );
         }
@@ -68,9 +68,9 @@
                 #{$one-item}: #{$value};
             }
         } @else {
-            content: Error.toggle("The parameters of col-gap mixin must be has a unit.");
+            content: Error.throw("The parameters of col-gap mixin must be has a unit.");
         }
     } @else {
-        content: Error.toggle("The parameters of col-gap mixin must be in a number or string type.");
+        content: Error.throw("The parameters of col-gap mixin must be in a number or string type.");
     }
 }

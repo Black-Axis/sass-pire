@@ -29,7 +29,7 @@
 // * - math.unit (SASS function).
 // * - var.$main-units (variable).
 // * - LibMixin.prefixing-all (mixin).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @param {Number|String} $x
 // * The horizontal translation distance.
@@ -63,7 +63,7 @@
 
     @if meta.type-of($x) == number {
         @if not index(var.$main-units, math.unit($x)) {
-            content: Error.toggle(
+            content: Error.throw(
                 "The parameter of translate-x mixin must has one of these units: (#{var.$main-units})."
             );
         } @else {
@@ -71,13 +71,13 @@
         }
     } @else if meta.type-of($x) == string {
         @if not index($transform-props-values, $x) {
-            content: Error.toggle(
+            content: Error.throw(
                 "The parameter of translate-x mixin must has one of these values: (#{$transform-props-values})."
             );
         } @else {
             @include LibMixin.prefixing-all(transform, translateX($x));
         }
     } @else {
-        content: Error.toggle("The value of translate-x mixin must be in a number or a string type.");
+        content: Error.throw("The value of translate-x mixin must be in a number or a string type.");
     }
 }

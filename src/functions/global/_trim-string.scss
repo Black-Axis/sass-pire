@@ -21,7 +21,7 @@
 // * - meta.type-of (SASS function).
 // * - trim-start (function).
 // * - trim-end (function).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @update We updated the usage of the math library of Sass and added
 // * more validations.
@@ -54,7 +54,7 @@
 
 @function trim($str-value) {
     @if meta.type-of($str-value) != string {
-        @return Error.toggle("The parameter of trim function must be in a string type.");
+        @return Error.throw("The parameter of trim function must be in a string type.");
     }
 
     $second-trim: LibFunc2.trim-end($str-value);

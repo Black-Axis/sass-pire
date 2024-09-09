@@ -74,7 +74,7 @@
 
 @mixin laptop-general($retina-value) {
     @if meta.type-of($retina-value) != string {
-        content: Error.toggle("The parameter of laptop-general mixin must be in a string type.");
+        content: Error.throw("The parameter of laptop-general mixin must be in a string type.");
     }
 
     $accepted-retina-values: (retina, yes, y) !default;
@@ -99,7 +99,7 @@
                 @content;
             }
         } @else {
-            content: Error.toggle(
+            content: Error.throw(
                 "The parameter of laptop-general mixin must be one value of (#{$all-retina-values})."
             );
         }

@@ -24,7 +24,7 @@
 // * - math.unit (SASS function).
 // * - list.index (SASS function).
 // * - var.var.$all-units (variable).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @example
 // * .example {
@@ -45,7 +45,7 @@
 
 @mixin pbe($value: 0) {
     @if meta.type-of($value) != number {
-        content: Error.toggle("The parameter of pbe mixin must be in a number type.");
+        content: Error.throw("The parameter of pbe mixin must be in a number type.");
     } @else {
         $get-unit: math.unit($value);
 
@@ -54,10 +54,10 @@
                 padding-block-end: $value;
                 -webkit-padding-after: $value;
             } @else {
-                content: Error.toggle("The parameter of pbe mixin must be one of these values: (#{var.$all-units}).");
+                content: Error.throw("The parameter of pbe mixin must be one of these values: (#{var.$all-units}).");
             }
         } @else {
-            content: Error.toggle("The parameter of pbe mixin must have a unit.");
+            content: Error.throw("The parameter of pbe mixin must have a unit.");
         }
     }
 }

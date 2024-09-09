@@ -23,7 +23,7 @@
 // @dependencies:
 // * - meta.type-of (SASS function).
 // * - is-in-list (function).
-// * - toggle (function).
+// * - Error.throw (function).
 
 // @param {String} $val
 // * The value for the user-select property.
@@ -68,6 +68,6 @@
             }
         }
     } @else {
-        content: Error.toggle("The parameter of u-select mixin must be in a string type.");
+        content: Error.throw("The parameter of u-select mixin must be in a string type.");
     }
 }

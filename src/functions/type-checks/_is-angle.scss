@@ -23,7 +23,7 @@
 // * - list.index (SASS function).
 // * - math.unit (SASS function).
 // * - var.$angle-units (variable).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @param {number} $val
 // * A number to check if it has angle units or not.
@@ -53,7 +53,7 @@
 
 @function is-angle($value) {
     @if meta.type-of($value) != number {
-        @return Error.toggle("The parameter of is-angle function must be in a number type.");
+        @return Error.throw("The parameter of is-angle function must be in a number type.");
     }
 
     $flag: true;

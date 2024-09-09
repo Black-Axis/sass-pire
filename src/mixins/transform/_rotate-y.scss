@@ -28,7 +28,7 @@
 // * - math.unit (SASS function).
 // * - var.$angle-units (variable).
 // * - LibMixin.prefixing-all (mixin).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @param {Number|String} $angle
 // * The rotation angle.
@@ -62,19 +62,19 @@
 
     @if meta.type-of($angle) == number {
         @if not index(var.$angle-units, math.unit($angle)) {
-            content: Error.toggle("The parameter of rotate-y mixin must has one of these units: (#{var.$angle-units})");
+            content: Error.throw("The parameter of rotate-y mixin must has one of these units: (#{var.$angle-units})");
         } @else {
             @include LibMixin.prefixing-all(transform, rotateY($angle));
         }
     } @else if meta.type-of($angle) == string {
         @if not index($transform-props-values, $angle) {
-            content: Error.toggle(
+            content: Error.throw(
                 "The parameter of rotate-y mixin must has one of these values: (#{$transform-props-values})"
             );
         } @else {
             @include LibMixin.prefixing-all(transform, rotateY($angle));
         }
     } @else {
-        content: Error.toggle("The value of rotate-y mixin must be in a number or a string type.");
+        content: Error.throw("The value of rotate-y mixin must be in a number or a string type.");
     }
 }

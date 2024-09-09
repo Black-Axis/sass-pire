@@ -22,7 +22,7 @@
 // * - meta.type-of (SASS function).
 // * - list.index (SASS function).
 // * - math.unit (SASS function).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @param {number} $val
 // * The number to check for resolution units.
@@ -50,7 +50,7 @@
 
 @function has-res-unit($value) {
     @if meta.type-of($value) != number {
-        @return Error.toggle("The parameter of has-res-unit function must be in a number type.");
+        @return Error.throw("The parameter of has-res-unit function must be in a number type.");
     }
 
     $resolution-units: (dpi, dpcm, dppx) !default;

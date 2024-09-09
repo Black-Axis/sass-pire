@@ -22,7 +22,7 @@
 // @dependencies:
 // * - meta.type-of (SASS function).
 // * - LibFunc.cut-unit (function).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @param {number} $val
 // * A number to check if it is a floating-point
@@ -52,7 +52,7 @@
 
 @function is-float($value) {
     @if meta.type-of($value) != number {
-        @return Error.toggle("The parameter of is-float function must be in a number type.");
+        @return Error.throw("The parameter of is-float function must be in a number type.");
     }
 
     $flag: false;

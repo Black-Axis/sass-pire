@@ -62,7 +62,7 @@
 
 @mixin htc-1($orientation-type: portrait) {
     @if meta.type-of($orientation-type) != string {
-        content: Error.toggle("The parameter of htc-1 mixin must be in a string type.");
+        content: Error.throw("The parameter of htc-1 mixin must be in a string type.");
     }
 
     $landscape-values: (landscape, land, l) !default;

@@ -23,7 +23,7 @@
 // * - math.unit (SASS function).
 // * - var.$all-units (variable).
 // * - func.is-in-list (function).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @param {Number} $one-side
 // * The length of one side of the square.
@@ -61,10 +61,10 @@
                 height: $one-side;
             }
         } @else {
-            content: Error.toggle("The parameter of square mixin has a unit of a number type.");
+            content: Error.throw("The parameter of square mixin has a unit of a number type.");
         }
     } @else {
-        content: Error.toggle("The parameter of square mixin must be in a number type.");
+        content: Error.throw("The parameter of square mixin must be in a number type.");
     }
 }
 

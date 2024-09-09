@@ -21,7 +21,7 @@
 // @dependencies:
 // * - meta.type-of (SASS function).
 // * - math.unit (SASS function).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @param {number} $val
 // * The number to check for a percentage unit.
@@ -48,7 +48,7 @@
 
 @function has-ptg($value) {
     @if meta.type-of($value) != number {
-        @return Error.toggle("The parameter of has-ptg function must be in a number type.");
+        @return Error.throw("The parameter of has-ptg function must be in a number type.");
     }
 
     $flag: true;

@@ -22,7 +22,7 @@
 // * - meta.type-of (SASS function).
 // * - math.div (SASS function).
 // * - LibFunc.cut-unit (function).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @param {Number} $ptg-value
 // * The percentage value to be converted into decimal.
@@ -62,7 +62,7 @@
 
 @function ptg-to-dec($ptg-value: 0%) {
     @if meta.type-of($ptg-value) != number {
-        @return Error.toggle("The parameter of ptg-to-dec function must be in a number type.");
+        @return Error.throw("The parameter of ptg-to-dec function must be in a number type.");
     }
 
     @if $ptg-value == 0 {
@@ -71,11 +71,11 @@
 
     // stylelint-disable-next-line length-zero-no-unit
     @if $ptg-value == 0% {
-        @return Error.toggle("The parameter dose not need a unit if it equals to zero.");
+        @return Error.throw("The parameter dose not need a unit if it equals to zero.");
     }
 
     @if math.unit($ptg-value) != "%" {
-        @return Error.toggle("The ptg-to-dec function accepts argument with percentage unit only.");
+        @return Error.throw("The ptg-to-dec function accepts argument with percentage unit only.");
     }
 
     $value-without-unit: LibFunc.cut-unit($ptg-value);

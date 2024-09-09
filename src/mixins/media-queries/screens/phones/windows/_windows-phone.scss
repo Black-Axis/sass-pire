@@ -73,7 +73,7 @@
 
 @mixin windows-phone($orientation-type: portrait) {
     @if meta.type-of($orientation-type) != string {
-        content: Error.toggle("The parameter of windows-phone mixin must be in a string type.");
+        content: Error.throw("The parameter of windows-phone mixin must be in a string type.");
     }
 
     $landscape-values: (landscape, land, l) !default;

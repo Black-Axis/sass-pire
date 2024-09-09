@@ -21,7 +21,7 @@
 // @dependencies:
 // * - meta.type-of (SASS function).
 // * - LibFunc.cut-unit (function).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @param {Number} $ptg-value
 // * The decimal value to be converted into percentage.
@@ -60,11 +60,11 @@
 
 @function dec-to-ptg($dec-value: 0) {
     @if meta.type-of($dec-value) != number {
-        @return Error.toggle("The parameter of dec-to-ptg function must be in a number type.");
+        @return Error.throw("The parameter of dec-to-ptg function must be in a number type.");
     }
 
     @if $dec-value > 1 {
-        @return Error.toggle("The parameter value should be smaller than 1.");
+        @return Error.throw("The parameter value should be smaller than 1.");
     }
 
     $value-without-unit: LibFunc.cut-unit($dec-value);

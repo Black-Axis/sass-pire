@@ -24,7 +24,7 @@
 // * - Config.$base-font-size (config variable).
 // * - LibFunc.cut-unit (function).
 // * - Approx.approx (function).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @param {Number} $px-val
 // * The value in pixel unit to convert.
@@ -54,7 +54,7 @@
 
 @function px-to-rem($px-val) {
     @if meta.type-of($px-val) != number {
-        @return Error.toggle("The parameter of px-to-rem function must be in a number type.");
+        @return Error.throw("The parameter of px-to-rem function must be in a number type.");
     }
 
     @if $px-val == 0 {
@@ -63,7 +63,7 @@
 
     // stylelint-disable-next-line length-zero-no-unit
     @if $px-val == 0px {
-        @return Error.toggle("The parameter dose not need a unit if it equals to zero.");
+        @return Error.throw("The parameter dose not need a unit if it equals to zero.");
     }
 
     @return Approx.of(calc(LibFunc.cut-unit($px-val) / Config.$base-font-size)) + rem;

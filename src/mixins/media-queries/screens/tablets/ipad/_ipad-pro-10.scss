@@ -79,7 +79,7 @@
 
 @mixin ipad-pro-10($orientation-type: portrait) {
     @if meta.type-of($orientation-type) != string {
-        content: Error.toggle("The parameter of ipad-pro-10 mixin must be in a string type.");
+        content: Error.throw("The parameter of ipad-pro-10 mixin must be in a string type.");
     }
 
     $landscape-values: (landscape, land, l) !default;

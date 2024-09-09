@@ -28,7 +28,7 @@
 // * - list.nth (SASS function).
 // * - var.$main-data-types (variable).
 // * - LibFunc.flatten-list (function).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @param {List} $list
 // * A list from which to retrieve the first element.
@@ -67,11 +67,11 @@
 
 @function get-first-from($list: ()) {
     @if meta.type-of($list) != list {
-        @return Error.toggle("The parameter of get-first-from function must be in a list type.");
+        @return Error.throw("The parameter of get-first-from function must be in a list type.");
     }
 
     @if list.length($list) == 0 {
-        @return Error.toggle("You must enter the list values of the list in get-first-from function.");
+        @return Error.throw("You must enter the list values of the list in get-first-from function.");
     }
 
     @if meta.type-of($list) != list {

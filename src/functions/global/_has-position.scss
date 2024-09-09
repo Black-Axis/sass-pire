@@ -21,7 +21,7 @@
 // @dependencies:
 // * - meta.type-of (SASS function).
 // * - list.index (SASS function).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @param {string} $val
 // * The provided value of the position.
@@ -52,7 +52,7 @@
     $flag: true !default;
 
     @if meta.type-of($val) != string {
-        @return Error.toggle("The parameter of has-pos function must be in a string type.");
+        @return Error.throw("The parameter of has-pos function must be in a string type.");
     }
 
     @if not list.index($position-values, $val) {

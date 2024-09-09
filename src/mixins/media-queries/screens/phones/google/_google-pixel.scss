@@ -74,7 +74,7 @@
 
 @mixin google-pixel($orientation-type: portrait) {
     @if meta.type-of($orientation-type) != string {
-        content: Error.toggle("The parameter of google-pixel mixin must be in a string type.");
+        content: Error.throw("The parameter of google-pixel mixin must be in a string type.");
     }
 
     $landscape-values: (landscape, land, l) !default;

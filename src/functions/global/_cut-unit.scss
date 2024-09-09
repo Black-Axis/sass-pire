@@ -22,7 +22,7 @@
 // @dependencies:
 // * - meta.type-of (SASS function).
 // * - math.div (SASS function).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @update We updated the usage of the math library of Sass and added
 // * more validations.
@@ -51,12 +51,12 @@
 
 @function cut-unit($num) {
     @if meta.type-of($num) != number {
-        @return Error.toggle("The parameter of cut-unit function must be in a number type.");
+        @return Error.throw("The parameter of cut-unit function must be in a number type.");
     }
 
     // stylelint-disable-next-line length-zero-no-unit
     @if math.unit($num) == "" and not unitless($num) {
-        @return Error.toggle("The parameter dose not need a unit if it equals to zero.");
+        @return Error.throw("The parameter dose not need a unit if it equals to zero.");
     }
 
     @if meta.type-of($num) == number and not unitless($num) {

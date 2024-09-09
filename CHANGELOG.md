@@ -217,7 +217,7 @@
   *  :recycle: Update library version in `banner` mixin ([5c7abd96](https://github.com/Black-Axis/sass-pire/commit/5c7abd967d530af403e0748ad55f8d3db2994d5e))
   *  :recycle: Refactor `circle` mixin error handling and unit validation ([2b670748](https://github.com/Black-Axis/sass-pire/commit/2b670748eaa0a43c7a219e370a7b2829f8be6477))
   *  :recycle: Refactor `fade` mixin to handle parameter type validation ([f917f8fc](https://github.com/Black-Axis/sass-pire/commit/f917f8fc2a0b04001b2094e443ae94bc6ba6e721))
-  *  :recycle: Refactor `Error.toggle` function in `translate-x` mixin ([ab44e346](https://github.com/Black-Axis/sass-pire/commit/ab44e346ea9387aa35df37d9aa23aabe06665f1a))
+  *  :recycle: Refactor `Error.throw` function in `translate-x` mixin ([ab44e346](https://github.com/Black-Axis/sass-pire/commit/ab44e346ea9387aa35df37d9aa23aabe06665f1a))
 * **mixins-grid-props:**  :recycle: Refine `col-gap` mixin in its documentation ([8a09bc4b](https://github.com/Black-Axis/sass-pire/commit/8a09bc4b1dea0b91451f312509628e55dc470fae))
 * **tests:**
   *  :recycle: Update name of function calls in use statement ([eae7e373](https://github.com/Black-Axis/sass-pire/commit/eae7e373c916ca989b55b969a6365ab16a13c45d))

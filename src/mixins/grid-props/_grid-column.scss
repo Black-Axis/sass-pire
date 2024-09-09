@@ -29,7 +29,7 @@
 // * - string.unquote (SASS function).
 // * - string.split (SASS function).
 // * - LibFunc.is-in-list (function).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @param {Number|String} $value
 // * The value of column-gap property.
@@ -57,19 +57,19 @@
 
 @mixin grid-col($value) {
     @if meta.type-of($value) != string {
-        content: Error.toggle("The parameter of grid-col mixin must be in a string type.");
+        content: Error.throw("The parameter of grid-col mixin must be in a string type.");
     }
 
     $actual-value: string.split($value, "/");
 
     @if list.length($actual-value) > 2 {
-        content: Error.toggle("The parameter of grid-col mixin must has two values separated with / character.");
+        content: Error.throw("The parameter of grid-col mixin must has two values separated with / character.");
     } @else {
         $first-value: LibFunc.trim(list.nth($actual-value, 1));
         $second-value: LibFunc.trim(list.nth($actual-value, 2));
 
         @if $first-value == "" or $second-value == "" {
-            content: Error.toggle("The parameter of grid-col mixin must has two values separated with / character.");
+            content: Error.throw("The parameter of grid-col mixin must has two values separated with / character.");
         } @else {
             $first-value: string.unquote($first-value);
             $second-value: string.unquote($second-value);

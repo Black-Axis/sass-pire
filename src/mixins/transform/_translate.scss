@@ -30,7 +30,7 @@
 // * - math.unit (SASS function).
 // * - var.var.$main-units (variable).
 // * - LibMixin.prefixing-all (mixin).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @param {Number|String} $x
 // * The horizontal translation distance.
@@ -70,7 +70,7 @@
     
     @if meta.type-of($x) == number and meta.type-of($y) == number {
         @if not index(var.$main-units, math.unit($x)) or not index(var.$main-units, math.unit($y)) {
-            content: Error.toggle(
+            content: Error.throw(
                 "The parameter of translate mixin must has one of these units: (#{var.$main-units})."
             );
         } @else {
@@ -80,7 +80,7 @@
         @if index($transform-props-values, $x) and index($transform-props-values, $y) {
             @include LibMixin.prefixing-all(transform, translate($x, $y));
         } @else {
-            content: Error.toggle(
+            content: Error.throw(
                 "The parameter of translate mixin must has one of these values: (#{$transform-props-values})."
             );
         }
@@ -88,7 +88,7 @@
         @if index(var.$main-units, math.unit($x)) and index($transform-props-values, $y) {
             @include LibMixin.prefixing-all(transform, translate($x, $y));
         } @else {
-            content: Error.toggle(
+            content: Error.throw(
                 "The parameter of translate mixin must has one of these units: (#{var.$main-units})."
             );
         }
@@ -96,11 +96,11 @@
         @if index(var.$main-units, math.unit($y)) and index($transform-props-values, $x) {
             @include LibMixin.prefixing-all(transform, translate($x, $y));
         } @else {
-            content: Error.toggle(
+            content: Error.throw(
                 "The parameter of translate mixin must has one of these units: (#{var.$main-units})."
             );
         }
     } @else {
-        content: Error.toggle("The value of translate mixin must be in a number or a string type.");
+        content: Error.throw("The value of translate mixin must be in a number or a string type.");
     }
 }

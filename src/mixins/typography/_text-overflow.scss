@@ -23,7 +23,7 @@
 // @dependencies:
 // * - meta.type-of (SASS function).
 // * - LibFunc.is-in-list (function).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @param {String} $value
 // * The value of the text-overflow CSS property.
@@ -70,9 +70,9 @@
                 #{$prop}: $value;
             }
         } @else {
-            content: Error.toggle("The parameter of text-overflow mixin must has one of these values: (#{$text-overflow-props-values}).");
+            content: Error.throw("The parameter of text-overflow mixin must has one of these values: (#{$text-overflow-props-values}).");
         }
     } @else {
-        content: Error.toggle("The parameter of text-overflow mixin must has one of these values: (#{$text-overflow-props-values}).");
+        content: Error.throw("The parameter of text-overflow mixin must has one of these values: (#{$text-overflow-props-values}).");
     }
 }

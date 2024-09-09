@@ -21,7 +21,7 @@
 // @dependencies:
 // * - meta.type-of (SASS function).
 // * - map.keys (SASS function).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @param {Map} $all-maps
 // * The maps to be compared.
@@ -51,12 +51,12 @@
     $keys-list: null;
 
     @if list.length($all-maps) == 1 {
-        @return Error.toggle("The parameter of has-same-keys function must has more than one map.");
+        @return Error.throw("The parameter of has-same-keys function must has more than one map.");
     }
 
     @each $map in $all-maps {
         @if meta.type-of($map) != map {
-            @return Error.toggle("The parameter of has-same-keys function must be in a map type.");
+            @return Error.throw("The parameter of has-same-keys function must be in a map type.");
         }
 
         $keys: map.keys($map);

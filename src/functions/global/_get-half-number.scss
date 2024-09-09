@@ -24,7 +24,7 @@
 // * - math.unitless (SASS function).
 // * - string.unquote (SASS function).
 // * - LibFunc.cut-unit (function).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @param {Number} $number
 // * The number to calculate the half of.
@@ -58,7 +58,7 @@
 
 @function half($number) {
     @if meta.type-of($number) != number {
-        @return Error.toggle("The parameter of half function must be in a number type.");
+        @return Error.throw("The parameter of half function must be in a number type.");
     }
 
     @if LibFunc.cut-unit($number) == 0 {

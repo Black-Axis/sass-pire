@@ -22,7 +22,7 @@
 // * - meta.type-of (SASS function).
 // * - list.index (SASS function).
 // * - math.unit (SASS function).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @param {number} $val
 // * The number to check for relative units.
@@ -51,7 +51,7 @@
 
 @function has-rel-unit($value) {
     @if meta.type-of($value) != number {
-        @return Error.toggle("The parameter of has-rel-unit function must be in a number type.");
+        @return Error.throw("The parameter of has-rel-unit function must be in a number type.");
     }
 
     $relative-units: (em, ex, ch, rem, vw, vh, vmin, vmax) !default;

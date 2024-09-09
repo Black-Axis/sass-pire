@@ -60,6 +60,6 @@
     }
 }
 
-@function toggle($error-msg) {
+@function throw($error-msg) {
     @return toggle-error-message($error-msg);
 }
