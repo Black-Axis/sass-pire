@@ -34,7 +34,6 @@
 $test-cases-has-position-map: (
     0: Dev.err("The parameter of has-pos function must be in a string type."),
     bottom-right: false,
-    0: Dev.err("The parameter of has-pos function must be in a string type."),
     344px: Dev.err("The parameter of has-pos function must be in a string type."),
     -0.5px: Dev.err("The parameter of has-pos function must be in a string type."),
     left: true,
