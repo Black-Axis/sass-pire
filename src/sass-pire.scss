@@ -19,12 +19,6 @@
 // @see base
 @forward "base";
 
-// * forwarding the "utils" module.
-// * The "utils" module likely contains utility classes or functions for
-// * various purposes.
-// @see utils
-@forward "utils";
-
 // * forwarding the "abstract" module.
 // * The "abstract" module may contain abstract styles or variables used
 // * throughout the project.
@@ -53,3 +47,11 @@
 // * during development.
 // @see development-utils
 @forward "development-utils";
+
+//* There is a utility module for the sass-pire library
+//* We need to import it to use the sass-pire library
+//* But we don't want to import it in the sass-pire.scss file
+//* because it will be rendered when import the sass-pire.scss file
+//* You can use the following command to import the sass-pire utility module
+//* @use "sass-pire/utils";
+//* You can also import it to use in CSS layers easily.
