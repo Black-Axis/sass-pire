@@ -1,3 +1,9 @@
+#### 1.13.0 (2024-09-21)
+
+##### Chores
+
+* **docs:**  :memo: update `CHANGELOG.md` file ([eed1e1f4](https://github.com/Black-Axis/sass-pire/commit/eed1e1f4379a8b1692902afb92956c34faee5a6e))
+
 #### 1.11.6 (2024-09-21)
 
 #### 1.10.6 (2024-06-18)
