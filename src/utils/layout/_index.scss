@@ -18,6 +18,11 @@
 @forward "box-sizing";
 
 // * forwarding the "display" module.
-// * This module likely contains display display as class.
+// * This module likely contains display as class.
 // @see display
 @forward "display";
+
+// * forwarding the "float" module.
+// * This module likely contains float as class.
+// @see float
+@forward "float";
