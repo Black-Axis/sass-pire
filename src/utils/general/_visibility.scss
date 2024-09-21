@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+// @description
+// * visibility utility class.
+// * This file provides the `visibility` utility class.
+// * It can be used as a standalone class in any where it is needed.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils
+
+// @module utils/visibility
+
+// @dependencies:
+// * Nothing.
+
+// @example 1
+// * <div class="u-invisible"></div>
+
+// @output 1
+// * .u-invisible {
+// *   visibility: hidden;
+// * }
+
+// @example 2
+// * <div class="u-visible"></div>
+
+// @output 2
+// * .u-visible {
+// *   visibility: visible;
+// * }
+
+$visibility-values: (
+    visible: visible,
+    invisible: hidden,
+    collapse: collapse,
+);
+
+@each $visibility-class-name, $visibility-value in $visibility-values {
+    .u-#{$visibility-class-name} {
+        visibility: $visibility-value;
+    }
+}
