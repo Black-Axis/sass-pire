@@ -22,3 +22,8 @@
 // * This module likely contains all general classes.
 // @see general
 @forward "general";
+
+// * forwarding the "layout" module.
+// * This module likely contains all layout classes.
+// @see layout
+@forward "layout";

@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+// @description
+// * This file forwards various modules and utilities classes
+// * for layout classes.
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils/layout
+
+// * forwarding the "box-sizing" module.
+// * This module likely contains display box-sizing as class.
+// @see box-sizing
+@forward "box-sizing";

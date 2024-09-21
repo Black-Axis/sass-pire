@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+// @description
+// * box-sizing utility class.
+// * This file provides the `box-sizing` utility class.
+// * It can be used as a standalone class in any where it is needed.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils
+
+// @module utils/box-sizing
+
+// @dependencies:
+// * Nothing.
+
+// @example 1
+// * <div class="u-box-border"></div>
+
+// @output 1
+// * .u-invisible {
+// *   box-sizing: border-box;
+// * }
+
+$box-sizing-values: (
+    box-border: border-box,
+    box-content: content-box,
+);
+
+@each $box-sizing-class-name, $box-sizing-value in $box-sizing-values {
+    .u-#{$box-sizing-class-name} {
+        box-sizing: $box-sizing-value;
+    }
+}
