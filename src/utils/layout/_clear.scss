@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+// @description
+// * clear utility class.
+// * This file provides the `clear` utility class.
+// * It can be used as a standalone class in any where it is needed.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils
+
+// @module utils/clear
+
+// @dependencies:
+// * Nothing
+
+// @example 1
+// * <div class="u-clear-start"></div>
+
+// @output 1
+// * .u-clear-start {
+// *   clear: inline-start;
+// * }
+
+// @example 2
+// * <div class="u-clear-right"></div>
+
+// @output 2
+// * .u-clear-right {
+// *   clear: right;
+// * }
+
+$clear-values: (
+    clear-start: inline-start,
+    clear-end: inline-end,
+    clear-right: right,
+    clear-left: left,
+    clear-both: both,
+    clear-none: none,
+);
+
+@each $clear-class-name, $clear-value in $clear-values {
+    .u-#{$clear-class-name} {
+        clear: $clear-value;
+    }
+}
