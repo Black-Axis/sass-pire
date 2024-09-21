@@ -13,7 +13,7 @@
 
 // @license MIT
 
-// @repository: https://github.com/ZexLabs/sass-pire
+// @repository: https://github.com/Black-Axis/sass-pire
 
 // @reference: https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap
 
@@ -26,6 +26,7 @@
 // * - map.get (SASS function).
 // * - LibMixin.prefixing-ms (mixin).
 // * - LibFunc.is-in-list (function).
+// * - Error.toggle (function).
 
 // @param {String} $val
 // * The value for the `flex-wrap` property.
@@ -60,6 +61,7 @@
 
 @use "../../vendor-prefixes/prefix" as LibMixin;
 @use "../../../functions/global/is-in-list" as LibFunc;
+@use "../../../development-utils/toggle-error-message" as Error;
 
 @mixin flex-wrap($value: nowrap) {
     $flex-wrap-values: (nowrap, wrap, wrap-reverse, "", no, yes, w, wrap-rev, w-rev, inherit) !default;
@@ -82,6 +84,8 @@
         $flex-wrap-value: map-get($flex-wrap-map, $value);
 
         @include LibMixin.prefixing-ms(flex-wrap, $flex-wrap-value);
+    } @else {
+        content: Error.throw("The parameter of flex-wrap mixin must be one of: (#{map-keys($flex-wrap-map)}).");
     }
 }
 

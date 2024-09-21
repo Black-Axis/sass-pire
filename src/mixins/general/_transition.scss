@@ -12,7 +12,7 @@
 
 // @license MIT
 
-// @repository: https://github.com/ZexLabs/sass-pire
+// @repository: https://github.com/Black-Axis/sass-pire
 
 // @reference: https://developer.mozilla.org/en-US/docs/Web/CSS/transition
 
@@ -23,9 +23,9 @@
 // @dependencies:
 // * - meta.type-of (SASS function).
 // * - var.$time-units (variable).
-// * - prefix.prefixing-all (mixin).
-// * - is-in-list (function).
-// * - cut-unit (function).
+// * - LibPref.prefixing-all (mixin).
+// * - LibFunc1.is-in-list (function).
+// * - LibFunc2.cut-unit (function).
 
 // @param {String} $prop
 // * The CSS property to apply the transition to. Default: `all`.
@@ -59,8 +59,10 @@
 @use "sass:list";
 @use "sass:math";
 @use "../../abstract/global-variables" as var;
-@use "../vendor-prefixes/prefix" as pref;
-@use "../../functions" as func;
+@use "../vendor-prefixes/prefix" as LibPref;
+@use "../../functions/global/is-in-list" as LibFunc1;
+@use "../../functions/global/cut-unit" as LibFunc2;
+@use "../../development-utils/toggle-error-message" as Error;
 
 @mixin transition($prop: all, $time: 0.33ms, $func: ease-in-out, $delaying: 0ms) {
     $time-unit: math.unit($time);
@@ -75,28 +77,28 @@
     $transitions-function-values: (ease, ease-in, ease-in-out, linear) !default;
     $list-transition-functions: (ease, ease-in, ease-in-out, linear) !default;
 
-    @if func.is-in-list($list-transition-functions, $func) and
-        func.is-in-list(var.$time-units, $time-unit) and
-        func.is-in-list(var.$time-units, $delaying-unit)
+    @if LibFunc1.is-in-list($list-transition-functions, $func) and
+        LibFunc1.is-in-list(var.$time-units, $time-unit) and
+        LibFunc1.is-in-list(var.$time-units, $delaying-unit)
     {
         @each $custom, $val in $params-with-types-map {
             @if meta.type-of($custom) != $val {
-                @error "#{$custom} parameter must be in type #{$val}.";
+                content: Error.throw("#{$custom} parameter must be in type #{$val}.");
             }
         }
-
+        
         @if $time < 0 {
-            @error "Time of transition must be equal or bigger than zero.";
+            content: Error.throw("Time of transition must be equal or bigger than zero.");
         }
-
+        
         @if $delaying < 0 {
-            @error "Transition delay must be equal or bigger than zero.";
+            content: Error.throw("Transition delay must be equal or bigger than zero.");
         }
 
-        @if func.cut-unit($delaying) == 0 {
-            @include pref.prefixing-all(transition, $prop #{$time} #{$func} #{func.cut-unit($delaying)});
+        @if LibFunc2.cut-unit($delaying) == 0 {
+            @include LibPref.prefixing-all(transition, $prop #{$time} #{$func} #{LibFunc2.cut-unit($delaying)});
         } @else {
-            @include pref.prefixing-all(transition, $prop #{$time} #{$func} #{$delaying});
+            @include LibPref.prefixing-all(transition, $prop #{$time} #{$func} #{$delaying});
         }
     }
 }

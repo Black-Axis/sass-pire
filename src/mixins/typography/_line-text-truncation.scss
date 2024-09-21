@@ -14,7 +14,7 @@
 
 // @license MIT
 
-// @repository: https://github.com/ZexLabs/sass-pire
+// @repository: https://github.com/Black-Axis/sass-pire
 
 // @namespace typography
 
@@ -23,7 +23,7 @@
 // @dependencies:
 // * - meta.type-of (SASS function).
 // * - LibMixin.text-overflow (mixin).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @param {Number} $value
 // * The value of the text truncation in CSS.
@@ -66,7 +66,7 @@
 
 @mixin line-text-trunc($lines: 1) {
     @if meta.type-of($lines) != number {
-        content: Error.toggle("The value of line-text-trunc mixin must be in a number type.");
+        content: Error.throw("The value of line-text-trunc mixin must be in a number type.");
     } @else {
         @include LibMixin.text-overflow(ellipsis);
         
@@ -75,7 +75,7 @@
         -webkit-box-orient: vertical;
         
         @if $lines <= 0 {
-            content: Error.toggle("The value of line-text-trunc argument must be bigger than or equal to one.");
+            content: Error.throw("The value of line-text-trunc argument must be bigger than or equal to one.");
         } @else {
             @if $lines == 1 {
                 white-space: nowrap;

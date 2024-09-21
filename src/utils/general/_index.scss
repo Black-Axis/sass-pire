@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+// @description
+// * This file forwards various modules and utilities classes
+// * for general classes.
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils/general
+
+// * forwarding the "visibility" module.
+// * This module likely contains display visibility as class.
+// @see visibility
+@forward "visibility";

@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+// @description
+// * object-fit utility class.
+// * This file provides the `object-fit` utility class.
+// * It can be used as a standalone class in any where it is needed.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils
+
+// @module utils/object-fit
+
+// @dependencies:
+// * LibMixin.object-fit (mixin).
+
+// @example 1
+// * <div class="u-object-contain"></div>
+
+// @output 1
+// * .u-object-contain {
+// *   -o-object-fit: contain;
+// *   object-fit: contain;
+// * }
+
+// @example 2
+// * <div class="u-object-fill"></div>
+
+// @output 2
+// * .u-object-fill {
+// *   -o-object-fit: fill;
+// *   object-fit: fill;
+// * }
+
+@use "../../mixins/general/object-fit" as LibMixin;
+
+$object-fit-values: (
+    object-contain: contain,
+    object-cover: cover,
+    object-fill: fill,
+    object-none: none,
+    object-scale-down: scale-down,
+);
+
+@each $object-fit-class-name, $object-fit-value in $object-fit-values {
+    .u-#{$object-fit-class-name} {
+        @include LibMixin.object-fit($object-fit-value);
+    }
+}

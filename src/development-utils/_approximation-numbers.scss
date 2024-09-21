@@ -14,7 +14,7 @@
 
 // @license MIT
 
-// @repository: https://github.com/ZexLabs/sass-pire
+// @repository: https://github.com/Black-Axis/sass-pire
 
 // @namespace development-utils
 
@@ -27,7 +27,7 @@
 // * - math.ceil (SASS function).
 // * - math.floor (SASS function).
 // * - LibFunc.cut-unit (function).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @update We updated the function with validations
 
@@ -79,11 +79,11 @@
     $mode-values: (round, ceil, floor) !default;
 
     @if meta.type-of($num) != number or meta.type-of($digits) != number {
-        @return Error.toggle("The parameters of approx function must be in a number type.");
+        @return Error.throw("The parameters of approx function must be in a number type.");
     }
 
     @if meta.type-of($mode) != string {
-        @return Error.toggle("The mode parameter of approx function must be in a string type.");
+        @return Error.throw("The mode parameter of approx function must be in a string type.");
     }
 
     @if not unitless($num) {
@@ -103,7 +103,7 @@
     } @else if $mode == floor {
         @return math.div(math.floor($num-without-unit * $node), $node) + #{$num-unit};
     } @else {
-        @return Error.toggle("The mode parameter of approx function must be one of these values: (#{$mode-values}).");
+        @return Error.throw("The mode parameter of approx function must be one of these values: (#{$mode-values}).");
     }
 }
 

@@ -13,7 +13,7 @@
 
 // @license MIT
 
-// @repository: https://github.com/ZexLabs/sass-pire
+// @repository: https://github.com/Black-Axis/sass-pire
 
 // @namespace global
 
@@ -23,7 +23,7 @@
 // * - meta.type-of (SASS function).
 // * - string.index (SASS function).
 // * - string.slice (SASS function).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @update We updated the core of trim-end function and converted it
 // * to SCSS language.
@@ -53,7 +53,7 @@
 
 @function trim-end($str-value) {
     @if meta.type-of($str-value) != "string" {
-        @return Error.toggle("The parameter of trim-end function must be in a string type.");
+        @return Error.throw("The parameter of trim-end function must be in a string type.");
     }
 
     $whitespace: " ", "\000C", "\000A", "\000D", "\0009", "\000B", "\00A0", "\1680", "\2000", "\2001", "\2002", "\2003",

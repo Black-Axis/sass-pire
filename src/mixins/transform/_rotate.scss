@@ -15,7 +15,7 @@
 
 // @license MIT
 
-// @repository: https://github.com/ZexLabs/sass-pire
+// @repository: https://github.com/Black-Axis/sass-pire
 
 // @reference: https://developer.mozilla.org/en-US/docs/Web/CSS/transform
 
@@ -28,7 +28,7 @@
 // * - math.unit (SASS function).
 // * - var.$angle-units (variable).
 // * - LibMixin.prefixing-all (mixin).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @param {Number|String} $val
 // * The rotation value.
@@ -62,19 +62,19 @@
 
     @if meta.type-of($val) == number {
         @if not index(var.$angle-units, math.unit($val)) {
-            content: Error.toggle("The parameter of rotate mixin must has one of these units: (#{var.$angle-units})");
+            content: Error.throw("The parameter of rotate mixin must has one of these units: (#{var.$angle-units})");
         } @else {
             @include LibMixin.prefixing-all(transform, rotate($val));
         }
     } @else if meta.type-of($val) == string {
         @if not index($transform-props-values, $val) {
-            content: Error.toggle(
+            content: Error.throw(
                 "The parameter of rotate mixin must has one of these values: (#{$transform-props-values})"
             );
         } @else {
             @include LibMixin.prefixing-all(transform, rotate($val));
         }
     } @else {
-        content: Error.toggle("The value of rotate mixin must be in a number or a string type.");
+        content: Error.throw("The value of rotate mixin must be in a number or a string type.");
     }
 }

@@ -12,7 +12,7 @@
 
 // @license MIT
 
-// @repository: https://github.com/ZexLabs/sass-pire
+// @repository: https://github.com/Black-Axis/sass-pire
 
 // @namespace global
 
@@ -21,7 +21,7 @@
 // @dependencies:
 // * - meta.type-of (SASS function).
 // * - list.index (SASS function).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @param {List} $list-name
 // * The list to check if the second argument is in it or not.
@@ -64,7 +64,7 @@
 
 @function is-in-list($list-name, $value) {
     @if meta.type-of($list-name) != list {
-        @return Error.toggle("The first parameter of is-in-list function must be in a list type.");
+        @return Error.throw("The first parameter of is-in-list function must be in a list type.");
     }
 
     $flatten-list: LibFunc.flatten($list-name);

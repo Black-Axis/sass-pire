@@ -13,7 +13,7 @@
 
 // @license MIT
 
-// @repository: https://github.com/ZexLabs/sass-pire
+// @repository: https://github.com/Black-Axis/sass-pire
 
 // @namespace general
 
@@ -24,7 +24,7 @@
 // * - math.unit (SASS function).
 // * - list.index (SASS function).
 // * - var.$all-units (variable).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @param {Number} $value
 // * The value of the shape-margin. It must be a number type.
@@ -48,7 +48,7 @@
 
 @mixin shape-margin($value: 0) {
     @if meta.type-of($value) != number {
-        content: Error.toggle("The parameter of shape-margin mixin must be in a number type.");
+        content: Error.throw("The parameter of shape-margin mixin must be in a number type.");
     } @else {
         $get-unit: math.unit($value);
 
@@ -60,10 +60,10 @@
                     #{$prop}: $value;
                 }
             } @else {
-                content: Error.toggle("The parameter of shape-margin mixin must have one of these unit values: (#{var.$all-units}).");
+                content: Error.throw("The parameter of shape-margin mixin must have one of these unit values: (#{var.$all-units}).");
             }
         } @else {
-            content: Error.toggle("The parameter of shape-margin mixin must have a unit.");
+            content: Error.throw("The parameter of shape-margin mixin must have a unit.");
         }
     }
 }

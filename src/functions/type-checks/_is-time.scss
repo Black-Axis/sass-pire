@@ -13,7 +13,7 @@
 
 // @license MIT
 
-// @repository: https://github.com/ZexLabs/sass-pire
+// @repository: https://github.com/Black-Axis/sass-pire
 
 // @namespace type-checks
 
@@ -24,7 +24,7 @@
 // * - list.index (SASS function).
 // * - math.unit (SASS function).
 // * - var.$time-units (variable).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @param {number} $val
 // * A number to check if it has a time type or not.
@@ -53,7 +53,7 @@
 
 @function is-time($value) {
     @if meta.type-of($value) != number {
-        @return Error.toggle("The parameter of is-time function must be in a number type.");
+        @return Error.throw("The parameter of is-time function must be in a number type.");
     }
 
     $flag: true;

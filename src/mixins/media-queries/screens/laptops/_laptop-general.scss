@@ -15,7 +15,7 @@
 
 // @license MIT
 
-// @repository: https://github.com/ZexLabs/sass-pire
+// @repository: https://github.com/Black-Axis/sass-pire
 
 // @reference: https://developer.mozilla.org/en-US/docs/Web/CSS/@media
 
@@ -26,9 +26,9 @@
 // @dependencies:
 // * - meta.type-of (SASS function).
 // * - list.index (SASS function).
-// * - is-in-list (function).
-// * - merge (function).
-// * - toggle (function).
+// * - LibFunc1.is-in-list (function).
+// * - LibFunc2.merge (function).
+// * - Error.throw (function).
 
 // @param {String} $retina-value
 // * If you want to apply mixin with retina screen or not.
@@ -74,7 +74,7 @@
 
 @mixin laptop-general($retina-value) {
     @if meta.type-of($retina-value) != string {
-        content: Error.toggle("The parameter of laptop-general mixin must be in a string type.");
+        content: Error.throw("The parameter of laptop-general mixin must be in a string type.");
     }
 
     $accepted-retina-values: (retina, yes, y) !default;
@@ -99,10 +99,12 @@
                 @content;
             }
         } @else {
-            content: Error.toggle(
+            content: Error.throw(
                 "The parameter of laptop-general mixin must be one value of (#{$all-retina-values})."
             );
         }
+    } @else {
+        content: Error.throw("The parameter of laptop-general mixin must be one of: (#{$all-retina-values}).");
     }
 }
 

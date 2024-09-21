@@ -12,7 +12,7 @@
 
 // @license MIT
 
-// @repository: https://github.com/ZexLabs/sass-pire
+// @repository: https://github.com/Black-Axis/sass-pire
 
 // @namespace list
 
@@ -22,7 +22,7 @@
 // * - meta.type-of (SASS function).
 // * - list.join (SASS function).
 // * - list.append (SASS function).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @param {List} $list
 // * A list that may contain nested lists to be flattened.
@@ -75,7 +75,7 @@
 
 @function flatten($list: ()) {
     @if meta.type-of($list) != list {
-        @return Error.toggle("The parameter of flatten function must be in a list type.");
+        @return Error.throw("The parameter of flatten function must be in a list type.");
     }
 
     $flat-list: ();

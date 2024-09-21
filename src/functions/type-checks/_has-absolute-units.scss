@@ -12,7 +12,7 @@
 
 // @license MIT
 
-// @repository: https://github.com/ZexLabs/sass-pire
+// @repository: https://github.com/Black-Axis/sass-pire
 
 // @namespace type-checks
 
@@ -22,7 +22,7 @@
 // * - meta.type-of (SASS function).
 // * - list.index (SASS function).
 // * - math.unit (SASS function).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @param {number} $val
 // * The number to check for an absolute unit.
@@ -51,7 +51,7 @@
 
 @function has-abs-unit($value) {
     @if meta.type-of($value) != number {
-        @return Error.toggle("The parameter of has-abs-unit function must be in a number type.");
+        @return Error.throw("The parameter of has-abs-unit function must be in a number type.");
     }
 
     $absolute-units: (cm, mm, in, px, pt, pc) !default;

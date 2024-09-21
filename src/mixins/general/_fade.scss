@@ -13,7 +13,7 @@
 
 // @license MIT
 
-// @repository: https://github.com/ZexLabs/sass-pire
+// @repository: https://github.com/Black-Axis/sass-pire
 
 // @namespace general
 
@@ -22,7 +22,7 @@
 // @dependencies:
 // * - meta.type-of (SASS function).
 // * - list.index (SASS function).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @param {String} $type - The type of fade effect. Possible values are:
 // * - "hide" or "no": Sets visibility to hidden and opacity to 0.
@@ -45,7 +45,7 @@
 
 @mixin fade($type: show) {
     @if meta.type-of($type) != string {
-        content: Error.toggle("The parameters of fade mixin must be in a string type.");
+        content: Error.throw("The parameters of fade mixin must be in a string type.");
     } @else {
         $fade-values: (hide, show, yes, no) !default;
 
@@ -57,12 +57,12 @@
                 visibility: visible;
                 opacity: 1;
             } @else {
-                content: Error.toggle(
+                content: Error.throw(
                     "The type parameter of fade mixin must be one of these values: (#{$fade-values})."
                 );
             }
         } @else {
-            content: Error.toggle("The type parameter of fade mixin must be one of these values: (#{$fade-values}).");
+            content: Error.throw("The type parameter of fade mixin must be one of these values: (#{$fade-values}).");
         }
     }
 }

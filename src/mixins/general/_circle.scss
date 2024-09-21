@@ -14,7 +14,7 @@
 
 // @license MIT
 
-// @repository: https://github.com/ZexLabs/sass-pire
+// @repository: https://github.com/Black-Axis/sass-pire
 
 // @namespace general
 
@@ -25,7 +25,7 @@
 // * - math.unit (SASS function).
 // * - list.index (SASS function).
 // * - var.$all-units (variable).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @param {Number} $side
 // * The length of one side of the circle. It must be a number.
@@ -55,7 +55,7 @@
 
 @mixin circle($one-side: 0) {
     @if meta.type-of($one-side) != number {
-        content: Error.toggle("The parameter of circle mixin must be in a number type.");
+        content: Error.throw("The parameter of circle mixin must be in a number type.");
     } @else {
         $get-unit: math.unit($one-side);
 
@@ -65,10 +65,10 @@
                 height: #{$one-side};
                 border-radius: 50%;
             } @else {
-                content: Error.toggle("The parameter of circle mixin must be one of these values: (#{var.$all-units}).");
+                content: Error.throw("The parameter of circle mixin must be one of these values: (#{var.$all-units}).");
             }
         } @else {
-            content: Error.toggle("The parameter of circle mixin must have a unit.");
+            content: Error.throw("The parameter of circle mixin must have a unit.");
         }
     }
 }

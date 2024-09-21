@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+// @description
+// * float utility class.
+// * This file provides the `float` utility class.
+// * It can be used as a standalone class in any where it is needed.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils
+
+// @module utils/float
+
+// @dependencies:
+// * Nothing
+
+// @example 1
+// * <div class="u-float-start"></div>
+
+// @output 1
+// * .u-float-start {
+// *   float: inline-start;
+// * }
+
+// @example 2
+// * <div class="u-float-right"></div>
+
+// @output 2
+// * .u-float-right {
+// *   float: right;
+// * }
+
+$float-values: (
+    float-start: inline-start,
+    float-end: inline-end,
+    float-right: right,
+    float-left: left,
+);
+
+@each $float-class-name, $float-value in $float-values {
+    .u-#{$float-class-name} {
+        float: $float-value;
+    }
+}

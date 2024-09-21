@@ -12,7 +12,7 @@
 
 // @license MIT
 
-// @repository: https://github.com/ZexLabs/sass-pire
+// @repository: https://github.com/Black-Axis/sass-pire
 
 // @namespace global
 
@@ -23,7 +23,7 @@
 // * - list.nth (SASS function).
 // * - list.length (SASS function).
 // * - LibFunc.flatten-list (function).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @param {...Number or List} $args
 // * Variable number of arguments, either numbers or lists of numbers.
@@ -81,7 +81,7 @@
 
 @function sum($args: ()) {
     @if meta.type-of($args) != list {
-        @return Error.toggle("The parameter of sum function must be in a list type.");
+        @return Error.throw("The parameter of sum function must be in a list type.");
     } @else {
         $sum: 0;
         $flatten-list: LibFunc.flatten($args);
@@ -98,13 +98,13 @@
             @if math.unit($item) != $first-number-unit {
                 $flag: false;
 
-                @return Error.toggle("Values of the list must has one unit only.");
+                @return Error.throw("Values of the list must has one unit only.");
             }
         }
 
         @for $item from 1 through $length-of-list {
             @if meta.type-of(list.nth($flatten-list, $item)) != number {
-                @return Error.toggle("Values of the list must be in a number type only.");
+                @return Error.throw("Values of the list must be in a number type only.");
             }
 
             $sum: $sum + list.nth($flatten-list, $item);

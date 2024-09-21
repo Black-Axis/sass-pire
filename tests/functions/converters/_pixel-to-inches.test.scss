@@ -12,7 +12,7 @@
 
 // @license MIT
 
-// @repository: https://github.com/ZexLabs/sass-pire
+// @repository: https://github.com/Black-Axis/sass-pire
 
 // @namespace converters
 
@@ -32,7 +32,6 @@
 @use "../../../src/development-utils/error" as Dev;
 
 $test-cases-px-to-in-map: (
-    0: 0,
     0: Dev.err("The parameter dose not need a unit if it equals to zero."),
     344px: "3.583in",
     -0.5px: "-0.005in",

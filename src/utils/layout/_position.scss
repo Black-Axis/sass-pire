@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+// @description
+// * position utility class.
+// * This file provides the `position` utility class.
+// * It can be used as a standalone class in any where it is needed.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils
+
+// @module utils/position
+
+// @dependencies:
+// * Nothing
+
+// @example 1
+// * <div class="u-relative"></div>
+
+// @output 1
+// * .u-relative {
+// *   position: relative;
+// * }
+
+// @example 2
+// * <div class="u-absolute"></div>
+
+// @output 2
+// * .u-absolute {
+// *   position: absolute;
+// * }
+
+$position-values: (
+    static: static,
+    relative: relative,
+    absolute: absolute,
+    fixed: fixed,
+    sticky: sticky,
+);
+
+@each $position-class-name, $position-value in $position-values {
+    .u-#{$position-class-name} {
+        position: $position-value;
+    }
+}

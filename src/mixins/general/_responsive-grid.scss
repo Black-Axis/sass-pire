@@ -12,7 +12,7 @@
 
 // @license MIT
 
-// @repository: https://github.com/ZexLabs/sass-pire
+// @repository: https://github.com/Black-Axis/sass-pire
 
 // @namespace general
 
@@ -21,8 +21,9 @@
 // @dependencies:
 // * - meta.type-of (SASS function).
 // * - math.unit (SASS function).
-// * - prefix-val-ms (mixin).
-// * - is-in-list (function).
+// * - LibPref.prefix-val-ms (mixin).
+// * - LibFunc.is-in-list (function).
+// * - Error.toggle (function).
 
 // @param {Number} $min-col-size
 // * Minimum width of one column in rem units.
@@ -47,32 +48,37 @@
 @use "sass:meta";
 @use "sass:list";
 @use "sass:math";
-@use "../../functions/global/is-in-list" as func;
-@use "../vendor-prefixes/prefix-val" as pref;
+@use "../../functions/global/is-in-list" as LibFunc;
+@use "../vendor-prefixes/prefix-val" as LibPref;
+@use "../../development-utils/toggle-error-message" as Error;
 
 @mixin grid($min-col-size: 4rem, $gap: 1rem) {
     @if meta.type-of($min-col-size) != number {
-        @error "$min-col-size argument must be of type number.";
-    }
-
-    @if meta.type-of($gap) != number {
-        @error "$gap argument must be of type number.";
-    }
-
-    // * main fixed units.
-    // * You can add more than these units as needed.
-    $col-units: (em, rem, px, fr);
-    $gap-units: (#{"%"}, rem, px, em);
-
-    // * Get the unit which is passed with
-    // * the two numbers as arguments to mixin.
-    $get-col-unit: math.unit($min-col-size);
-    $get-gap-unit: math.unit($gap);
-
-    @if func.is-in-list($col-units, $get-col-unit) and func.is-in-list($gap-units, $get-gap-unit) {
-        @include pref.prefix-val-ms(display, grid);
-
-        grid-template-columns: repeat(auto-fit, minmax(min(#{$min-col-size}, 100%), 1fr));
-        gap: #{$gap};
+        content: Error.throw("min-col-size argument must be of type number.");
+    } @else if meta.type-of($gap) != number {
+        content: Error.throw("gap argument must be of type number.");
+    } @else {
+        // * main fixed units.
+        // * You can add more than these units as needed.
+        $col-units: (em, rem, px, fr);
+        $gap-units: (#{"%"}, rem, px, em);
+    
+        // * Get the unit which is passed with
+        // * the two numbers as arguments to mixin.
+        $get-col-unit: math.unit($min-col-size);
+        $get-gap-unit: math.unit($gap);
+    
+        @if LibFunc.is-in-list($col-units, $get-col-unit) {
+            @if LibFunc.is-in-list($gap-units, $get-gap-unit) {
+                @include LibPref.prefix-val-ms(display, grid);
+                
+                grid-template-columns: repeat(auto-fit, minmax(min(#{$min-col-size}, 100%), 1fr));
+                gap: #{$gap};
+            } @else {
+                content: Error.throw("The parameter of grid mixin must be one of: (#{$gap-units}).");
+            }
+        } @else {
+            content: Error.throw("The parameter of grid mixin must be one of: (#{$col-units}).");
+        }
     }
 }

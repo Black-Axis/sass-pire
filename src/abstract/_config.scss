@@ -14,7 +14,7 @@
 
 // @license MIT
 
-// @repository: https://github.com/ZexLabs/sass-pire
+// @repository: https://github.com/Black-Axis/sass-pire
 
 // @namespace abstract
 
@@ -23,12 +23,6 @@
 $base-font-size: 16;
 
 $no-script-text: "JavaScript is disabled in your browser! Enable it.";
-
-// @note
-// * Please, Make the following variable as true if you need to render
-// * all resets in layer mode (using @layer feature) and false to
-// * render it in native mode.
-$use-layer-version: false !default;
 
 // @note
 // * Please, Make the following variable as true if you need to test

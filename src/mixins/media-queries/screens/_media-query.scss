@@ -13,7 +13,7 @@
 
 // @license MIT
 
-// @repository: https://github.com/ZexLabs/sass-pire
+// @repository: https://github.com/Black-Axis/sass-pire
 
 // @reference: https://developer.mozilla.org/en-US/docs/Web/CSS/@media
 
@@ -24,7 +24,7 @@
 // @dependencies:
 // * - map.has-key (SASS function).
 // * - map.get (SASS function).
-// * - is-in-list (function).
+// * - LibFunc.is-in-list (function).
 
 // @param {String} $type
 // * The type of query you want (min | max).
@@ -58,6 +58,7 @@
 
 @use "sass:list";
 @use "../../../functions/global/is-in-list" as LibFunc;
+@use "../../../development-utils//toggle-error-message" as Error;
 
 @mixin mq-general($type: min, $dimension: w, $breakpoint-name: md) {
     $main-mq-types: (min, max) !default;
@@ -86,26 +87,32 @@
         "xxl": 3000px
     ) !default;
 
-    @if LibFunc.is-in-list($main-mq-types, $type) and LibFunc.is-in-list($main-dimensions, $dimension) {
-        @if map-has-key($breakpoints, $breakpoint-name) {
-            $actual-dimension: map_get($breakpoints, $breakpoint-name);
-
-            @if $type == max {
-                $actual-dimension: $actual-dimension - 1px;
-            }
-
-            @if $dimension == width or $dimension == w {
-                @media only screen and (#{$type}-width: $actual-dimension) {
-                    @content;
+    @if LibFunc.is-in-list($main-mq-types, $type) {
+        @if LibFunc.is-in-list($main-dimensions, $dimension) {
+            @if map-has-key($breakpoints, $breakpoint-name) {
+                $actual-dimension: map_get($breakpoints, $breakpoint-name);
+    
+                @if $type == max {
+                    $actual-dimension: $actual-dimension - 1px;
                 }
-            } @else if $dimension == height or $dimension == h {
-                @media only screen and (#{$type}-height: $actual-dimension) {
-                    @content;
+    
+                @if $dimension == width or $dimension == w {
+                    @media only screen and (#{$type}-width: $actual-dimension) {
+                        @content;
+                    }
+                } @else if $dimension == height or $dimension == h {
+                    @media only screen and (#{$type}-height: $actual-dimension) {
+                        @content;
+                    }
                 }
+            } @else {
+                content: Error.throw("Please, Enter the valid breakpoint. #{$breakpoint-name} dose not exist in (#{$breakpoints})");
             }
         } @else {
-            @error "Please, Enter the valid breakpoint. #{$breakpoint-name} dose not exist in (#{$breakpoints})";
+            content: Error.throw("The dimension parameter of align-items mixin must be one of: (#{$main-dimensions}).");
         }
+    } @else {
+        content: Error.throw("The type parameter of mq-general mixin must be one of: (#{$main-mq-types}).");
     }
 }
 

@@ -13,7 +13,7 @@
 
 // @license MIT
 
-// @repository: https://github.com/ZexLabs/sass-pire
+// @repository: https://github.com/Black-Axis/sass-pire
 
 // @reference: https://developer.mozilla.org/en-US/docs/Web/CSS/text-align-last
 
@@ -24,7 +24,7 @@
 // @dependencies:
 // * - meta.type-of (SASS function).
 // * - LibFunc.is-in-list (function).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @param {String} $value
 // * The value of the text-align-last CSS property.
@@ -77,9 +77,9 @@
                 #{$prop}: $value;
             }
         } @else {
-            content: Error.toggle("The parameter of text-align-last mixin must has one of these values: (#{$text-align-last-props-values}).");
+            content: Error.throw("The parameter of text-align-last mixin must has one of these values: (#{$text-align-last-props-values}).");
         }
     } @else {
-        content: Error.toggle("The parameter of text-align-last mixin must has one of these values: (#{$text-align-last-props-values}).");
+        content: Error.throw("The parameter of text-align-last mixin must has one of these values: (#{$text-align-last-props-values}).");
     }
 }

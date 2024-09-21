@@ -12,7 +12,7 @@
 
 // @license MIT
 
-// @repository: https://github.com/ZexLabs/sass-pire
+// @repository: https://github.com/Black-Axis/sass-pire
 
 // @namespace list
 
@@ -24,7 +24,7 @@
 // * - list.length (SASS function).
 // * - list.nth (SASS function).
 // * - LibFunc.flatten-list (function).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @param {List} $list
 // * The input list from which the centered element is retrieved.
@@ -64,7 +64,7 @@
 
 @function center-of-list($list: ()) {
     @if meta.type-of($list) != list {
-        @return Error.toggle("The parameter of center-of-list function must be in a list type.");
+        @return Error.throw("The parameter of center-of-list function must be in a list type.");
     }
 
     @if list.length($list) == 0 {

@@ -13,7 +13,7 @@
 
 // @license MIT
 
-// @repository: https://github.com/ZexLabs/sass-pire
+// @repository: https://github.com/Black-Axis/sass-pire
 
 // @reference: https://developer.mozilla.org/en-US/docs/Web/CSS/align-items
 
@@ -22,7 +22,10 @@
 // @module main-props/align-items
 
 // @dependencies:
+// * - var.$align-items-props (variable).
+// * - var.$align-items-values (variable).
 // * - LibFunc.is-in-list (function).
+// * - Error.throw (function).
 
 // @param {String} $value
 // * The value for the `align-items` property.
@@ -55,24 +58,17 @@
 // * The core logic of (a-i) mixin is to call the first one.
 // * You can use one of them as you want.
 
+@use "../../../abstract/global-variables" as var;
+@use "../../../development-utils/toggle-error-message" as Error;
 @use "../../../functions/global/is-in-list" as LibFunc;
 
 @mixin align-items($value: normal) {
-    $align-items-props: (
-        -webkit-box-align,
-        -webkit-align-items,
-        -ms-flex-align,
-        -moz-align-items,
-        align-items
-    ) !default;
-
-    // stylelint-disable-next-line scss/dollar-variable-empty-line-before
-    $align-items-values: (normal, stretch, start, end, flex-start, flex-end, center, baseline, inherit) !default;
-
-    @if LibFunc.is-in-list($align-items-values, $value) {
-        @each $prop in $align-items-props {
+    @if LibFunc.is-in-list(var.$align-items-values, $value) {
+        @each $prop in var.$align-items-props {
             #{$prop}: $value;
         }
+    } @else {
+        content: Error.throw("The parameter of align-items mixin must be one of: (#{var.$align-items-values}).");
     }
 }
 

@@ -14,7 +14,7 @@
 
 // @license MIT
 
-// @repository: https://github.com/ZexLabs/sass-pire
+// @repository: https://github.com/Black-Axis/sass-pire
 
 // @reference: https://developer.mozilla.org/en-US/docs/Web/CSS/grid-area
 
@@ -24,7 +24,7 @@
 
 // @dependencies:
 // * - meta.type-of (SASS function).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @param {String} $value
 // * The value to set to grid-area property.
@@ -45,7 +45,7 @@
 
 @mixin area($value) {
     @if meta.type-of($value) != string {
-        content: Error.toggle("The parameters of area mixin must be in a string type.");
+        content: Error.throw("The parameters of area mixin must be in a string type.");
     } @else {
         $grid-area-prefixes-values: (-ms-grid-row, grid-area) !default;
 

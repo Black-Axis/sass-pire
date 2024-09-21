@@ -15,7 +15,7 @@
 
 // @license MIT
 
-// @repository: https://github.com/ZexLabs/sass-pire
+// @repository: https://github.com/Black-Axis/sass-pire
 
 // @reference: https://developer.mozilla.org/en-US/docs/Web/CSS/@media
 
@@ -26,9 +26,9 @@
 // @dependencies:
 // * - meta.type-of (SASS function).
 // * - list.index (SASS function).
-// * - is-in-list (function).
-// * - merge (function).
-// * - toggle (function).
+// * - LibFunc1.is-in-list (function).
+// * - LibFunc2.merge (function).
+// * - Error.throw (function).
 
 // @param {String} $orientation-type
 // * The type of the orientation for the mixin of the device type.
@@ -74,7 +74,7 @@
 
 @mixin google-pixel($orientation-type: portrait) {
     @if meta.type-of($orientation-type) != string {
-        content: Error.toggle("The parameter of google-pixel mixin must be in a string type.");
+        content: Error.throw("The parameter of google-pixel mixin must be in a string type.");
     }
 
     $landscape-values: (landscape, land, l) !default;
@@ -107,6 +107,8 @@
                     @content;
                 }
             }
+        } @else {
+            content: Error.throw("The parameter of google-pixel mixin must be one of: (#{$all-orientations-types}).");
         }
     }
 }

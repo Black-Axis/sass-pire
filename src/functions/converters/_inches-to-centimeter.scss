@@ -12,7 +12,7 @@
 
 // @license MIT
 
-// @repository: https://github.com/ZexLabs/sass-pire
+// @repository: https://github.com/Black-Axis/sass-pire
 
 // @namespace converters
 
@@ -23,7 +23,7 @@
 // * - math.unit (SASS function).
 // * - LibFunc.cut-unit (function).
 // * - Approx.approx (function).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @param {Number} $inches-val
 // * The value in inches unit to convert.
@@ -52,7 +52,7 @@
 
 @function in-to-cm($inches-val) {
     @if meta.type-of($inches-val) != number {
-        @return Error.toggle("The parameter of in-to-cm function must be in a number type.");
+        @return Error.throw("The parameter of in-to-cm function must be in a number type.");
     }
 
     @if $inches-val == 0 {
@@ -61,11 +61,11 @@
 
     // stylelint-disable-next-line length-zero-no-unit
     @if $inches-val == 0in {
-        @return Error.toggle("The parameter dose not need a unit if it equals to zero.");
+        @return Error.throw("The parameter dose not need a unit if it equals to zero.");
     }
 
     @if math.unit($inches-val) != in {
-        @return Error.toggle("The in-to-cm function accepts argument with inch unit only.");
+        @return Error.throw("The in-to-cm function accepts argument with inch unit only.");
     }
 
     $actual-number: LibFunc.cut-unit($inches-val);

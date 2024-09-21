@@ -17,7 +17,7 @@
 
 // @license MIT
 
-// @repository: https://github.com/ZexLabs/sass-pire
+// @repository: https://github.com/Black-Axis/sass-pire
 
 // @namespace general
 
@@ -64,14 +64,14 @@
         meta.type-of($max-px) != number or
         meta.type-of($min-breakpoint) != number or
         meta.type-of($max-breakpoint) != number {
-        @return Error.toggle("The parameters in clamped function must be in a number type.");
+        @return Error.throw("The parameters in clamped function must be in a number type.");
     }
 
     @if math.unit($min-px) != px or
         math.unit($max-px) != px or
         math.unit($min-breakpoint) != px or
         math.unit($max-breakpoint) != px {
-        @return Error.toggle("The clamped function accepts argument with pixel unit only.");
+        @return Error.throw("The clamped function accepts argument with pixel unit only.");
     }
 
     $slope: math.div($max-px - $min-px, $max-breakpoint - $min-breakpoint);

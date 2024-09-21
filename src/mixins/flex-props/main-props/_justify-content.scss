@@ -14,7 +14,7 @@
 
 // @license MIT
 
-// @repository: https://github.com/ZexLabs/sass-pire
+// @repository: https://github.com/Black-Axis/sass-pire
 
 // @reference: https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content
 
@@ -23,7 +23,10 @@
 // @module main-props/justify-content
 
 // @dependencies:
+// * - var.$justify-content-props (variable).
+// * - var.$justify-content-values (variable).
 // * - LibFunc.is-in-list (function).
+// * - Error.toggle (function).
 
 // @param {String} $value
 // * The value for `justify-content`.
@@ -52,38 +55,17 @@
 // * The core logic of (j-c) mixin is to call the first one.
 // * You can use one of them as you want.
 
+@use "../../../abstract/global-variables" as var;
 @use "../../../functions/global/is-in-list" as LibFunc;
+@use "../../../development-utils/toggle-error-message" as Error;
 
 @mixin justify-content($value: flex-start) {
-    $justify-content-props: (
-        -webkit-box-pack,
-        -webkit-justify-content,
-        -ms-flex-pack,
-        -moz-justify-content,
-        justify-content
-    ) !default;
-
-    // stylelint-disable-next-line scss/dollar-variable-empty-line-before
-    $justify-content-values: (
-        normal,
-        stretch,
-        start,
-        end,
-        right,
-        left,
-        flex-start,
-        flex-end,
-        center,
-        space-between,
-        space-around,
-        space-evenly,
-        inherit
-    ) !default;
-
-    @if LibFunc.is-in-list($justify-content-values, $value) {
-        @each $prop in $justify-content-props {
+    @if LibFunc.is-in-list(var.$justify-content-values, $value) {
+        @each $prop in var.$justify-content-props {
             #{$prop}: $value;
         }
+    } @else {
+        content: Error.throw("The parameter of justify-content mixin must be one of: (#{var.$justify-content-values}).");
     }
 }
 

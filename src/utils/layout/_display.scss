@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+// @description
+// * display utility class.
+// * This file provides the `display` utility class.
+// * It can be used as a standalone class in any where it is needed.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils
+
+// @module utils/display
+
+// @dependencies:
+// * LibMixin1.d-flex (mixin).
+// * LibMixin2.d-inflex (mixin).
+// * LibMixin3.d-grid (mixin).
+// * LibMixin4.d-ingrid (mixin).
+
+// @example 1
+// * <div class="u-table"></div>
+
+// @output 1
+// * .u-table {
+// *   display: table;
+// * }
+
+// @example 2
+// * <div class="u-flex"></div>
+
+// @output 2
+// * .u-flex {
+// *   display: -webkit-box;
+// *   display: -moz-box;
+// *   display: -ms-flexbox;
+// *   display: -webkit-flex;
+// *   display: flex;
+// * }
+
+// @note
+// * We separated (flex & grid) from the $display-values map
+// * because of the vendor prefixes of them.
+
+@use "../../mixins/flex-props/main-props/flex" as LibMixin1;
+@use "../../mixins/flex-props/main-props/inline-flex" as LibMixin2;
+@use "../../mixins/grid-props/grid" as LibMixin3;
+@use "../../mixins/grid-props/inline-grid" as LibMixin4;
+
+$display-values: (
+    block: block,
+    none: none,
+    inline: inline,
+    inline-block: inline-block,
+    inline-table: inline-table,
+    list-item: list-item,
+    table: table,
+    table-caption: table-caption,
+    table-cell: table-cell,
+    table-column: table-column,
+    table-column-group: table-column-group,
+    table-footer-group: table-footer-group,
+    table-header-group: table-header-group,
+    table-row: table-row,
+    table-row-group: table-row-group,
+    run-in: run-in,
+    compact: compact,
+);
+
+@each $display-class-name, $display-value in $display-values {
+    .u-#{$display-class-name} {
+        display: $display-value;
+    }
+}
+
+.u-flex {
+    @include LibMixin1.d-flex();
+}
+
+.u-inline-flex {
+    @include LibMixin2.d-inflex();
+}
+
+.u-grid {
+    @include LibMixin3.d-grid();
+}
+
+.u-inline-grid {
+    @include LibMixin4.d-ingrid();
+}

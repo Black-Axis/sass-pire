@@ -13,7 +13,7 @@
 
 // @license MIT
 
-// @repository: https://github.com/ZexLabs/sass-pire
+// @repository: https://github.com/Black-Axis/sass-pire
 
 // @reference: https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction
 
@@ -23,6 +23,7 @@
 
 // @dependencies:
 // * - LibFunc.is-in-list (function).
+// * - Error.throw (function).
 
 // @param {String} $value
 // * The value for the `flex-direction` property.
@@ -61,6 +62,7 @@
 // stylelint-disable scss/no-global-function-names
 
 @use "../../../functions/global/is-in-list" as LibFunc;
+@use "../../../development-utils/toggle-error-message" as Error;
 
 @mixin flex-dir($value: row) {
     $flex-direction-values: (row, r, row-reverse, r-rev, column, col, c, column-reverse, col-rev, "") !default;
@@ -123,6 +125,8 @@
                 #{$prop}: $val;
             }
         }
+    } @else {
+        content: Error.throw("The second parameter of is-in-list function must be one of: (#{$flex-direction-values}).");
     }
 }
 

@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+// @description
+// * align-items utility class.
+// * This file provides the `u-ai-*` utility class.
+// * It can be used as a standalone class in any where it is needed.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils
+
+// @module utils/align-items
+
+// @dependencies:
+// * - var.$align-items-values (variable).
+// * - LibMixin.a-i (mixin).
+
+// @example
+// * <div class="u-ai-center"></div>
+
+// @output:
+// * .u-ai-center {
+// *   -webkit-box-align: center;
+// *   -webkit-align-items: center;
+// *   -ms-flex-align: center;
+// *   -moz-align-items: center;
+// *   align-items: center;
+// * }
+
+@use "../../abstract/global-variables" as var;
+@use "../../mixins/flex-props/main-props/align-items" as LibMixin;
+
+@each $value in var.$align-items-values {
+    .u-ai-#{$value} {
+        @include LibMixin.a-i($value);
+    }
+}

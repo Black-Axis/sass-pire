@@ -12,7 +12,7 @@
 
 // @license MIT
 
-// @repository: https://github.com/ZexLabs/sass-pire
+// @repository: https://github.com/Black-Axis/sass-pire
 
 // @namespace converters
 
@@ -23,7 +23,7 @@
 // * - math.unit (SASS function).
 // * - LibFunc.cut-unit (function).
 // * - Approx.approx (function).
-// * - Error.toggle (function).
+// * - Error.throw (function).
 
 // @param {Number} $cm-val
 // * The value in centimeter unit to convert.
@@ -52,7 +52,7 @@
 
 @function cm-to-px($cm-val) {
     @if meta.type-of($cm-val) != number {
-        @return Error.toggle("The parameter of cm-to-px function must be in a number type.");
+        @return Error.throw("The parameter of cm-to-px function must be in a number type.");
     }
 
     @if $cm-val == 0 {
@@ -61,11 +61,11 @@
 
     // stylelint-disable-next-line length-zero-no-unit
     @if $cm-val == 0cm {
-        @return Error.toggle("The parameter dose not need a unit if it equals to zero.");
+        @return Error.throw("The parameter dose not need a unit if it equals to zero.");
     }
 
     @if math.unit($cm-val) != cm {
-        @return Error.toggle("The cm-to-px function accepts argument with centimeter unit only.");
+        @return Error.throw("The cm-to-px function accepts argument with centimeter unit only.");
     }
 
     $actual-number: LibFunc.cut-unit($cm-val);

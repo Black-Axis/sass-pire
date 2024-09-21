@@ -4,6 +4,7 @@
     "description": "Just a more mixins and functions with SCSS for more productive projects.",
     "markdown": "github",
     "license": "MIT",
+    "packageManager": "yarn@3.5.1",
     "licenses": [
         {
             "type": "MIT",
@@ -15,8 +16,8 @@
         "Khaled Mohamed"
     ],
     "bugs": {
-        "url": "https://github.com/ZexLabs/sass-pire/issues",
-        "email": "ZexLabs@outlook.com"
+        "url": "https://github.com/Black-Axis/sass-pire/issues",
+        "email": "black_axis@outlook.com"
     },
     "keywords": [
         "SCSS",
@@ -27,7 +28,7 @@
         "scss-library"
     ],
     "repository": {
-        "url": "https://github.com/ZexLabs/sass-pire",
+        "url": "https://github.com/Black-Axis/sass-pire",
         "type": "git"
     },
     "scripts": {
@@ -43,19 +44,19 @@
         "gen:lock": "npm i --package-lock-only",
         "test:scss": "sass --no-source-map ./tests/test.scss:dist/test-styles.css --watch",
         "test:jest": "jest ./tests/sass.test.js --watchAll #runs all tests",
-        "test": "concurrently \"npm run test:jest\" \"npm run test:css\""
+        "test": "concurrently \"npm run test:jest\" \"npm run test:scss\""
     },
     "devDependencies": {
-        "concurrently": "^8.2.2",
+        "concurrently": "^9.0.0",
         "cz-conventional-changelog": "^3.3.0",
-        "eslint": ">=5.16.0",
+        "eslint": ">=9.10.0",
         "eslint-config-google": "^0.14.0",
         "jest": "^29.7.0",
-        "npm-check-updates": "^16.14.11",
-        "sass": "^1.69.5",
-        "sass-true": "^7.0.0",
-        "stylelint": "^15.11.0",
-        "stylelint-config-standard-scss": "^11.1.0"
+        "npm-check-updates": "^17.1.1",
+        "sass": "^1.78.0",
+        "sass-true": "^8.0.0",
+        "stylelint": "^16.9.0",
+        "stylelint-config-standard-scss": "^13.1.0"
     },
     "config": {
         "commitizen": {
