@@ -129,3 +129,24 @@ $justify-content-values: (
     space-evenly,
     inherit
 ) !default;
+
+$align-items-props: (
+    -webkit-box-align,
+    -webkit-align-items,
+    -ms-flex-align,
+    -moz-align-items,
+    align-items
+) !default;
+
+// stylelint-disable-next-line scss/dollar-variable-empty-line-before
+$align-items-values: (
+    normal,
+    stretch,
+    start,
+    end,
+    flex-start,
+    flex-end,
+    center,
+    baseline,
+    inherit
+) !default;

@@ -21,3 +21,8 @@
 // * This module likely contains justify-content as class.
 // @see justify-content
 @forward "justify-content";
+
+// * forwarding the "align-items" module.
+// * This module likely contains align-items as class.
+// @see align-items
+@forward "align-items";

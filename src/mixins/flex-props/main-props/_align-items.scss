@@ -22,6 +22,8 @@
 // @module main-props/align-items
 
 // @dependencies:
+// * - var.$align-items-props (variable).
+// * - var.$align-items-values (variable).
 // * - LibFunc.is-in-list (function).
 
 // @param {String} $value
@@ -55,22 +57,13 @@
 // * The core logic of (a-i) mixin is to call the first one.
 // * You can use one of them as you want.
 
+@use "../../../abstract/global-variables" as var;
+@use "../../../development-utils/toggle-error-message" as Error;
 @use "../../../functions/global/is-in-list" as LibFunc;
 
 @mixin align-items($value: normal) {
-    $align-items-props: (
-        -webkit-box-align,
-        -webkit-align-items,
-        -ms-flex-align,
-        -moz-align-items,
-        align-items
-    ) !default;
-
-    // stylelint-disable-next-line scss/dollar-variable-empty-line-before
-    $align-items-values: (normal, stretch, start, end, flex-start, flex-end, center, baseline, inherit) !default;
-
-    @if LibFunc.is-in-list($align-items-values, $value) {
-        @each $prop in $align-items-props {
+    @if LibFunc.is-in-list(var.$align-items-values, $value) {
+        @each $prop in var.$align-items-props {
             #{$prop}: $value;
         }
     }
