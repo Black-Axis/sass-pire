@@ -10,9 +10,14 @@
 
 // @repository: https://github.com/Black-Axis/sass-pire
 
-// @namespace mixins/flex-props
+// @namespace utils/flexbox
 
 // * forwarding the "flex" module.
 // * This module likely contains display flex as class.
 // @see flex
 @forward "flex";
+
+// * forwarding the "justify-content" module.
+// * This module likely contains justify-content as class.
+// @see justify-content
+@forward "justify-content";

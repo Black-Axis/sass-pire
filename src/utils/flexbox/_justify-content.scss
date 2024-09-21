@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+// @description
+// * justify-content utility class.
+// * This file provides the `u-jc-*` utility class.
+// * It can be used as a standalone class in any where it is needed.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils
+
+// @module utils/justify-content
+
+// @dependencies:
+// * - var.$justify-content-values (variable).
+// * - LibMixin.j-c (mixin).
+
+// @example
+// * <div class="u-jc-center"></div>
+
+// @output:
+// * .u-jc-center {
+// *   -webkit-box-pack: center;
+// *   -webkit-justify-content: center;
+// *   -ms-flex-pack: center;
+// *   -moz-justify-content: center;
+// *   justify-content: center;
+// * }
+
+@use "../../abstract/global-variables" as var;
+@use "../../mixins/flex-props/main-props/justify-content" as LibMixin;
+
+@each $value in var.$justify-content-values {
+    .u-jc-#{$value} {
+        @include LibMixin.j-c($value);
+    }
+}

@@ -104,3 +104,28 @@ $overflow-values: (
 $main-data-types: (number, string, bool) !default;
 
 $main-directions: (top, right, bottom, left) !default;
+
+$justify-content-props: (
+    -webkit-box-pack,
+    -webkit-justify-content,
+    -ms-flex-pack,
+    -moz-justify-content,
+    justify-content
+) !default;
+
+// stylelint-disable-next-line scss/dollar-variable-empty-line-before
+$justify-content-values: (
+    normal,
+    stretch,
+    start,
+    end,
+    right,
+    left,
+    flex-start,
+    flex-end,
+    center,
+    space-between,
+    space-around,
+    space-evenly,
+    inherit
+) !default;
