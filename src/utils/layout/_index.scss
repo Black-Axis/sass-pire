@@ -16,3 +16,8 @@
 // * This module likely contains display box-sizing as class.
 // @see box-sizing
 @forward "box-sizing";
+
+// * forwarding the "display" module.
+// * This module likely contains display display as class.
+// @see display
+@forward "display";
