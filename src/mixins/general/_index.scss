@@ -110,3 +110,8 @@
 // * using shape-outside property.
 // @see shape-margin
 @forward "shape-margin";
+
+// * forwarding the "object-fit" mixin from the "object-fit" module.
+// * The "object-fit" mixin sets an object-fit property.
+// @see object-fit
+@forward "object-fit";

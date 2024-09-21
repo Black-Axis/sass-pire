@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+// @description
+// * object-fit mixin.
+// * This mixin generates object-fit CSS properties with
+// * its vendor prefixes for cross-browser compatibility.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace general
+
+// @module general/object-fit
+
+// @dependencies:
+// * - meta.type-of (SASS function).
+// * - Error.throw (function).
+
+// @param {String} $value
+// * The value of object-fit property.
+
+// @example
+// * .example {
+// *   @include object-fit(contain)
+// * }
+
+// @output
+// * .example {
+// *   -o-object-fit: contain;
+// *   object-fit: contain;
+// * }
+
+@use "sass:meta";
+@use "../../functions/global/is-in-list" as LibFunc;
+@use "../../development-utils/toggle-error-message" as Error;
+
+@mixin object-fit($value: fill) {
+    @if meta.type-of($value) != string {
+        content: Error.throw("The parameter of circle mixin must be in a string type.");
+    } @else {
+        $object-fit-props: (
+            -o-object-fit,
+            object-fit
+        ) !default;
+
+        $object-fit-values: (fill, contain, cover, none, scale-down) !default;
+
+        @if LibFunc.is-in-list($object-fit-values, $value) {
+            @each $prop in $object-fit-props {
+                #{$prop}: $value;
+            }
+        } @else {
+            content: Error.throw("The parameter of object-fit mixin must be one of: (#{$object-fit-values}).");
+        }
+    }
+}
