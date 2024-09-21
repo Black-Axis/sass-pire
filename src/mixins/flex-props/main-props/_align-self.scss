@@ -24,6 +24,7 @@
 // @dependencies:
 // * - meta.type-of (SASS function).
 // * - LibFunc.is-in-list (function).
+// * - Error.throw (function).
 
 // @param {String} $val
 // * The value for the `align-self` property.
@@ -59,6 +60,7 @@
 
 @use "sass:meta";
 @use "../../../functions/global/is-in-list" as LibFunc;
+@use "../../../development-utils/toggle-error-message" as Error;
 
 @mixin align-self($value: auto) {
     $align-self-props: (
@@ -87,13 +89,15 @@
     ) !default;
 
     @if meta.type-of($value) != string {
-        @error "$value of align-self argument must be of type string.";
+        content: Error.throw("The parameter of align-self mixin must be in type string.");
     }
 
     @if LibFunc.is-in-list($align-self-values, $value) {
         @each $prop in $align-self-props {
             #{$prop}: $value;
         }
+    } @else {
+        content: Error.throw("The parameter of align-self mixin must be one of: (#{$align-self-values}).");
     }
 }
 

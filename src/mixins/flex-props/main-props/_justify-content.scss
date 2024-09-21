@@ -26,6 +26,7 @@
 // * - var.$justify-content-props (variable).
 // * - var.$justify-content-values (variable).
 // * - LibFunc.is-in-list (function).
+// * - Error.toggle (function).
 
 // @param {String} $value
 // * The value for `justify-content`.
@@ -56,12 +57,15 @@
 
 @use "../../../abstract/global-variables" as var;
 @use "../../../functions/global/is-in-list" as LibFunc;
+@use "../../../development-utils/toggle-error-message" as Error;
 
 @mixin justify-content($value: flex-start) {
     @if LibFunc.is-in-list(var.$justify-content-values, $value) {
         @each $prop in var.$justify-content-props {
             #{$prop}: $value;
         }
+    } @else {
+        content: Error.throw("The parameter of justify-content mixin must be one of: (#{var.$justify-content-values}).");
     }
 }
 

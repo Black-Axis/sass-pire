@@ -22,7 +22,7 @@
 // * - meta.type-of (SASS function).
 // * - math.unit (SASS function).
 // * - var.$all-units (variable).
-// * - func.is-in-list (function).
+// * - LibFunc.is-in-list (function).
 // * - Error.throw (function).
 
 // @param {Number} $one-side
@@ -50,15 +50,21 @@
 @use "sass:list";
 @use "sass:math";
 @use "../../abstract/global-variables" as var;
-@use "../../functions/global/is-in-list" as func;
+@use "../../functions/global/is-in-list" as LibFunc;
 @use "../../development-utils/toggle-error-message" as Error;
 
 @mixin square($one-side: 1px) {
     @if meta.type-of($one-side) == number {
         @if not unitless($one-side) {
-            @if func.is-in-list(var.$all-units, math.unit($one-side)) {
-                width: $one-side;
-                height: $one-side;
+            @if LibFunc.is-in-list(var.$all-units, math.unit($one-side)) {
+                --one-side: #{$one-side};
+
+                inline-size: var(--one-side);
+                width: var(--one-side);
+                block-size: var(--one-side);
+                height: var(--one-side);
+            } @else {
+                content: Error.throw("The parameter of square mixin must be one of: (#{var.$all-units}).");
             }
         } @else {
             content: Error.throw("The parameter of square mixin has a unit of a number type.");

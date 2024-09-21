@@ -26,9 +26,9 @@
 // @dependencies:
 // * - meta.type-of (SASS function).
 // * - list.index (SASS function).
-// * - is-in-list (function).
-// * - merge (function).
-// * - toggle (function).
+// * - LibFunc1.is-in-list (function).
+// * - LibFunc2.merge (function).
+// * - Error.throw (function).
 
 // @param {String} $retina-value
 // * If you want to apply mixin with retina screen or not.
@@ -103,6 +103,8 @@
                 "The parameter of laptop-general mixin must be one value of (#{$all-retina-values})."
             );
         }
+    } @else {
+        content: Error.throw("The parameter of laptop-general mixin must be one of: (#{$all-retina-values}).");
     }
 }
 

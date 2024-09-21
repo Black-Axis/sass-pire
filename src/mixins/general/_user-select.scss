@@ -22,7 +22,7 @@
 
 // @dependencies:
 // * - meta.type-of (SASS function).
-// * - is-in-list (function).
+// * - LibFunc.is-in-list (function).
 // * - Error.throw (function).
 
 // @param {String} $val
@@ -53,7 +53,7 @@
 
 @use "sass:meta";
 @use "sass:list";
-@use "../../functions/global/is-in-list" as func;
+@use "../../functions/global/is-in-list" as LibFunc;
 @use "../../development-utils/toggle-error-message" as Error;
 
 @mixin u-select($value: auto) {
@@ -62,10 +62,12 @@
     $user-select-values: (none, auto, text, contain, all, inherit, initial, revert, revert-layer, unset) !default;
 
     @if meta.type-of($value) == string {
-        @if func.is-in-list($user-select-values, $value) {
+        @if LibFunc.is-in-list($user-select-values, $value) {
             @each $prop in $user-select-props {
                 #{$prop}: $value;
             }
+        } @else {
+            content: Error.throw("The parameter of u-select mixin must be one of: (#{$user-select-values}).");
         }
     } @else {
         content: Error.throw("The parameter of u-select mixin must be in a string type.");

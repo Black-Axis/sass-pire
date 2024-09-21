@@ -24,8 +24,9 @@
 // @dependencies:
 // * - meta.type-of (SASS function).
 // * - math.unitless (SASS function).
-// * - LibFunc.is-in-list (function).
-// * - LibFunc.cut-unit (function).
+// * - LibFunc1.is-in-list (function).
+// * - LibFunc2.cut-unit (function).
+// * - Error.throw (function).
 
 // @param {String|Number} $val
 // * The value for the `flex-basis` property.
@@ -65,6 +66,7 @@
 @use "sass:list";
 @use "sass:math";
 @use "../../../functions/global" as LibFunc;
+@use "../../../development-utils/toggle-error-message" as Error;
 
 @mixin flex-basis($value: auto) {
     $flex-basis-props: (
@@ -86,6 +88,8 @@
                 @each $prop in $flex-basis-props {
                     #{$prop}: $value;
                 }
+            } @else {
+                content: Error.throw("The parameter of flex-basis mixin must be one of: (#{$flex-basis-values}).");
             }
         }
 
@@ -99,7 +103,7 @@
             }
         }
     } @else {
-        @error "$value argument must has be of type number or string.";
+        @error "#{$value} argument must has be of type number or string.";
     }
 }
 
