@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+// @description
+// * aspect-ratio utility class.
+// * This file provides the `aspect-ratio` utility class.
+// * It can be used as a standalone class in any where it is needed.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils
+
+// @module utils/aspect-ratio
+
+// @dependencies:
+// * Nothing.
+
+// @example 1
+// * <div class="u-aspect-auto"></div>
+
+// @output 1
+// * .u-aspect-auto {
+// *   aspect-ratio: auto;
+// * }
+
+// @example 2
+// * <div class="u-aspect-video"></div>
+
+// @output 2
+// * .u-aspect-video {
+// *   aspect-ratio: 16 / 9;
+// * }
+
+$aspect-ratio-values: (
+    aspect-auto: auto,
+    aspect-square: "1 / 1",
+    aspect-video: "16 / 9",
+);
+
+@each $aspect-ratio-class-name, $aspect-ratio-value in $aspect-ratio-values {
+    .u-#{$aspect-ratio-class-name} {
+        aspect-ratio: #{$aspect-ratio-value};
+    }
+}
