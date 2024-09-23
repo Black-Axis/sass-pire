@@ -101,6 +101,8 @@ $overflow-values: (
     unset
 ) !default;
 
+$overscroll-behavior-values: (auto, contain, none, initial, inherit) !default;
+
 $main-data-types: (number, string, bool) !default;
 
 $main-directions: (top, right, bottom, left) !default;

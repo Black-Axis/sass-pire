@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+// @description
+// * overscroll mixin.
+// * This mixin provides a simple way to control the overscroll
+// * of an element with its vendor prefixes.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace general
+
+// @module general/overscroll
+
+// @dependencies:
+// * - meta.type-of (SASS function).
+// * - list.index (SASS function).
+// * - var.$overscroll-behavior-values (variable).
+// * - Error.throw (function).
+
+// @param {String} $value - The value of the overscroll behavior. Possible values are:
+// * - "auto": Sets -ms-scroll-chaining to chained and overscroll-behavior to auto.
+// * - "contain": Sets -ms-scroll-chaining to none and overscroll-behavior to contain.
+// * - "none": Sets -ms-scroll-chaining to none and overscroll-behavior to none.
+
+// @example
+// * .example {
+// *    @include overscroll(contain);
+// * }
+
+// @output
+// * .example {
+// *   -ms-scroll-chaining: none;
+// *   overscroll-behavior: contain;
+// * }
+
+@use "sass:meta";
+@use "sass:list";
+@use "../../abstract/global-variables" as var;
+@use "../../development-utils/toggle-error-message" as Error;
+
+@mixin overscroll($value: auto) {
+    @if meta.type-of($value) != string {
+        content: Error.throw("The parameters of overscroll mixin must be in a string type.");
+    } @else {
+        @if list.index(var.$overscroll-behavior-values, $value) {
+            @if $value == "auto" {
+                -ms-scroll-chaining: chained;
+                overscroll-behavior: auto;
+            } @else if $value == "contain" {
+                -ms-scroll-chaining: none;
+                overscroll-behavior: contain;
+            } @else {
+                -ms-scroll-chaining: #{$value};
+                overscroll-behavior: #{$value};
+            }
+        } @else {
+            content: Error.throw("The type parameter of overscroll mixin must be one of these values: (#{var.$overscroll-behavior-values}).");
+        }
+    }
+}

@@ -115,3 +115,8 @@
 // * The "object-fit" mixin sets an object-fit property.
 // @see object-fit
 @forward "object-fit";
+
+// * forwarding the "overscroll" mixin from the "overscroll-behavior" module.
+// * The "overscroll-behavior" mixin sets an overscroll-behavior property.
+// @see overscroll-behavior
+@forward "overscroll-behavior";
