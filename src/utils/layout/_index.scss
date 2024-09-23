@@ -46,3 +46,8 @@
 // * This module likely contains display aspect-ratio as class.
 // @see aspect-ratio
 @forward "aspect-ratio";
+
+// * forwarding the "overflow" module.
+// * This module likely contains display overflow as class.
+// @see overflow
+@forward "overflow";
