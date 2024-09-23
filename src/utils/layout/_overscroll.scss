@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+// @description
+// * overscroll utility class.
+// * This file provides the `overscroll` utility class.
+// * It can be used as a standalone class in any where it is needed.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils
+
+// @module utils/overscroll
+
+// @dependencies:
+// * - list.nth (SASS function).
+// * - LibMixin.overscroll (mixin).
+
+// @example 1
+// * <div class="u-overscroll-auto"></div>
+
+// @output 1
+// * .u-overscroll-auto {
+// *   -ms-scroll-chaining: chained;
+// *   overscroll-behavior: auto;
+// * }
+
+// @example 2
+// * <div class="u-overscroll-contain"></div>
+
+// @output 2
+// * .u-overscroll-right {
+// *   -ms-scroll-chaining: none;
+// *   overscroll-behavior: contain;
+// * }
+
+@use "sass:list";
+@use "../../mixins/general/overscroll-behavior" as LibMixin;
+
+$overscroll-values: (
+    overscroll-auto: (overscroll-behavior, auto),
+    overscroll-contain: (overscroll-behavior, contain),
+    overscroll-none: (overscroll-behavior, none),
+);
+
+@each $overscroll-class-name, $overscroll-value-list in $overscroll-values {
+    .u-#{$overscroll-class-name} {
+        $css-prop-value: list.nth($overscroll-value-list, 2);
+
+        @include LibMixin.overscroll($css-prop-value);
+    }
+}
