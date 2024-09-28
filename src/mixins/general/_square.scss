@@ -55,14 +55,14 @@
 
 @mixin square($one-side: 1px) {
     @if meta.type-of($one-side) == number {
-        @if not unitless($one-side) {
+        @if not math.unitless($one-side) {
             @if LibFunc.is-in-list(var.$all-units, math.unit($one-side)) {
-                --one-side: #{$one-side};
+                --sp-one-side: #{$one-side};
 
-                inline-size: var(--one-side);
-                width: var(--one-side);
-                block-size: var(--one-side);
-                height: var(--one-side);
+                inline-size: var(--sp-one-side);
+                width: var(--sp-one-side);
+                block-size: var(--sp-one-side);
+                height: var(--sp-one-side);
             } @else {
                 content: Error.throw("The parameter of square mixin must be one of: (#{var.$all-units}).");
             }
