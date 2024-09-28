@@ -23,7 +23,7 @@
         saturate
     ) !default;
 
-    @if type-of($val) == string {
+    @if meta.type-of($val) == string {
         @if not list.index($backdrop-global-values, $val) {
             @error "$value argument must has one of these values: (#{$backdrop-global-values})";
         }
@@ -33,14 +33,14 @@
         }
     }
 
-    @if type-of($val) == map {
+    @if meta.type-of($val) == map {
         @each $one-key in map.keys($val) {
             @if not list.index($backdrop-functions, $one-key) {
                 @error "#{one-key} is not one of these functions: (#{$backdrop-functions})";
             }
         }
 
-        @debug type-of($val);
+        @debug meta.type-of($val);
         @debug $val;
 
         $merged: ();
