@@ -81,17 +81,17 @@ $display-values: (
 }
 
 .u-flex {
-    @include LibMixin1.d-flex();
+    @include LibMixin1.d-flex;
 }
 
 .u-inline-flex {
-    @include LibMixin2.d-inflex();
+    @include LibMixin2.d-inflex;
 }
 
 .u-grid {
-    @include LibMixin3.d-grid();
+    @include LibMixin3.d-grid;
 }
 
 .u-inline-grid {
-    @include LibMixin4.d-ingrid();
+    @include LibMixin4.d-ingrid;
 }
