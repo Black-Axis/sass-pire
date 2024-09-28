@@ -94,7 +94,7 @@
         }
 
         @if meta.type-of($value) == number and LibFunc.cut-unit($value) != 0 {
-            @if unitless($value) {
+            @if math.unitless($value) {
                 @error "Please, Enter the unit of $value argument. It must be one of these units (#{$flex-basis-values})";
             }
 
