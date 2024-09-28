@@ -115,7 +115,7 @@ $justify-content-props: (
     justify-content
 ) !default;
 
-// stylelint-disable-next-line scss/dollar-variable-empty-line-before
+// * stylelint-disable-next-line scss/dollar-variable-empty-line-before
 $justify-content-values: (
     normal,
     stretch,
@@ -140,7 +140,7 @@ $align-items-props: (
     align-items
 ) !default;
 
-// stylelint-disable-next-line scss/dollar-variable-empty-line-before
+// * stylelint-disable-next-line scss/dollar-variable-empty-line-before
 $align-items-values: (
     normal,
     stretch,
