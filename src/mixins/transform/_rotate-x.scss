@@ -61,13 +61,13 @@
     $transform-props-values: (inherit, initial, revert, unset, none) !default;
 
     @if meta.type-of($angle) == number {
-        @if not index(var.$angle-units, math.unit($angle)) {
+        @if not list.index(var.$angle-units, math.unit($angle)) {
             content: Error.throw("The parameter of rotate-x mixin must has one of these units: (#{var.$angle-units})");
         } @else {
             @include LibMixin.prefixing-all(transform, rotateX($angle));
         }
     } @else if meta.type-of($angle) == string {
-        @if not index($transform-props-values, $angle) {
+        @if not list.index($transform-props-values, $angle) {
             content: Error.throw(
                 "The parameter of rotate-x mixin must has one of these values: (#{$transform-props-values})"
             );
