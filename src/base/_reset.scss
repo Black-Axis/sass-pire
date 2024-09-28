@@ -115,10 +115,30 @@ ol[role="list"] {
     list-style: none;
 }
 
+main,
+header,
+footer,
+section,
+article,
+aside,
+nav,
+menu,
+details,
+summary,
+figcaption,
+figure,
+dialog,
+hgroup,
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+}
+
 // * Set default styles for menu tag
 menu {
-    display: block;
-
     $main-unicode-bidi-props-values: (
         -webkit-isolate,
         -moz-isolate,
@@ -165,7 +185,6 @@ svg {
     max-width: var(--asset-max-width);
     block-size: var(--asset-height);
     height: var(--asset-height);
-    display: block;
     font-style: italic;
     background-repeat: no-repeat;
     background-size: cover;
