@@ -37,7 +37,7 @@
 // @example
 // * .example {
 // *   @include laptop-general(yes) {
-// *     content: "example";
+    // *     content: "example";
 // *   }
 // * }
 
@@ -46,9 +46,9 @@
 // * and (max-device-width: 1600px)
 // * and (-webkit-min-device-pixel-ratio: 2)
 // * and (min-resolution: 192dpi) {
-// *   .example {
-// *     content: "example";
-// *   }
+    // *   .example {
+        // *     content: "example";
+        // *   }
 // * }
 
 // @note 1
@@ -65,6 +65,7 @@
 
 // stylelint-disable media-feature-name-no-vendor-prefix
 // stylelint-disable scss/operator-no-newline-after
+// stylelint-disable media-query-no-invalid
 
 @use "sass:meta";
 @use "sass:list";
