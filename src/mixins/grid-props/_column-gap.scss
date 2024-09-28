@@ -44,6 +44,7 @@
 // * }
 
 @use "sass:meta";
+@use "sass:math";
 @use "../../functions/global/is-in-list" as LibFunc;
 @use "../../development-utils/toggle-error-message" as Error;
 
@@ -63,7 +64,7 @@
             );
         }
     } @else if meta.type-of($value) == number {
-        @if not unitless($value) {
+        @if not math.unitless($value) {
             @each $one-item in $column-gap-prefixes-values {
                 #{$one-item}: #{$value};
             }
