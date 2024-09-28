@@ -1,8 +1,9 @@
 @charset "UTF-8";
+@use "sass:meta";
 @use "sass:map";
 
 @mixin ff($fonts) {
-    @if type-of($fonts) != map {
+    @if meta.type-of($fonts) != map {
         @error "Please, Pass a map of font families contains names and values for (ff) mixin.";
     }
 
@@ -13,7 +14,7 @@
                 @error "Please, Add a good font family name to generate it!";
             }
 
-            @if type-of($font-name) != string {
+            @if meta.type-of($font-name) != string {
                 @error "Font family name must be in string type.";
             }
 
