@@ -49,10 +49,11 @@
 // stylelint-disable selector-no-vendor-prefix
 
 @use "sass:meta";
+@use "sass:string";
 
 @mixin select($bg-color: black, $text-color: white) {
     @if meta.type-of($bg-color) == string {
-        @if not str-index($bg-color, "var") {
+        @if not string.index($bg-color, "var") {
             @error "You must pass a CSS variable in the first argument of select mixin.";
         }
     } @else if meta.type-of($bg-color) != color {
@@ -60,7 +61,7 @@
     }
 
     @if meta.type-of($text-color) == string {
-        @if not str-index($text-color, "var") {
+        @if not string.index($text-color, "var") {
             @error "You must pass a CSS variable in the second argument of select mixin.";
         }
     } @else if meta.type-of($text-color) != color {

@@ -58,10 +58,10 @@ html:focus-within {
 
 // * Set core body defaults
 body {
-    --body-min-height: 100dvh;
+    --sp-body-min-height: 100dvh;
 
-    min-block-size: var(--body-min-height);
-    min-height: var(--body-min-height);
+    min-block-size: var(--sp-body-min-height);
+    min-height: var(--sp-body-min-height);
     line-height: 1.5;
 
     // * This is for improve text rendering in the browsers
@@ -115,10 +115,30 @@ ol[role="list"] {
     list-style: none;
 }
 
+main,
+header,
+footer,
+section,
+article,
+aside,
+nav,
+menu,
+details,
+summary,
+figcaption,
+figure,
+dialog,
+hgroup,
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+}
+
 // * Set default styles for menu tag
 menu {
-    display: block;
-
     $main-unicode-bidi-props-values: (
         -webkit-isolate,
         -moz-isolate,
@@ -158,14 +178,13 @@ picture,
 video,
 canvas,
 svg {
-    --asset-max-width: 100%;
-    --asset-height: auto;
+    --sp-asset-max-width: 100%;
+    --sp-asset-height: auto;
 
-    max-inline-size: var(--asset-max-width);
-    max-width: var(--asset-max-width);
-    block-size: var(--asset-height);
-    height: var(--asset-height);
-    display: block;
+    max-inline-size: var(--sp-asset-max-width);
+    max-width: var(--sp-asset-max-width);
+    block-size: var(--sp-asset-height);
+    height: var(--sp-asset-height);
     font-style: italic;
     background-repeat: no-repeat;
     background-size: cover;
@@ -271,13 +290,13 @@ table {
 
 // * Add default styles for noscript tag with its default text
 noscript {
-    --noscript-width: 100dvw;
-    --noscript-height: 100dvh;
+    --sp-noscript-width: 100dvw;
+    --sp-noscript-height: 100dvh;
 
-    inline-size: var(--noscript-width);
-    width: var(--noscript-width);
-    block-size: var(--noscript-height);
-    height: var(--noscript-height);
+    inline-size: var(--sp-noscript-width);
+    width: var(--sp-noscript-width);
+    block-size: var(--sp-noscript-height);
+    height: var(--sp-noscript-height);
     position: relative;
 
     @include LibMixin2.flex-center-center;
@@ -288,50 +307,50 @@ noscript {
     background-color: #d4d4d4b6;
 
     &::before {
-        --noscript-before-pseudo-left: 50%;
-        --noscript-before-pseudo-top: 0;
+        --sp-noscript-before-pseudo-left: 50%;
+        --sp-noscript-before-pseudo-top: 0;
 
         content: url('data:image/svg+xml,<svg width="45px" height="45px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="%23c34b4b"><g id="SVGRepo_bgCarrier" stroke-width="0" /><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="%23CCCCCC" stroke-width="0.72" /><g id="SVGRepo_iconCarrier"><path d="M12 16H12.01M12 8V12M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="%23c34b4b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></g></svg>');
         position: absolute;
-        inset-inline-start: var(--noscript-before-pseudo-left);
-        left: var(--noscript-before-pseudo-left);
-        inset-block-start: var(--noscript-before-pseudo-top);
-        top: var(--noscript-before-pseudo-top);
+        inset-inline-start: var(--sp-noscript-before-pseudo-left);
+        left: var(--sp-noscript-before-pseudo-left);
+        inset-block-start: var(--sp-noscript-before-pseudo-top);
+        top: var(--sp-noscript-before-pseudo-top);
 
         @include LibMixin4.translate(-50%, -50%);
 
         z-index: 1;
 
         @include LibMixin3.mq-gen(min, h, mob) {
-            --noscript-before-pseudo-top: 42%;
+            --sp-noscript-before-pseudo-top: 42%;
         }
 
         @include LibMixin3.mq-gen(min, h, mob-wide) {
-            --noscript-before-pseudo-top: 48%;
+            --sp-noscript-before-pseudo-top: 48%;
         }
 
         @include LibMixin3.mq-gen(min, h, xs) {
-            --noscript-before-pseudo-top: 50%;
+            --sp-noscript-before-pseudo-top: 50%;
         }
     }
 
     &::after {
-        --noscript-after-pseudo-width: 100%;
-        --noscript-after-pseudo-padding-x: 2rem;
-        --noscript-after-pseudo-top: 55%;
-        --noscript-after-pseudo-left: 50%;
+        --sp-noscript-after-pseudo-width: 100%;
+        --sp-noscript-after-pseudo-padding-x: 2rem;
+        --sp-noscript-after-pseudo-top: 55%;
+        --sp-noscript-after-pseudo-left: 50%;
 
         content: var.$no-script-text;
-        inline-size: var(--noscript-after-pseudo-width);
-        width: var(--noscript-after-pseudo-width);
-        padding-inline: var(--noscript-after-pseudo-padding-x);
-        padding-right: var(--noscript-after-pseudo-padding-x);
-        padding-left: var(--noscript-after-pseudo-padding-x);
+        inline-size: var(--sp-noscript-after-pseudo-width);
+        width: var(--sp-noscript-after-pseudo-width);
+        padding-inline: var(--sp-noscript-after-pseudo-padding-x);
+        padding-right: var(--sp-noscript-after-pseudo-padding-x);
+        padding-left: var(--sp-noscript-after-pseudo-padding-x);
         position: absolute;
-        inset-block-start: var(--noscript-after-pseudo-top);
-        top: var(--noscript-after-pseudo-top);
-        inset-inline-start: var(--noscript-after-pseudo-left);
-        left: var(--noscript-after-pseudo-left);
+        inset-block-start: var(--sp-noscript-after-pseudo-top);
+        top: var(--sp-noscript-after-pseudo-top);
+        inset-inline-start: var(--sp-noscript-after-pseudo-left);
+        left: var(--sp-noscript-after-pseudo-left);
 
         @include LibMixin4.translate(-50%, -25%);
 
@@ -343,13 +362,13 @@ noscript {
 
 /* This is for accessibility purposes */
 .sr-only {
-    --sr-only-width: 1px;
-    --sr-only-height: 1px;
+    --sp-sr-only-width: 1px;
+    --sp-sr-only-height: 1px;
 
-    inline-size: var(--sr-only-width);
-    width: var(--sr-only-width);
-    block-size: var(--sr-only-height);
-    height: var(--sr-only-height);
+    inline-size: var(--sp-sr-only-width);
+    width: var(--sp-sr-only-width);
+    block-size: var(--sp-sr-only-height);
+    height: var(--sp-sr-only-height);
     border: 0;
     margin: -1px;
     padding: 0;

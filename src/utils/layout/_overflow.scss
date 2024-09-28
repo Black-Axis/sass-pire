@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+// @description
+// * overflow utility class.
+// * This file provides the `overflow` utility class.
+// * It can be used as a standalone class in any where it is needed.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils
+
+// @module utils/overflow
+
+// @dependencies:
+// * - list.nth (SASS function).
+
+// @example 1
+// * <div class="u-overflow-auto"></div>
+
+// @output 1
+// * .u-overflow-auto {
+// *   overflow: auto;
+// * }
+
+// @example 2
+// * <div class="u-overflow-x-hidden"></div>
+
+// @output 2
+// * .u-overflow-x-hidden {
+// *   overflow-x: hidden;
+// * }
+
+@use "sass:list";
+
+$overflow-map-values: (
+    overflow-auto: (overflow, auto),
+    overflow-x-auto: (overflow-x, auto),
+    overflow-y-auto: (overflow-y, auto),
+
+    overflow-hidden: (overflow, hidden),
+    overflow-x-hidden: (overflow-x, hidden),
+    overflow-y-hidden: (overflow-y, hidden),
+
+    overflow-clip: (overflow, clip),
+    overflow-x-clip: (overflow-x, clip),
+    overflow-y-clip: (overflow-y, clip),
+
+    overflow-visible: (overflow, visible),
+    overflow-x-visible: (overflow-x, visible),
+    overflow-y-visible: (overflow-y, visible),
+
+    overflow-scroll: (overflow, scroll),
+    overflow-x-scroll: (overflow-x, scroll),
+    overflow-y-scroll: (overflow-y, scroll),
+);
+
+@each $overflow-class-name, $overflow-value-list in $overflow-map-values {
+    .u-#{$overflow-class-name} {
+        $css-prop-name: list.nth($overflow-value-list, 1);
+        $css-prop-value: list.nth($overflow-value-list, 2);
+
+        #{$css-prop-name}: #{$css-prop-value};
+    }
+}

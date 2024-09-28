@@ -50,6 +50,7 @@
             object-fit
         ) !default;
 
+        // * stylelint-disable-next-line scss/dollar-variable-empty-line-before
         $object-fit-values: (fill, contain, cover, none, scale-down) !default;
 
         @if LibFunc.is-in-list($object-fit-values, $value) {

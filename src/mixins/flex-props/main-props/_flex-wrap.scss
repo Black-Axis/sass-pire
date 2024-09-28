@@ -59,6 +59,7 @@
 
 // stylelint-disable scss/dollar-variable-empty-line-before
 
+@use "sass:map";
 @use "../../vendor-prefixes/prefix" as LibMixin;
 @use "../../../functions/global/is-in-list" as LibFunc;
 @use "../../../development-utils/toggle-error-message" as Error;
@@ -79,7 +80,7 @@
         inherit: inherit
     ) !default;
 
-    @if LibFunc.is-in-list(map-keys($flex-wrap-map), $value) {
+    @if LibFunc.is-in-list(map.keys($flex-wrap-map), $value) {
         // stylelint-disable-next-line scss/no-global-function-names
         $flex-wrap-value: map-get($flex-wrap-map, $value);
 

@@ -62,7 +62,7 @@
     $transform-props-values: (inherit, initial, revert, unset, none) !default;
 
     @if meta.type-of($y) == number {
-        @if not index(var.$main-units, math.unit($y)) {
+        @if not list.index(var.$main-units, math.unit($y)) {
             content: Error.throw(
                 "The parameter of translate-y mixin must has one of these units: (#{var.$main-units})."
             );
@@ -70,7 +70,7 @@
             @include LibMixin.prefixing-all(transform, translateY($y));
         }
     } @else if meta.type-of($y) == string {
-        @if not index($transform-props-values, $y) {
+        @if not list.index($transform-props-values, $y) {
             content: Error.throw(
                 "The parameter of translate-y mixin must has one of these values: (#{$transform-props-values})."
             );

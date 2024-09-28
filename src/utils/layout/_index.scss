@@ -41,3 +41,18 @@
 // * This module likely contains object-fit as class.
 // @see object-fit
 @forward "object-fit";
+
+// * forwarding the "aspect-ratio" module.
+// * This module likely contains display aspect-ratio as class.
+// @see aspect-ratio
+@forward "aspect-ratio";
+
+// * forwarding the "overflow" module.
+// * This module likely contains display overflow as class.
+// @see overflow
+@forward "overflow";
+
+// * forwarding the "overscroll" module.
+// * This module likely contains display overscroll as class.
+// @see overscroll
+@forward "overscroll";

@@ -69,7 +69,7 @@
     $transform-props-values: (inherit, initial, revert, unset, none) !default;
     
     @if meta.type-of($x) == number and meta.type-of($y) == number {
-        @if not index(var.$main-units, math.unit($x)) or not index(var.$main-units, math.unit($y)) {
+        @if not list.index(var.$main-units, math.unit($x)) or not list.index(var.$main-units, math.unit($y)) {
             content: Error.throw(
                 "The parameter of translate mixin must has one of these units: (#{var.$main-units})."
             );
@@ -77,7 +77,7 @@
             @include LibMixin.prefixing-all(transform, translate($x, $y));
         }
     } @else if meta.type-of($x) == string and meta.type-of($y) == string {
-        @if index($transform-props-values, $x) and index($transform-props-values, $y) {
+        @if list.index($transform-props-values, $x) and list.index($transform-props-values, $y) {
             @include LibMixin.prefixing-all(transform, translate($x, $y));
         } @else {
             content: Error.throw(
@@ -85,7 +85,7 @@
             );
         }
     } @else if meta.type-of($x) == number and meta.type-of($y) == string {
-        @if index(var.$main-units, math.unit($x)) and index($transform-props-values, $y) {
+        @if list.index(var.$main-units, math.unit($x)) and list.index($transform-props-values, $y) {
             @include LibMixin.prefixing-all(transform, translate($x, $y));
         } @else {
             content: Error.throw(
@@ -93,7 +93,7 @@
             );
         }
     } @else if meta.type-of($x) == string and meta.type-of($y) == number {
-        @if index(var.$main-units, math.unit($y)) and index($transform-props-values, $x) {
+        @if list.index(var.$main-units, math.unit($y)) and list.index($transform-props-values, $x) {
             @include LibMixin.prefixing-all(transform, translate($x, $y));
         } @else {
             content: Error.throw(

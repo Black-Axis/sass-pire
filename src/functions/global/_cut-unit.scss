@@ -55,11 +55,11 @@
     }
 
     // stylelint-disable-next-line length-zero-no-unit
-    @if math.unit($num) == "" and not unitless($num) {
+    @if math.unit($num) == "" and not math.unitless($num) {
         @return Error.throw("The parameter dose not need a unit if it equals to zero.");
     }
 
-    @if meta.type-of($num) == number and not unitless($num) {
+    @if meta.type-of($num) == number and not math.unitless($num) {
         @return math.div($num, ($num * 0 + 1));
     }
 
