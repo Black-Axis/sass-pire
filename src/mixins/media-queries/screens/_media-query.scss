@@ -56,7 +56,10 @@
 // * The core logic of (mq-gen) mixin is to call the first one.
 // * You can use one of them as you want.
 
+// stylelint-disable media-query-no-invalid
+
 @use "sass:list";
+@use "sass:map";
 @use "../../../functions/global/is-in-list" as LibFunc;
 @use "../../../development-utils//toggle-error-message" as Error;
 
@@ -89,7 +92,7 @@
 
     @if LibFunc.is-in-list($main-mq-types, $type) {
         @if LibFunc.is-in-list($main-dimensions, $dimension) {
-            @if map-has-key($breakpoints, $breakpoint-name) {
+            @if map.has-key($breakpoints, $breakpoint-name) {
                 $actual-dimension: map_get($breakpoints, $breakpoint-name);
     
                 @if $type == max {
