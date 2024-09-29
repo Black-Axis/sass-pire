@@ -27,3 +27,13 @@
 // * This module likely contains all layout classes.
 // @see layout
 @forward "layout";
+
+// * forwarding the "sizing" module.
+// * This module likely contains all sizing classes.
+// @see sizing
+@forward "sizing";
+
+// * forwarding the "typography" module.
+// * This module likely contains all typography classes.
+// @see typography
+@forward "typography";

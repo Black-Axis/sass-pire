@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+// @description
+// * size utility class.
+// * This file provides the `size` utility class.
+// * It can be used as a standalone class in any where it is needed.
+// * It is used for the width and height in case they have the same values.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils
+
+// @module utils/size
+
+// @dependencies:
+// * Nothing.
+
+// @example 1
+// * <div class="u-size-min"></div>
+
+// @output 1
+// * .u-size-min {
+// *   width: min-content;
+// *   height: min-content;
+// * }
+
+// @example 2
+// * <div class="u-size-full"></div>
+
+// @output 2
+// * .u-size-full {
+// *   width: 100%;
+// *   height: 100%;
+// * }
+
+$size-values: (
+    size-full: 100%,
+    size-half: 50%,
+    size-quarter: 25%,
+    size-min: min-content,
+    size-max: max-content,
+    size-fit: fit-content,
+);
+
+@each $size-class-name, $size-value in $size-values {
+    .u-#{$size-class-name} {
+        width: $size-value;
+        height: $size-value;
+    }
+}

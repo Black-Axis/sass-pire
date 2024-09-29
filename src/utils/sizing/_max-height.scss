@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+// @description
+// * max-height utility class.
+// * This file provides the `max-height` utility class.
+// * It can be used as a standalone class in any where it is needed.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils
+
+// @module utils/max-height
+
+// @dependencies:
+// * Nothing.
+
+// @example 1
+// * <div class="u-max-h-min"></div>
+
+// @output 1
+// * .u-max-h-min {
+// *   max-height: min-content;
+// * }
+
+// @example 2
+// * <div class="u-max-h-full"></div>
+
+// @output 2
+// * .u-max-h-full {
+// *   max-height: 100%;
+// * }
+
+$max-height-values: (
+    max-h-full: 100%,
+    max-h-screen: 100vh,
+    max-h-svh: 100svh,
+    max-h-lvh: 100lvh,
+    max-h-dvh: 100dvh,
+    max-h-min: min-content,
+    max-h-max: max-content,
+);
+
+@each $max-height-class-name, $max-height-value in $max-height-values {
+    .u-#{$max-height-class-name} {
+        max-height: $max-height-value;
+    }
+}

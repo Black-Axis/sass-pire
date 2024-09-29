@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+// @description
+// * text-transform utility class.
+// * This file provides the `text-transform` utility class.
+// * It can be used as a standalone class in any where it is needed.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils
+
+// @module utils/text-transform
+
+// @dependencies:
+// * Nothing.
+
+// @example 1
+// * <div class="u-uppercase"></div>
+
+// @output 1
+// * .u-uppercase {
+// *   text-transform: uppercase;
+// * }
+
+// @example 2
+// * <div class="u-capitalize"></div>
+
+// @output 2
+// * .u-capitalize {
+// *   text-transform: capitalize;
+// * }
+
+$text-transform-values: (
+    uppercase: uppercase,
+    lowercase: lowercase,
+    capitalize: capitalize,
+    normal-case: none,
+);
+
+@each $text-transform-class-name, $text-transform-value in $text-transform-values {
+    .u-#{$text-transform-class-name} {
+        text-transform: $text-transform-value;
+    }
+}

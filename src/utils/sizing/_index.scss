@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+// @description
+// * This file forwards various modules and utilities classes
+// * for sizing classes.
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils/sizing
+
+// * forwarding the "width" module.
+// * This module likely contains display width as class.
+// @see width
+@forward "width";
+
+// * forwarding the "min-width" module.
+// * This module likely contains display min-width as class.
+// @see min-width
+@forward "min-width";
+
+// * forwarding the "max-width" module.
+// * This module likely contains display max-width as class.
+// @see max-width
+@forward "max-width";
+
+// * forwarding the "height" module.
+// * This module likely contains display height as class.
+// @see height
+@forward "height";
+
+// * forwarding the "min-height" module.
+// * This module likely contains display min-height as class.
+// @see min-height
+@forward "min-height";
+
+// * forwarding the "max-height" module.
+// * This module likely contains display max-height as class.
+// @see max-height
+@forward "max-height";
+
+// * forwarding the "size" module.
+// * This module likely contains display size as class.
+// @see size
+@forward "size";

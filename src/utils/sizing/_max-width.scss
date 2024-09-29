@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+// @description
+// * max-width utility class.
+// * This file provides the `max-width` utility class.
+// * It can be used as a standalone class in any where it is needed.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils
+
+// @module utils/max-width
+
+// @dependencies:
+// * Nothing.
+
+// @example 1
+// * <div class="u-max-w-min"></div>
+
+// @output 1
+// * .u-max-w-min {
+// *   max-width: min-content;
+// * }
+
+// @example 2
+// * <div class="u-max-w-full"></div>
+
+// @output 2
+// * .u-max-w-full {
+// *   max-width: 100%;
+// * }
+
+$max-width-values: (
+    max-w-full: 100%,
+    max-w-screen: 100vw,
+    max-w-svw: 100svw,
+    max-w-lvw: 100lvw,
+    max-w-dvw: 100dvw,
+    max-w-min: min-content,
+    max-w-max: max-content,
+    max-w-fit: fit-content,
+);
+
+@each $max-width-class-name, $max-width-value in $max-width-values {
+    .u-#{$max-width-class-name} {
+        max-width: $max-width-value;
+    }
+}
