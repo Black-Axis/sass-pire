@@ -16,3 +16,8 @@
 // * This module likely contains display width as class.
 // @see width
 @forward "width";
+
+// * forwarding the "min-width" module.
+// * This module likely contains display min-width as class.
+// @see min-width
+@forward "min-width";

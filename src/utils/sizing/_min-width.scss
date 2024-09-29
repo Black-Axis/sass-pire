@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+// @description
+// * min-width utility class.
+// * This file provides the `min-width` utility class.
+// * It can be used as a standalone class in any where it is needed.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils
+
+// @module utils/min-width
+
+// @dependencies:
+// * Nothing.
+
+// @example 1
+// * <div class="u-min-w-min"></div>
+
+// @output 1
+// * .u-min-w-min {
+// *   min-width: min-content;
+// * }
+
+// @example 2
+// * <div class="u-min-w-full"></div>
+
+// @output 2
+// * .u-min-w-full {
+// *   min-width: 100%;
+// * }
+
+$min-width-values: (
+    min-w-full: 100%,
+    min-w-min: min-content,
+    min-w-max: max-content,
+    min-w-fit: fit-content,
+);
+
+@each $min-width-class-name, $min-width-value in $min-width-values {
+    .u-#{$min-width-class-name} {
+        min-width: $min-width-value;
+    }
+}
