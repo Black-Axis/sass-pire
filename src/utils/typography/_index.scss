@@ -21,3 +21,8 @@
 // * This module likely contains display text-decoration as class.
 // @see text-decoration
 @forward "text-decoration";
+
+// * forwarding the "text-transform" module.
+// * This module likely contains display text-transform as class.
+// @see text-transform
+@forward "text-transform";
