@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+// @description
+// * text-align utility class.
+// * This file provides the `text-align` utility class.
+// * It can be used as a standalone class in any where it is needed.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils
+
+// @module utils/text-align
+
+// @dependencies:
+// * Nothing.
+
+// @example 1
+// * <div class="u-text-left"></div>
+
+// @output 1
+// * .u-text-left {
+// *   text-align: left;
+// * }
+
+// @example 2
+// * <div class="u-text-right"></div>
+
+// @output 2
+// * .u-text-right {
+// *   text-align: right;
+// * }
+
+$text-align-values: (
+    text-left: left,
+    text-center: center,
+    text-right: right,
+    text-justify: justify,
+    text-start: start,
+    text-end: end,
+);
+
+@each $text-align-class-name, $text-align-value in $text-align-values {
+    .u-#{$text-align-class-name} {
+        text-align: $text-align-value;
+    }
+}

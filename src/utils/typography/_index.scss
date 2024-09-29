@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+// @description
+// * This file forwards various modules and utilities classes
+// * for typography classes.
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils/typography
+
+// * forwarding the "text-align" module.
+// * This module likely contains display text-align as class.
+// @see text-align
+@forward "text-align";
