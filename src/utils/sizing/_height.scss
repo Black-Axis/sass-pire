@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+// @description
+// * height utility class.
+// * This file provides the `height` utility class.
+// * It can be used as a standalone class in any where it is needed.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils
+
+// @module utils/height
+
+// @dependencies:
+// * Nothing.
+
+// @example 1
+// * <div class="u-h-full"></div>
+
+// @output 1
+// * .u-h-full {
+// *   height: 100%;
+// * }
+
+// @example 2
+// * <div class="u-h-min"></div>
+
+// @output 2
+// * .u-h-min {
+// *   height: min-content;
+// * }
+
+$height-values: (
+    h-full: 100%,
+    h-auto: auto,
+    h-screen: 100vw,
+    h-svw: 100svw,
+    h-lvw: 100lvw,
+    h-dvw: 100dvw,
+    h-min: min-content,
+    h-max: max-content,
+    h-fit: fit-content,
+);
+
+@each $height-class-name, $height-value in $height-values {
+    .u-#{$height-class-name} {
+        height: $height-value;
+    }
+}

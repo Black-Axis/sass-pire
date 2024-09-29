@@ -26,3 +26,8 @@
 // * This module likely contains display max-width as class.
 // @see max-width
 @forward "max-width";
+
+// * forwarding the "height" module.
+// * This module likely contains display height as class.
+// @see height
+@forward "height";
