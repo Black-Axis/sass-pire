@@ -31,3 +31,8 @@
 // * This module likely contains display height as class.
 // @see height
 @forward "height";
+
+// * forwarding the "min-height" module.
+// * This module likely contains display min-height as class.
+// @see min-height
+@forward "min-height";

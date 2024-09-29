@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+// @description
+// * min-height utility class.
+// * This file provides the `min-height` utility class.
+// * It can be used as a standalone class in any where it is needed.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils
+
+// @module utils/min-height
+
+// @dependencies:
+// * Nothing.
+
+// @example 1
+// * <div class="u-min-h-min"></div>
+
+// @output 1
+// * .u-min-h-min {
+// *   min-height: min-content;
+// * }
+
+// @example 2
+// * <div class="u-min-h-full"></div>
+
+// @output 2
+// * .u-min-h-full {
+// *   min-height: 100%;
+// * }
+
+$min-height-values: (
+    min-h-full: 100%,
+    min-h-screen: 100vh,
+    min-h-svh: 100svh,
+    min-h-lvh: 100lvh,
+    min-h-dvh: 100dvh,
+    min-h-min: min-content,
+    min-h-max: max-content,
+    min-h-fit: fit-content,
+);
+
+@each $min-height-class-name, $min-height-value in $min-height-values {
+    .u-#{$min-height-class-name} {
+        min-height: $min-height-value;
+    }
+}
