@@ -40,6 +40,10 @@
 
 $min-width-values: (
     min-w-full: 100%,
+    min-w-screen: 100vw,
+    min-w-svw: 100svw,
+    min-w-lvw: 100lvw,
+    min-w-dvw: 100dvw,
     min-w-min: min-content,
     min-w-max: max-content,
     min-w-fit: fit-content,
