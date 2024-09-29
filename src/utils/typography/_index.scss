@@ -26,3 +26,8 @@
 // * This module likely contains display text-transform as class.
 // @see text-transform
 @forward "text-transform";
+
+// * forwarding the "text-overflow" module.
+// * This module likely contains display text-overflow as class.
+// @see text-overflow
+@forward "text-overflow";
