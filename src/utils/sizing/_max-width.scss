@@ -40,7 +40,11 @@
 
 $max-width-values: (
     max-w-full: 100%,
-    max-w-min: max-content,
+    max-w-screen: 100vw,
+    max-w-svw: 100svw,
+    max-w-lvw: 100lvw,
+    max-w-dvw: 100dvw,
+    max-w-min: min-content,
     max-w-max: max-content,
     max-w-fit: fit-content,
 );
