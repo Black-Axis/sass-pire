@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+// @description
+// * text-decoration utility class.
+// * This file provides the `text-decoration` utility class.
+// * It can be used as a standalone class in any where it is needed.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils
+
+// @module utils/text-decoration
+
+// @dependencies:
+// * Nothing.
+
+// @example 1
+// * <div class="u-underline"></div>
+
+// @output 1
+// * .u-underline {
+// *   text-decoration: underline;
+// * }
+
+// @example 2
+// * <div class="u-overline"></div>
+
+// @output 2
+// * .u-overline {
+// *   text-decoration: overline;
+// * }
+
+$text-decoration-values: (
+    dashed: dashed,
+    dotted: dotted,
+    double: double,
+    solid: solid,
+    wavy: wavy,
+    underline: underline,
+    overline: overline,
+    line-through: line-through,
+    no-underline: none,
+);
+
+@each $text-decoration-class-name, $text-decoration-value in $text-decoration-values {
+    .u-#{$text-decoration-class-name} {
+        text-decoration: $text-decoration-value;
+    }
+}
