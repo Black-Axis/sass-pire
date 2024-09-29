@@ -36,3 +36,8 @@
 // * This module likely contains display text-wrap as class.
 // @see text-wrap
 @forward "text-wrap";
+
+// * forwarding the "vertical-align" module.
+// * This module likely contains display vertical-align as class.
+// @see vertical-align
+@forward "vertical-align";

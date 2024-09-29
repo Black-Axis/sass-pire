@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+// @description
+// * vertical-align utility class.
+// * This file provides the `vertical-align` utility class.
+// * It can be used as a standalone class in any where it is needed.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils
+
+// @module utils/vertical-align
+
+// @dependencies:
+// * Nothing.
+
+// @example 1
+// * <div class="u-align-top"></div>
+
+// @output 1
+// * .u-align-top {
+// *   vertical-align: top;
+// * }
+
+// @example 2
+// * <div class="u-align-middle"></div>
+
+// @output 2
+// * .u-align-middle {
+// *   vertical-align: middle;
+// * }
+
+$vertical-align-values: (
+    align-baseline: baseline,
+    align-top: top,
+    align-middle: middle,
+    align-bottom: bottom,
+    align-text-top: text-top,
+    align-text-bottom: text-bottom,
+    align-sub: sub,
+    align-super: super,
+);
+
+@each $vertical-align-class-name, $vertical-align-value in $vertical-align-values {
+    .u-#{$vertical-align-class-name} {
+        vertical-align: $vertical-align-value;
+    }
+}
