@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+// @description
+// * text-wrap utility class.
+// * This file provides the `text-wrap` utility class.
+// * It can be used as a standalone class in any where it is needed.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils
+
+// @module utils/text-wrap
+
+// @dependencies:
+// * Nothing.
+
+// @example 1
+// * <div class="u-text-wrap"></div>
+
+// @output 1
+// * .u-text-wrap {
+// *   text-wrap: wrap;
+// * }
+
+// @example 2
+// * <div class="u-text-pretty"></div>
+
+// @output 2
+// * .u-text-pretty {
+// *   text-wrap: pretty;
+// * }
+
+$text-wrap-values: (
+    text-wrap: wrap,
+    text-nowrap: nowrap,
+    text-balance: balance,
+    text-pretty: pretty,
+    text-stable: stable,
+);
+
+@each $text-wrap-class-name, $text-wrap-value in $text-wrap-values {
+    .u-#{$text-wrap-class-name} {
+        text-wrap: $text-wrap-value;
+    }
+}

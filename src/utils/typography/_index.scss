@@ -31,3 +31,8 @@
 // * This module likely contains display text-overflow as class.
 // @see text-overflow
 @forward "text-overflow";
+
+// * forwarding the "text-wrap" module.
+// * This module likely contains display text-wrap as class.
+// @see text-wrap
+@forward "text-wrap";
