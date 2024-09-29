@@ -21,3 +21,8 @@
 // * This module likely contains display min-width as class.
 // @see min-width
 @forward "min-width";
+
+// * forwarding the "max-width" module.
+// * This module likely contains display max-width as class.
+// @see max-width
+@forward "max-width";
