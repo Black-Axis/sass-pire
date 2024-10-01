@@ -4,7 +4,7 @@
     "description": "Just a more mixins and functions with SCSS for more productive projects.",
     "markdown": "github",
     "license": "MIT",
-    "packageManager": "yarn@1.22.22",
+    "packageManager": "yarn@4.5.0",
     "licenses": [
         {
             "type": "MIT",
