@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+// @description
+// * background-origin utility class.
+// * This file provides the `background-origin` utility class.
+// * It can be used as a standalone class in any where it is needed.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils
+
+// @module utils/background-origin
+
+// @dependencies:
+// * Nothing.
+
+// @example
+// * <div class="u-bg-origin-border"></div>
+
+// @output
+// * .u-bg-origin-border {
+// *   background-origin: border-box;
+// * }
+
+$bg-origin-values: (
+    bg-origin-border: border-box,
+    bg-origin-padding: padding-box,
+    bg-origin-content: content-box,
+    bg-origin-initial: initial,
+    bg-origin-inherit: inherit
+);
+
+@each $bg-origin-class-name, $bg-origin-value in $bg-origin-values {
+    .u-#{$bg-origin-class-name} {
+        background-origin: $bg-origin-value;
+    }
+}

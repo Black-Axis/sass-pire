@@ -21,3 +21,8 @@
 // * This module likely contains background-clip as class.
 // @see background-clip
 @forward "background-clip";
+
+// * forwarding the "background-origin" module.
+// * This module likely contains background-origin as class.
+// @see background-origin
+@forward "background-origin";
