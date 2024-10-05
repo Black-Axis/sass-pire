@@ -12,6 +12,12 @@
 
 // @namespace mixins/general
 
+// * forwarding the "reset" module.
+// * The "reset" module probably provides styles for responsive
+// * grid layouts.
+// @see reset
+@forward "reset";
+
 // * forwarding the "responsive-grid" module.
 // * The "responsive-grid" module probably provides styles for responsive
 // * grid layouts.

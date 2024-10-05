@@ -1,0 +1,330 @@
+@charset "UTF-8";
+
+// @description
+// * This file uses the `reset` mixin to compile based on if the
+// * user want to use @layer version of CSS or not.
+
+// @access public
+
+// @version 3.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace general
+
+// @module general/reset
+
+// @dependencies:
+// * - LibMixin1.prefixing-web (mixin).
+// * - LibMixin1.prefixing-web-o (mixin).
+// * - LibMixin2.shape-margin (mixin).
+// * - LibMixin2.banner (mixin).
+
+// @example 1
+// * In the top of the SCSS file, you can write like this:
+// * @import "your-path-to-node_modules/sass-pire/src/mixins/general/_reset.scss";
+// * @include reset;
+
+// @example 2
+// * In the top of the SCSS file, you can also write like this:
+// * @layer reset, .., your-all-components, ..etc;
+// * @layer rest {
+// *   @import "your-path-to-node_modules/sass-pire/src/mixins/general/_reset.scss";
+// *   @include reset;
+// * }
+
+// @example 3
+// * You can use it whatever you want.
+
+@use "../../mixins/vendor-prefixes/prefix" as LibMixin1;
+@use "../../mixins/general/shape-margin" as LibMixin2;
+@use "../../mixins/general/banner" as LibMixin3;
+
+// * stylelint-disable-next-line at-rule-empty-line-before
+
+@mixin reset() {
+    @include LibMixin3.banner;
+
+    // * Box sizing rules.
+    *,
+    *::before,
+    *::after {
+        margin: 0;
+        padding: 0;
+
+        $box-sizing-props: (
+            -moz-box-sizing: border-box,
+            -webkit-box-sizing: border-box,
+            box-sizing: border-box) !default;
+
+        @each $prop, $value in $box-sizing-props {
+            #{$prop}: $value;
+        }
+    }
+
+    // * Set core root defaults
+    html,
+    html:focus-within {
+        @media (prefers-reduced-motion: no-preference) {
+            scroll-behavior: smooth;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            scroll-behavior: auto;
+        }
+    }
+
+    // * Set core body defaults
+    body {
+        --sp-body-min-height: 100dvh;
+
+        min-block-size: var(--sp-body-min-height);
+        min-height: var(--sp-body-min-height);
+        line-height: 1.5;
+
+        // * This is for improve text rendering in the browsers
+        -webkit-font-smoothing: antialiased;
+
+        // stylelint-disable-next-line scss/selector-no-redundant-nesting-selector
+        :where(&) {
+            overflow-wrap: break-word;
+
+            $hyphens-props: (
+                -webkit-hyphens,
+                -ms-hyphens,
+                hyphens) !default;
+
+            @each $prop in $hyphens-props {
+                #{$prop}: auto;
+            }
+        }
+    }
+
+    // * Remove default margin
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    figure,
+    blockquote,
+    dl,
+    dd {
+        margin: 0;
+    }
+
+    // * Avoid text overflows
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        overflow-wrap: break-word;
+    }
+
+    // * Remove list styles on ul, ol elements with a list role which suggests
+    // * default styling will be removed
+    ul[role="list"],
+    menu[role="list"],
+    ol[role="list"] {
+        list-style: none;
+    }
+
+    main,
+    header,
+    footer,
+    section,
+    article,
+    aside,
+    nav,
+    menu,
+    details,
+    summary,
+    figcaption,
+    figure,
+    dialog,
+    hgroup,
+    img,
+    picture,
+    video,
+    canvas,
+    svg {
+        display: block;
+    }
+
+    // * Set default styles for menu tag
+    menu {
+        $main-unicode-bidi-props-values: (
+            -webkit-isolate,
+            -moz-isolate,
+            isolate) !default;
+
+        @each $value in $main-unicode-bidi-props-values {
+            unicode-bidi: $value;
+        }
+    }
+
+    // * A elements that don't have a class get default styles
+    a:not([class]) {
+        $text-decoration-ink-props: (
+            -webkit-text-decoration-skip,
+            text-decoration-skip-ink) !default;
+
+        // stylelint-disable-next-line scss/dollar-variable-empty-line-before
+        $text-decoration-line-props: (
+            -webkit-text-decoration-line,
+            text-decoration-line) !default;
+
+        @each $prop in $text-decoration-ink-props {
+            #{$prop}: auto;
+        }
+
+        @each $prop in $text-decoration-line-props {
+            #{$prop}: underline;
+        }
+
+        text-decoration-thickness: max(0.08em, 1px
+    );
+    text-underline-offset: 0.15em;
+    }
+
+    // * Make images easier to work with
+    img,
+    picture,
+    video,
+    canvas,
+    svg {
+        --sp-asset-max-width: 100%;
+        --sp-asset-height: auto;
+
+        max-inline-size: var(--sp-asset-max-width);
+        max-width: var(--sp-asset-max-width);
+        block-size: var(--sp-asset-height);
+        height: var(--sp-asset-height);
+        font-style: italic;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        @include LibMixin2.shape-margin(1rem);
+    }
+
+    // * Inherit fonts for inputs and buttons
+    input,
+    button,
+    textarea,
+    select {
+        font: inherit;
+    }
+
+    // * Reset styles of blockquote and q tag
+    blockquote,
+    q {
+        quotes: none;
+
+        &::before,
+        &::after {
+            content: none;
+        }
+    }
+
+    // * Removes spacing between cells in tables
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+    @supports selector(:is) {
+        body> :is(header, footer),
+        main,
+        section,
+        article {
+            container-type: inline-size;
+        }
+    }
+
+    @supports not selector(:is) {
+        body>header,
+        body>footer,
+        main,
+        section,
+        article {
+            container-type: inline-size;
+        }
+    }
+
+    @supports selector(:where) {
+        :where([hidden]) {
+            display: none;
+        }
+    }
+
+    @supports not selector(:where) {
+        [hidden] {
+            display: none;
+        }
+    }
+
+    @supports selector(:focus-visible) {
+        :focus-visible {
+            // stylelint-disable-next-line value-keyword-case 
+            outline: max(1px, 0.15em) solid currentColor;
+            outline-offset: max(1px, 0.15em);
+        }
+    }
+
+    @supports not selector(:focus-visible) {
+        :focus {
+            // stylelint-disable-next-line value-keyword-case 
+            outline: max(1px, 0.15em) solid currentColor;
+            outline-offset: max(1px, 0.15em);
+        }
+    }
+
+    // * Scroll margin allowance above anchor links
+    :target {
+        scroll-padding-block-start: 2rem;
+    }
+
+    // * Scroll margin allowance below focused elements to ensure they are clearly in view
+    :focus {
+        scroll-padding-block-end: 8vh;
+    }
+
+    // * Remove all animations, transitions and smooth scroll for
+    // * people that prefer not to see them
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            @include LibMixin1.prefixing-web(animation-duration, 0.01ms);
+            @include LibMixin1.prefixing-web(animation-iteration-count, 1);
+            @include LibMixin1.prefixing-web-o(transition-duration, 0.01ms);
+
+            scroll-behavior: smooth;
+        }
+    }
+
+    /* This is for accessibility purposes */
+    .sr-only {
+        --sp-sr-only-width: 1px;
+        --sp-sr-only-height: 1px;
+
+        inline-size: var(--sp-sr-only-width);
+        width: var(--sp-sr-only-width);
+        block-size: var(--sp-sr-only-height);
+        height: var(--sp-sr-only-height);
+        border: 0;
+        margin: -1px;
+        padding: 0;
+        position: absolute;
+        clip: rect(0, 0, 0, 0);
+        overflow: hidden;
+    }
+}
