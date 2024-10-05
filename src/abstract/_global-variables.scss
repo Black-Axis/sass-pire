@@ -152,3 +152,44 @@ $align-items-values: (
     baseline,
     inherit
 ) !default;
+
+$column-gap-props: (
+    -webkit-column-gap,
+    -moz-column-gap,
+    column-gap
+) !default;
+
+$grid-column-props: (
+    -ms-grid-column,
+    grid-column
+) !default;
+
+$grid-row-props: (
+    -ms-grid-row,
+    grid-row)
+!default;
+
+$grid-template-columns-props: (
+    -ms-grid-columns,
+    grid-template-columns
+) !default;
+
+$grid-template-rows-props: (
+    -ms-grid-rows,
+    grid-template-rows
+) !default;
+
+$grid-column-start: (
+    -ms-grid-column,
+    grid-column-start
+) !default;
+
+$grid-row-start: (
+    -ms-grid-row,
+    grid-row-start
+) !default;
+
+$grid-row-end: (
+    -ms-grid-row-span,
+    grid-row-end
+) !default;
