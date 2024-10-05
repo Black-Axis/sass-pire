@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+// @description
+// * white-space utility class.
+// * This file provides the `white-space` utility class.
+// * It can be used as a standalone class in any where it is needed.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils
+
+// @module utils/white-space
+
+// @dependencies:
+// * Nothing.
+
+// @example 1
+// * <div class="u-whitespace-normal"></div>
+
+// @output 1
+// * .u-whitespace-normal {
+// *   white-space: normal;
+// * }
+
+// @example 2
+// * <div class="u-whitespace-pre"></div>
+
+// @output 2
+// * .u-whitespace-pre {
+// *   white-space: pre;
+// * }
+
+$white-space-values: (
+    whitespace-normal: normal,
+    whitespace-nowrap: nowrap,
+    whitespace-pre: pre,
+    whitespace-pre-line: pre-line,
+    whitespace-pre-wrap: pre-wrap,
+    whitespace-break-spaces: break-spaces,
+    whitespace-initial: initial,
+    whitespace-inherit: inherit,
+);
+
+@each $white-space-class-name, $white-space-value in $white-space-values {
+    .u-#{$white-space-class-name} {
+        white-space: $white-space-value;
+    }
+}

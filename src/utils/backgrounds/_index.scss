@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+// @description
+// * This file forwards various modules and utilities classes
+// * for background classes.
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils/backgrounds
+
+// * forwarding the "background-attachment" module.
+// * This module likely contains background-attachment as class.
+// @see background-attachment
+@forward "background-attachment";
+
+// * forwarding the "background-clip" module.
+// * This module likely contains background-clip as class.
+// @see background-clip
+@forward "background-clip";
+
+// * forwarding the "background-origin" module.
+// * This module likely contains background-origin as class.
+// @see background-origin
+@forward "background-origin";

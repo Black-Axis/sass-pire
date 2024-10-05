@@ -37,3 +37,8 @@
 // * This module likely contains all typography classes.
 // @see typography
 @forward "typography";
+
+// * forwarding the "backgrounds" module.
+// * This module likely contains all backgrounds classes.
+// @see backgrounds
+@forward "backgrounds";
