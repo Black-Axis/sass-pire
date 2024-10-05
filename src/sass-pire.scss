@@ -14,11 +14,6 @@
 
 // @version 1.9.6
 
-// * forwarding the "base" module.
-// * The "base" module might contain foundational styles for the project.
-// @see base
-@forward "base";
-
 // * forwarding the "abstract" module.
 // * The "abstract" module may contain abstract styles or variables used
 // * throughout the project.
