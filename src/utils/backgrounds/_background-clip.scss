@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+// @description
+// * background-clip utility class.
+// * This file provides the `background-clip` utility class.
+// * It can be used as a standalone class in any where it is needed.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils
+
+// @module utils/background-clip
+
+// @dependencies:
+// * Nothing.
+
+// @example
+// * <div class="u-bg-clip-border"></div>
+
+// @output
+// * .u-bg-clip-border {
+// *   background-clip: border-box;
+// * }
+
+$bg-clip-values: (
+    bg-clip-border: border-box,
+    bg-clip-padding: padding-box,
+    bg-clip-content: content-box,
+    bg-clip-text: text,
+    bg-clip-initial: initial,
+    bg-clip-inherit: inherit,
+);
+
+@each $bg-clip-class-name, $bg-clip-value in $bg-clip-values {
+    .u-#{$bg-clip-class-name} {
+        background-clip: $bg-clip-value;
+    }
+}
