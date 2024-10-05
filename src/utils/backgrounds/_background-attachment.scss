@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+// @description
+// * background-attachment utility class.
+// * This file provides the `background-attachment` utility class.
+// * It can be used as a standalone class in any where it is needed.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils
+
+// @module utils/background-attachment
+
+// @dependencies:
+// * Nothing.
+
+// @example
+// * <div class="u-bg-att-fixed"></div>
+
+// @output
+// * .u-bg-att-fixed {
+// *   background-attachment: fixed;
+// * }
+
+$bg-attachment-values: (
+    bg-att-fixed: fixed,
+    bg-att-local: local,
+    bg-att-scroll: scroll,
+    bg-att-initial: initial,
+    bg-att-inherit: inherit
+);
+
+@each $bg-attachment-class-name, $bg-attachment-value in $bg-attachment-values {
+    .u-#{$bg-attachment-class-name} {
+        background-attachment: $bg-attachment-value;
+    }
+}
