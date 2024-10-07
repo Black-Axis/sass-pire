@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+// @description
+// * flex-wrap utility class.
+// * It can be used as a standalone class in any where it is needed.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils
+
+// @module utils/flex-wrap
+
+// @dependencies:
+// * - LibMixin.flex-wrap (mixin).
+
+// @example
+// * <div class="u-flex-nowrap"></div>
+
+// @output:
+// * .u-flex-nowrap {
+// *   -ms-flex-wrap: nowrap;
+// *   flex-wrap: nowrap;
+// * }
+
+@use "mixins/flex-props/main-props/flex-wrap" as LibMixin;
+
+$flex-wrap-values: (
+    flex-wrap: wrap,
+    flex-wrap-reverse: wrap-reverse,
+    flex-nowrap: nowrap
+);
+
+@each $flex-wrap-class-name, $flex-wrap-value in $flex-wrap-values {
+    .u-#{$flex-wrap-class-name} {
+        @include LibMixin.flex-wrap($flex-wrap-value);
+    }
+}

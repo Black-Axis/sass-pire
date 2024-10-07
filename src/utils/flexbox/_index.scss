@@ -26,3 +26,8 @@
 // * This module likely contains flex-direction as class.
 // @see flex-direction
 @forward "flex-direction";
+
+// * forwarding the "flex-wrap" module.
+// * This module likely contains flex-wrap as class.
+// @see flex-wrap
+@forward "flex-wrap";
