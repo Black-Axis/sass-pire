@@ -58,9 +58,9 @@
 @use "sass:meta";
 @use "sass:list";
 @use "sass:math";
-@use "../../abstract/global-variables" as var;
-@use "../vendor-prefixes/prefix" as LibMixin;
-@use "../../development-utils/toggle-error-message" as Error;
+@use "abstract/global-variables" as var;
+@use "mixins/vendor-prefixes/prefix" as LibMixin;
+@use "development-utils/toggle-error-message" as Error;
 
 @mixin scale($x: 1px, $y: $x) {
     $transform-props-values: (inherit, initial, revert, unset, none) !default;
