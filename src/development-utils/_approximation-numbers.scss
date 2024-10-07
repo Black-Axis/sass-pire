@@ -86,7 +86,7 @@
         @return Error.throw("The mode parameter of approx function must be in a string type.");
     }
 
-    @if not math.unitless($num) {
+    @if not unitless($num) {
         $num-unit: math.unit($num);
     }
 
