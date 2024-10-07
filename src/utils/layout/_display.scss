@@ -49,10 +49,10 @@
 // * We separated (flex & grid) from the $display-values map
 // * because of the vendor prefixes of them.
 
-@use "../../mixins/flex-props/main-props/flex" as LibMixin1;
-@use "../../mixins/flex-props/main-props/inline-flex" as LibMixin2;
-@use "../../mixins/grid-props/grid" as LibMixin3;
-@use "../../mixins/grid-props/inline-grid" as LibMixin4;
+@use "mixins/flex-props/main-props/flex" as LibMixin1;
+@use "mixins/flex-props/main-props/inline-flex" as LibMixin2;
+@use "mixins/grid-props/grid" as LibMixin3;
+@use "mixins/grid-props/inline-grid" as LibMixin4;
 
 $display-values: (
     block: block,
