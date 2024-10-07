@@ -35,8 +35,8 @@
 // *   align-items: center;
 // * }
 
-@use "../../abstract/global-variables" as var;
-@use "../../mixins/flex-props/main-props/align-items" as LibMixin;
+@use "abstract/global-variables" as var;
+@use "mixins/flex-props/main-props/align-items" as LibMixin;
 
 @each $value in var.$align-items-values {
     .u-ai-#{$value} {
