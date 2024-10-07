@@ -47,10 +47,10 @@
 
 @use "sass:meta";
 @use "sass:math";
-@use "../../abstract/config" as Config;
-@use "../global/cut-unit" as LibFunc;
-@use "../../development-utils/approximation-numbers" as Approx;
-@use "../../development-utils/toggle-error-message" as Error;
+@use "abstract/config" as Config;
+@use "functions/global/cut-unit" as LibFunc;
+@use "development-utils/approximation-numbers" as Approx;
+@use "development-utils/toggle-error-message" as Error;
 
 @function px-to-rem($px-val) {
     @if meta.type-of($px-val) != number {

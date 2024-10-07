@@ -46,9 +46,9 @@
 
 @use "sass:meta";
 @use "sass:math";
-@use "../global/cut-unit" as LibFunc;
-@use "../../development-utils/approximation-numbers" as Approx;
-@use "../../development-utils/toggle-error-message" as Error;
+@use "functions/global/cut-unit" as LibFunc;
+@use "development-utils/approximation-numbers" as Approx;
+@use "development-utils/toggle-error-message" as Error;
 
 @function cm-to-px($cm-val) {
     @if meta.type-of($cm-val) != number {
