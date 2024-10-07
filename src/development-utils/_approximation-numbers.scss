@@ -69,8 +69,8 @@
 
 @use "sass:meta";
 @use "sass:math";
-@use "../functions/global/cut-unit" as LibFunc;
-@use "../development-utils/toggle-error-message" as Error;
+@use "functions/global/cut-unit" as LibFunc;
+@use "development-utils/toggle-error-message" as Error;
 
 @function approx($num, $digits: 3, $mode: round) {
     $node: 1;

@@ -45,8 +45,8 @@
 // @return {String} - Returns the provided error message.
 
 @use "sass:meta";
-@use "../abstract/config" as Config;
-@use "./error" as Dev;
+@use "abstract/config" as Config;
+@use "development-utils/error" as Dev;
 
 @function toggle-error-message($error-msg) {
     @if meta.type-of($error-msg) != string {
