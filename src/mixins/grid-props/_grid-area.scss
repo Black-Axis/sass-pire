@@ -41,7 +41,7 @@
 // * }
 
 @use "sass:meta";
-@use "../../development-utils/toggle-error-message" as Error;
+@use "development-utils/toggle-error-message" as Error;
 
 @mixin area($value) {
     @if meta.type-of($value) != string {
