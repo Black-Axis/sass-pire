@@ -21,3 +21,8 @@
 // * This module likely contains align-items as class.
 // @see align-items
 @forward "align-items";
+
+// * forwarding the "flex-direction" module.
+// * This module likely contains flex-direction as class.
+// @see flex-direction
+@forward "flex-direction";
