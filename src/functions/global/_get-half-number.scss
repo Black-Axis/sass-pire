@@ -54,7 +54,7 @@
 @use "sass:math";
 @use "sass:string";
 @use "cut-unit" as LibFunc;
-@use "../../development-utils/toggle-error-message" as Error;
+@use "development-utils/toggle-error-message" as Error;
 
 @function half($number) {
     @if meta.type-of($number) != number {
@@ -65,7 +65,7 @@
         @return 0;
     }
 
-    @if not math.unitless($number) {
+    @if not unitless($number) {
         $num-after-cut-unit: LibFunc.cut-unit($number);
         $unit-of-number: math.unit($number);
 
