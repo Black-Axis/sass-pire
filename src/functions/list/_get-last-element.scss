@@ -60,9 +60,9 @@
 
 @use "sass:meta";
 @use "sass:list";
-@use "../../abstract/global-variables" as var;
-@use "flatten-list" as LibFunc;
-@use "../../development-utils/toggle-error-message" as Error;
+@use "abstract/global-variables" as var;
+@use "functions/list/flatten-list" as LibFunc;
+@use "development-utils/toggle-error-message" as Error;
 
 @function get-last-from($list: ()) {
     @if meta.type-of($list) != list {
