@@ -48,9 +48,9 @@
 @use "sass:meta";
 @use "sass:list";
 @use "sass:math";
-@use "../../functions/global/is-in-list" as LibFunc;
-@use "../vendor-prefixes/prefix-val" as LibPref;
-@use "../../development-utils/toggle-error-message" as Error;
+@use "functions/global/is-in-list" as LibFunc;
+@use "mixins/vendor-prefixes/prefix-val" as LibPref;
+@use "development-utils/toggle-error-message" as Error;
 
 @mixin grid($min-col-size: 4rem, $gap: 1rem) {
     @if meta.type-of($min-col-size) != number {

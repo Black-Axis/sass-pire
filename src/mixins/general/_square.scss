@@ -49,13 +49,13 @@
 @use "sass:meta";
 @use "sass:list";
 @use "sass:math";
-@use "../../abstract/global-variables" as var;
-@use "../../functions/global/is-in-list" as LibFunc;
-@use "../../development-utils/toggle-error-message" as Error;
+@use "abstract/global-variables" as var;
+@use "functions/global/is-in-list" as LibFunc;
+@use "development-utils/toggle-error-message" as Error;
 
 @mixin square($one-side: 1px) {
     @if meta.type-of($one-side) == number {
-        @if not math.unitless($one-side) {
+        @if not unitless($one-side) {
             @if LibFunc.is-in-list(var.$all-units, math.unit($one-side)) {
                 --sp-one-side: #{$one-side};
 

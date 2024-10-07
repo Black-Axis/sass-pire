@@ -77,7 +77,7 @@
 @use "sass:meta";
 @use "sass:list";
 @use "sass:string";
-@use "../../abstract/settings" as Settings;
+@use "abstract/settings" as Settings;
 
 @mixin generate-colors($brand-name: Settings.$brand-lib-name, $color-map: ()) {
     @if meta.type-of($brand-name) != string {

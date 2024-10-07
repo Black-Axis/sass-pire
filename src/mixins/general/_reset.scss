@@ -40,9 +40,9 @@
 // @example 3
 // * You can use it whatever you want.
 
-@use "../../mixins/vendor-prefixes/prefix" as LibMixin1;
-@use "../../mixins/general/shape-margin" as LibMixin2;
-@use "../../mixins/general/banner" as LibMixin3;
+@use "mixins/vendor-prefixes/prefix" as LibMixin1;
+@use "mixins/general/shape-margin" as LibMixin2;
+@use "mixins/general/banner" as LibMixin3;
 
 // * stylelint-disable-next-line at-rule-empty-line-before
 
