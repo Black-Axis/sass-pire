@@ -69,9 +69,9 @@
 
 @use "sass:meta";
 @use "sass:list";
-@use "../../../../../functions/global/is-in-list" as LibFunc1;
-@use "../../../../../functions/list/merge" as LibFunc2;
-@use "../../../../../development-utils/toggle-error-message" as Error;
+@use "functions/global/is-in-list" as LibFunc1;
+@use "functions/list/merge" as LibFunc2;
+@use "development-utils/toggle-error-message" as Error;
 
 @mixin iphone-8p($orientation-type: portrait) {
     @if meta.type-of($orientation-type) != string {
