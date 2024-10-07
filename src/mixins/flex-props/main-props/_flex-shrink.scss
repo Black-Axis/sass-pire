@@ -61,8 +61,8 @@
 // stylelint-disable scss/dollar-variable-empty-line-before
 
 @use "sass:meta";
-@use "../../../functions/global" as LibFunc;
-@use "../../../development-utils/toggle-error-message" as Error;
+@use "functions/global" as LibFunc;
+@use "development-utils/toggle-error-message" as Error;
 
 @mixin flex-shrink($value) {
     $flex-shrink-props: (

@@ -50,7 +50,7 @@
 // * }
 
 @use "sass:meta";
-@use "../../../functions/global/cut-unit" as LibFunc;
+@use "functions/global/cut-unit" as LibFunc;
 
 @mixin order($value: 0) {
     $order-props: (

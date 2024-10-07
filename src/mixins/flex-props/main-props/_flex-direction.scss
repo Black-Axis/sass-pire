@@ -61,8 +61,8 @@
 // stylelint-disable scss/dollar-variable-empty-line-before
 // stylelint-disable scss/no-global-function-names
 
-@use "../../../functions/global/is-in-list" as LibFunc;
-@use "../../../development-utils/toggle-error-message" as Error;
+@use "functions/global/is-in-list" as LibFunc;
+@use "development-utils/toggle-error-message" as Error;
 
 @mixin flex-dir($value: row) {
     $flex-direction-values: (row, r, row-reverse, r-rev, column, col, c, column-reverse, col-rev, "") !default;

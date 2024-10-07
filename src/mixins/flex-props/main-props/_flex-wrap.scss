@@ -60,9 +60,9 @@
 // stylelint-disable scss/dollar-variable-empty-line-before
 
 @use "sass:map";
-@use "../../vendor-prefixes/prefix" as LibMixin;
-@use "../../../functions/global/is-in-list" as LibFunc;
-@use "../../../development-utils/toggle-error-message" as Error;
+@use "mixins/vendor-prefixes/prefix" as LibMixin;
+@use "functions/global/is-in-list" as LibFunc;
+@use "development-utils/toggle-error-message" as Error;
 
 @mixin flex-wrap($value: nowrap) {
     $flex-wrap-values: (nowrap, wrap, wrap-reverse, "", no, yes, w, wrap-rev, w-rev, inherit) !default;
