@@ -328,4 +328,24 @@
         overflow: hidden;
         white-space: nowrap;
     }
+
+    /* This is for accessibility purposes */
+    .not-sr-only {
+        --sp-not-sr-only-width: auto;
+        --sp-not-sr-only-height: auto;
+
+        inline-size: var(--sp-not-sr-only-width);
+        width: var(--sp-not-sr-only-width);
+        block-size: var(--sp-not-sr-only-height);
+        height: var(--sp-not-sr-only-height);
+        position: static;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        clip: auto;
+        white-space: normal;
+    }
 }
+
+
+@include reset;
