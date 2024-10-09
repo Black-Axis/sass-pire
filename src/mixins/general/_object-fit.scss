@@ -38,8 +38,8 @@
 // * }
 
 @use "sass:meta";
-@use "../../functions/global/is-in-list" as LibFunc;
-@use "../../development-utils/toggle-error-message" as Error;
+@use "functions/global/is-in-list" as LibFunc;
+@use "development-utils/toggle-error-message" as Error;
 
 @mixin object-fit($value: fill) {
     @if meta.type-of($value) != string {

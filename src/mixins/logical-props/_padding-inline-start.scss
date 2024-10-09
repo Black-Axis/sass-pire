@@ -40,8 +40,8 @@
 @use "sass:meta";
 @use "sass:list";
 @use "sass:math";
-@use "../../abstract/global-variables" as var;
-@use "../../development-utils/toggle-error-message" as Error;
+@use "abstract/global-variables" as var;
+@use "development-utils/toggle-error-message" as Error;
 
 @mixin pis($value: 0) {
     @if meta.type-of($value) != number {

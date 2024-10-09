@@ -59,8 +59,8 @@
 // * You can use one of them as you want.
 
 @use "sass:meta";
-@use "../../../functions/global/is-in-list" as LibFunc;
-@use "../../../development-utils/toggle-error-message" as Error;
+@use "functions/global/is-in-list" as LibFunc;
+@use "development-utils/toggle-error-message" as Error;
 
 @mixin align-self($value: auto) {
     $align-self-props: (

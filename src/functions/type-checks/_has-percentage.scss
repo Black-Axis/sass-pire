@@ -44,7 +44,7 @@
 
 @use "sass:meta";
 @use "sass:math";
-@use "../../development-utils/toggle-error-message" as Error;
+@use "development-utils/toggle-error-message" as Error;
 
 @function has-ptg($value) {
     @if meta.type-of($value) != number {

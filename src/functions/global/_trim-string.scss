@@ -48,7 +48,7 @@
 @use "sass:string";
 @use "./trim-start" as LibFunc1;
 @use "./trim-end" as LibFunc2;
-@use "../../development-utils/toggle-error-message" as Error;
+@use "development-utils/toggle-error-message" as Error;
 
 // stylelint-disable scss/at-rule-conditional-no-parentheses
 

@@ -60,8 +60,8 @@
 
 @use "sass:list";
 @use "sass:map";
-@use "../../../functions/global/is-in-list" as LibFunc;
-@use "../../../development-utils//toggle-error-message" as Error;
+@use "functions/global/is-in-list" as LibFunc;
+@use "development-utils//toggle-error-message" as Error;
 
 @mixin mq-general($type: min, $dimension: w, $breakpoint-name: md) {
     $main-mq-types: (min, max) !default;

@@ -43,8 +43,8 @@
 
 @use "sass:meta";
 @use "sass:list";
-@use "../../abstract/global-variables" as var;
-@use "../../development-utils/toggle-error-message" as Error;
+@use "abstract/global-variables" as var;
+@use "development-utils/toggle-error-message" as Error;
 
 @mixin overscroll($value: auto) {
     @if meta.type-of($value) != string {

@@ -72,12 +72,13 @@
 
 // stylelint-disable media-feature-name-no-vendor-prefix
 // stylelint-disable scss/operator-no-newline-after
+// stylelint-disable media-query-no-invalid
 
 @use "sass:meta";
 @use "sass:list";
-@use "../../../../../functions/global/is-in-list" as LibFunc1;
-@use "../../../../../functions/list/merge" as LibFunc2;
-@use "../../../../../development-utils/toggle-error-message" as Error;
+@use "functions/global/is-in-list" as LibFunc1;
+@use "functions/list/merge" as LibFunc2;
+@use "development-utils/toggle-error-message" as Error;
 
 @mixin iphone-6($orientation-type: portrait) {
     @if meta.type-of($orientation-type) != string {

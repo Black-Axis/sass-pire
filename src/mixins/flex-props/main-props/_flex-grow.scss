@@ -56,7 +56,7 @@
 // * You can use one of them as you want.
 
 @use "sass:meta";
-@use "../../../functions/global/cut-unit" as LibFunc;
+@use "functions/global/cut-unit" as LibFunc;
 
 @mixin flex-grow($value: 0) {
     $flex-grow-props: (-webkit-flex-grow, -webkit-box-flex, -ms-flex-positive, -moz-box-flex, flex-grow) !default;

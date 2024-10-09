@@ -45,7 +45,7 @@
 
 @use "sass:meta";
 @use "sass:list";
-@use "../../development-utils/toggle-error-message" as Error;
+@use "development-utils/toggle-error-message" as Error;
 
 @function has-pos($val) {
     $position-values: (top, right, bottom, left) !default;

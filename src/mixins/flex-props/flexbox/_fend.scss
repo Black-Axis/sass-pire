@@ -56,7 +56,7 @@
 // *   align-items: normal;
 // * }
 
-@use "../main-props/flex-prop" as LibMixin;
+@use "mixins/flex-props/main-props/flex-prop" as LibMixin;
 
 // @mixin flex-fend-normal
 // @param {String} $dir - The flex direction. Default: row.

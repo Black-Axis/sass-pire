@@ -58,11 +58,11 @@
 @use "sass:meta";
 @use "sass:list";
 @use "sass:math";
-@use "../../abstract/global-variables" as var;
-@use "../vendor-prefixes/prefix" as LibPref;
-@use "../../functions/global/is-in-list" as LibFunc1;
-@use "../../functions/global/cut-unit" as LibFunc2;
-@use "../../development-utils/toggle-error-message" as Error;
+@use "abstract/global-variables" as var;
+@use "mixins/vendor-prefixes/prefix" as LibPref;
+@use "functions/global/is-in-list" as LibFunc1;
+@use "functions/global/cut-unit" as LibFunc2;
+@use "development-utils/toggle-error-message" as Error;
 
 @mixin transition($prop: all, $time: 0.33ms, $func: ease-in-out, $delaying: 0ms) {
     $time-unit: math.unit($time);

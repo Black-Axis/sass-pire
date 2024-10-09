@@ -71,8 +71,8 @@
 @use "sass:meta";
 @use "sass:list";
 @use "sass:math";
-@use "../vendor-prefixes/prefix" as pref;
-@use "../../abstract/global-variables" as var;
+@use "mixins/vendor-prefixes/prefix" as pref;
+@use "abstract/global-variables" as var;
 
 @mixin shadow($val...) {
     $box-shadow-values: (inherit, initial, revert, revert-layer, unset, none) !default;

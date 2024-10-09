@@ -49,7 +49,7 @@
 @use "sass:meta";
 @use "sass:list";
 @use "sass:string";
-@use "../../development-utils/toggle-error-message" as Error;
+@use "development-utils/toggle-error-message" as Error;
 
 @function trim-end($str-value) {
     @if meta.type-of($str-value) != "string" {

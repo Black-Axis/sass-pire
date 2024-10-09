@@ -40,9 +40,9 @@
 // @example 3
 // * You can use it whatever you want.
 
-@use "../../mixins/vendor-prefixes/prefix" as LibMixin1;
-@use "../../mixins/general/shape-margin" as LibMixin2;
-@use "../../mixins/general/banner" as LibMixin3;
+@use "mixins/vendor-prefixes/prefix" as LibMixin1;
+@use "mixins/general/shape-margin" as LibMixin2;
+@use "mixins/general/banner" as LibMixin3;
 
 // * stylelint-disable-next-line at-rule-empty-line-before
 
@@ -326,5 +326,23 @@
         position: absolute;
         clip: rect(0, 0, 0, 0);
         overflow: hidden;
+        white-space: nowrap;
+    }
+
+    /* This is for accessibility purposes */
+    .not-sr-only {
+        --sp-not-sr-only-width: auto;
+        --sp-not-sr-only-height: auto;
+
+        inline-size: var(--sp-not-sr-only-width);
+        width: var(--sp-not-sr-only-width);
+        block-size: var(--sp-not-sr-only-height);
+        height: var(--sp-not-sr-only-height);
+        position: static;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        clip: auto;
+        white-space: normal;
     }
 }

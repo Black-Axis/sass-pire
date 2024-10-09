@@ -49,8 +49,8 @@
 @use "sass:meta";
 @use "sass:string";
 @use "sass:list";
-@use "../../functions/global/trim-string" as LibFunc;
-@use "../../development-utils/toggle-error-message" as Error;
+@use "functions/global/trim-string" as LibFunc;
+@use "development-utils/toggle-error-message" as Error;
 
 // stylelint-disable property-no-vendor-prefix
 

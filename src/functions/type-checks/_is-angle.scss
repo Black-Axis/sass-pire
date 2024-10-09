@@ -48,8 +48,8 @@
 @use "sass:meta";
 @use "sass:list";
 @use "sass:math";
-@use "../../abstract/global-variables" as var;
-@use "../../development-utils/toggle-error-message" as Error;
+@use "abstract/global-variables" as var;
+@use "development-utils/toggle-error-message" as Error;
 
 @function is-angle($value) {
     @if meta.type-of($value) != number {
