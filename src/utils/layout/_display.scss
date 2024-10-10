@@ -72,6 +72,7 @@ $display-values: (
     table-row-group: table-row-group,
     run-in: run-in,
     compact: compact,
+    contents: contents,
 );
 
 @each $display-class-name, $display-value in $display-values {
