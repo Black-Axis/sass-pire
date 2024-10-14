@@ -1,0 +1,53 @@
+@use "sass:map";
+@use "true" as *;
+@use "../../../src/mixins/flex-props/main-props/_flex" as LibMixin;
+
+// stylelint-disable value-no-vendor-prefix
+// stylelint-disable declaration-block-no-duplicate-properties
+// stylelint-disable value-keyword-case
+
+$test-cases-d-flex-map: (
+    "test-1": (
+        selector: ".test-1",
+        expected: (
+            -webkit-box,
+            -moz-box,
+            -ms-flexbox,
+            -webkit-flex,
+            flex
+        )
+    ),
+    "test-2": (
+        selector: ".test-2",
+        expected: (
+            -webkit-box,
+            -moz-box,
+            -ms-flexbox,
+            -webkit-flex,
+            flex
+        )
+    ),
+);
+
+// Iterate over the test cases
+@each $case-name, $case-data in $test-cases-d-flex-map {
+    @include describe("[Mixin] d-flex for #{$case-name}") {
+        @include it("should output correct display flex properties") {
+            @include assert {
+                @include output {
+                    #{map-get($case-data, selector)} {
+                        @include LibMixin.d-flex;
+                    }
+                }
+
+                @include expect {
+                    #{map-get($case-data, selector)} {
+                        @each $value in map.get($case-data, expected) {
+                            display: $value;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
