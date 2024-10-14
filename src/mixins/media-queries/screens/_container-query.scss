@@ -1,0 +1,108 @@
+@charset "UTF-8";
+
+// @description
+// * container-query mixin.
+// * Generate a media query with specified type,
+// * dimension, and breakpoint.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @reference: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries
+
+// @namespace general
+
+// @module screens/container-query
+
+// @dependencies:
+// * - map.has-key (SASS function).
+// * - map.get (SASS function).
+// * - var.$breakpoints (variable).
+// * - LibFunc.is-in-list (function).
+// * - Error.throw (function).
+
+// @param {String} $type
+// * The type of query you want (min | max).
+
+// @param {String} $dimension
+// * The dimension you want, which can be width, height, w, or h.
+
+// @param {String} $breakpoint-name
+// * Specify the breakpoint name from the breakpoints map.
+
+// @param {String} $container-name: 
+// * Specify the container name.
+
+// @example
+// * .example {
+// *   @include container-query($type: max, $dimension: w, $breakpoint-name: lg) {
+// *     width: 100px;
+// *   }
+// * }
+
+// @output
+// * @container (max-width: 1199px) {
+// *   .example {
+// *     width: 100px;
+// *   }
+// * }
+
+// @note
+// * There are two mixins in this file.
+// * The first is the (container-query) mixin and second is (cq) mixin.
+// * The second one is for only simplicity when using (container-query) mixin.
+// * The core logic of (cq) mixin is to call the first one.
+// * You can use one of them as you want.
+
+// stylelint-disable media-query-no-invalid
+
+@use "sass:map";
+@use "abstract/global-variables" as var;
+@use "functions/global/is-in-list" as LibFunc;
+@use "development-utils//toggle-error-message" as Error;
+
+@mixin container-query($type: min, $dimension: w, $breakpoint-name: md, $container-name: "") {
+    $main-cq-types: (min, max) !default;
+    $main-dimensions: (width, w, height, h) !default;
+
+    @if LibFunc.is-in-list($main-cq-types, $type) {
+        @if LibFunc.is-in-list($main-dimensions, $dimension) {
+            @if map.has-key(var.$breakpoints, $breakpoint-name) {
+                $actual-dimension: map_get(var.$breakpoints, $breakpoint-name);
+    
+                @if $type == max {
+                    $actual-dimension: $actual-dimension - 1px;
+                }
+    
+                @if $dimension == width or $dimension == w {
+                    @container #{$container-name} (#{$type}-width: #{$actual-dimension}) {
+                        @content;
+                    }
+                } @else if $dimension == height or $dimension == h {
+                    @container #{$container-name} (#{$type}-height: #{$actual-dimension}) {
+                        @content;
+                    }
+                }
+            } @else {
+                content: Error.throw("Please, Enter the valid breakpoint. #{$breakpoint-name} does not exist in (#{var.$breakpoints})");
+            }
+        } @else {
+            content: Error.throw("The dimension parameter of align-items mixin must be one of: (#{$main-dimensions}).");
+        }
+    } @else {
+        content: Error.throw("The type parameter of cq mixin must be one of: (#{$main-cq-types}).");
+    }
+}
+
+@mixin cq($type: min, $dimension: w, $breakpoint-name: md, $container-name: "") {
+    @include container-query($type, $dimension, $breakpoint-name, $container-name) {
+        @content;
+    }
+}

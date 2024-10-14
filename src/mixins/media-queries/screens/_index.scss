@@ -18,6 +18,12 @@
 // @see media-query
 @forward "media-query";
 
+// * forwarding the "container-query" module.
+// * The "container-query" module likely contains styles for
+// * a new approach in responsive designs.
+// @see container-query
+@forward "container-query";
+
 // * forwarding the "phones" module.
 // * The "phones" module likely contains styles for
 // * responsive designs.
