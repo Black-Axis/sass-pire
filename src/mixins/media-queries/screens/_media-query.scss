@@ -60,7 +60,6 @@
 
 // stylelint-disable media-query-no-invalid
 
-@use "sass:list";
 @use "sass:map";
 @use "abstract/global-variables" as var;
 @use "functions/global/is-in-list" as LibFunc;
@@ -80,11 +79,11 @@
                 }
     
                 @if $dimension == width or $dimension == w {
-                    @media only screen and (#{$type}-width: $actual-dimension) {
+                    @media only screen and (#{$type}-width: #{$actual-dimension}) {
                         @content;
                     }
                 } @else if $dimension == height or $dimension == h {
-                    @media only screen and (#{$type}-height: $actual-dimension) {
+                    @media only screen and (#{$type}-height: #{$actual-dimension}) {
                         @content;
                     }
                 }
