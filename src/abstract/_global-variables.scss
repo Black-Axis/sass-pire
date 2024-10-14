@@ -61,7 +61,8 @@ $all-units: (
     dvmax,
     vb,
     lvb,
-    dvb) !default;
+    dvb
+) !default;
 
 $data-types: (
     number,
@@ -70,23 +71,27 @@ $data-types: (
     list,
     color,
     map,
-    null) !default;
+    null
+) !default;
 
 $angle-units: (
     deg,
     turn,
     rad,
-    grad) !default;
+    grad
+) !default;
 
 $main-units: (
     #{"%"},
     rem,
     px,
-    em) !default;
+    em
+) !default;
 
 $time-units: (
     ms,
-    s) !default;
+    s
+) !default;
 
 $overflow-values: (
     scroll,
@@ -101,11 +106,26 @@ $overflow-values: (
     unset
 ) !default;
 
-$overscroll-behavior-values: (auto, contain, none, initial, inherit) !default;
+$overscroll-behavior-values: (
+    auto,
+    contain,
+    none,
+    initial,
+    inherit
+) !default;
 
-$main-data-types: (number, string, bool) !default;
+$main-data-types: (
+    number,
+    string,
+    bool
+) !default;
 
-$main-directions: (top, right, bottom, left) !default;
+$main-directions: (
+    top,
+    right,
+    bottom,
+    left
+) !default;
 
 $justify-content-props: (
     -webkit-box-pack,
