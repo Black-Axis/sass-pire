@@ -34,8 +34,8 @@
     "scripts": {
         "dev": "concurrently --prefix-colors=\"cyan,yellow\" \"yarn run sass:watch\" \"yarn run sass:comp\"",
         "dev:test": "concurrently --prefix-colors=\"cyan,yellow,red\" \"yarn run sass:watch\" \"yarn run sass:comp\" \"yarn run test\"",
-        "sass:watch": "sass --no-source-map --load-path=./src/ --load-path=./src/abstract --load-path=./src/development-utils --load-path=./src/functions --load-path=./src/helpers --load-path=./src/mixins --load-path=./src/utils ./src/sass-pire.scss:dist/styles.css --watch",
-        "sass:comp": "sass --no-source-map --load-path=./src/ --load-path=./src/abstract --load-path=./src/development-utils --load-path=./src/functions --load-path=./src/helpers --load-path=./src/mixins --load-path=./src/utils ./src/sass-pire.scss:dist/styles.min.css --watch --style=compressed",
+        "sass:watch": "sass --no-source-map --load-path=./src/ ./src/sass-pire.scss:dist/styles.css --watch",
+        "sass:comp": "sass --no-source-map --load-path=./src/ ./src/sass-pire.scss:dist/styles.min.css --watch --style=compressed",
         "upgrade": "ncu --upgrade",
         "lint": "npx stylelint ./src/**/*.scss",
         "cmt": "cz",
