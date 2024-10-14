@@ -24,7 +24,9 @@
 // @dependencies:
 // * - map.has-key (SASS function).
 // * - map.get (SASS function).
+// * - var.$breakpoints (variable).
 // * - LibFunc.is-in-list (function).
+// * - Error.throw (function).
 
 // @param {String} $type
 // * The type of query you want (min | max).
@@ -60,6 +62,7 @@
 
 @use "sass:list";
 @use "sass:map";
+@use "abstract/global-variables" as var;
 @use "functions/global/is-in-list" as LibFunc;
 @use "development-utils//toggle-error-message" as Error;
 
@@ -67,33 +70,10 @@
     $main-mq-types: (min, max) !default;
     $main-dimensions: (width, w, height, h) !default;
 
-    // stylelint-disable-next-line scss/dollar-variable-empty-line-before
-    $breakpoints: (
-        "small": 280px,
-        "mob-min": 320px,
-        "mob": 400px,
-        "mob-wide": 480px,
-        "xs": 576px,
-        "sm-tab": 640px,
-        "sm": 767px,
-        "sm-wide": 870px,
-        "sm-max": 930px,
-        "md": 991px,
-        "md-max": 1150px,
-        "lg": 1200px,
-        "lg-max": 1300px,
-        "xl": 1400px,
-        "xl-max": 1550px,
-        "xl-2": 1900px,
-        "xl-3": 2400px,
-        "xl-4": 2800px,
-        "xxl": 3000px
-    ) !default;
-
     @if LibFunc.is-in-list($main-mq-types, $type) {
         @if LibFunc.is-in-list($main-dimensions, $dimension) {
-            @if map.has-key($breakpoints, $breakpoint-name) {
-                $actual-dimension: map_get($breakpoints, $breakpoint-name);
+            @if map.has-key(var.$breakpoints, $breakpoint-name) {
+                $actual-dimension: map_get(var.$breakpoints, $breakpoint-name);
     
                 @if $type == max {
                     $actual-dimension: $actual-dimension - 1px;
@@ -109,7 +89,7 @@
                     }
                 }
             } @else {
-                content: Error.throw("Please, Enter the valid breakpoint. #{$breakpoint-name} dose not exist in (#{$breakpoints})");
+                content: Error.throw("Please, Enter the valid breakpoint. #{$breakpoint-name} dose not exist in (#{var.$breakpoints})");
             }
         } @else {
             content: Error.throw("The dimension parameter of align-items mixin must be one of: (#{$main-dimensions}).");
