@@ -1,13 +1,13 @@
 @charset "UTF-8";
 
 // @description
-// * mq-general mixin.
+// * container-query mixin.
 // * Generate a media query with specified type,
 // * dimension, and breakpoint.
 
 // @access public
 
-// @version 1.1.1
+// @version 1.0.0
 
 // @author Khaled Mohamed
 
@@ -15,11 +15,11 @@
 
 // @repository: https://github.com/Black-Axis/sass-pire
 
-// @reference: https://developer.mozilla.org/en-US/docs/Web/CSS/@media
+// @reference: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries
 
 // @namespace general
 
-// @module screens/mq-general
+// @module screens/container-query
 
 // @dependencies:
 // * - map.has-key (SASS function).
@@ -37,15 +37,18 @@
 // @param {String} $breakpoint-name
 // * Specify the breakpoint name from the breakpoints map.
 
+// @param {String} $container-name: 
+// * Specify the container name.
+
 // @example
 // * .example {
-// *   @include mq-general($type: max, $dimension: h, $breakpoint-name: lg) {
+// *   @include container-query($type: max, $dimension: w, $breakpoint-name: lg) {
 // *     width: 100px;
 // *   }
 // * }
 
 // @output
-// * @media only screen and (max-height: 1199px) {
+// * @container (max-width: 1199px) {
 // *   .example {
 // *     width: 100px;
 // *   }
@@ -53,9 +56,9 @@
 
 // @note
 // * There are two mixins in this file.
-// * The first is the (mq-general) mixin and second is (mq-gen) mixin.
-// * The second one is for only simplicity when using (mq-general) mixin.
-// * The core logic of (mq-gen) mixin is to call the first one.
+// * The first is the (container-query) mixin and second is (cq) mixin.
+// * The second one is for only simplicity when using (container-query) mixin.
+// * The core logic of (cq) mixin is to call the first one.
 // * You can use one of them as you want.
 
 // stylelint-disable media-query-no-invalid
@@ -65,11 +68,11 @@
 @use "functions/global/is-in-list" as LibFunc;
 @use "development-utils//toggle-error-message" as Error;
 
-@mixin mq-general($type: min, $dimension: w, $breakpoint-name: md) {
-    $main-mq-types: (min, max) !default;
+@mixin container-query($type: min, $dimension: w, $breakpoint-name: md, $container-name: "") {
+    $main-cq-types: (min, max) !default;
     $main-dimensions: (width, w, height, h) !default;
 
-    @if LibFunc.is-in-list($main-mq-types, $type) {
+    @if LibFunc.is-in-list($main-cq-types, $type) {
         @if LibFunc.is-in-list($main-dimensions, $dimension) {
             @if map.has-key(var.$breakpoints, $breakpoint-name) {
                 $actual-dimension: map_get(var.$breakpoints, $breakpoint-name);
@@ -79,11 +82,11 @@
                 }
     
                 @if $dimension == width or $dimension == w {
-                    @media only screen and (#{$type}-width: #{$actual-dimension}) {
+                    @container #{$container-name} (#{$type}-width: #{$actual-dimension}) {
                         @content;
                     }
                 } @else if $dimension == height or $dimension == h {
-                    @media only screen and (#{$type}-height: #{$actual-dimension}) {
+                    @container #{$container-name} (#{$type}-height: #{$actual-dimension}) {
                         @content;
                     }
                 }
@@ -94,12 +97,12 @@
             content: Error.throw("The dimension parameter of align-items mixin must be one of: (#{$main-dimensions}).");
         }
     } @else {
-        content: Error.throw("The type parameter of mq-general mixin must be one of: (#{$main-mq-types}).");
+        content: Error.throw("The type parameter of cq mixin must be one of: (#{$main-cq-types}).");
     }
 }
 
-@mixin mq-gen($type: min, $dimension: w, $breakpoint-name: md) {
-    @include mq-general($type, $dimension, $breakpoint-name) {
+@mixin cq($type: min, $dimension: w, $breakpoint-name: md, $container-name: "") {
+    @include container-query($type, $dimension, $breakpoint-name, $container-name) {
         @content;
     }
 }

@@ -56,7 +56,7 @@
 
     // stylelint-disable-next-line length-zero-no-unit
     @if math.unit($num) == "" and not unitless($num) {
-        @return Error.throw("The parameter dose not need a unit if it equals to zero.");
+        @return Error.throw("The parameter does not need a unit if it equals to zero.");
     }
 
     @if meta.type-of($num) == number and not unitless($num) {

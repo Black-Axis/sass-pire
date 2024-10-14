@@ -61,7 +61,8 @@ $all-units: (
     dvmax,
     vb,
     lvb,
-    dvb) !default;
+    dvb
+) !default;
 
 $data-types: (
     number,
@@ -70,23 +71,49 @@ $data-types: (
     list,
     color,
     map,
-    null) !default;
+    null
+) !default;
 
 $angle-units: (
     deg,
     turn,
     rad,
-    grad) !default;
+    grad
+) !default;
 
 $main-units: (
     #{"%"},
     rem,
     px,
-    em) !default;
+    em
+) !default;
 
 $time-units: (
     ms,
-    s) !default;
+    s
+) !default;
+
+$breakpoints: (
+    "small": 280px,
+    "mob-min": 320px,
+    "mob": 400px,
+    "mob-wide": 480px,
+    "xs": 576px,
+    "sm-tab": 640px,
+    "sm": 767px,
+    "sm-wide": 870px,
+    "sm-max": 930px,
+    "md": 991px,
+    "md-max": 1150px,
+    "lg": 1200px,
+    "lg-max": 1300px,
+    "xl": 1400px,
+    "xl-max": 1550px,
+    "xl-2": 1900px,
+    "xl-3": 2400px,
+    "xl-4": 2800px,
+    "xxl": 3000px
+) !default;
 
 $overflow-values: (
     scroll,
@@ -101,11 +128,26 @@ $overflow-values: (
     unset
 ) !default;
 
-$overscroll-behavior-values: (auto, contain, none, initial, inherit) !default;
+$overscroll-behavior-values: (
+    auto,
+    contain,
+    none,
+    initial,
+    inherit
+) !default;
 
-$main-data-types: (number, string, bool) !default;
+$main-data-types: (
+    number,
+    string,
+    bool
+) !default;
 
-$main-directions: (top, right, bottom, left) !default;
+$main-directions: (
+    top,
+    right,
+    bottom,
+    left
+) !default;
 
 $justify-content-props: (
     -webkit-box-pack,
@@ -115,7 +157,6 @@ $justify-content-props: (
     justify-content
 ) !default;
 
-// * stylelint-disable-next-line scss/dollar-variable-empty-line-before
 $justify-content-values: (
     normal,
     stretch,
@@ -140,7 +181,6 @@ $align-items-props: (
     align-items
 ) !default;
 
-// * stylelint-disable-next-line scss/dollar-variable-empty-line-before
 $align-items-values: (
     normal,
     stretch,

@@ -61,7 +61,7 @@
 
     // stylelint-disable-next-line length-zero-no-unit
     @if $cm-val == 0cm {
-        @return Error.throw("The parameter dose not need a unit if it equals to zero.");
+        @return Error.throw("The parameter does not need a unit if it equals to zero.");
     }
 
     @if math.unit($cm-val) != cm {

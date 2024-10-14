@@ -61,7 +61,7 @@
 
     // stylelint-disable-next-line length-zero-no-unit
     @if $px-val == 0px {
-        @return Error.throw("The parameter dose not need a unit if it equals to zero.");
+        @return Error.throw("The parameter does not need a unit if it equals to zero.");
     }
 
     @if math.unit($px-val) != px {
