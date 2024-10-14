@@ -89,7 +89,7 @@
                     }
                 }
             } @else {
-                content: Error.throw("Please, Enter the valid breakpoint. #{$breakpoint-name} dose not exist in (#{var.$breakpoints})");
+                content: Error.throw("Please, Enter the valid breakpoint. #{$breakpoint-name} does not exist in (#{var.$breakpoints})");
             }
         } @else {
             content: Error.throw("The dimension parameter of align-items mixin must be one of: (#{$main-dimensions}).");
