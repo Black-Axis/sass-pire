@@ -46,8 +46,8 @@
 
 @use "sass:meta";
 @use "sass:list";
-@use "functions/global/is-in-list" as LibFunc;
-@use "development-utils/toggle-error-message" as Error;
+@use "../../functions/global/is-in-list" as LibFunc;
+@use "../../development-utils/toggle-error-message" as Error;
 
 @mixin text-align-last($value: auto) {
     $text-align-last-props: (

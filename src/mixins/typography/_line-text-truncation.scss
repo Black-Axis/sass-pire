@@ -61,8 +61,8 @@
 // * }
 
 @use "sass:meta";
-@use "mixins/typography/text-overflow" as LibMixin;
-@use "development-utils/toggle-error-message" as Error;
+@use "../../mixins/typography/text-overflow" as LibMixin;
+@use "../../development-utils/toggle-error-message" as Error;
 
 @mixin line-text-trunc($lines: 1) {
     @if meta.type-of($lines) != number {
