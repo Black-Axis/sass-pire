@@ -124,7 +124,7 @@
 @use "sass:meta";
 @use "sass:list";
 @use "sass:map";
-@use "functions/map/has-same-keys" as func;
+@use "../../functions/map/has-same-keys" as func;
 
 @mixin generate-colors-dark-mode($light-colors-map: (), $dark-colors-map: (), $generate-with-attr: false) {
     @if meta.type-of($light-colors-map) != map {

@@ -37,7 +37,7 @@
 
 // stylelint-disable comment-empty-line-before
 
-@use "abstract/settings" as Settings;
+@use "../../abstract/settings" as Settings;
 
 @mixin banner() {
     /*

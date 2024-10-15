@@ -53,8 +53,8 @@
 
 @use "sass:meta";
 @use "sass:list";
-@use "functions/global/is-in-list" as LibFunc;
-@use "development-utils/toggle-error-message" as Error;
+@use "../../functions/global/is-in-list" as LibFunc;
+@use "../../development-utils/toggle-error-message" as Error;
 
 @mixin u-select($value: auto) {
     $user-select-props: (-webkit-user-select, -moz-user-select, -ms-user-select, user-select) !default;
