@@ -68,8 +68,8 @@
 // stylelint-disable media-query-no-invalid
 
 @use "sass:meta";
-@use "functions/global/is-in-list" as LibFunc;
-@use "development-utils/toggle-error-message" as Error;
+@use "../../../../../functions/global/is-in-list" as LibFunc;
+@use "../../../../../development-utils/toggle-error-message" as Error;
 
 @mixin iphone-6p($orientation-type: portrait) {
     @if meta.type-of($orientation-type) != string {
