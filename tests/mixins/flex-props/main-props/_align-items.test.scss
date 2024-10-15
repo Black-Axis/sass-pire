@@ -1,0 +1,54 @@
+@use "sass:map";
+@use "true" as *;
+@use "../../../../src/mixins/flex-props/main-props/align-items" as LibMixin;
+
+// stylelint-disable value-no-vendor-prefix
+// stylelint-disable declaration-block-no-duplicate-properties
+// stylelint-disable value-keyword-case
+
+$test-cases-align-items-map: (
+    "test-1": (
+        selector: ".test-1",
+        value: start,
+        expected: (
+            -webkit-box-align: start,
+            -webkit-align-items: start,
+            -ms-flex-align: start,
+            -moz-align-items: start,
+            align-items: start,
+        )
+    ),
+    "test-2": (
+        selector: ".test-2",
+        value: center,
+        expected: (
+            -webkit-box-align: center,
+            -webkit-align-items: center,
+            -ms-flex-align: center,
+            -moz-align-items: center,
+            align-items: center,
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-align-items-map {
+    @include describe("[Mixin] align-items for #{$case-name}") {
+        @include it("should output correct align-items properties") {
+            @include assert {
+                @include output {
+                    #{map-get($case-data, selector)} {
+                        @include LibMixin.align-items(#{map.get($case-data, value)});
+                    }
+                }
+
+                @include expect {
+                    #{map-get($case-data, selector)} {
+                        @each $property, $value in map.get($case-data, expected) {
+                            #{$property}: #{$value};
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
