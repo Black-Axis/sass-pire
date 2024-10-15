@@ -50,8 +50,8 @@
 // *   flex-wrap: nowrap;
 // * }
 
-@use "mixins/flex-props/main-props/flex-direction" as LibMixin1;
-@use "mixins/flex-props/main-props/flex-wrap" as LibMixin2;
+@use "flex-direction" as LibMixin1;
+@use "flex-wrap" as LibMixin2;
 
 @mixin flow($flex-dir-value: row, $flex-wrap-value: nowrap) {
     @include LibMixin1.flex-dir($flex-dir-value);

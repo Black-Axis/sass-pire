@@ -68,10 +68,10 @@
 // *   align-items: center;
 // * }
 
-@use "mixins/flex-props/main-props/inline-flex" as f;
-@use "mixins/flex-props/main-props/flex-direction" as dir;
-@use "mixins/flex-props/main-props/justify-content" as jc;
-@use "mixins/flex-props/main-props/align-items" as ai;
+@use "inline-flex" as f;
+@use "flex-direction" as dir;
+@use "justify-content" as jc;
+@use "align-items" as ai;
 
 @mixin inflex-prop($f-dir: row, $justify-content-val: flex-start, $align-items-val: normal) {
     @include f.d-inflex;

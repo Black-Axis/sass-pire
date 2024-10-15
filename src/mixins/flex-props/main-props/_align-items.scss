@@ -58,9 +58,9 @@
 // * The core logic of (a-i) mixin is to call the first one.
 // * You can use one of them as you want.
 
-@use "abstract/global-variables" as var;
-@use "development-utils/toggle-error-message" as Error;
-@use "functions/global/is-in-list" as LibFunc;
+@use "../../../abstract/global-variables" as var;
+@use "../../../development-utils/toggle-error-message" as Error;
+@use "../../../functions/global/is-in-list" as LibFunc;
 
 @mixin align-items($value: normal) {
     @if LibFunc.is-in-list(var.$align-items-values, $value) {
