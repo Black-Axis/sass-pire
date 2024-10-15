@@ -215,6 +215,10 @@
         @include LibMixin2.shape-margin(1rem);
     }
 
+    figcaption {
+        font-style: italic;
+    }
+
     // * Inherit fonts for inputs and buttons
     input,
     button,
