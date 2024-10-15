@@ -56,8 +56,8 @@
 
 @use "sass:meta";
 @use "sass:math";
-@use "functions/converters/pixel-to-rem" as LibFunc;
-@use "development-utils/toggle-error-message" as Error;
+@use "../../functions/converters/pixel-to-rem" as LibFunc;
+@use "../../development-utils/toggle-error-message" as Error;
 
 @function clamped($min-px, $max-px, $min-breakpoint: 320px, $max-breakpoint: 1200px) {
     @if meta.type-of($min-px) != number or

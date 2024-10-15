@@ -76,8 +76,8 @@
 @use "sass:meta";
 @use "sass:math";
 @use "sass:list";
-@use "functions/list/flatten-list" as LibFunc;
-@use "development-utils/toggle-error-message" as Error;
+@use "../../functions/list/flatten-list" as LibFunc;
+@use "../../development-utils/toggle-error-message" as Error;
 
 @function sum($args: ()) {
     @if meta.type-of($args) != list {
