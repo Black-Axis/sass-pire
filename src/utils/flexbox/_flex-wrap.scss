@@ -30,7 +30,7 @@
 // *   flex-wrap: nowrap;
 // * }
 
-@use "mixins/flex-props/main-props/flex-wrap" as LibMixin;
+@use "../../mixins/flex-props/main-props/flex-wrap" as LibMixin;
 
 $flex-wrap-values: (
     flex-wrap: wrap,

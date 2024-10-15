@@ -59,8 +59,8 @@
 @use "sass:meta";
 @use "sass:list";
 @use "sass:math";
-@use "functions/list/flatten-list" as LibFunc;
-@use "development-utils/toggle-error-message" as Error;
+@use "../../functions/list/flatten-list" as LibFunc;
+@use "../../development-utils/toggle-error-message" as Error;
 
 @function center-of-list($list: ()) {
     @if meta.type-of($list) != list {

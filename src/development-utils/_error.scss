@@ -45,7 +45,7 @@
 // @return {String} - Returns the provided error message.
 
 @use "sass:meta";
-@use "abstract/config" as Config;
+@use "../abstract/config" as Config;
 
 @function err($message) {
     @if meta.type-of($message) != string {

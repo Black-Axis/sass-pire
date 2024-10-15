@@ -61,9 +61,9 @@
 // stylelint-disable media-query-no-invalid
 
 @use "sass:map";
-@use "abstract/global-variables" as var;
-@use "functions/global/is-in-list" as LibFunc;
-@use "development-utils//toggle-error-message" as Error;
+@use "../../../abstract/global-variables" as var;
+@use "../../../functions/global/is-in-list" as LibFunc;
+@use "../../../development-utils//toggle-error-message" as Error;
 
 @mixin mq-general($type: min, $dimension: w, $breakpoint-name: md) {
     $main-mq-types: (min, max) !default;

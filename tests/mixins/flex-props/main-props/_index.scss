@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+// @description
+// * This file as index for test cases of flex-props.
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace mixins
+
+// * forwarding the "flex.test" module.
+// * The "flex.test" module likely provides a test cases for
+// * display flex with its vendor prefixes.
+// @see flex.test
+@forward "flex.test";
+
+// * forwarding the "align-items.test" module.
+// * The "align-items.test" module likely provides a test cases for
+// * display flex with its vendor prefixes.
+// @see align-items.test
+@forward "align-items.test";

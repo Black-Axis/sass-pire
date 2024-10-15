@@ -65,8 +65,8 @@
 @use "sass:meta";
 @use "sass:list";
 @use "sass:math";
-@use "functions/global" as LibFunc;
-@use "development-utils/toggle-error-message" as Error;
+@use "../../../functions/global" as LibFunc;
+@use "../../../development-utils/toggle-error-message" as Error;
 
 @mixin flex-basis($value: auto) {
     $flex-basis-props: (

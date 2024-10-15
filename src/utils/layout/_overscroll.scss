@@ -42,7 +42,7 @@
 // * }
 
 @use "sass:list";
-@use "mixins/general/overscroll-behavior" as LibMixin;
+@use "../../mixins/general/overscroll-behavior" as LibMixin;
 
 $overscroll-values: (
     overscroll-auto: (overscroll-behavior, auto),

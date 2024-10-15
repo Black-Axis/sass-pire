@@ -41,7 +41,7 @@
 
 @use "sass:meta";
 @use "sass:list";
-@use "development-utils/toggle-error-message" as Error;
+@use "../../development-utils/toggle-error-message" as Error;
 
 @mixin fade($type: show) {
     @if meta.type-of($type) != string {

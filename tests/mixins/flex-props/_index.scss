@@ -1,3 +1,18 @@
-@forward "flex-main-props";
-@forward "flex";
-@forward "inflex";
+@charset "UTF-8";
+
+// @description
+// * This file as index for test cases of flex-props.
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace mixins
+
+// * forwarding the "main-props" module.
+// * The "main-props" module likely provides a test cases for
+// * flexbox with its vendor prefixes.
+// @see main-props
+@forward "main-props";

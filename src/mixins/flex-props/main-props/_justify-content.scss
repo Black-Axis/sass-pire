@@ -55,9 +55,9 @@
 // * The core logic of (j-c) mixin is to call the first one.
 // * You can use one of them as you want.
 
-@use "abstract/global-variables" as var;
-@use "functions/global/is-in-list" as LibFunc;
-@use "development-utils/toggle-error-message" as Error;
+@use "../../../abstract/global-variables" as var;
+@use "../../../functions/global/is-in-list" as LibFunc;
+@use "../../../development-utils/toggle-error-message" as Error;
 
 @mixin justify-content($value: flex-start) {
     @if LibFunc.is-in-list(var.$justify-content-values, $value) {

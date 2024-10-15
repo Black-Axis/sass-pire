@@ -53,9 +53,9 @@
 @use "sass:meta";
 @use "sass:list";
 @use "sass:math";
-@use "abstract/global-variables" as var;
-@use "mixins/vendor-prefixes/prefix" as LibMixin;
-@use "development-utils/toggle-error-message" as Error;
+@use "../../abstract/global-variables" as var;
+@use "../../mixins/vendor-prefixes/prefix" as LibMixin;
+@use "../../development-utils/toggle-error-message" as Error;
 
 @mixin rotate-x($angle: 0deg) {
     $transform-props-values: (inherit, initial, revert, unset, none) !default;
