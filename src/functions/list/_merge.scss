@@ -44,8 +44,8 @@
 
 @use "sass:meta";
 @use "sass:list";
-@use "functions/list/flatten-list" as LibFunc;
-@use "development-utils/toggle-error-message" as Error;
+@use "../../functions/list/flatten-list" as LibFunc;
+@use "../../development-utils/toggle-error-message" as Error;
 
 @function merge($lists...) {
     $merged-list: ();

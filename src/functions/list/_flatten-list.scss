@@ -71,7 +71,7 @@
 
 @use "sass:meta";
 @use "sass:list";
-@use "development-utils/toggle-error-message" as Error;
+@use "../../development-utils/toggle-error-message" as Error;
 
 @function flatten($list: ()) {
     @if meta.type-of($list) != list {
