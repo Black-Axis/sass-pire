@@ -45,8 +45,8 @@
 
 @use "sass:meta";
 @use "sass:math";
-@use "functions/global/is-in-list" as LibFunc;
-@use "development-utils/toggle-error-message" as Error;
+@use "../../functions/global/is-in-list" as LibFunc;
+@use "../../development-utils/toggle-error-message" as Error;
 
 @mixin col-gap($value) {
     $column-gap-prefixes-values: (-webkit-column-gap, -moz-column-gap, column-gap) !default;
