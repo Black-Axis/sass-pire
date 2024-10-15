@@ -36,7 +36,7 @@
 // *   flex-direction: column;
 // * }
 
-@use "mixins/flex-props/main-props/flex-direction" as LibMixin;
+@use "../../mixins/flex-props/main-props/flex-direction" as LibMixin;
 
 $flex-direction-values: (
     flex-row: row,

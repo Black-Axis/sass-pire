@@ -35,8 +35,8 @@
 // *   justify-content: center;
 // * }
 
-@use "abstract/global-variables" as var;
-@use "mixins/flex-props/main-props/justify-content" as LibMixin;
+@use "../../abstract/global-variables" as var;
+@use "../../mixins/flex-props/main-props/justify-content" as LibMixin;
 
 @each $value in var.$justify-content-values {
     .u-jc-#{$value} {
