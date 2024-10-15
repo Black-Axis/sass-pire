@@ -46,7 +46,7 @@
 @use "sass:meta";
 @use "sass:list";
 @use "sass:math";
-@use "development-utils/toggle-error-message" as Error;
+@use "../../development-utils/toggle-error-message" as Error;
 
 @function has-res-unit($value) {
     @if meta.type-of($value) != number {
