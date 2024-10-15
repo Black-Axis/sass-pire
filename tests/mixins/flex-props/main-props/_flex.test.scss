@@ -1,6 +1,6 @@
 @use "sass:map";
 @use "true" as *;
-@use "../../../src/mixins/flex-props/main-props/_flex" as LibMixin;
+@use "../../../../src/mixins/flex-props/main-props/_flex" as LibMixin;
 
 // stylelint-disable value-no-vendor-prefix
 // stylelint-disable declaration-block-no-duplicate-properties
@@ -29,7 +29,6 @@ $test-cases-d-flex-map: (
     ),
 );
 
-// Iterate over the test cases
 @each $case-name, $case-data in $test-cases-d-flex-map {
     @include describe("[Mixin] d-flex for #{$case-name}") {
         @include it("should output correct display flex properties") {

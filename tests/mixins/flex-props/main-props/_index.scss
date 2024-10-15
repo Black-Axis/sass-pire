@@ -11,8 +11,8 @@
 
 // @namespace mixins
 
-// * forwarding the "main-props" module.
-// * The "main-props" module likely provides a test cases for
-// * flexbox with its vendor prefixes.
-// @see main-props
-@forward "main-props";
+// * forwarding the "flex.test" module.
+// * The "flex.test" module likely provides a test cases for
+// * display flex with its vendor prefixes.
+// @see flex.test
+@forward "flex.test";
