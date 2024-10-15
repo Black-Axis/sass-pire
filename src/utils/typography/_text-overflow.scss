@@ -40,7 +40,7 @@
 // *   text-overflow: clip;
 // * }
 
-@use "mixins/typography/text-overflow" as LibMixin;
+@use "../../mixins/typography/text-overflow" as LibMixin;
 
 $text-overflow-values: (
     text-clip: clip,
