@@ -40,7 +40,7 @@
 // *   object-fit: fill;
 // * }
 
-@use "mixins/general/object-fit" as LibMixin;
+@use "../../mixins/general/object-fit" as LibMixin;
 
 $object-fit-values: (
     object-contain: contain,
