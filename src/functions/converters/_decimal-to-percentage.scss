@@ -55,8 +55,8 @@
 
 @use "sass:meta";
 @use "sass:math";
-@use "functions/global/cut-unit" as LibFunc;
-@use "development-utils/toggle-error-message" as Error;
+@use "../../functions/global/cut-unit" as LibFunc;
+@use "../../development-utils/toggle-error-message" as Error;
 
 @function dec-to-ptg($dec-value: 0) {
     @if meta.type-of($dec-value) != number {
