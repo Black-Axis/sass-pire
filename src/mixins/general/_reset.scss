@@ -327,7 +327,7 @@
             @include LibMixin1.prefixing-web(animation-iteration-count, 1);
             @include LibMixin1.prefixing-web-o(transition-duration, 0.01ms);
 
-            scroll-behavior: smooth;
+            scroll-behavior: auto;
         }
     }
 
