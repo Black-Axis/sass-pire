@@ -5,6 +5,6 @@ docs/
 tests/
 dist/
 *.log
-MAINTAINERS
+MAINTAINERS.md
 jest.config.js
 .eslintrc.js
