@@ -20,9 +20,10 @@
 
 // @dependencies:
 // * - LibMixin1.prefixing-web (mixin).
-// * - LibMixin1.prefixing-web-o (mixin).
 // * - LibMixin2.shape-margin (mixin).
-// * - LibMixin2.banner (mixin).
+// * - LibMixin3.banner (mixin).
+// * - LibMixin4.mq-gen (mixin).
+// * - LibMixin5.flex-between-center (mixin).
 
 // @example 1
 // * In the top of the SCSS file, you can write like this:
@@ -43,6 +44,8 @@
 @use "../../mixins/vendor-prefixes/prefix" as LibMixin1;
 @use "../../mixins/general/shape-margin" as LibMixin2;
 @use "../../mixins/general/banner" as LibMixin3;
+@use "../../mixins/media-queries/screens/media-query" as LibMixin4;
+@use "../../mixins/flex-props/flexbox/between" as LibMixin5;
 
 // * stylelint-disable-next-line at-rule-empty-line-before
 
@@ -149,7 +152,6 @@
     summary,
     figcaption,
     figure,
-    dialog,
     hgroup,
     img,
     picture,
@@ -328,6 +330,151 @@
             @include LibMixin1.prefixing-web-o(transition-duration, 0.01ms);
 
             scroll-behavior: auto;
+        }
+    }
+
+    dialog {
+        --sp-dialog-max-width: 90%;
+        --sp-dialog-max-height: 85dvh;
+        --sp-dialog-padding-x: 1rem;
+        --sp-dialog-padding-y: 1.25rem;
+        --sp-dialog-border: 1px solid hsl(0deg 0% 91.81%);
+        --sp-dialog-scrollbar-bg: transparent;
+        --sp-dialog-scrollbar-width: none;
+
+        max-width: var(--sp-dialog-max-width);
+        max-inline-size: var(--sp-dialog-max-width);
+        max-height: var(--sp-dialog-max-height);
+        max-block-size: var(--sp-dialog-max-height);
+        margin: auto;
+        padding: 0;
+        border: var(--sp-dialog-border);
+        border-radius: 0.5rem;
+        overscroll-behavior: contain;
+        scroll-behavior: smooth;
+
+        // Hide scrollbar for Firefox
+        scrollbar-width: var(--sp-dialog-scrollbar-width);
+
+        // Hide scrollbar for IE and Edge
+        -ms-overflow-style: var(--sp-dialog-scrollbar-width);
+        scrollbar-color: var(--sp-dialog-scrollbar-bg) var(--sp-dialog-scrollbar-bg);
+        animation: sp-bottom-to-top 0.25s ease-in-out forwards;
+
+        @include LibMixin4.mq-gen(min, w, sm) {
+            --sp-dialog-max-width: 45rem;
+        }
+
+        &::-webkit-scrollbar {
+            --sp-dialog-scrollbar-width: 0;
+
+            width: var(--sp-dialog-scrollbar-width);
+            inline-size: var(--sp-dialog-scrollbar-width);
+            display: none;
+        }
+    
+        &::-webkit-scrollbar-track {
+            background-color: var(--sp-dialog-scrollbar-bg);
+        }
+    
+        &::-webkit-scrollbar-thumb {
+            background-color: var(--sp-dialog-scrollbar-bg);
+        }
+        
+        &::backdrop {
+            background-color: hsl(0deg 0% 0%);
+            opacity: 0.5;
+        }
+
+        .dialog-header {
+            padding-top: var(--sp-dialog-padding-y);
+            padding-bottom: var(--sp-dialog-padding-y);
+            padding-block: var(--sp-dialog-padding-y);
+            padding-right: var(--sp-dialog-padding-x);
+            // stylelint-disable-next-line declaration-block-no-redundant-longhand-properties
+            padding-left: var(--sp-dialog-padding-x);
+            padding-inline: var(--sp-dialog-padding-x);
+            border-bottom: var(--sp-dialog-border);
+            position: sticky;
+            top: 0;
+            
+            @include LibMixin5.flex-between-center;
+
+            background-color: hsl(0deg 0% 100%);
+
+            .dialog-close {
+                --sp-dialog-close-size: 1.5rem;
+
+                width: var(--sp-dialog-close-size);
+                inline-size: var(--sp-dialog-close-size);
+                height: var(--sp-dialog-close-size);
+                block-size: var(--sp-dialog-close-size);
+                border: none;
+                border-radius: 5px;
+                outline: 1px solid transparent;
+                font-size: var(--sp-dialog-close-size);
+                line-height: var(--sp-dialog-close-size);
+                background-image: url('data:image/svg+xml,<svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.06 12L17.48 7.57996C17.5537 7.5113 17.6128 7.4285 17.6538 7.3365C17.6948 7.2445 17.7168 7.14518 17.7186 7.04448C17.7204 6.94378 17.7018 6.84375 17.6641 6.75036C17.6264 6.65697 17.5703 6.57214 17.499 6.50092C17.4278 6.4297 17.343 6.37356 17.2496 6.33584C17.1562 6.29811 17.0562 6.27959 16.9555 6.28137C16.8548 6.28314 16.7555 6.30519 16.6635 6.34618C16.5715 6.38717 16.4887 6.44627 16.42 6.51996L12 10.94L7.58 6.51996C7.43782 6.38748 7.24978 6.31535 7.05548 6.31878C6.86118 6.32221 6.67579 6.40092 6.53838 6.53834C6.40096 6.67575 6.32225 6.86113 6.31882 7.05544C6.3154 7.24974 6.38752 7.43778 6.52 7.57996L10.94 12L6.52 16.42C6.37955 16.5606 6.30066 16.7512 6.30066 16.95C6.30066 17.1487 6.37955 17.3393 6.52 17.48C6.66062 17.6204 6.85125 17.6993 7.05 17.6993C7.24875 17.6993 7.43937 17.6204 7.58 17.48L12 13.06L16.42 17.48C16.5606 17.6204 16.7512 17.6993 16.95 17.6993C17.1488 17.6993 17.3394 17.6204 17.48 17.48C17.6204 17.3393 17.6993 17.1487 17.6993 16.95C17.6993 16.7512 17.6204 16.5606 17.48 16.42L13.06 12Z" fill="%23000000" /></svg>');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-color: hsl(0deg 0% 91.81%);
+                cursor: pointer;
+            }
+        }
+        
+        .dialog-content {
+            --sp-dialog-padding-x: 1rem;
+            --sp-dialog-padding-y: 1rem;
+    
+            padding-top: var(--sp-dialog-padding-y);
+            padding-bottom: var(--sp-dialog-padding-y);
+            padding-block: var(--sp-dialog-padding-y);
+            padding-right: var(--sp-dialog-padding-x);
+            // stylelint-disable-next-line declaration-block-no-redundant-longhand-properties
+            padding-left: var(--sp-dialog-padding-x);
+            padding-inline: var(--sp-dialog-padding-x);
+            overscroll-behavior: contain;
+            -webkit-overflow-scrolling: touch;
+
+            &::-webkit-scrollbar {
+                width: 0;
+            }
+            
+            &::-webkit-scrollbar-track {
+                background: transparent;
+            }
+            
+            &::-webkit-scrollbar-thumb {
+                background-color: transparent;
+            }
+        }
+
+        .dialog-footer {
+            --sp-dialog-padding-x: 1rem;
+    
+            padding-top: var(--sp-dialog-padding-y);
+            padding-bottom: var(--sp-dialog-padding-y);
+            padding-block: var(--sp-dialog-padding-y);
+            padding-right: var(--sp-dialog-padding-x);
+            // stylelint-disable-next-line declaration-block-no-redundant-longhand-properties
+            padding-left: var(--sp-dialog-padding-x);
+            padding-inline: var(--sp-dialog-padding-x);
+            border-top: var(--sp-dialog-border);
+            position: sticky;
+            bottom: 0;
+            background-color: hsl(0deg 0% 100%);
+        }
+    }
+
+    @keyframes sp-bottom-to-top {
+        0% {
+            opacity: 0;
+            transform: translateY(10%);
+        }
+    
+        100% {
+            opacity: 1;
+            transform: translateY(0);
         }
     }
 
