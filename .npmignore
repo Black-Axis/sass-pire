@@ -1,12 +1,16 @@
 node_modules/
 .yarn/
 .pnp.*
+.vscode/
 .github/
 .git/
 docs/
 tests/
 dist/
+index.html
 *.log
 MAINTAINERS.md
 jest.config.js
 .eslintrc.js
+.stylelintrc
+.yarnrc.yml

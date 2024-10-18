@@ -1,6 +1,6 @@
 {
     "name": "sass-pire",
-    "version": "2.1.0",
+    "version": "2.1.1",
     "description": "Just a more mixins and functions with SCSS for more productive projects.",
     "markdown": "github",
     "license": "MIT",
@@ -66,6 +66,5 @@
         "commitizen": {
             "path": "./node_modules/cz-conventional-changelog"
         }
-    },
-    "main": "index.js"
+    }
 }
