@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+// @description
+// * This file forwards various mixins for pseudo elements
+// * that will be useful to children elements.
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace mixins/children
+
+// * forwarding the "first" module.
+// * The "first" module probably contains mixin for selecting
+// * the first child element(s).
+// @see first
+@forward "first";
+
+// * forwarding the "last" module.
+// * The "last" module probably contains mixin for selecting
+// * the last child element(s).
+// @see last
+@forward "last";
+
+// * forwarding the "after-first" module.
+// * The "after-first" module probably contains mixin for selecting
+// * the after-first child element(s).
+// @see after-first
+@forward "after-first";
+
+// * forwarding the "from-end" module.
+// * The "from-end" module probably contains mixin for selecting
+// * the from-end child element(s).
+// @see from-end
+@forward "from-end";
+
+// * forwarding the "between" module.
+// * The "between" module probably contains mixin for selecting
+// * the between child element(s).
+// @see between
+@forward "between";
+
+// * forwarding the "even-between" module.
+// * The "even-between" module probably contains mixin for selecting
+// * the even-between child element(s).
+// @see even-between
+@forward "even-between";
+
+// * forwarding the "odd-between" module.
+// * The "odd-between" module probably contains mixin for selecting
+// * the odd-between child element(s).
+// @see odd-between
+@forward "odd-between";
+
+// * forwarding the "all-but" module.
+// * The "all-but" module probably contains mixin for selecting
+// * the all-but child element(s).
+// @see all-but
+@forward "all-but";

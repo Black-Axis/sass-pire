@@ -41,7 +41,8 @@
         "security",
         "mixins-logical-props",
         "settings",
-        "mixins-typo"
+        "mixins-typo",
+        "mixins-children"
     ],
     "cSpell.words": ["Giraudel"]
 }

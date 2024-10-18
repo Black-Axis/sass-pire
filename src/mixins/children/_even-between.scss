@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+// @description
+// * even-between mixin.
+// * This mixin provides a convenient way to select the
+// * even children between of elements in the current context.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Lucas Bonomi
+// @link: https://github.com/LukyVj/family.scss
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace children
+
+// @module children/even-between
+
+// @dependencies:
+// * - meta.type-of (SASS function).
+// * - LibFunc.cut-unit (function).
+// * - Error.throw (function).
+
+// @update
+// * We updated the mixin with validations
+
+// @param {Number} $first-num
+// * The first of range you want to select
+
+// @param {Number} $last-num
+// * The last of range you want to select
+
+// @throw {Exception}
+// * Throws exceptions if the provided even-between parameter is not a number.
+
+// @example
+// * .example {
+// *   .child {
+// *     @include even-between(4, 10) {
+// *        background-color: #212121;
+// *        color: #ffffff;
+// *     };
+// *   }
+// * }
+
+// @output
+// * .example .child:nth-child(even):nth-child(n+4):nth-child(-n+10) {
+// *   background-color: #212121;
+// *   color: #ffffff;
+// * }
+
+@use "sass:meta";
+@use "sass:math";
+@use "../../functions/global/cut-unit" as LibFunc;
+@use "../../development-utils/toggle-error-message" as Error;
+
+@mixin even-between($first-num: 1, $last-num) {
+    @if meta.type-of($first-num) != number or meta.type-of($last-num) != number {
+        content: Error.throw("The parameters of even-between mixin must be in a number type.");
+    }
+
+    $first-num-without-unit: LibFunc.cut-unit($first-num);
+    $last-num-without-unit: LibFunc.cut-unit($last-num);
+
+    &:nth-child(even):nth-child(n + #{$first-num-without-unit}):nth-child(-n + #{$last-num-without-unit}) {
+        @content;
+    }
+}
