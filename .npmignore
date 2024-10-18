@@ -12,3 +12,5 @@ index.html
 MAINTAINERS.md
 jest.config.js
 .eslintrc.js
+.stylelintrc
+.yarnrc.yml
