@@ -41,3 +41,9 @@
 // * the between child element(s).
 // @see between
 @forward "between";
+
+// * forwarding the "even-between" module.
+// * The "even-between" module probably contains mixin for selecting
+// * the even-between child element(s).
+// @see even-between
+@forward "even-between";
