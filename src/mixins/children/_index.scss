@@ -47,3 +47,9 @@
 // * the even-between child element(s).
 // @see even-between
 @forward "even-between";
+
+// * forwarding the "odd-between" module.
+// * The "odd-between" module probably contains mixin for selecting
+// * the odd-between child element(s).
+// @see odd-between
+@forward "odd-between";
