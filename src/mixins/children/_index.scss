@@ -53,3 +53,9 @@
 // * the odd-between child element(s).
 // @see odd-between
 @forward "odd-between";
+
+// * forwarding the "all-but" module.
+// * The "all-but" module probably contains mixin for selecting
+// * the all-but child element(s).
+// @see all-but
+@forward "all-but";
