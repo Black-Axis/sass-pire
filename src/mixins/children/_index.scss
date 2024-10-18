@@ -10,10 +10,16 @@
 
 // @repository: https://github.com/Black-Axis/sass-pire
 
-// @namespace mixins/flex-props
+// @namespace mixins/children
 
 // * forwarding the "first" module.
 // * The "first" module probably contains mixin for selecting
 // * the first child element(s).
 // @see first
 @forward "first";
+
+// * forwarding the "last" module.
+// * The "last" module probably contains mixin for selecting
+// * the last child element(s).
+// @see last
+@forward "last";
