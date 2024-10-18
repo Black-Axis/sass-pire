@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+// @description
+// * This file forwards various mixins for pseudo elements
+// * that will be useful to children elements.
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace mixins/flex-props
+
+// * forwarding the "first" module.
+// * The "first" module probably contains mixin for selecting
+// * the first child element(s).
+// @see first
+@forward "first";

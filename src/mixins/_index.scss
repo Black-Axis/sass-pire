@@ -59,3 +59,9 @@
 // * typography properties in CSS.
 // @see typography
 @forward "typography";
+
+// * forwarding the "children" module.
+// * The "children" module likely provides utilities for handling
+// * children HTML elements using CSS.
+// @see children
+@forward "children";
