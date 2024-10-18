@@ -26,11 +26,13 @@
 // * - Error.throw (function).
 
 // @update
-// * We updated the mixin with validations
+// * We updated the mixin with validations.
 
-// @param {Number} $num
-// * The number of children you want to select between them.
-// * The numbers you pass will be included in the range.
+// @param {Number} $first-num
+// * The first of range you want to select.
+
+// @param {Number} $last-num
+// * The last of range you want to select.
 
 // @throw {Exception}
 // * Throws exceptions if the provided between parameter is not a number.
