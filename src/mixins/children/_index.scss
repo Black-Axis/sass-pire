@@ -35,3 +35,9 @@
 // * the from-end child element(s).
 // @see from-end
 @forward "from-end";
+
+// * forwarding the "between" module.
+// * The "between" module probably contains mixin for selecting
+// * the between child element(s).
+// @see between
+@forward "between";
