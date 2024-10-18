@@ -23,3 +23,9 @@
 // * the last child element(s).
 // @see last
 @forward "last";
+
+// * forwarding the "after-first" module.
+// * The "after-first" module probably contains mixin for selecting
+// * the after-first child element(s).
+// @see after-first
+@forward "after-first";
