@@ -3,6 +3,7 @@ node_modules/
 .pnp.*
 .vscode/
 .github/
+build/
 .git/
 docs/
 tests/
@@ -14,3 +15,4 @@ jest.config.js
 .eslintrc.js
 .stylelintrc
 .yarnrc.yml
+nodemon.json
