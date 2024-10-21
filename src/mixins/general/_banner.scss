@@ -40,16 +40,16 @@
 @use "../../abstract/settings" as Settings;
 
 @mixin banner() {
-    /*
-        ***** #{Settings.$lib-name} library #{Settings.$current-version}
+/*
+***** #{Settings.$lib-name} library #{Settings.$current-version}
 
-        ***** Copyright © #{Settings.$current-year} for #{Settings.$lib-name} authors.
+***** Copyright © #{Settings.$current-year} for #{Settings.$lib-name} authors.
 
-        ***** All copyrights reserved to #{Settings.$organization-name} Organization owners.
+***** All copyrights reserved to #{Settings.$organization-name} Organization owners.
 
-        ***** Author(s):
-        ***** #{Settings.$author-names}.
+***** Author(s):
+***** #{Settings.$author-names}.
 
-        ***** Licensed under MIT.
-     */
+***** Licensed under MIT.
+*/
 }
