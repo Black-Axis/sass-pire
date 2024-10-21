@@ -1,9 +1,11 @@
 {
     "name": "sass-pire",
-    "version": "2.1.1",
+    "aliasName": "sp",
+    "version": "2.2.1",
     "description": "Just a more mixins and functions with SCSS for more productive projects.",
     "markdown": "github",
     "license": "MIT",
+    "organizationName": "Black Axis",
     "packageManager": "yarn@4.5.0",
     "licenses": [
         {
@@ -32,7 +34,9 @@
         "type": "git"
     },
     "scripts": {
-        "dev": "concurrently --prefix-colors=\"cyan,yellow\" \"yarn run sass:watch\" \"yarn run sass:comp\"",
+        "dev": "concurrently --prefix-colors=\"cyan,yellow\" \"yarn run sass:watch\" \"yarn run sass:comp\" \"yarn run watch:version\"",
+        "build": "node build/index.js",
+        "watch:version": "nodemon --watch package.json --watch build/index.js --exec \"node build/index.js\"",
         "dev:test": "concurrently --prefix-colors=\"cyan,yellow,red\" \"yarn run sass:watch\" \"yarn run sass:comp\" \"yarn run test\"",
         "sass:watch": "sass --no-source-map --load-path=./src/ ./src/sass-pire.scss:dist/styles.css --watch",
         "sass:comp": "sass --no-source-map --load-path=./src/ ./src/sass-pire.scss:dist/styles.min.css --watch --style=compressed",
@@ -57,6 +61,7 @@
         "eslint-config-google": "^0.14.0",
         "jest": "^29.7.0",
         "jest-scss-transform": "^1.0.4",
+        "nodemon": "^3.1.7",
         "npm-check-updates": "^17.1.1",
         "sass-true": "^8.0.0",
         "stylelint": "^16.9.0",

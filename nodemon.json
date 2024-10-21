@@ -1,0 +1,8 @@
+{
+    "watch": [
+        "package.json",
+        "src/**/*.scss",
+        "build/**/*.js"
+    ],
+    "exec": "node ./build/index.js && yarn sass:watch"
+}
