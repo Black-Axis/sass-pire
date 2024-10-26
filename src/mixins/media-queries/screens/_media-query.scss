@@ -72,7 +72,7 @@
     @if LibFunc.is-in-list($main-mq-types, $type) {
         @if LibFunc.is-in-list($main-dimensions, $dimension) {
             @if map.has-key(var.$breakpoints, $breakpoint-name) {
-                $actual-dimension: map_get(var.$breakpoints, $breakpoint-name);
+                $actual-dimension: map.get(var.$breakpoints, $breakpoint-name);
     
                 @if $type == max {
                     $actual-dimension: $actual-dimension - 1px;
