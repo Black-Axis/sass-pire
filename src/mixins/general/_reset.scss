@@ -478,6 +478,16 @@
         }
     }
 
+    @media print {
+        @page {
+            margin: 1.875rem; // 30px
+        }
+        
+        a[href^="http"]::after {
+            content: " (" attr(href) ")";
+        }
+    }
+
     /* This is for accessibility purposes */
     .sr-only {
         --sp-sr-only-width: 1px;
