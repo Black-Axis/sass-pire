@@ -16,3 +16,4 @@ jest.config.js
 .stylelintrc
 .yarnrc.yml
 nodemon.json
+CODE-OF-CONDUCT.md
