@@ -1,7 +1,7 @@
 {
     "name": "sass-pire",
     "aliasName": "sp",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "description": "Just a more mixins and functions with SCSS for more productive projects.",
     "markdown": "github",
     "license": "MIT",

@@ -6,7 +6,7 @@
 
 // @access public
 
-// @version 3.0.0
+// @version 3.0.1
 
 // @author Khaled Mohamed
 
@@ -43,8 +43,8 @@
 @use "sass:meta";
 @use "../../mixins/general/banner" as LibMixin1;
 @use "../../development-utils/toggle-error-message" as Error;
-@use "../../../node_modules/reset-zone/src/reset-zone.regular.scss" as ResetZone1;
-@use "../../../node_modules/reset-zone/src/reset-zone.layer.scss" as ResetZone2;
+@use "../../../../reset-zone/src/reset-zone.regular.scss" as ResetZone1;
+@use "../../../../reset-zone/src/reset-zone.layer.scss" as ResetZone2;
 
 // * stylelint-disable-next-line at-rule-empty-line-before
 
