@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+// @description
+// * font-size utility class.
+// * This file provides the `font-size` utility class.
+// * It can be used as a standalone class in any where it is needed.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils
+
+// @module utils/font-size
+
+// @dependencies:
+// * Nothing.
+
+// @example
+// * <div class="u-small"></div>
+
+// @output
+// * .u-small {
+// *   font-size: small;
+// * }
+
+$font-size-values: (
+    xx-small: xx-small,
+    x-small: x-small,
+    small: small,
+    smaller: smaller,
+    medium: medium,
+    large: large,
+    larger: larger,
+    x-large: x-large,
+    xx-large: xx-large,
+);
+
+@each $font-size-class-name, $font-size-value in $font-size-values {
+    .u-#{$font-size-class-name} {
+        font-size: $font-size-value;
+    }
+}

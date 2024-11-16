@@ -46,3 +46,8 @@
 // * This module likely contains display white-space as class.
 // @see white-space
 @forward "white-space";
+
+// * forwarding the "font-size" module.
+// * This module likely contains display font-size as class.
+// @see font-size
+@forward "font-size";
