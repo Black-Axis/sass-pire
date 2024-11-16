@@ -59,3 +59,9 @@
 // * the all-but child element(s).
 // @see all-but
 @forward "all-but";
+
+// * forwarding the "first-last" module.
+// * The "first-last" module probably contains mixin for selecting
+// * the first and last children.
+// @see first-last
+@forward "first-and-last";
