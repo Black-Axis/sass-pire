@@ -60,8 +60,14 @@
 // @see all-but
 @forward "all-but";
 
-// * forwarding the "first-last" module.
-// * The "first-last" module probably contains mixin for selecting
+// * forwarding the "first-and-last" module.
+// * The "first-and-last" module probably contains mixin for selecting
 // * the first and last children.
-// @see first-last
+// @see first-and-last
 @forward "first-and-last";
+
+// * forwarding the "odd" module.
+// * The "odd" module probably contains mixin for selecting
+// * the first and last children.
+// @see odd
+@forward "odd";
