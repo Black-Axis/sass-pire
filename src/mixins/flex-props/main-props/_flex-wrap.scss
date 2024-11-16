@@ -82,7 +82,7 @@
 
     @if LibFunc.is-in-list(map.keys($flex-wrap-map), $value) {
         // stylelint-disable-next-line scss/no-global-function-names
-        $flex-wrap-value: map-get($flex-wrap-map, $value);
+        $flex-wrap-value: map.get($flex-wrap-map, $value);
 
         @include LibMixin.prefixing-ms(flex-wrap, $flex-wrap-value);
     } @else {
