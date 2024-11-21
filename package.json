@@ -1,7 +1,7 @@
 {
     "name": "sass-pire",
     "aliasName": "sp",
-    "version": "3.1.1",
+    "version": "3.2.1",
     "description": "Just a more mixins and functions with SCSS for more productive projects.",
     "markdown": "github",
     "license": "MIT",
@@ -52,7 +52,7 @@
         "test": "concurrently --prefix-colors=\"blue,red\" \"npm run test:jest\" \"npm run test:scss\""
     },
     "dependencies": {
-        "reset-zone": "^2.1.1",
+        "reset-zone": "^2.2.2",
         "sass": "^1.81.0"
     },
     "devDependencies": {
