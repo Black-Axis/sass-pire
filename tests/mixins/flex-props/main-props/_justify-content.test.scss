@@ -1,0 +1,54 @@
+@use "sass:map";
+@use "true" as *;
+@use "../../../../src/mixins/flex-props/main-props/justify-content" as LibMixin;
+
+// stylelint-disable value-no-vendor-prefix
+// stylelint-disable declaration-block-no-duplicate-properties
+// stylelint-disable value-keyword-case
+
+$test-cases-justify-content-map: (
+    "test-1": (
+        selector: ".test-1",
+        value: center,
+        expected: (
+            -webkit-box-pack: center,
+            -webkit-justify-content: center,
+            -ms-flex-pack: center,
+            -moz-justify-content: center,
+            justify-content: center,
+        )
+    ),
+    "test-2": (
+        selector: ".test-2",
+        value: flex-start,
+        expected: (
+            -webkit-box-pack: flex-start,
+            -webkit-justify-content: flex-start,
+            -ms-flex-pack: flex-start,
+            -moz-justify-content: flex-start,
+            justify-content: flex-start,
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-justify-content-map {
+    @include describe("[Mixin] justify-content for #{$case-name}") {
+        @include it("should output correct justify-content properties") {
+            @include assert {
+                @include output {
+                    #{map.get($case-data, selector)} {
+                        @include LibMixin.justify-content(#{map.get($case-data, value)});
+                    }
+                }
+
+                @include expect {
+                    #{map.get($case-data, selector)} {
+                        @each $property, $value in map.get($case-data, expected) {
+                            #{$property}: #{$value};
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
