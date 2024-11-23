@@ -34,13 +34,13 @@ $test-cases-d-flex-map: (
         @include it("should output correct display flex properties") {
             @include assert {
                 @include output {
-                    #{map-get($case-data, selector)} {
+                    #{map.get($case-data, selector)} {
                         @include LibMixin.d-flex;
                     }
                 }
 
                 @include expect {
-                    #{map-get($case-data, selector)} {
+                    #{map.get($case-data, selector)} {
                         @each $value in map.get($case-data, expected) {
                             display: $value;
                         }
