@@ -22,3 +22,9 @@
 // * display flex with its vendor prefixes.
 // @see align-items.test
 @forward "align-items.test";
+
+// * forwarding the "justify-content.test" module.
+// * The "justify-content.test" module likely provides a test cases for
+// * display flex with its vendor prefixes.
+// @see justify-content.test
+@forward "justify-content.test";
