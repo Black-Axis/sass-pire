@@ -36,13 +36,13 @@ $test-cases-align-items-map: (
         @include it("should output correct align-items properties") {
             @include assert {
                 @include output {
-                    #{map-get($case-data, selector)} {
+                    #{map.get($case-data, selector)} {
                         @include LibMixin.align-items(#{map.get($case-data, value)});
                     }
                 }
 
                 @include expect {
-                    #{map-get($case-data, selector)} {
+                    #{map.get($case-data, selector)} {
                         @each $property, $value in map.get($case-data, expected) {
                             #{$property}: #{$value};
                         }
