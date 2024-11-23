@@ -21,7 +21,7 @@
 // @dependencies:
 // * - meta.type-of (SASS function).
 // * - math.unit (SASS function).
-// * - math.unitless (SASS function).
+// * - math.is-unitless (SASS function).
 // * - string.unquote (SASS function).
 // * - LibFunc.cut-unit (function).
 // * - Error.throw (function).
@@ -65,7 +65,7 @@
         @return 0;
     }
 
-    @if not unitless($number) {
+    @if not math.is-unitless($number) {
         $num-after-cut-unit: LibFunc.cut-unit($number);
         $unit-of-number: math.unit($number);
 
