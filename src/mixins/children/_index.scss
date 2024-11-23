@@ -71,3 +71,9 @@
 // * the first and last children.
 // @see odd
 @forward "odd";
+
+// * forwarding the "every" module.
+// * The "every" module probably contains mixin for selecting
+// * the first and last children.
+// @see every
+@forward "every";
