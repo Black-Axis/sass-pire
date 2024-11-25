@@ -24,6 +24,7 @@
 // * - meta.type-of (SASS function).
 // * - math.div (SASS function).
 // * - math.round (SASS function).
+// * - math.math.is-unitless (SASS function).
 // * - math.ceil (SASS function).
 // * - math.floor (SASS function).
 // * - LibFunc.cut-unit (function).
@@ -86,7 +87,7 @@
         @return Error.throw("The mode parameter of approx function must be in a string type.");
     }
 
-    @if not unitless($num) {
+    @if not math.is-unitless($num) {
         $num-unit: math.unit($num);
     }
 
