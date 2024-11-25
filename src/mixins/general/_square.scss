@@ -20,6 +20,7 @@
 
 // @dependencies:
 // * - meta.type-of (SASS function).
+// * - math.is-unitless (SASS function).
 // * - math.unit (SASS function).
 // * - var.$all-units (variable).
 // * - LibFunc.is-in-list (function).
@@ -55,7 +56,7 @@
 
 @mixin square($one-side: 1px) {
     @if meta.type-of($one-side) == number {
-        @if not unitless($one-side) {
+        @if not math.is-unitless($one-side) {
             @if LibFunc.is-in-list(var.$all-units, math.unit($one-side)) {
                 --sp-one-side: #{$one-side};
 
