@@ -24,6 +24,7 @@
 
 // @dependencies:
 // * - meta.type-of (SASS function).
+// * - math.is-unitless (SASS function).
 // * - LibFunc.is-in-list (function).
 // * - Error.throw (function).
 
@@ -64,7 +65,7 @@
             );
         }
     } @else if meta.type-of($value) == number {
-        @if not unitless($value) {
+        @if not math.is-unitless($value) {
             @each $one-item in $column-gap-prefixes-values {
                 #{$one-item}: #{$value};
             }
