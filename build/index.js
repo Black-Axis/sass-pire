@@ -1,13 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { version, contributors, name, aliasName, organizationName } = require('../package.json');
-const { getBannerText, getSettingsText } = require('./constants');
-
-const CONFIG = {
-    BANNER_PATH: 'src/mixins/general/_banner.scss',
-    SETTINGS_PATH: 'src/abstract/_settings.scss',
-    MAIN_INDEX_PATH: 'src/sass-pire.scss'
-};
+const { getBannerText, getSettingsText, CONFIG } = require('./constants');
 
 const BuildLibrary = (function () {
     "use strict";
