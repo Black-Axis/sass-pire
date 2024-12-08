@@ -51,8 +51,8 @@
 
         @if $get-unit != "" {
             @if list.index(var.$all-units, $get-unit) {
-                padding-block-end: $value;
                 -webkit-padding-after: $value;
+                padding-block-end: $value;
             } @else {
                 content: Error.throw("The parameter of pbe mixin must be one of these values: (#{var.$all-units}).");
             }
