@@ -51,8 +51,9 @@
 
         @if $get-unit != "" {
             @if list.index(var.$all-units, $get-unit) {
-                padding-inline-end: $value;
                 -webkit-padding-end: $value;
+                -moz-padding-end: $value;
+                padding-inline-end: $value;
             } @else {
                 content: Error.throw("The parameter of pie mixin must be one of these values: (#{var.$all-units}).");
             }
