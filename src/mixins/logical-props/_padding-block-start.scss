@@ -51,8 +51,8 @@
 
         @if $get-unit != "" {
             @if list.index(var.$all-units, $get-unit) {
-                padding-block-start: $value;
                 -webkit-padding-before: $value;
+                padding-block-start: $value;
             } @else {
                 content: Error.throw("The parameter of pbs mixin must be one of these values: (#{var.$all-units}).");
             }

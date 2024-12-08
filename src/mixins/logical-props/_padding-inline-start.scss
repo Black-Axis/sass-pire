@@ -51,8 +51,9 @@
 
         @if $get-unit != "" {
             @if list.index(var.$all-units, $get-unit) {
-                padding-inline-start: $value;
                 -webkit-padding-start: $value;
+                -moz-padding-start: $value;
+                padding-inline-start: $value;
             } @else {
                 content: Error.throw("The parameter of pis mixin must be one of these values: (#{var.$all-units}).");
             }

@@ -51,8 +51,8 @@
 
         @if $get-unit != "" {
             @if list.index(var.$all-units, $get-unit) {
-                margin-block-end: $value;
                 -webkit-margin-after: $value;
+                margin-block-end: $value;
             } @else {
                 content: Error.throw("The parameter of mbe mixin must be one of these values: (#{var.$all-units}).");
             }
