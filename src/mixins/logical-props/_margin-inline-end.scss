@@ -51,8 +51,9 @@
 
         @if $get-unit != "" {
             @if list.index(var.$all-units, $get-unit) {
-                margin-inline-end: $value;
                 -webkit-margin-end: $value;
+                -moz-margin-end: $value;
+                margin-inline-end: $value;
             } @else {
                 content: Error.throw("The parameter of mie mixin must be one of these values: (#{var.$all-units}).");
             }
