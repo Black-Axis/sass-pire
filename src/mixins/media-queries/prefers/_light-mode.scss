@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+// @description
+// * light-mode mixin.
+// * Generate a media query for prefers-color-scheme with light mode.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @reference: https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
+
+// @namespace general
+
+// @module prefers/light-mode
+
+// @dependencies:
+// * - None.
+
+// @example
+// * .example {
+// *   @include light-mode {
+// *     width: 100px;
+// *   }
+// * }
+
+// @output
+// * @media (prefers-color-scheme: light) {
+// *   .example {
+// *     width: 100px;
+// *   }
+// * }
+
+@mixin light-mode() {
+    @media (prefers-color-scheme: light) {
+        @content;
+    }
+}

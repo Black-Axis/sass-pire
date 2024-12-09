@@ -32,6 +32,7 @@
         "tasks",
         "mixins-media-queries",
         "media-queries-screens",
+        "media-queries-prefers",
         "mq-screens-phones",
         "mq-screens-tablets",
         "mq-screens-laptops",
@@ -42,7 +43,7 @@
         "mixins-logical-props",
         "settings",
         "mixins-typo",
-        "mixins-children"
+        "mixins-children",
     ],
     "cSpell.words": ["Giraudel"]
 }

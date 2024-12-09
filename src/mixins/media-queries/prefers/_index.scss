@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+// @description
+// * This file forwards various modules for prefers-* media queries
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace media-queries/prefers
+
+// * forwarding the "light-mode" module.
+// * The "light-mode" module likely contains styles for
+// * responsive designs.
+// @see light-mode
+@forward "light-mode";

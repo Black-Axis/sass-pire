@@ -16,3 +16,9 @@
 // * responsive screens.
 // @see screens
 @forward "screens";
+
+// * forwarding the "prefers" module.
+// * The "prefers" module likely contains all needed mixins for
+// * prefers-*.
+// @see prefers
+@forward "prefers";
