@@ -13,6 +13,12 @@
 
 // * forwarding the "light-mode" module.
 // * The "light-mode" module likely contains styles for
-// * responsive designs.
+// * prefers color scheme in light mode.
 // @see light-mode
 @forward "light-mode";
+
+// * forwarding the "dark-mode" module.
+// * The "dark-mode" module likely contains styles for
+// * prefers color scheme in dark mode.
+// @see dark-mode
+@forward "dark-mode";
