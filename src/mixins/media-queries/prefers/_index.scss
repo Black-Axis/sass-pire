@@ -22,3 +22,9 @@
 // * prefers color scheme in dark mode.
 // @see dark-mode
 @forward "dark-mode";
+
+// * forwarding the "contrast" module.
+// * The "contrast" module likely contains styles for
+// * prefers contrast.
+// @see contrast
+@forward "contrast";

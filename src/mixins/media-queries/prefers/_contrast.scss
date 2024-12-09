@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+// @description
+// * contrast mixin.
+// * Generate a media query for prefers-contrast.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @reference: https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
+
+// @namespace general
+
+// @module prefers/contrast
+
+// @dependencies:
+// * - meta.type-of (SASS function).
+// * - LibFunc1.is-in-list (function).
+// * - Error.throw (function).
+
+// @example
+// * .example {
+// *   @include contrast(more) {
+// *     width: 100px;
+// *   }
+// * }
+
+// @output
+// * @media (prefers-contrast: more) {
+// *   .example {
+// *     width: 100px;
+// *   }
+// * }
+
+@use "sass:meta";
+@use "../../../functions/global/is-in-list" as LibFunc1;
+@use "../../../development-utils/toggle-error-message" as Error;
+
+@mixin contrast($value) {
+    @if meta.type-of($value) != string {
+        content: Error.throw("The parameter of contrast mixin must be in a string type.");
+    }
+    
+    // stylelint-disable-next-line scss/dollar-variable-empty-line-before
+    $prefers-contrast-values: (
+        no, // to be easier in use
+        no-preference,
+        more,
+        less,
+        custom
+    ) !default;
+
+    @if LibFunc1.is-in-list($prefers-contrast-values, $value) {
+        @if $value == no {
+            $value: no-preference;
+        }
+
+        // stylelint-disable-next-line media-query-no-invalid
+        @media (prefers-contrast: $value) {
+            @content;
+        }
+    } @else {
+        content: Error.throw("The parameter of contrast mixin must be one value of (#{$prefers-contrast-values}).");
+    }
+}
