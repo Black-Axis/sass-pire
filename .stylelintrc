@@ -24,6 +24,7 @@
         "keyframes-name-pattern": "sp-.+",
         "function-name-case": "lower",
         "value-keyword-case": "lower",
+        "scss/operator-no-unspaced": true,
         "selector-attribute-quotes": "always",
         "comment-empty-line-before": "always",
         "color-hex-length": "long",

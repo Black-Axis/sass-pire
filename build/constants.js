@@ -1,6 +1,6 @@
 const getBannerText = () => {
     return `@charset "UTF-8";
-    
+
     // @description
     // * banner mixin.
     // * The \`banner\` mixin is used to add a banner to the top of the CSS file
@@ -58,39 +58,40 @@ const getBannerText = () => {
 
 const getSettingsText = (packageJsonObject) => {
     return `@charset "UTF-8";
-    
+
         // @description
         // * This file contains all variables or lists which
         // * we use, as library developers, to compile them
         // * in some use cases in the whole library.
-    
+
         // @access private
-    
+
         // @version 2.0.0
-    
+
         // @author Khaled Mohamed
-    
+
         // @license MIT
-    
+
         // @repository: https://github.com/Black-Axis/sass-pire
-    
+
         // @namespace abstract
-    
+
         // @module abstract/settings
-    
+
         // stylelint-disable scss/dollar-variable-empty-line-before
-    
+
         $organization-name: "${packageJsonObject.organizationName}";
-    
+
         $lib-name: ${packageJsonObject.name};
-    
+
         $brand-lib-name: ${packageJsonObject.aliasName};
-    
+
         $author-names: ("${packageJsonObject.contributors.join(', ')}");
-    
+
         $current-year: ${new Date().getFullYear()};
-    
+
         $current-version: "v${packageJsonObject.version}";
+
     `;
 };
 
