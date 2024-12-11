@@ -40,3 +40,9 @@
 // * flex-direction with its vendor prefixes.
 // @see flex-direction
 @forward "flex-direction.test";
+
+// * forwarding the "flex-wrap" module.
+// * The "flex-wrap" module likely provides a test cases for
+// * flex-wrap with its vendor prefixes.
+// @see flex-wrap
+@forward "flex-wrap.test";
