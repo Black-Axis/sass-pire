@@ -1,0 +1,56 @@
+@use "sass:map";
+@use "true" as *;
+@use "../../../../src/mixins/flex-props/main-props/align-self" as LibMixin;
+
+// stylelint-disable value-no-vendor-prefix
+// stylelint-disable declaration-block-no-duplicate-properties
+// stylelint-disable value-keyword-case
+
+$test-cases-align-self-map: (
+    "test-1": (
+        selector: ".test-align-self-1",
+        value: start,
+        expected: (
+            -webkit-align-self: start,
+            -ms-grid-row-align: start,
+            -ms-align-self: start,
+            -moz-align-self: start,
+            -o-align-self: start,
+            align-self: start
+        )
+    ),
+    "test-2": (
+        selector: ".test-align-self-2",
+        value: center,
+        expected: (
+            -webkit-align-self: center,
+            -ms-grid-row-align: center,
+            -ms-align-self: center,
+            -moz-align-self: center,
+            -o-align-self: center,
+            align-self: center
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-align-self-map {
+    @include describe("[Mixin] align-self for #{$case-name}") {
+        @include it("should output correct align-self properties") {
+            @include assert {
+                @include output {
+                    #{map.get($case-data, selector)} {
+                        @include LibMixin.align-self(#{map.get($case-data, value)});
+                    }
+                }
+
+                @include expect {
+                    #{map.get($case-data, selector)} {
+                        @each $property, $value in map.get($case-data, expected) {
+                            #{$property}: #{$value};
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
