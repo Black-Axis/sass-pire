@@ -34,3 +34,9 @@
 // * align self with its vendor prefixes.
 // @see align-self
 @forward "align-self.test";
+
+// * forwarding the "flex-direction" module.
+// * The "flex-direction" module likely provides a test cases for
+// * flex-direction with its vendor prefixes.
+// @see flex-direction
+@forward "flex-direction.test";
