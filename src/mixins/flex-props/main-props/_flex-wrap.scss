@@ -84,7 +84,7 @@
         // stylelint-disable-next-line scss/no-global-function-names
         $flex-wrap-value: map.get($flex-wrap-map, $value);
 
-        @include LibMixin.prefixing-ms(flex-wrap, $flex-wrap-value);
+        @include LibMixin.prefixing-web-ms(flex-wrap, $flex-wrap-value);
     } @else {
         content: Error.throw("The parameter of flex-wrap mixin must be one of: (#{map-keys($flex-wrap-map)}).");
     }
