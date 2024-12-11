@@ -1,0 +1,122 @@
+@use "sass:map";
+@use "true" as *;
+@use "../../../../src/mixins/flex-props/main-props/flex-wrap" as LibMixin;
+
+// stylelint-disable value-no-vendor-prefix
+// stylelint-disable declaration-block-no-duplicate-properties
+// stylelint-disable value-keyword-case
+
+$test-cases-flex-wrap-map: (
+    "test-case-1": (
+        selector: ".test-flex-wrap-1",
+        value: wrap,
+        expected: (
+            -webkit-flex-wrap: wrap,
+            -ms-flex-wrap: wrap,
+            flex-wrap: wrap,
+        ),
+    ),
+    "test-case-2": (
+        selector: ".test-flex-wrap-2",
+        value: yes,
+        expected: (
+            -webkit-flex-wrap: wrap,
+            -ms-flex-wrap: wrap,
+            flex-wrap: wrap,
+        ),
+    ),
+    "test-case-3": (
+        selector: ".test-flex-wrap-3",
+        value: w,
+        expected: (
+            -webkit-flex-wrap: wrap,
+            -ms-flex-wrap: wrap,
+            flex-wrap: wrap,
+        ),
+    ),
+    "test-case-4": (
+        selector: ".test-flex-nowrap-1",
+        value: "",
+        expected: (
+            -webkit-flex-wrap: nowrap,
+            -ms-flex-wrap: nowrap,
+            flex-wrap: nowrap,
+        ),
+    ),
+    "test-case-5": (
+        selector: ".test-flex-nowrap-2",
+        value: no,
+        expected: (
+            -webkit-flex-wrap: nowrap,
+            -ms-flex-wrap: nowrap,
+            flex-wrap: nowrap,
+        ),
+    ),
+    "test-case-6": (
+        selector: ".test-flex-nowrap-3",
+        value: nowrap,
+        expected: (
+            -webkit-flex-wrap: nowrap,
+            -ms-flex-wrap: nowrap,
+            flex-wrap: nowrap,
+        ),
+    ),
+    "test-case-7": (
+        selector: ".test-flex-wrap-reverse-1",
+        value: wrap-reverse,
+        expected: (
+            -webkit-flex-wrap: wrap-reverse,
+            -ms-flex-wrap: wrap-reverse,
+            flex-wrap: wrap-reverse,
+        ),
+    ),
+    "test-case-8": (
+        selector: ".test-flex-wrap-reverse-2",
+        value: wrap-rev,
+        expected: (
+            -webkit-flex-wrap: wrap-reverse,
+            -ms-flex-wrap: wrap-reverse,
+            flex-wrap: wrap-reverse,
+        ),
+    ),
+    "test-case-9": (
+        selector: ".test-flex-wrap-reverse-3",
+        value: w-rev,
+        expected: (
+            -webkit-flex-wrap: wrap-reverse,
+            -ms-flex-wrap: wrap-reverse,
+            flex-wrap: wrap-reverse,
+        ),
+    ),
+    "test-case-10": (
+        selector: ".test-flex-wrap-inherit",
+        value: inherit,
+        expected: (
+            -webkit-flex-wrap: inherit,
+            -ms-flex-wrap: inherit,
+            flex-wrap: inherit,
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-flex-wrap-map {
+    @include describe("[Mixin] flex-wrap for #{$case-name}") {
+        @include it("should output correct flex-wrap properties") {
+            @include assert {
+                @include output {
+                    #{map.get($case-data, selector)} {
+                        @include LibMixin.f-w(#{map.get($case-data, value)});
+                    }
+                }
+
+                @include expect {
+                    #{map.get($case-data, selector)} {
+                        @each $property, $value in map.get($case-data, expected) {
+                            #{$property}: #{$value};
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
