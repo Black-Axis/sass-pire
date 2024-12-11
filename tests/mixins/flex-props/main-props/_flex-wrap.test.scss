@@ -8,7 +8,7 @@
 
 $test-cases-flex-wrap-map: (
     "test-case-1": (
-        selector: ".test-flex-wrap-1",
+        selector: ".test-flex-wrap-wrap",
         value: wrap,
         expected: (
             -webkit-flex-wrap: wrap,
@@ -17,7 +17,7 @@ $test-cases-flex-wrap-map: (
         ),
     ),
     "test-case-2": (
-        selector: ".test-flex-wrap-2",
+        selector: ".test-flex-wrap-yes",
         value: yes,
         expected: (
             -webkit-flex-wrap: wrap,
@@ -26,7 +26,7 @@ $test-cases-flex-wrap-map: (
         ),
     ),
     "test-case-3": (
-        selector: ".test-flex-wrap-3",
+        selector: ".test-flex-wrap-w",
         value: w,
         expected: (
             -webkit-flex-wrap: wrap,
@@ -35,7 +35,7 @@ $test-cases-flex-wrap-map: (
         ),
     ),
     "test-case-4": (
-        selector: ".test-flex-nowrap-1",
+        selector: ".test-flex-wrap-empty",
         value: "",
         expected: (
             -webkit-flex-wrap: nowrap,
@@ -44,7 +44,7 @@ $test-cases-flex-wrap-map: (
         ),
     ),
     "test-case-5": (
-        selector: ".test-flex-nowrap-2",
+        selector: ".test-flex-wrap-no",
         value: no,
         expected: (
             -webkit-flex-wrap: nowrap,
@@ -53,7 +53,7 @@ $test-cases-flex-wrap-map: (
         ),
     ),
     "test-case-6": (
-        selector: ".test-flex-nowrap-3",
+        selector: ".test-flex-wrap-nowrap",
         value: nowrap,
         expected: (
             -webkit-flex-wrap: nowrap,
@@ -62,7 +62,7 @@ $test-cases-flex-wrap-map: (
         ),
     ),
     "test-case-7": (
-        selector: ".test-flex-wrap-reverse-1",
+        selector: ".test-flex-wrap-wrap-reverse",
         value: wrap-reverse,
         expected: (
             -webkit-flex-wrap: wrap-reverse,
@@ -71,7 +71,7 @@ $test-cases-flex-wrap-map: (
         ),
     ),
     "test-case-8": (
-        selector: ".test-flex-wrap-reverse-2",
+        selector: ".test-flex-wrap-wrap-rev",
         value: wrap-rev,
         expected: (
             -webkit-flex-wrap: wrap-reverse,
@@ -80,7 +80,7 @@ $test-cases-flex-wrap-map: (
         ),
     ),
     "test-case-9": (
-        selector: ".test-flex-wrap-reverse-3",
+        selector: ".test-flex-wrap-w-rev",
         value: w-rev,
         expected: (
             -webkit-flex-wrap: wrap-reverse,
