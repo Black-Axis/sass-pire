@@ -7,7 +7,7 @@
 // stylelint-disable value-keyword-case
 
 $test-cases-justify-content-map: (
-    "test-1": (
+    "test-case-1": (
         selector: ".test-justify-content-1",
         value: center,
         expected: (
@@ -18,7 +18,7 @@ $test-cases-justify-content-map: (
             justify-content: center,
         )
     ),
-    "test-2": (
+    "test-case-2": (
         selector: ".test-justify-content-2",
         value: flex-start,
         expected: (

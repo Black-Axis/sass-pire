@@ -7,7 +7,7 @@
 // stylelint-disable value-keyword-case
 
 $test-cases-align-items-map: (
-    "test-1": (
+    "test-case-1": (
         selector: ".test-align-items-1",
         value: start,
         expected: (
@@ -18,7 +18,7 @@ $test-cases-align-items-map: (
             align-items: start,
         )
     ),
-    "test-2": (
+    "test-case-2": (
         selector: ".test-align-items-2",
         value: center,
         expected: (
