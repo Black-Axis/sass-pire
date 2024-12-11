@@ -8,7 +8,95 @@
 
 $test-cases-justify-content-map: (
     "test-case-1": (
-        selector: ".test-justify-content-1",
+        selector: ".test-justify-content-normal",
+        value: normal,
+        expected: (
+            -webkit-box-pack: normal,
+            -webkit-justify-content: normal,
+            -ms-flex-pack: normal,
+            -moz-justify-content: normal,
+            justify-content: normal,
+        )
+    ),
+    "test-case-2": (
+        selector: ".test-justify-content-stretch",
+        value: stretch,
+        expected: (
+            -webkit-box-pack: stretch,
+            -webkit-justify-content: stretch,
+            -ms-flex-pack: stretch,
+            -moz-justify-content: stretch,
+            justify-content: stretch,
+        ),
+    ),
+    "test-case-3": (
+        selector: ".test-justify-content-start",
+        value: start,
+        expected: (
+            -webkit-box-pack: start,
+            -webkit-justify-content: start,
+            -ms-flex-pack: start,
+            -moz-justify-content: start,
+            justify-content: start,
+        ),
+    ),
+    "test-case-4": (
+        selector: ".test-justify-content-end",
+        value: end,
+        expected: (
+            -webkit-box-pack: end,
+            -webkit-justify-content: end,
+            -ms-flex-pack: end,
+            -moz-justify-content: end,
+            justify-content: end,
+        ),
+    ),
+    "test-case-5": (
+        selector: ".test-justify-content-right",
+        value: right,
+        expected: (
+            -webkit-box-pack: right,
+            -webkit-justify-content: right,
+            -ms-flex-pack: right,
+            -moz-justify-content: right,
+            justify-content: right,
+        ),
+    ),
+    "test-case-6": (
+        selector: ".test-justify-content-left",
+        value: left,
+        expected: (
+            -webkit-box-pack: left,
+            -webkit-justify-content: left,
+            -ms-flex-pack: left,
+            -moz-justify-content: left,
+            justify-content: left,
+        ),
+    ),
+    "test-case-7": (
+        selector: ".test-justify-content-flex-start",
+        value: flex-start,
+        expected: (
+            -webkit-box-pack: flex-start,
+            -webkit-justify-content: flex-start,
+            -ms-flex-pack: flex-start,
+            -moz-justify-content: flex-start,
+            justify-content: flex-start,
+        ),
+    ),
+    "test-case-8": (
+        selector: ".test-justify-content-flex-end",
+        value: flex-end,
+        expected: (
+            -webkit-box-pack: flex-end,
+            -webkit-justify-content: flex-end,
+            -ms-flex-pack: flex-end,
+            -moz-justify-content: flex-end,
+            justify-content: flex-end,
+        ),
+    ),
+    "test-case-9": (
+        selector: ".test-justify-content-center",
         value: center,
         expected: (
             -webkit-box-pack: center,
@@ -18,15 +106,48 @@ $test-cases-justify-content-map: (
             justify-content: center,
         )
     ),
-    "test-case-2": (
-        selector: ".test-justify-content-2",
-        value: flex-start,
+    "test-case-10": (
+        selector: ".test-justify-content-space-between",
+        value: space-between,
         expected: (
-            -webkit-box-pack: flex-start,
-            -webkit-justify-content: flex-start,
-            -ms-flex-pack: flex-start,
-            -moz-justify-content: flex-start,
-            justify-content: flex-start,
+            -webkit-box-pack: space-between,
+            -webkit-justify-content: space-between,
+            -ms-flex-pack: space-between,
+            -moz-justify-content: space-between,
+            justify-content: space-between,
+        ),
+    ),
+    "test-case-11": (
+        selector: ".test-justify-content-space-around",
+        value: space-around,
+        expected: (
+            -webkit-box-pack: space-around,
+            -webkit-justify-content: space-around,
+            -ms-flex-pack: space-around,
+            -moz-justify-content: space-around,
+            justify-content: space-around,
+        ),
+    ),
+    "test-case-12": (
+        selector: ".test-justify-content-space-evenly",
+        value: space-evenly,
+        expected: (
+            -webkit-box-pack: space-evenly,
+            -webkit-justify-content: space-evenly,
+            -ms-flex-pack: space-evenly,
+            -moz-justify-content: space-evenly,
+            justify-content: space-evenly,
+        ),
+    ),
+    "test-case-13": (
+        selector: ".test-justify-content-inherit",
+        value: inherit,
+        expected: (
+            -webkit-box-pack: inherit,
+            -webkit-justify-content: inherit,
+            -ms-flex-pack: inherit,
+            -moz-justify-content: inherit,
+            justify-content: inherit,
         ),
     ),
 );
