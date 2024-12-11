@@ -8,7 +8,29 @@
 
 $test-cases-align-items-map: (
     "test-case-1": (
-        selector: ".test-align-items-1",
+        selector: ".test-align-items-normal",
+        value: normal,
+        expected: (
+            -webkit-box-align: normal,
+            -webkit-align-items: normal,
+            -ms-flex-align: normal,
+            -moz-align-items: normal,
+            align-items: normal,
+        ),
+    ),
+    "test-case-2": (
+        selector: ".test-align-items-stretch",
+        value: stretch,
+        expected: (
+            -webkit-box-align: stretch,
+            -webkit-align-items: stretch,
+            -ms-flex-align: stretch,
+            -moz-align-items: stretch,
+            align-items: stretch,
+        ),
+    ),
+    "test-case-3": (
+        selector: ".test-align-items-start",
         value: start,
         expected: (
             -webkit-box-align: start,
@@ -18,8 +40,41 @@ $test-cases-align-items-map: (
             align-items: start,
         )
     ),
-    "test-case-2": (
-        selector: ".test-align-items-2",
+    "test-case-4": (
+        selector: ".test-align-items-end",
+        value: end,
+        expected: (
+            -webkit-box-align: end,
+            -webkit-align-items: end,
+            -ms-flex-align: end,
+            -moz-align-items: end,
+            align-items: end,
+        ),
+    ),
+    "test-case-5": (
+        selector: ".test-align-items-flex-start",
+        value: flex-start,
+        expected: (
+            -webkit-box-align: flex-start,
+            -webkit-align-items: flex-start,
+            -ms-flex-align: flex-start,
+            -moz-align-items: flex-start,
+            align-items: flex-start,
+        ),
+    ),
+    "test-case-6": (
+        selector: ".test-align-items-flex-end",
+        value: flex-end,
+        expected: (
+            -webkit-box-align: flex-end,
+            -webkit-align-items: flex-end,
+            -ms-flex-align: flex-end,
+            -moz-align-items: flex-end,
+            align-items: flex-end,
+        ),
+    ),
+    "test-case-7": (
+        selector: ".test-align-items-center",
         value: center,
         expected: (
             -webkit-box-align: center,
@@ -27,6 +82,28 @@ $test-cases-align-items-map: (
             -ms-flex-align: center,
             -moz-align-items: center,
             align-items: center,
+        ),
+    ),
+    "test-case-8": (
+        selector: ".test-align-items-baseline",
+        value: baseline,
+        expected: (
+            -webkit-box-align: baseline,
+            -webkit-align-items: baseline,
+            -ms-flex-align: baseline,
+            -moz-align-items: baseline,
+            align-items: baseline,
+        ),
+    ),
+    "test-case-9": (
+        selector: ".test-align-items-inherit",
+        value: inherit,
+        expected: (
+            -webkit-box-align: inherit,
+            -webkit-align-items: inherit,
+            -ms-flex-align: inherit,
+            -moz-align-items: inherit,
+            align-items: inherit,
         ),
     ),
 );
