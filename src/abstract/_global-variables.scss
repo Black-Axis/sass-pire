@@ -61,7 +61,17 @@ $all-units: (
     dvmax,
     vb,
     lvb,
-    dvb
+    dvb,
+    hz,
+    khz,
+    fr,
+    ratio,
+    cqw,
+    cqh,
+    cqi,
+    cqb,
+    cqmin,
+    cqmax
 ) !default;
 
 $data-types: (
