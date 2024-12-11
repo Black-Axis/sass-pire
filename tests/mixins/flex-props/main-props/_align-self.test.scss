@@ -8,7 +8,43 @@
 
 $test-cases-align-self-map: (
     "test-case-1": (
-        selector: ".test-align-self-1",
+        selector: ".test-align-self-auto",
+        value: auto,
+        expected: (
+            -webkit-align-self: auto,
+            -ms-grid-row-align: auto,
+            -ms-align-self: auto,
+            -moz-align-self: auto,
+            -o-align-self: auto,
+            align-self: auto,
+        )
+    ),
+    "test-case-2": (
+        selector: ".test-align-self-normal",
+        value: normal,
+        expected: (
+            -webkit-align-self: normal,
+            -ms-grid-row-align: normal,
+            -ms-align-self: normal,
+            -moz-align-self: normal,
+            -o-align-self: normal,
+            align-self: normal,
+        )
+    ),
+    "test-case-3": (
+        selector: ".test-align-self-stretch",
+        value: stretch,
+        expected: (
+            -webkit-align-self: stretch,
+            -ms-grid-row-align: stretch,
+            -ms-align-self: stretch,
+            -moz-align-self: stretch,
+            -o-align-self: stretch,
+            align-self: stretch,
+        )
+    ),
+    "test-case-4": (
+        selector: ".test-align-self-start",
         value: start,
         expected: (
             -webkit-align-self: start,
@@ -19,8 +55,44 @@ $test-cases-align-self-map: (
             align-self: start,
         )
     ),
-    "test-case-2": (
-        selector: ".test-align-self-2",
+    "test-case-5": (
+        selector: ".test-align-self-end",
+        value: end,
+        expected: (
+            -webkit-align-self: end,
+            -ms-grid-row-align: end,
+            -ms-align-self: end,
+            -moz-align-self: end,
+            -o-align-self: end,
+            align-self: end,
+        )
+    ),
+    "test-case-6": (
+        selector: ".test-align-self-self-start",
+        value: self-start,
+        expected: (
+            -webkit-align-self: self-start,
+            -ms-grid-row-align: self-start,
+            -ms-align-self: self-start,
+            -moz-align-self: self-start,
+            -o-align-self: self-start,
+            align-self: self-start,
+        )
+    ),
+    "test-case-7": (
+        selector: ".test-align-self-self-end",
+        value: self-end,
+        expected: (
+            -webkit-align-self: self-end,
+            -ms-grid-row-align: self-end,
+            -ms-align-self: self-end,
+            -moz-align-self: self-end,
+            -o-align-self: self-end,
+            align-self: self-end,
+        )
+    ),
+    "test-case-8": (
+        selector: ".test-align-self-center",
         value: center,
         expected: (
             -webkit-align-self: center,
@@ -29,6 +101,54 @@ $test-cases-align-self-map: (
             -moz-align-self: center,
             -o-align-self: center,
             align-self: center,
+        ),
+    ),
+    "test-case-9": (
+        selector: ".test-align-self-flex-start",
+        value: flex-start,
+        expected: (
+            -webkit-align-self: flex-start,
+            -ms-grid-row-align: flex-start,
+            -ms-align-self: flex-start,
+            -moz-align-self: flex-start,
+            -o-align-self: flex-start,
+            align-self: flex-start,
+        ),
+    ),
+    "test-case-10": (
+        selector: ".test-align-self-flex-end",
+        value: flex-end,
+        expected: (
+            -webkit-align-self: flex-end,
+            -ms-grid-row-align: flex-end,
+            -ms-align-self: flex-end,
+            -moz-align-self: flex-end,
+            -o-align-self: flex-end,
+            align-self: flex-end,
+        ),
+    ),
+    "test-case-11": (
+        selector: ".test-align-self-baseline",
+        value: baseline,
+        expected: (
+            -webkit-align-self: baseline,
+            -ms-grid-row-align: baseline,
+            -ms-align-self: baseline,
+            -moz-align-self: baseline,
+            -o-align-self: baseline,
+            align-self: baseline,
+        ),
+    ),
+    "test-case-12": (
+        selector: ".test-align-self-inherit",
+        value: inherit,
+        expected: (
+            -webkit-align-self: inherit,
+            -ms-grid-row-align: inherit,
+            -ms-align-self: inherit,
+            -moz-align-self: inherit,
+            -o-align-self: inherit,
+            align-self: inherit,
         ),
     ),
 );
