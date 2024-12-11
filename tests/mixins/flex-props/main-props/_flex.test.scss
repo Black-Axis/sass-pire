@@ -8,7 +8,7 @@
 
 $test-cases-d-flex-map: (
     "test-1": (
-        selector: ".test-1",
+        selector: ".test-display-flex-1",
         expected: (
             -webkit-box,
             -moz-box,
@@ -18,7 +18,7 @@ $test-cases-d-flex-map: (
         )
     ),
     "test-2": (
-        selector: ".test-2",
+        selector: ".test-display-flex-2",
         expected: (
             -webkit-box,
             -moz-box,

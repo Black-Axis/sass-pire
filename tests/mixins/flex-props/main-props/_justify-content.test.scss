@@ -8,7 +8,7 @@
 
 $test-cases-justify-content-map: (
     "test-1": (
-        selector: ".test-1",
+        selector: ".test-justify-content-1",
         value: center,
         expected: (
             -webkit-box-pack: center,
@@ -19,7 +19,7 @@ $test-cases-justify-content-map: (
         )
     ),
     "test-2": (
-        selector: ".test-2",
+        selector: ".test-justify-content-2",
         value: flex-start,
         expected: (
             -webkit-box-pack: flex-start,
