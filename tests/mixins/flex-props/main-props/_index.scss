@@ -46,3 +46,9 @@
 // * flex-wrap with its vendor prefixes.
 // @see flex-wrap
 @forward "flex-wrap.test";
+
+// * forwarding the "flex-flow" module.
+// * The "flex-flow" module likely provides a test cases for
+// * flex-flow with its vendor prefixes.
+// @see flex-flow
+@forward "flex-flow.test";

@@ -1,0 +1,712 @@
+@use "sass:map";
+@use "true" as *;
+@use "../../../../src/mixins/flex-props/main-props/flex-flow" as LibMixin;
+
+// stylelint-disable value-no-vendor-prefix
+// stylelint-disable declaration-block-no-duplicate-properties
+// stylelint-disable value-keyword-case
+
+$test-cases-flex-flow-map: (
+    "test-case-1": (
+        selector: ".test-flex-flow-row-nowrap",
+        flex-direction-value: row,
+        flex-wrap-value: nowrap,
+        expected: (
+            -webkit-box-orient: horizontal,
+            -webkit-box-direction: normal,
+            -webkit-flex-direction: row,
+            -ms-flex-direction: row,
+            -moz-flex-direction: row,
+            -o-flex-direction: row,
+            flex-direction: row,
+            -webkit-flex-wrap: nowrap,
+            -ms-flex-wrap: nowrap,
+            flex-wrap: nowrap,
+        )
+    ),
+    "test-case-2": (
+        selector: ".test-flex-flow-row-empty",
+        flex-direction-value: row,
+        flex-wrap-value: "",
+        expected: (
+            -webkit-box-orient: horizontal,
+            -webkit-box-direction: normal,
+            -webkit-flex-direction: row,
+            -ms-flex-direction: row,
+            -moz-flex-direction: row,
+            -o-flex-direction: row,
+            flex-direction: row,
+            -webkit-flex-wrap: nowrap,
+            -ms-flex-wrap: nowrap,
+            flex-wrap: nowrap,
+        )
+    ),
+    "test-case-3": (
+        selector: ".test-flex-flow-row-no",
+        flex-direction-value: row,
+        flex-wrap-value: no,
+        expected: (
+            -webkit-box-orient: horizontal,
+            -webkit-box-direction: normal,
+            -webkit-flex-direction: row,
+            -ms-flex-direction: row,
+            -moz-flex-direction: row,
+            -o-flex-direction: row,
+            flex-direction: row,
+            -webkit-flex-wrap: nowrap,
+            -ms-flex-wrap: nowrap,
+            flex-wrap: nowrap,
+        )
+    ),
+    "test-case-4": (
+        selector: ".test-flex-flow-row-wrap",
+        flex-direction-value: row,
+        flex-wrap-value: wrap,
+        expected: (
+            -webkit-box-orient: horizontal,
+            -webkit-box-direction: normal,
+            -webkit-flex-direction: row,
+            -ms-flex-direction: row,
+            -moz-flex-direction: row,
+            -o-flex-direction: row,
+            flex-direction: row,
+            -webkit-flex-wrap: wrap,
+            -ms-flex-wrap: wrap,
+            flex-wrap: wrap,
+        )
+    ),
+    "test-case-5": (
+        selector: ".test-flex-flow-row-yes",
+        flex-direction-value: row,
+        flex-wrap-value: yes,
+        expected: (
+            -webkit-box-orient: horizontal,
+            -webkit-box-direction: normal,
+            -webkit-flex-direction: row,
+            -ms-flex-direction: row,
+            -moz-flex-direction: row,
+            -o-flex-direction: row,
+            flex-direction: row,
+            -webkit-flex-wrap: wrap,
+            -ms-flex-wrap: wrap,
+            flex-wrap: wrap,
+        )
+    ),
+    "test-case-6": (
+        selector: ".test-flex-flow-row-w",
+        flex-direction-value: row,
+        flex-wrap-value: w,
+        expected: (
+            -webkit-box-orient: horizontal,
+            -webkit-box-direction: normal,
+            -webkit-flex-direction: row,
+            -ms-flex-direction: row,
+            -moz-flex-direction: row,
+            -o-flex-direction: row,
+            flex-direction: row,
+            -webkit-flex-wrap: wrap,
+            -ms-flex-wrap: wrap,
+            flex-wrap: wrap,
+        )
+    ),
+    "test-case-7": (
+        selector: ".test-flex-flow-row-wrap-reverse",
+        flex-direction-value: row,
+        flex-wrap-value: wrap-reverse,
+        expected: (
+            -webkit-box-orient: horizontal,
+            -webkit-box-direction: normal,
+            -webkit-flex-direction: row,
+            -ms-flex-direction: row,
+            -moz-flex-direction: row,
+            -o-flex-direction: row,
+            flex-direction: row,
+            -webkit-flex-wrap: wrap-reverse,
+            -ms-flex-wrap: wrap-reverse,
+            flex-wrap: wrap-reverse,
+        )
+    ),
+    "test-case-8": (
+        selector: ".test-flex-flow-row-wrap-rev",
+        flex-direction-value: row,
+        flex-wrap-value: wrap-rev,
+        expected: (
+            -webkit-box-orient: horizontal,
+            -webkit-box-direction: normal,
+            -webkit-flex-direction: row,
+            -ms-flex-direction: row,
+            -moz-flex-direction: row,
+            -o-flex-direction: row,
+            flex-direction: row,
+            -webkit-flex-wrap: wrap-reverse,
+            -ms-flex-wrap: wrap-reverse,
+            flex-wrap: wrap-reverse,
+        )
+    ),
+    "test-case-9": (
+        selector: ".test-flex-flow-row-w-rev",
+        flex-direction-value: row,
+        flex-wrap-value: w-rev,
+        expected: (
+            -webkit-box-orient: horizontal,
+            -webkit-box-direction: normal,
+            -webkit-flex-direction: row,
+            -ms-flex-direction: row,
+            -moz-flex-direction: row,
+            -o-flex-direction: row,
+            flex-direction: row,
+            -webkit-flex-wrap: wrap-reverse,
+            -ms-flex-wrap: wrap-reverse,
+            flex-wrap: wrap-reverse,
+        )
+    ),
+    "test-case-10": (
+        selector: ".test-flex-flow-row-inherit",
+        flex-direction-value: row,
+        flex-wrap-value: inherit,
+        expected: (
+            -webkit-box-orient: horizontal,
+            -webkit-box-direction: normal,
+            -webkit-flex-direction: row,
+            -ms-flex-direction: row,
+            -moz-flex-direction: row,
+            -o-flex-direction: row,
+            flex-direction: row,
+            -webkit-flex-wrap: inherit,
+            -ms-flex-wrap: inherit,
+            flex-wrap: inherit,
+        )
+    ),
+    "test-case-11": (
+        selector: ".test-flex-flow-row-reverse-nowrap",
+        flex-direction-value: row-reverse,
+        flex-wrap-value: nowrap,
+        expected: (
+            -webkit-box-orient: horizontal,
+            -webkit-box-direction: reverse,
+            -webkit-flex-direction: row-reverse,
+            -ms-flex-direction: row-reverse,
+            -moz-flex-direction: row-reverse,
+            -o-flex-direction: row-reverse,
+            flex-direction: row-reverse,
+            -webkit-flex-wrap: nowrap,
+            -ms-flex-wrap: nowrap,
+            flex-wrap: nowrap,
+        )
+    ),
+    "test-case-12": (
+        selector: ".test-flex-flow-row-reverse-empty",
+        flex-direction-value: row-reverse,
+        flex-wrap-value: "",
+        expected: (
+            -webkit-box-orient: horizontal,
+            -webkit-box-direction: reverse,
+            -webkit-flex-direction: row-reverse,
+            -ms-flex-direction: row-reverse,
+            -moz-flex-direction: row-reverse,
+            -o-flex-direction: row-reverse,
+            flex-direction: row-reverse,
+            -webkit-flex-wrap: nowrap,
+            -ms-flex-wrap: nowrap,
+            flex-wrap: nowrap,
+        )
+    ),
+    "test-case-13": (
+        selector: ".test-flex-flow-row-reverse-no",
+        flex-direction-value: row-reverse,
+        flex-wrap-value: no,
+        expected: (
+            -webkit-box-orient: horizontal,
+            -webkit-box-direction: reverse,
+            -webkit-flex-direction: row-reverse,
+            -ms-flex-direction: row-reverse,
+            -moz-flex-direction: row-reverse,
+            -o-flex-direction: row-reverse,
+            flex-direction: row-reverse,
+            -webkit-flex-wrap: nowrap,
+            -ms-flex-wrap: nowrap,
+            flex-wrap: nowrap,
+        )
+    ),
+    "test-case-14": (
+        selector: ".test-flex-flow-row-reverse-wrap",
+        flex-direction-value: row-reverse,
+        flex-wrap-value: wrap,
+        expected: (
+            -webkit-box-orient: horizontal,
+            -webkit-box-direction: reverse,
+            -webkit-flex-direction: row-reverse,
+            -ms-flex-direction: row-reverse,
+            -moz-flex-direction: row-reverse,
+            -o-flex-direction: row-reverse,
+            flex-direction: row-reverse,
+            -webkit-flex-wrap: wrap,
+            -ms-flex-wrap: wrap,
+            flex-wrap: wrap,
+        )
+    ),
+    "test-case-15": (
+        selector: ".test-flex-flow-row-reverse-yes",
+        flex-direction-value: row-reverse,
+        flex-wrap-value: yes,
+        expected: (
+            -webkit-box-orient: horizontal,
+            -webkit-box-direction: reverse,
+            -webkit-flex-direction: row-reverse,
+            -ms-flex-direction: row-reverse,
+            -moz-flex-direction: row-reverse,
+            -o-flex-direction: row-reverse,
+            flex-direction: row-reverse,
+            -webkit-flex-wrap: wrap,
+            -ms-flex-wrap: wrap,
+            flex-wrap: wrap,
+        )
+    ),
+    "test-case-16": (
+        selector: ".test-flex-flow-row-reverse-w",
+        flex-direction-value: row-reverse,
+        flex-wrap-value: w,
+        expected: (
+            -webkit-box-orient: horizontal,
+            -webkit-box-direction: reverse,
+            -webkit-flex-direction: row-reverse,
+            -ms-flex-direction: row-reverse,
+            -moz-flex-direction: row-reverse,
+            -o-flex-direction: row-reverse,
+            flex-direction: row-reverse,
+            -webkit-flex-wrap: wrap,
+            -ms-flex-wrap: wrap,
+            flex-wrap: wrap,
+        )
+    ),
+    "test-case-17": (
+        selector: ".test-flex-flow-row-reverse-wrap-reverse",
+        flex-direction-value: row-reverse,
+        flex-wrap-value: wrap-reverse,
+        expected: (
+            -webkit-box-orient: horizontal,
+            -webkit-box-direction: reverse,
+            -webkit-flex-direction: row-reverse,
+            -ms-flex-direction: row-reverse,
+            -moz-flex-direction: row-reverse,
+            -o-flex-direction: row-reverse,
+            flex-direction: row-reverse,
+            -webkit-flex-wrap: wrap-reverse,
+            -ms-flex-wrap: wrap-reverse,
+            flex-wrap: wrap-reverse,
+        )
+    ),
+    "test-case-18": (
+        selector: ".test-flex-flow-row-reverse-wrap-rev",
+        flex-direction-value: row-reverse,
+        flex-wrap-value: wrap-rev,
+        expected: (
+            -webkit-box-orient: horizontal,
+            -webkit-box-direction: reverse,
+            -webkit-flex-direction: row-reverse,
+            -ms-flex-direction: row-reverse,
+            -moz-flex-direction: row-reverse,
+            -o-flex-direction: row-reverse,
+            flex-direction: row-reverse,
+            -webkit-flex-wrap: wrap-reverse,
+            -ms-flex-wrap: wrap-reverse,
+            flex-wrap: wrap-reverse,
+        )
+    ),
+    "test-case-19": (
+        selector: ".test-flex-flow-row-reverse-w-rev",
+        flex-direction-value: row-reverse,
+        flex-wrap-value: w-rev,
+        expected: (
+            -webkit-box-orient: horizontal,
+            -webkit-box-direction: reverse,
+            -webkit-flex-direction: row-reverse,
+            -ms-flex-direction: row-reverse,
+            -moz-flex-direction: row-reverse,
+            -o-flex-direction: row-reverse,
+            flex-direction: row-reverse,
+            -webkit-flex-wrap: wrap-reverse,
+            -ms-flex-wrap: wrap-reverse,
+            flex-wrap: wrap-reverse,
+        )
+    ),
+    "test-case-20": (
+        selector: ".test-flex-flow-row-reverse-inherit",
+        flex-direction-value: row-reverse,
+        flex-wrap-value: inherit,
+        expected: (
+            -webkit-box-orient: horizontal,
+            -webkit-box-direction: reverse,
+            -webkit-flex-direction: row-reverse,
+            -ms-flex-direction: row-reverse,
+            -moz-flex-direction: row-reverse,
+            -o-flex-direction: row-reverse,
+            flex-direction: row-reverse,
+            -webkit-flex-wrap: inherit,
+            -ms-flex-wrap: inherit,
+            flex-wrap: inherit,
+        )
+    ),
+    "test-case-21": (
+        selector: ".test-flex-flow-column-nowrap",
+        flex-direction-value: column,
+        flex-wrap-value: nowrap,
+        expected: (
+            -webkit-box-orient: vertical,
+            -webkit-box-direction: normal,
+            -webkit-flex-direction: column,
+            -ms-flex-direction: column,
+            -moz-flex-direction: column,
+            -o-flex-direction: column,
+            flex-direction: column,
+            -webkit-flex-wrap: nowrap,
+            -ms-flex-wrap: nowrap,
+            flex-wrap: nowrap,
+        )
+    ),
+    "test-case-22": (
+        selector: ".test-flex-flow-column-empty",
+        flex-direction-value: column,
+        flex-wrap-value: "",
+        expected: (
+            -webkit-box-orient: vertical,
+            -webkit-box-direction: normal,
+            -webkit-flex-direction: column,
+            -ms-flex-direction: column,
+            -moz-flex-direction: column,
+            -o-flex-direction: column,
+            flex-direction: column,
+            -webkit-flex-wrap: nowrap,
+            -ms-flex-wrap: nowrap,
+            flex-wrap: nowrap,
+        )
+    ),
+    "test-case-23": (
+        selector: ".test-flex-flow-column-no",
+        flex-direction-value: column,
+        flex-wrap-value: no,
+        expected: (
+            -webkit-box-orient: vertical,
+            -webkit-box-direction: normal,
+            -webkit-flex-direction: column,
+            -ms-flex-direction: column,
+            -moz-flex-direction: column,
+            -o-flex-direction: column,
+            flex-direction: column,
+            -webkit-flex-wrap: nowrap,
+            -ms-flex-wrap: nowrap,
+            flex-wrap: nowrap,
+        )
+    ),
+    "test-case-24": (
+        selector: ".test-flex-flow-column-wrap",
+        flex-direction-value: column,
+        flex-wrap-value: wrap,
+        expected: (
+            -webkit-box-orient: vertical,
+            -webkit-box-direction: normal,
+            -webkit-flex-direction: column,
+            -ms-flex-direction: column,
+            -moz-flex-direction: column,
+            -o-flex-direction: column,
+            flex-direction: column,
+            -webkit-flex-wrap: wrap,
+            -ms-flex-wrap: wrap,
+            flex-wrap: wrap,
+        )
+    ),
+    "test-case-25": (
+        selector: ".test-flex-flow-column-yes",
+        flex-direction-value: column,
+        flex-wrap-value: yes,
+        expected: (
+            -webkit-box-orient: vertical,
+            -webkit-box-direction: normal,
+            -webkit-flex-direction: column,
+            -ms-flex-direction: column,
+            -moz-flex-direction: column,
+            -o-flex-direction: column,
+            flex-direction: column,
+            -webkit-flex-wrap: wrap,
+            -ms-flex-wrap: wrap,
+            flex-wrap: wrap,
+        )
+    ),
+    "test-case-26": (
+        selector: ".test-flex-flow-column-w",
+        flex-direction-value: column,
+        flex-wrap-value: w,
+        expected: (
+            -webkit-box-orient: vertical,
+            -webkit-box-direction: normal,
+            -webkit-flex-direction: column,
+            -ms-flex-direction: column,
+            -moz-flex-direction: column,
+            -o-flex-direction: column,
+            flex-direction: column,
+            -webkit-flex-wrap: wrap,
+            -ms-flex-wrap: wrap,
+            flex-wrap: wrap,
+        )
+    ),
+    "test-case-27": (
+        selector: ".test-flex-flow-column-wrap-reverse",
+        flex-direction-value: column,
+        flex-wrap-value: wrap-reverse,
+        expected: (
+            -webkit-box-orient: vertical,
+            -webkit-box-direction: normal,
+            -webkit-flex-direction: column,
+            -ms-flex-direction: column,
+            -moz-flex-direction: column,
+            -o-flex-direction: column,
+            flex-direction: column,
+            -webkit-flex-wrap: wrap-reverse,
+            -ms-flex-wrap: wrap-reverse,
+            flex-wrap: wrap-reverse,
+        )
+    ),
+    "test-case-28": (
+        selector: ".test-flex-flow-column-wrap-rev",
+        flex-direction-value: column,
+        flex-wrap-value: wrap-rev,
+        expected: (
+            -webkit-box-orient: vertical,
+            -webkit-box-direction: normal,
+            -webkit-flex-direction: column,
+            -ms-flex-direction: column,
+            -moz-flex-direction: column,
+            -o-flex-direction: column,
+            flex-direction: column,
+            -webkit-flex-wrap: wrap-reverse,
+            -ms-flex-wrap: wrap-reverse,
+            flex-wrap: wrap-reverse,
+        )
+    ),
+    "test-case-29": (
+        selector: ".test-flex-flow-column-w-rev",
+        flex-direction-value: column,
+        flex-wrap-value: w-rev,
+        expected: (
+            -webkit-box-orient: vertical,
+            -webkit-box-direction: normal,
+            -webkit-flex-direction: column,
+            -ms-flex-direction: column,
+            -moz-flex-direction: column,
+            -o-flex-direction: column,
+            flex-direction: column,
+            -webkit-flex-wrap: wrap-reverse,
+            -ms-flex-wrap: wrap-reverse,
+            flex-wrap: wrap-reverse,
+        )
+    ),
+    "test-case-30": (
+        selector: ".test-flex-flow-column-inherit",
+        flex-direction-value: column,
+        flex-wrap-value: inherit,
+        expected: (
+            -webkit-box-orient: vertical,
+            -webkit-box-direction: normal,
+            -webkit-flex-direction: column,
+            -ms-flex-direction: column,
+            -moz-flex-direction: column,
+            -o-flex-direction: column,
+            flex-direction: column,
+            -webkit-flex-wrap: inherit,
+            -ms-flex-wrap: inherit,
+            flex-wrap: inherit,
+        )
+    ),
+    "test-case-31": (
+        selector: ".test-flex-flow-column-reverse-nowrap",
+        flex-direction-value: column-reverse,
+        flex-wrap-value: nowrap,
+        expected: (
+            -webkit-box-orient: vertical,
+            -webkit-box-direction: reverse,
+            -webkit-flex-direction: column-reverse,
+            -ms-flex-direction: column-reverse,
+            -moz-flex-direction: column-reverse,
+            -o-flex-direction: column-reverse,
+            flex-direction: column-reverse,
+            -webkit-flex-wrap: nowrap,
+            -ms-flex-wrap: nowrap,
+            flex-wrap: nowrap,
+        )
+    ),
+    "test-case-32": (
+        selector: ".test-flex-flow-column-reverse-empty",
+        flex-direction-value: column-reverse,
+        flex-wrap-value: "",
+        expected: (
+            -webkit-box-orient: vertical,
+            -webkit-box-direction: reverse,
+            -webkit-flex-direction: column-reverse,
+            -ms-flex-direction: column-reverse,
+            -moz-flex-direction: column-reverse,
+            -o-flex-direction: column-reverse,
+            flex-direction: column-reverse,
+            -webkit-flex-wrap: nowrap,
+            -ms-flex-wrap: nowrap,
+            flex-wrap: nowrap,
+        )
+    ),
+    "test-case-33": (
+        selector: ".test-flex-flow-column-reverse-no",
+        flex-direction-value: column-reverse,
+        flex-wrap-value: no,
+        expected: (
+            -webkit-box-orient: vertical,
+            -webkit-box-direction: reverse,
+            -webkit-flex-direction: column-reverse,
+            -ms-flex-direction: column-reverse,
+            -moz-flex-direction: column-reverse,
+            -o-flex-direction: column-reverse,
+            flex-direction: column-reverse,
+            -webkit-flex-wrap: nowrap,
+            -ms-flex-wrap: nowrap,
+            flex-wrap: nowrap,
+        )
+    ),
+    "test-case-34": (
+        selector: ".test-flex-flow-column-reverse-wrap",
+        flex-direction-value: column-reverse,
+        flex-wrap-value: wrap,
+        expected: (
+            -webkit-box-orient: vertical,
+            -webkit-box-direction: reverse,
+            -webkit-flex-direction: column-reverse,
+            -ms-flex-direction: column-reverse,
+            -moz-flex-direction: column-reverse,
+            -o-flex-direction: column-reverse,
+            flex-direction: column-reverse,
+            -webkit-flex-wrap: wrap,
+            -ms-flex-wrap: wrap,
+            flex-wrap: wrap,
+        )
+    ),
+    "test-case-35": (
+        selector: ".test-flex-flow-column-reverse-yes",
+        flex-direction-value: column-reverse,
+        flex-wrap-value: yes,
+        expected: (
+            -webkit-box-orient: vertical,
+            -webkit-box-direction: reverse,
+            -webkit-flex-direction: column-reverse,
+            -ms-flex-direction: column-reverse,
+            -moz-flex-direction: column-reverse,
+            -o-flex-direction: column-reverse,
+            flex-direction: column-reverse,
+            -webkit-flex-wrap: wrap,
+            -ms-flex-wrap: wrap,
+            flex-wrap: wrap,
+        )
+    ),
+    "test-case-36": (
+        selector: ".test-flex-flow-column-reverse-w",
+        flex-direction-value: column-reverse,
+        flex-wrap-value: w,
+        expected: (
+            -webkit-box-orient: vertical,
+            -webkit-box-direction: reverse,
+            -webkit-flex-direction: column-reverse,
+            -ms-flex-direction: column-reverse,
+            -moz-flex-direction: column-reverse,
+            -o-flex-direction: column-reverse,
+            flex-direction: column-reverse,
+            -webkit-flex-wrap: wrap,
+            -ms-flex-wrap: wrap,
+            flex-wrap: wrap,
+        )
+    ),
+    "test-case-37": (
+        selector: ".test-flex-flow-column-reverse-wrap-reverse",
+        flex-direction-value: column-reverse,
+        flex-wrap-value: wrap-reverse,
+        expected: (
+            -webkit-box-orient: vertical,
+            -webkit-box-direction: reverse,
+            -webkit-flex-direction: column-reverse,
+            -ms-flex-direction: column-reverse,
+            -moz-flex-direction: column-reverse,
+            -o-flex-direction: column-reverse,
+            flex-direction: column-reverse,
+            -webkit-flex-wrap: wrap-reverse,
+            -ms-flex-wrap: wrap-reverse,
+            flex-wrap: wrap-reverse,
+        )
+    ),
+    "test-case-38": (
+        selector: ".test-flex-flow-column-reverse-wrap-rev",
+        flex-direction-value: column-reverse,
+        flex-wrap-value: wrap-rev,
+        expected: (
+            -webkit-box-orient: vertical,
+            -webkit-box-direction: reverse,
+            -webkit-flex-direction: column-reverse,
+            -ms-flex-direction: column-reverse,
+            -moz-flex-direction: column-reverse,
+            -o-flex-direction: column-reverse,
+            flex-direction: column-reverse,
+            -webkit-flex-wrap: wrap-reverse,
+            -ms-flex-wrap: wrap-reverse,
+            flex-wrap: wrap-reverse,
+        )
+    ),
+    "test-case-39": (
+        selector: ".test-flex-flow-column-reverse-w-rev",
+        flex-direction-value: column-reverse,
+        flex-wrap-value: w-rev,
+        expected: (
+            -webkit-box-orient: vertical,
+            -webkit-box-direction: reverse,
+            -webkit-flex-direction: column-reverse,
+            -ms-flex-direction: column-reverse,
+            -moz-flex-direction: column-reverse,
+            -o-flex-direction: column-reverse,
+            flex-direction: column-reverse,
+            -webkit-flex-wrap: wrap-reverse,
+            -ms-flex-wrap: wrap-reverse,
+            flex-wrap: wrap-reverse,
+        )
+    ),
+    "test-case-40": (
+        selector: ".test-flex-flow-column-reverse-inherit",
+        flex-direction-value: column-reverse,
+        flex-wrap-value: inherit,
+        expected: (
+            -webkit-box-orient: vertical,
+            -webkit-box-direction: reverse,
+            -webkit-flex-direction: column-reverse,
+            -ms-flex-direction: column-reverse,
+            -moz-flex-direction: column-reverse,
+            -o-flex-direction: column-reverse,
+            flex-direction: column-reverse,
+            -webkit-flex-wrap: inherit,
+            -ms-flex-wrap: inherit,
+            flex-wrap: inherit,
+        )
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-flex-flow-map {
+    @include describe("[Mixin] flex-flow for #{$case-name}") {
+        @include it("should output correct flex-flow properties") {
+            @include assert {
+                @include output {
+                    #{map.get($case-data, selector)} {
+                        @include LibMixin.flow(#{map.get($case-data, flex-direction-value)}, #{map.get($case-data, flex-wrap-value)});
+                    }
+                }
+
+                @include expect {
+                    #{map.get($case-data, selector)} {
+                        @each $property, $value in map.get($case-data, expected) {
+                            #{$property}: #{$value};
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
