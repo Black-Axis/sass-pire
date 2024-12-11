@@ -8,7 +8,7 @@
 
 $test-cases-align-items-map: (
     "test-1": (
-        selector: ".test-1",
+        selector: ".test-align-items-1",
         value: start,
         expected: (
             -webkit-box-align: start,
@@ -19,7 +19,7 @@ $test-cases-align-items-map: (
         )
     ),
     "test-2": (
-        selector: ".test-2",
+        selector: ".test-align-items-2",
         value: center,
         expected: (
             -webkit-box-align: center,
