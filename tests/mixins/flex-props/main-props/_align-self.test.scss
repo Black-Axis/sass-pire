@@ -16,7 +16,7 @@ $test-cases-align-self-map: (
             -ms-align-self: start,
             -moz-align-self: start,
             -o-align-self: start,
-            align-self: start
+            align-self: start,
         )
     ),
     "test-case-2": (
@@ -28,7 +28,7 @@ $test-cases-align-self-map: (
             -ms-align-self: center,
             -moz-align-self: center,
             -o-align-self: center,
-            align-self: center
+            align-self: center,
         ),
     ),
 );

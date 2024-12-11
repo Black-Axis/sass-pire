@@ -17,7 +17,7 @@ $test-cases-flex-direction-map: (
             -ms-flex-direction: column,
             -moz-flex-direction: column,
             -o-flex-direction: column,
-            flex-direction: column
+            flex-direction: column,
         )
     ),
     "test-case-2": (
@@ -30,7 +30,7 @@ $test-cases-flex-direction-map: (
             -ms-flex-direction: column-reverse,
             -moz-flex-direction: column-reverse,
             -o-flex-direction: column-reverse,
-            flex-direction: column-reverse
+            flex-direction: column-reverse,
         ),
     ),
     "test-case-3": (
@@ -43,7 +43,7 @@ $test-cases-flex-direction-map: (
             -ms-flex-direction: row,
             -moz-flex-direction: row,
             -o-flex-direction: row,
-            flex-direction: row
+            flex-direction: row,
         ),
     ),
     "test-case-4": (
@@ -56,7 +56,7 @@ $test-cases-flex-direction-map: (
             -ms-flex-direction: row-reverse,
             -moz-flex-direction: row-reverse,
             -o-flex-direction: row-reverse,
-            flex-direction: row-reverse
+            flex-direction: row-reverse,
         ),
     ),
 );
