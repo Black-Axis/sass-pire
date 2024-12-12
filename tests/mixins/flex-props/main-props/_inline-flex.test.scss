@@ -1,0 +1,42 @@
+@use "sass:map";
+@use "true" as *;
+@use "../../../../src/mixins/flex-props/main-props/inline-flex" as LibMixin;
+
+// stylelint-disable value-no-vendor-prefix
+// stylelint-disable declaration-block-no-duplicate-properties
+// stylelint-disable value-keyword-case
+
+$test-cases-d-inline-flex-map: (
+    "test-case-1": (
+        selector: ".test-display-inline-flex",
+        expected: (
+            -webkit-inline-box,
+            -webkit-inline-flex,
+            -ms-inline-flexbox,
+            -moz-inline-box,
+            inline-flex,
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-d-inline-flex-map {
+    @include describe("[Mixin] d-inline-flex for #{$case-name}") {
+        @include it("should output correct display inline-flex properties") {
+            @include assert {
+                @include output {
+                    #{map.get($case-data, selector)} {
+                        @include LibMixin.d-inflex;
+                    }
+                }
+
+                @include expect {
+                    #{map.get($case-data, selector)} {
+                        @each $value in map.get($case-data, expected) {
+                            display: $value;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
