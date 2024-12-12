@@ -64,3 +64,9 @@
 // * inline-flex with its vendor prefixes.
 // @see inline-flex
 @forward "inline-flex.test";
+
+// * forwarding the "order" module.
+// * The "order" module likely provides a test cases for
+// * order with its vendor prefixes.
+// @see order
+@forward "order.test";
