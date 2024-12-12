@@ -17,7 +17,7 @@ $test-cases-align-self-map: (
             -moz-align-self: auto,
             -o-align-self: auto,
             align-self: auto,
-        )
+        ),
     ),
     "test-case-2": (
         selector: ".test-align-self-normal",
@@ -29,7 +29,7 @@ $test-cases-align-self-map: (
             -moz-align-self: normal,
             -o-align-self: normal,
             align-self: normal,
-        )
+        ),
     ),
     "test-case-3": (
         selector: ".test-align-self-stretch",
@@ -41,7 +41,7 @@ $test-cases-align-self-map: (
             -moz-align-self: stretch,
             -o-align-self: stretch,
             align-self: stretch,
-        )
+        ),
     ),
     "test-case-4": (
         selector: ".test-align-self-start",
@@ -53,7 +53,7 @@ $test-cases-align-self-map: (
             -moz-align-self: start,
             -o-align-self: start,
             align-self: start,
-        )
+        ),
     ),
     "test-case-5": (
         selector: ".test-align-self-end",
@@ -65,7 +65,7 @@ $test-cases-align-self-map: (
             -moz-align-self: end,
             -o-align-self: end,
             align-self: end,
-        )
+        ),
     ),
     "test-case-6": (
         selector: ".test-align-self-self-start",
@@ -77,7 +77,7 @@ $test-cases-align-self-map: (
             -moz-align-self: self-start,
             -o-align-self: self-start,
             align-self: self-start,
-        )
+        ),
     ),
     "test-case-7": (
         selector: ".test-align-self-self-end",
@@ -89,7 +89,7 @@ $test-cases-align-self-map: (
             -moz-align-self: self-end,
             -o-align-self: self-end,
             align-self: self-end,
-        )
+        ),
     ),
     "test-case-8": (
         selector: ".test-align-self-center",
