@@ -58,3 +58,9 @@
 // * flex-shrink with its vendor prefixes.
 // @see flex-shrink
 @forward "flex-shrink.test";
+
+// * forwarding the "inline-flex" module.
+// * The "inline-flex" module likely provides a test cases for
+// * inline-flex with its vendor prefixes.
+// @see inline-flex
+@forward "inline-flex.test";
