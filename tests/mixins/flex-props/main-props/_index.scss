@@ -52,3 +52,9 @@
 // * flex-flow with its vendor prefixes.
 // @see flex-flow
 @forward "flex-flow.test";
+
+// * forwarding the "flex-shrink" module.
+// * The "flex-shrink" module likely provides a test cases for
+// * flex-shrink with its vendor prefixes.
+// @see flex-shrink
+@forward "flex-shrink.test";
