@@ -16,7 +16,7 @@ $test-cases-justify-content-map: (
             -ms-flex-pack: normal,
             -moz-justify-content: normal,
             justify-content: normal,
-        )
+        ),
     ),
     "test-case-2": (
         selector: ".test-justify-content-stretch",
@@ -104,7 +104,7 @@ $test-cases-justify-content-map: (
             -ms-flex-pack: center,
             -moz-justify-content: center,
             justify-content: center,
-        )
+        ),
     ),
     "test-case-10": (
         selector: ".test-justify-content-space-between",

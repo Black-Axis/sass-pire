@@ -22,7 +22,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: nowrap,
             -ms-flex-wrap: nowrap,
             flex-wrap: nowrap,
-        )
+        ),
     ),
     "test-case-2": (
         selector: ".test-flex-flow-row-empty",
@@ -39,7 +39,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: nowrap,
             -ms-flex-wrap: nowrap,
             flex-wrap: nowrap,
-        )
+        ),
     ),
     "test-case-3": (
         selector: ".test-flex-flow-row-no",
@@ -56,7 +56,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: nowrap,
             -ms-flex-wrap: nowrap,
             flex-wrap: nowrap,
-        )
+        ),
     ),
     "test-case-4": (
         selector: ".test-flex-flow-row-wrap",
@@ -73,7 +73,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: wrap,
             -ms-flex-wrap: wrap,
             flex-wrap: wrap,
-        )
+        ),
     ),
     "test-case-5": (
         selector: ".test-flex-flow-row-yes",
@@ -90,7 +90,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: wrap,
             -ms-flex-wrap: wrap,
             flex-wrap: wrap,
-        )
+        ),
     ),
     "test-case-6": (
         selector: ".test-flex-flow-row-w",
@@ -107,7 +107,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: wrap,
             -ms-flex-wrap: wrap,
             flex-wrap: wrap,
-        )
+        ),
     ),
     "test-case-7": (
         selector: ".test-flex-flow-row-wrap-reverse",
@@ -124,7 +124,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: wrap-reverse,
             -ms-flex-wrap: wrap-reverse,
             flex-wrap: wrap-reverse,
-        )
+        ),
     ),
     "test-case-8": (
         selector: ".test-flex-flow-row-wrap-rev",
@@ -141,7 +141,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: wrap-reverse,
             -ms-flex-wrap: wrap-reverse,
             flex-wrap: wrap-reverse,
-        )
+        ),
     ),
     "test-case-9": (
         selector: ".test-flex-flow-row-w-rev",
@@ -158,7 +158,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: wrap-reverse,
             -ms-flex-wrap: wrap-reverse,
             flex-wrap: wrap-reverse,
-        )
+        ),
     ),
     "test-case-10": (
         selector: ".test-flex-flow-row-inherit",
@@ -175,7 +175,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: inherit,
             -ms-flex-wrap: inherit,
             flex-wrap: inherit,
-        )
+        ),
     ),
     "test-case-11": (
         selector: ".test-flex-flow-row-reverse-nowrap",
@@ -192,7 +192,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: nowrap,
             -ms-flex-wrap: nowrap,
             flex-wrap: nowrap,
-        )
+        ),
     ),
     "test-case-12": (
         selector: ".test-flex-flow-row-reverse-empty",
@@ -209,7 +209,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: nowrap,
             -ms-flex-wrap: nowrap,
             flex-wrap: nowrap,
-        )
+        ),
     ),
     "test-case-13": (
         selector: ".test-flex-flow-row-reverse-no",
@@ -226,7 +226,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: nowrap,
             -ms-flex-wrap: nowrap,
             flex-wrap: nowrap,
-        )
+        ),
     ),
     "test-case-14": (
         selector: ".test-flex-flow-row-reverse-wrap",
@@ -243,7 +243,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: wrap,
             -ms-flex-wrap: wrap,
             flex-wrap: wrap,
-        )
+        ),
     ),
     "test-case-15": (
         selector: ".test-flex-flow-row-reverse-yes",
@@ -260,7 +260,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: wrap,
             -ms-flex-wrap: wrap,
             flex-wrap: wrap,
-        )
+        ),
     ),
     "test-case-16": (
         selector: ".test-flex-flow-row-reverse-w",
@@ -277,7 +277,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: wrap,
             -ms-flex-wrap: wrap,
             flex-wrap: wrap,
-        )
+        ),
     ),
     "test-case-17": (
         selector: ".test-flex-flow-row-reverse-wrap-reverse",
@@ -294,7 +294,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: wrap-reverse,
             -ms-flex-wrap: wrap-reverse,
             flex-wrap: wrap-reverse,
-        )
+        ),
     ),
     "test-case-18": (
         selector: ".test-flex-flow-row-reverse-wrap-rev",
@@ -311,7 +311,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: wrap-reverse,
             -ms-flex-wrap: wrap-reverse,
             flex-wrap: wrap-reverse,
-        )
+        ),
     ),
     "test-case-19": (
         selector: ".test-flex-flow-row-reverse-w-rev",
@@ -328,7 +328,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: wrap-reverse,
             -ms-flex-wrap: wrap-reverse,
             flex-wrap: wrap-reverse,
-        )
+        ),
     ),
     "test-case-20": (
         selector: ".test-flex-flow-row-reverse-inherit",
@@ -345,7 +345,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: inherit,
             -ms-flex-wrap: inherit,
             flex-wrap: inherit,
-        )
+        ),
     ),
     "test-case-21": (
         selector: ".test-flex-flow-column-nowrap",
@@ -362,7 +362,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: nowrap,
             -ms-flex-wrap: nowrap,
             flex-wrap: nowrap,
-        )
+        ),
     ),
     "test-case-22": (
         selector: ".test-flex-flow-column-empty",
@@ -379,7 +379,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: nowrap,
             -ms-flex-wrap: nowrap,
             flex-wrap: nowrap,
-        )
+        ),
     ),
     "test-case-23": (
         selector: ".test-flex-flow-column-no",
@@ -396,7 +396,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: nowrap,
             -ms-flex-wrap: nowrap,
             flex-wrap: nowrap,
-        )
+        ),
     ),
     "test-case-24": (
         selector: ".test-flex-flow-column-wrap",
@@ -413,7 +413,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: wrap,
             -ms-flex-wrap: wrap,
             flex-wrap: wrap,
-        )
+        ),
     ),
     "test-case-25": (
         selector: ".test-flex-flow-column-yes",
@@ -430,7 +430,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: wrap,
             -ms-flex-wrap: wrap,
             flex-wrap: wrap,
-        )
+        ),
     ),
     "test-case-26": (
         selector: ".test-flex-flow-column-w",
@@ -447,7 +447,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: wrap,
             -ms-flex-wrap: wrap,
             flex-wrap: wrap,
-        )
+        ),
     ),
     "test-case-27": (
         selector: ".test-flex-flow-column-wrap-reverse",
@@ -464,7 +464,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: wrap-reverse,
             -ms-flex-wrap: wrap-reverse,
             flex-wrap: wrap-reverse,
-        )
+        ),
     ),
     "test-case-28": (
         selector: ".test-flex-flow-column-wrap-rev",
@@ -481,7 +481,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: wrap-reverse,
             -ms-flex-wrap: wrap-reverse,
             flex-wrap: wrap-reverse,
-        )
+        ),
     ),
     "test-case-29": (
         selector: ".test-flex-flow-column-w-rev",
@@ -498,7 +498,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: wrap-reverse,
             -ms-flex-wrap: wrap-reverse,
             flex-wrap: wrap-reverse,
-        )
+        ),
     ),
     "test-case-30": (
         selector: ".test-flex-flow-column-inherit",
@@ -515,7 +515,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: inherit,
             -ms-flex-wrap: inherit,
             flex-wrap: inherit,
-        )
+        ),
     ),
     "test-case-31": (
         selector: ".test-flex-flow-column-reverse-nowrap",
@@ -532,7 +532,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: nowrap,
             -ms-flex-wrap: nowrap,
             flex-wrap: nowrap,
-        )
+        ),
     ),
     "test-case-32": (
         selector: ".test-flex-flow-column-reverse-empty",
@@ -549,7 +549,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: nowrap,
             -ms-flex-wrap: nowrap,
             flex-wrap: nowrap,
-        )
+        ),
     ),
     "test-case-33": (
         selector: ".test-flex-flow-column-reverse-no",
@@ -566,7 +566,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: nowrap,
             -ms-flex-wrap: nowrap,
             flex-wrap: nowrap,
-        )
+        ),
     ),
     "test-case-34": (
         selector: ".test-flex-flow-column-reverse-wrap",
@@ -583,7 +583,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: wrap,
             -ms-flex-wrap: wrap,
             flex-wrap: wrap,
-        )
+        ),
     ),
     "test-case-35": (
         selector: ".test-flex-flow-column-reverse-yes",
@@ -600,7 +600,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: wrap,
             -ms-flex-wrap: wrap,
             flex-wrap: wrap,
-        )
+        ),
     ),
     "test-case-36": (
         selector: ".test-flex-flow-column-reverse-w",
@@ -617,7 +617,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: wrap,
             -ms-flex-wrap: wrap,
             flex-wrap: wrap,
-        )
+        ),
     ),
     "test-case-37": (
         selector: ".test-flex-flow-column-reverse-wrap-reverse",
@@ -634,7 +634,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: wrap-reverse,
             -ms-flex-wrap: wrap-reverse,
             flex-wrap: wrap-reverse,
-        )
+        ),
     ),
     "test-case-38": (
         selector: ".test-flex-flow-column-reverse-wrap-rev",
@@ -651,7 +651,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: wrap-reverse,
             -ms-flex-wrap: wrap-reverse,
             flex-wrap: wrap-reverse,
-        )
+        ),
     ),
     "test-case-39": (
         selector: ".test-flex-flow-column-reverse-w-rev",
@@ -668,7 +668,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: wrap-reverse,
             -ms-flex-wrap: wrap-reverse,
             flex-wrap: wrap-reverse,
-        )
+        ),
     ),
     "test-case-40": (
         selector: ".test-flex-flow-column-reverse-inherit",
@@ -685,7 +685,7 @@ $test-cases-flex-flow-map: (
             -webkit-flex-wrap: inherit,
             -ms-flex-wrap: inherit,
             flex-wrap: inherit,
-        )
+        ),
     ),
 );
 

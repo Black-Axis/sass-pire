@@ -18,7 +18,7 @@ $test-cases-flex-direction-map: (
             -moz-flex-direction: column,
             -o-flex-direction: column,
             flex-direction: column,
-        )
+        ),
     ),
     "test-case-2": (
         selector: ".test-flex-direction-column-reverse",
