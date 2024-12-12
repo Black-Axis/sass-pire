@@ -204,6 +204,14 @@ $align-items-values: (
     inherit
 ) !default;
 
+$flex-shrink-values: (
+    initial,
+    revert,
+    revert-layer,
+    unset,
+    inherit,
+) !default;
+
 $column-gap-props: (
     -webkit-column-gap,
     -moz-column-gap,
