@@ -71,7 +71,7 @@ $all-units: (
     cqi,
     cqb,
     cqmin,
-    cqmax
+    cqmax,
 ) !default;
 
 $data-types: (
@@ -81,26 +81,26 @@ $data-types: (
     list,
     color,
     map,
-    null
+    null,
 ) !default;
 
 $angle-units: (
     deg,
     turn,
     rad,
-    grad
+    grad,
 ) !default;
 
 $main-units: (
     #{"%"},
     rem,
     px,
-    em
+    em,
 ) !default;
 
 $time-units: (
     ms,
-    s
+    s,
 ) !default;
 
 $breakpoints: (
@@ -123,7 +123,7 @@ $breakpoints: (
     "xl-2": 1900px,
     "xl-3": 2400px,
     "xl-4": 2800px,
-    "xxl": 3000px
+    "xxl": 3000px,
 ) !default;
 
 $overflow-values: (
@@ -136,7 +136,7 @@ $overflow-values: (
     initial,
     revert,
     revert-layer,
-    unset
+    unset,
 ) !default;
 
 $overscroll-behavior-values: (
@@ -144,20 +144,20 @@ $overscroll-behavior-values: (
     contain,
     none,
     initial,
-    inherit
+    inherit,
 ) !default;
 
 $main-data-types: (
     number,
     string,
-    bool
+    bool,
 ) !default;
 
 $main-directions: (
     top,
     right,
     bottom,
-    left
+    left,
 ) !default;
 
 $justify-content-props: (
@@ -165,7 +165,7 @@ $justify-content-props: (
     -webkit-justify-content,
     -ms-flex-pack,
     -moz-justify-content,
-    justify-content
+    justify-content,
 ) !default;
 
 $justify-content-values: (
@@ -181,7 +181,7 @@ $justify-content-values: (
     space-between,
     space-around,
     space-evenly,
-    inherit
+    inherit,
 ) !default;
 
 $align-items-props: (
@@ -189,7 +189,7 @@ $align-items-props: (
     -webkit-align-items,
     -ms-flex-align,
     -moz-align-items,
-    align-items
+    align-items,
 ) !default;
 
 $align-items-values: (
@@ -201,7 +201,7 @@ $align-items-values: (
     flex-end,
     center,
     baseline,
-    inherit
+    inherit,
 ) !default;
 
 $flex-shrink-values: (
@@ -215,40 +215,41 @@ $flex-shrink-values: (
 $column-gap-props: (
     -webkit-column-gap,
     -moz-column-gap,
-    column-gap
+    column-gap,
 ) !default;
 
 $grid-column-props: (
     -ms-grid-column,
-    grid-column
+    grid-column,
 ) !default;
 
 $grid-row-props: (
     -ms-grid-row,
-    grid-row)
+    grid-row,
+)
 !default;
 
 $grid-template-columns-props: (
     -ms-grid-columns,
-    grid-template-columns
+    grid-template-columns,
 ) !default;
 
 $grid-template-rows-props: (
     -ms-grid-rows,
-    grid-template-rows
+    grid-template-rows,
 ) !default;
 
 $grid-column-start: (
     -ms-grid-column,
-    grid-column-start
+    grid-column-start,
 ) !default;
 
 $grid-row-start: (
     -ms-grid-row,
-    grid-row-start
+    grid-row-start,
 ) !default;
 
 $grid-row-end: (
     -ms-grid-row-span,
-    grid-row-end
+    grid-row-end,
 ) !default;
