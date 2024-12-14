@@ -63,7 +63,7 @@ $test-cases-order-map: (
 
                         @if meta.type-of($current-value) != number {
                             // stylelint-disable-next-line scss/no-global-function-names
-                            $first-char: str-slice(#{$current-value}, 1, 1);
+                            $first-char: string.slice(#{$current-value}, 1, 1);
 
                             // Check if it looks like a numeric string
                             @if $first-char == "0" or
