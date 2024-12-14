@@ -105,7 +105,7 @@ const BuildLibrary = (function () {
          * * It returns a string of SCSS code that contains all variables or lists
          * * which are used, as library developers, to compile them in some use cases
          * * in the whole library.
-         * 
+         *
          * @access private
          *
          * @returns {string} The content of the settings file.
@@ -227,7 +227,9 @@ const BuildLibrary = (function () {
          */
         static updateVersion(filePath, newVersion) {
             try {
-                let content = fs.readFileSync(filePath, 'utf8');
+                const fullPath = path.resolve(process.cwd(), filePath);
+
+                let content = fs.readFileSync(fullPath, 'utf8');
 
                 content = content.replace(
                     /\/\/ @version .+/,

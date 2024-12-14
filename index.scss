@@ -18,30 +18,30 @@
 // * The "abstract" module may contain abstract styles or variables used
 // * throughout the project.
 // @see abstract
-@forward "abstract";
+@forward "./src/abstract";
 
 // * forwarding the "functions" module.
 // * The "functions" module likely contains custom Sass functions for use
 // * in stylesheets.
 // @see functions
-@forward "functions";
+@forward "./src/functions";
 
 // * forwarding the "mixins" module.
 // * The "mixins" module probably contains reusable Sass mixins.
 // @see mixins
-@forward "mixins";
+@forward "./src/mixins";
 
 // * forwarding the "helpers" module.
 // * The "helpers" module may contain helper classes or functions for
 // * simplifying styles.
 // @see helpers
-@forward "helpers";
+@forward "./src/helpers";
 
 // * forwarding the "development-utils" module.
 // * The "development-utils" module might contain utilities helpful
 // * during development.
 // @see development-utils
-@forward "development-utils";
+@forward "./src/development-utils";
 
 // * There is a utility module for the sass-pire library
 // * We need to import it to use the sass-pire library
