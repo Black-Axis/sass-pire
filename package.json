@@ -29,6 +29,18 @@
         "sass-library",
         "scss-library"
     ],
+    "files": [
+        "src/**/*.scss",
+        "index.scss",
+        "LICENSE.md",
+        "README.md"
+    ],
+    "exports": {
+        "sass": "./index.scss",
+        "import": "./index.scss"
+    },
+    "style": "./index.scss",
+    "sass": "./index.scss",
     "repository": {
         "url": "https://github.com/Black-Axis/sass-pire",
         "type": "git"
