@@ -1,0 +1,145 @@
+@use "sass:meta";
+@use "sass:string";
+@use "sass:map";
+@use "true" as *;
+@use "../../../../src/mixins/flex-props/main-props/flex-basis" as LibMixin;
+
+// stylelint-disable value-no-vendor-prefix
+// stylelint-disable declaration-block-no-duplicate-properties
+// stylelint-disable value-keyword-case
+
+$test-cases-flex-basis-map: (
+    "test-case-1": (
+        selector: ".test-flex-basis-auto",
+        value: auto,
+        expected: (
+            -webkit-flex-basis: auto,
+            -ms-flex-preferred-size: auto,
+            flex-basis: auto,
+        ),
+    ),
+    "test-case-2": (
+        selector: ".test-flex-basis-max-content",
+        value: max-content,
+        expected: (
+            -webkit-flex-basis: max-content,
+            -ms-flex-preferred-size: max-content,
+            flex-basis: max-content,
+        ),
+    ),
+    "test-case-3": (
+        selector: ".test-flex-basis-min-content",
+        value: min-content,
+        expected: (
+            -webkit-flex-basis: min-content,
+            -ms-flex-preferred-size: min-content,
+            flex-basis: min-content,
+        ),
+    ),
+    "test-case-4": (
+        selector: ".test-flex-basis-fit-content",
+        value: fit-content,
+        expected: (
+            -webkit-flex-basis: fit-content,
+            -ms-flex-preferred-size: fit-content,
+            flex-basis: fit-content,
+        ),
+    ),
+    "test-case-5": (
+        selector: ".test-flex-basis-content",
+        value: content,
+        expected: (
+            -webkit-flex-basis: content,
+            -ms-flex-preferred-size: content,
+            flex-basis: content,
+        ),
+    ),
+    "test-case-6": (
+        selector: ".test-flex-basis-inherit",
+        value: inherit,
+        expected: (
+            -webkit-flex-basis: inherit,
+            -ms-flex-preferred-size: inherit,
+            flex-basis: inherit,
+        ),
+    ),
+    "test-case-7": (
+        selector: ".test-flex-basis-7rem",
+        value: 7rem,
+        expected: (
+            -webkit-flex-basis: 7rem,
+            -ms-flex-preferred-size: 7rem,
+            flex-basis: 7rem,
+        ),
+    ),
+    "test-case-8": (
+        selector: ".test-flex-basis-10px",
+        value: 10px,
+        expected: (
+            -webkit-flex-basis: 10px,
+            -ms-flex-preferred-size: 10px,
+            flex-basis: 10px,
+        ),
+    ),
+    "test-case-9": (
+        selector: ".test-flex-basis-10dvh",
+        value: 10dvh,
+        expected: (
+            -webkit-flex-basis: 10dvh,
+            -ms-flex-preferred-size: 10dvh,
+            flex-basis: 10dvh,
+        ),
+    ),
+    "test-case-10": (
+        selector: ".test-flex-basis-45em",
+        value: 45em,
+        expected: (
+            -webkit-flex-basis: 45em,
+            -ms-flex-preferred-size: 45em,
+            flex-basis: 45em,
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-flex-basis-map {
+    @include describe("[Mixin] flex-basis for #{$case-name}") {
+        @include it("should output correct flex-basis properties") {
+            @include assert {
+                @include output {
+                    #{map.get($case-data, selector)} {
+                        $current-value: map.get($case-data, value);
+
+                        @if meta.type-of($current-value) != number {
+                            // stylelint-disable-next-line scss/no-global-function-names
+                            $first-char: string.slice(#{$current-value}, 1, 1);
+
+                            // Check if it looks like a numeric string
+                            @if $first-char == "0" or
+                                $first-char == "1" or
+                                $first-char == "2" or
+                                $first-char == "3" or
+                                $first-char == "4" or
+                                $first-char == "5" or
+                                $first-char == "6" or
+                                $first-char == "7" or
+                                $first-char == "8" or
+                                $first-char == "9" {
+                                $current-value: string.unquote(#{$current-value});
+                            }
+                        }
+
+                        @include LibMixin.f-b($current-value);
+                    }
+                }
+
+                @include expect {
+                    #{map.get($case-data, selector)} {
+                        @each $property, $value in map.get($case-data, expected) {
+                            #{$property}: #{$value};
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
