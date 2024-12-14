@@ -71,18 +71,14 @@
 @mixin flex-basis($value: auto) {
     $flex-basis-props: (
         -webkit-flex-basis,
-        -ms-flex-basis,
         -ms-flex-preferred-size,
-        -moz-flex-basis,
-        -moz-box-sizing,
-        -o-flex-basis,
         flex-basis
     ) !default;
 
     // stylelint-disable-next-line scss/dollar-variable-empty-line-before
     $flex-basis-values: (max-content, min-content, fit-content, content, inherit, auto) !default;
 
-    @if meta.type-of($value) == string or meta.type-of($value) == number {
+    @if meta.type-of($value) == string {
         @if meta.type-of($value) == string {
             @if LibFunc.is-in-list($flex-basis-values, $value) {
                 @each $prop in $flex-basis-props {
@@ -92,18 +88,16 @@
                 content: Error.throw("The parameter of flex-basis mixin must be one of: (#{$flex-basis-values}).");
             }
         }
+    }
 
-        @if meta.type-of($value) == number and LibFunc.cut-unit($value) != 0 {
-            @if math.unitless($value) {
-                @error "Please, Enter the unit of $value argument. It must be one of these units (#{$flex-basis-values})";
-            }
-
+    @if meta.type-of($value) == number {
+        @if $value < 0 {
+            content: Error.throw("The parameter of flex-basis mixin must be greater than or equal to zero.");
+        } @else {
             @each $prop in $flex-basis-props {
                 #{$prop}: $value;
             }
         }
-    } @else {
-        @error "#{$value} argument must has be of type number or string.";
     }
 }
 
