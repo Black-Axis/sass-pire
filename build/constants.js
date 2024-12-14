@@ -52,6 +52,8 @@ const getBannerText = () => {
             ***** #{Settings.$author-names}.
 
             ***** Licensed under MIT.
+
+            ***** To make a reset for CSS, We used the reset-zone library.
         */
     }`;
 };
