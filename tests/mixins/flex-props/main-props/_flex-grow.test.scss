@@ -1,0 +1,121 @@
+@use "sass:meta";
+@use "sass:string";
+@use "sass:map";
+@use "true" as *;
+@use "../../../../src/mixins/flex-props/main-props/flex-grow" as LibMixin;
+
+// stylelint-disable value-no-vendor-prefix
+// stylelint-disable declaration-block-no-duplicate-properties
+// stylelint-disable value-keyword-case
+
+$test-cases-flex-grow-map: (
+    "test-case-1": (
+        selector: ".test-flex-grow-1",
+        value: 1,
+        expected: (
+            -webkit-flex-grow: 1,
+            -webkit-box-flex: 1,
+            -ms-flex-positive: 1,
+            -moz-box-flex: 1,
+            flex-grow: 1,
+        ),
+    ),
+    "test-case-2": (
+        selector: ".test-flex-grow-inherit",
+        value: inherit,
+        expected: (
+            -webkit-flex-grow: inherit,
+            -webkit-box-flex: inherit,
+            -ms-flex-positive: inherit,
+            -moz-box-flex: inherit,
+            flex-grow: inherit,
+        ),
+    ),
+    "test-case-3": (
+        selector: ".test-flex-grow-initial",
+        value: initial,
+        expected: (
+            -webkit-flex-grow: initial,
+            -webkit-box-flex: initial,
+            -ms-flex-positive: initial,
+            -moz-box-flex: initial,
+            flex-grow: initial,
+        ),
+    ),
+    "test-case-4": (
+        selector: ".test-flex-grow-revert",
+        value: revert,
+        expected: (
+            -webkit-flex-grow: revert,
+            -webkit-box-flex: revert,
+            -ms-flex-positive: revert,
+            -moz-box-flex: revert,
+            flex-grow: revert,
+        ),
+    ),
+    "test-case-5": (
+        selector: ".test-flex-grow-revert-layer",
+        value: revert-layer,
+        expected: (
+            -webkit-flex-grow: revert-layer,
+            -webkit-box-flex: revert-layer,
+            -ms-flex-positive: revert-layer,
+            -moz-box-flex: revert-layer,
+            flex-grow: revert-layer,
+        ),
+    ),
+    "test-case-6": (
+        selector: ".test-flex-grow-unset",
+        value: unset,
+        expected: (
+            -webkit-flex-grow: unset,
+            -webkit-box-flex: unset,
+            -ms-flex-positive: unset,
+            -moz-box-flex: unset,
+            flex-grow: unset,
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-flex-grow-map {
+    @include describe("[Mixin] flex-grow for #{$case-name}") {
+        @include it("should output correct flex-grow properties") {
+            @include assert {
+                @include output {
+                    #{map.get($case-data, selector)} {
+                        $current-value: map.get($case-data, value);
+
+                        @if meta.type-of($current-value) != number {
+                            // stylelint-disable-next-line scss/no-global-function-names
+                            $first-char: string.slice(#{$current-value}, 1, 1);
+
+                            // Check if it looks like a numeric string
+                            @if $first-char == "0" or
+                                $first-char == "1" or
+                                $first-char == "2" or
+                                $first-char == "3" or
+                                $first-char == "4" or
+                                $first-char == "5" or
+                                $first-char == "6" or
+                                $first-char == "7" or
+                                $first-char == "8" or
+                                $first-char == "9" {
+                                $current-value: string.unquote(#{$current-value});
+                            }
+                        }
+
+                        @include LibMixin.f-g($current-value);
+                    }
+                }
+
+                @include expect {
+                    #{map.get($case-data, selector)} {
+                        @each $property, $value in map.get($case-data, expected) {
+                            #{$property}: #{$value};
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
