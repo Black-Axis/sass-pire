@@ -27,7 +27,7 @@
 // stylelint-disable number-max-precision
 // stylelint-disable function-name-case
 
-@use "../../../node_modules/sass-true/sass/true" as True;
+@use "true" as *;
 @use "../../../src/functions/converters/pixel-to-centimeter" as LibFunc;
 @use "../../../src/development-utils/error" as Dev;
 
@@ -45,9 +45,9 @@ $test-cases-px-to-cm-map: (
 );
 
 @each $case, $result in $test-cases-px-to-cm-map {
-    @include True.describe("[Function] px-to-cm(#{$case}), Result: #{$result}") {
-        @include True.it("Convert a value in pixel to centimeter.") {
-            @include True.assert-equal(LibFunc.px-to-cm($case), $result);
+    @include describe("[Function] px-to-cm(#{$case}), Result: #{$result}") {
+        @include it("Convert a value in pixel to centimeter.") {
+            @include assert-equal(LibFunc.px-to-cm($case), $result);
         }
     }
 }

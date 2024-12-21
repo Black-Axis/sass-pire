@@ -27,7 +27,7 @@
 // stylelint-disable number-max-precision
 // stylelint-disable function-name-case
 
-@use "../../../node_modules/sass-true/sass/true" as True;
+@use "true" as *;
 @use "../../../src/functions/converters/centimeter-to-inches" as LibFunc;
 @use "../../../src/development-utils/error" as Dev;
 
@@ -43,9 +43,9 @@ $test-cases-cm-to-in-map: (
 );
 
 @each $case, $result in $test-cases-cm-to-in-map {
-    @include True.describe("[Function] cm-to-in(#{$case}), Result: #{$result}") {
-        @include True.it("Convert a value in centimeter into inches.") {
-            @include True.assert-equal(LibFunc.cm-to-in($case), $result);
+    @include describe("[Function] cm-to-in(#{$case}), Result: #{$result}") {
+        @include it("Convert a value in centimeter into inches.") {
+            @include assert-equal(LibFunc.cm-to-in($case), $result);
         }
     }
 }

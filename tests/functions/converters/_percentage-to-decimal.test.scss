@@ -27,7 +27,7 @@
 // stylelint-disable number-max-precision
 // stylelint-disable function-name-case
 
-@use "../../../node_modules/sass-true/sass/true" as True;
+@use "true" as *;
 @use "../../../src/functions/converters/percentage-to-decimal" as LibFunc;
 @use "../../../src/development-utils/error" as Dev;
 
@@ -46,9 +46,9 @@ $test-cases-ptg-to-dec-map: (
 );
 
 @each $case, $result in $test-cases-ptg-to-dec-map {
-    @include True.describe("[Function] ptg-to-dec(#{$case}), Result: #{$result}") {
-        @include True.it("Convert a value in percentage to decimal.") {
-            @include True.assert-equal(LibFunc.ptg-to-dec($case), $result);
+    @include describe("[Function] ptg-to-dec(#{$case}), Result: #{$result}") {
+        @include it("Convert a value in percentage to decimal.") {
+            @include assert-equal(LibFunc.ptg-to-dec($case), $result);
         }
     }
 }

@@ -27,7 +27,7 @@
 // stylelint-disable number-max-precision
 // stylelint-disable function-name-case
 
-@use "../../../node_modules/sass-true/sass/true" as True;
+@use "true" as *;
 @use "../../../src/functions/converters/pixel-to-rem" as LibFunc;
 @use "../../../src/development-utils/error" as Dev;
 
@@ -45,9 +45,9 @@ $test-cases-px-to-rem-map: (
 );
 
 @each $case, $result in $test-cases-px-to-rem-map {
-    @include True.describe("[Function] px-to-rem(#{$case}), Result: #{$result}") {
-        @include True.it("Convert a value in pixel to rem.") {
-            @include True.assert-equal(LibFunc.px-to-rem($case), $result);
+    @include describe("[Function] px-to-rem(#{$case}), Result: #{$result}") {
+        @include it("Convert a value in pixel to rem.") {
+            @include assert-equal(LibFunc.px-to-rem($case), $result);
         }
     }
 }
