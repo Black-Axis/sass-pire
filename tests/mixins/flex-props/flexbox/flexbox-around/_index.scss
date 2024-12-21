@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+// @description
+// * This file as index for test cases for justify-content with value space-around.
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace mixins
+
+// * forwarding the "around.test" module.
+// * The "around.test" module likely provides a test cases for
+// * display flex, justify-content, and align-items with its vendor prefixes.
+// @see around.test
+@forward "./flex-around-normal.test";

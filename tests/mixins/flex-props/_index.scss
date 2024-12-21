@@ -16,3 +16,9 @@
 // * flexbox with its vendor prefixes.
 // @see main-props
 @forward "main-props";
+
+// * forwarding the "flexbox" module.
+// * The "flexbox" module likely provides a test cases for
+// * flexbox with its vendor prefixes.
+// @see flexbox
+@forward "flexbox";
