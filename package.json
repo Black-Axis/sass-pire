@@ -64,7 +64,7 @@
         "test": "concurrently --prefix-colors=\"blue,red\" \"npm run test:jest\" \"npm run test:scss\""
     },
     "dependencies": {
-        "reset-zone": "^2.3.2",
+        "reset-zone": "^2.4.2",
         "sass": "^1.81.0"
     },
     "devDependencies": {
