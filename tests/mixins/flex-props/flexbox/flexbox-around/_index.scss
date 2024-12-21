@@ -58,3 +58,9 @@
 // * display flex, justify-content, and align-items with its vendor prefixes.
 // @see flex-around-baseline.test
 @forward "./flex-around-baseline.test";
+
+// * forwarding the "flex-around-inherit.test" module.
+// * The "flex-around-inherit.test" module likely provides a test cases for
+// * display flex, justify-content, and align-items with its vendor prefixes.
+// @see flex-around-inherit.test
+@forward "./flex-around-inherit.test";
