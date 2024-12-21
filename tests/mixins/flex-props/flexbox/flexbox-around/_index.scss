@@ -28,3 +28,9 @@
 // * display flex, justify-content, and align-items with its vendor prefixes.
 // @see flex-around-start.test
 @forward "./flex-around-start.test";
+
+// * forwarding the "flex-around-end.test" module.
+// * The "flex-around-end.test" module likely provides a test cases for
+// * display flex, justify-content, and align-items with its vendor prefixes.
+// @see flex-around-end.test
+@forward "./flex-around-end.test";
