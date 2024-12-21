@@ -76,3 +76,9 @@
 // * flex-basis with its vendor prefixes.
 // @see flex-basis
 @forward "flex-basis.test";
+
+// * forwarding the "flex-grow" module.
+// * The "flex-grow" module likely provides a test cases for
+// * flex-grow with its vendor prefixes.
+// @see flex-grow
+@forward "flex-grow.test";
