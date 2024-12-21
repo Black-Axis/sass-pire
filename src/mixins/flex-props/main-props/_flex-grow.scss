@@ -23,6 +23,10 @@
 
 // @dependencies:
 // * - meta.type-of (SASS function).
+// * - var.$flex-grow-props (variable).
+// * - var.$flex-grow-values (variable).
+// * - LibFunc.is-in-list (function).
+// * - Error.throw (function).
 // * - LibFunc.cut-unit (function).
 
 // @param {Number} $val
@@ -56,24 +60,34 @@
 // * You can use one of them as you want.
 
 @use "sass:meta";
-@use "../../../functions/global/cut-unit" as LibFunc;
+@use "../../../abstract/global-variables" as var;
+@use "../../../functions/global" as LibFunc;
+@use "../../../development-utils/toggle-error-message" as Error;
 
-@mixin flex-grow($value: 0) {
-    $flex-grow-props: (-webkit-flex-grow, -webkit-box-flex, -ms-flex-positive, -moz-box-flex, flex-grow) !default;
-
-    @if meta.type-of($value) != number {
-        @error "$value of flex-grow argument must be of type number.";
+@mixin flex-grow($value: 0 or "") {
+    @if meta.type-of($value) == string {
+        @if meta.type-of($value) == string {
+            @if LibFunc.is-in-list(var.$flex-grow-values, $value) {
+                @each $prop in var.$flex-grow-props {
+                    #{$prop}: $value;
+                }
+            } @else {
+                content: Error.throw("The parameter of flex-grow mixin must be one of: (#{var.$flex-grow-values}).");
+            }
+        }
     }
 
-    @if $value < 0 {
-        @error "The value of flex-grow argument must be bigger than or equal to zero.";
-    }
-
-    @each $prop in $flex-grow-props {
-        #{$prop}: LibFunc.cut-unit($value);
+    @if meta.type-of($value) == number {
+        @if $value < 0 {
+            content: Error.throw("The parameter of flex-grow mixin must be greater than or equal to zero.");
+        } @else {
+            @each $prop in var.$flex-grow-props {
+                #{$prop}: $value;
+            }
+        }
     }
 }
 
-@mixin f-g($value: 0) {
+@mixin f-g($value: 0 or "") {
     @include flex-grow($value);
 }

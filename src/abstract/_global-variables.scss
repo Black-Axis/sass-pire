@@ -212,6 +212,22 @@ $flex-shrink-values: (
     inherit,
 ) !default;
 
+$flex-grow-props: (
+    -webkit-flex-grow,
+    -webkit-box-flex,
+    -ms-flex-positive,
+    -moz-box-flex,
+    flex-grow,
+) !default;
+
+$flex-grow-values: (
+    inherit,
+    initial,
+    revert,
+    revert-layer,
+    unset,
+) !default;
+
 $column-gap-props: (
     -webkit-column-gap,
     -moz-column-gap,
