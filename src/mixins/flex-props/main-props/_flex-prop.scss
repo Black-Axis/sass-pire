@@ -80,10 +80,10 @@
 // *   align-items: center;
 // * }
 
-@use "flex" as f;
-@use "flex-direction" as dir;
-@use "justify-content" as jc;
-@use "align-items" as ai;
+@use "./flex" as f;
+@use "./flex-direction" as dir;
+@use "./justify-content" as jc;
+@use "./align-items" as ai;
 
 @mixin f-prop($f-dir: row, $justify-content-val: flex-start, $align-items-val: normal) {
     @include f.d-flex;
