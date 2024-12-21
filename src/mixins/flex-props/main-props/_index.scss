@@ -68,11 +68,6 @@
 // @see flex-basis
 @forward "flex-basis";
 
-// * forwarding the "flex-prop" module.
-// * This module likely provides styles for a generic flex property.
-// @see flex-prop
-@forward "flex-prop";
-
 // * forwarding the "inflex-prop" module.
 // * The "inflex-prop" module probably provides styles for
 // * inline-flex property.

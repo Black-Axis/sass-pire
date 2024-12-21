@@ -56,14 +56,20 @@
 // *   align-items: normal;
 // * }
 
-@use "../main-props/flex-prop" as LibMixin;
+@use "../main-props/flex" as LibMixin1;
+@use "../main-props/flex-direction" as LibMixin2;
+@use "../main-props/justify-content" as LibMixin3;
+@use "../main-props/align-items" as LibMixin4;
 
 // @mixin flex-left-normal
 // @param {String} $dir - The flex direction. Default: row.
 // @module flexbox-left
 
 @mixin flex-left-normal($dir: row) {
-    @include LibMixin.f-prop($dir, left, normal);
+    @include LibMixin1.d-flex;
+    @include LibMixin2.flex-dir($dir);
+    @include LibMixin3.j-c(left);
+    @include LibMixin4.a-i(normal);
 }
 
 // @mixin flex-left-stretch
@@ -71,7 +77,10 @@
 // @module flexbox-left
 
 @mixin flex-left-stretch($dir: row) {
-    @include LibMixin.f-prop($dir, left, stretch);
+    @include LibMixin1.d-flex;
+    @include LibMixin2.flex-dir($dir);
+    @include LibMixin3.j-c(left);
+    @include LibMixin4.a-i(stretch);
 }
 
 // @mixin flex-left-start
@@ -79,7 +88,10 @@
 // @module flexbox-left
 
 @mixin flex-left-start($dir: row) {
-    @include LibMixin.f-prop($dir, left, start);
+    @include LibMixin1.d-flex;
+    @include LibMixin2.flex-dir($dir);
+    @include LibMixin3.j-c(left);
+    @include LibMixin4.a-i(start);
 }
 
 // @mixin flex-left-end
@@ -87,7 +99,10 @@
 // @module flexbox-left
 
 @mixin flex-left-end($dir: row) {
-    @include LibMixin.f-prop($dir, left, end);
+    @include LibMixin1.d-flex;
+    @include LibMixin2.flex-dir($dir);
+    @include LibMixin3.j-c(left);
+    @include LibMixin4.a-i(end);
 }
 
 // @mixin flex-left-fstart
@@ -95,7 +110,10 @@
 // @module flexbox-left
 
 @mixin flex-left-fstart($dir: row) {
-    @include LibMixin.f-prop($dir, left, flex-start);
+    @include LibMixin1.d-flex;
+    @include LibMixin2.flex-dir($dir);
+    @include LibMixin3.j-c(left);
+    @include LibMixin4.a-i(flex-start);
 }
 
 // @mixin flex-left-fend
@@ -103,7 +121,10 @@
 // @module flexbox-left
 
 @mixin flex-left-fend($dir: row) {
-    @include LibMixin.f-prop($dir, left, flex-end);
+    @include LibMixin1.d-flex;
+    @include LibMixin2.flex-dir($dir);
+    @include LibMixin3.j-c(left);
+    @include LibMixin4.a-i(flex-end);
 }
 
 // @mixin flex-left-center
@@ -111,7 +132,10 @@
 // @module flexbox-left
 
 @mixin flex-left-center($dir: row) {
-    @include LibMixin.f-prop($dir, left, center);
+    @include LibMixin1.d-flex;
+    @include LibMixin2.flex-dir($dir);
+    @include LibMixin3.j-c(left);
+    @include LibMixin4.a-i(center);
 }
 
 // @mixin flex-left-baseline
@@ -119,7 +143,10 @@
 // @module flexbox-left
 
 @mixin flex-left-baseline($dir: row) {
-    @include LibMixin.f-prop($dir, left, baseline);
+    @include LibMixin1.d-flex;
+    @include LibMixin2.flex-dir($dir);
+    @include LibMixin3.j-c(left);
+    @include LibMixin4.a-i(baseline);
 }
 
 // @mixin flex-left-inh
@@ -127,5 +154,8 @@
 // @module flexbox-left
 
 @mixin flex-left-inh($dir: row) {
-    @include LibMixin.f-prop($dir, left, inherit);
+    @include LibMixin1.d-flex;
+    @include LibMixin2.flex-dir($dir);
+    @include LibMixin3.j-c(left);
+    @include LibMixin4.a-i(inherit);
 }

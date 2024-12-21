@@ -56,14 +56,20 @@
 // *   align-items: normal;
 // * }
 
-@use "../main-props/flex-prop" as LibMixin;
+@use "../main-props/flex" as LibMixin1;
+@use "../main-props/flex-direction" as LibMixin2;
+@use "../main-props/justify-content" as LibMixin3;
+@use "../main-props/align-items" as LibMixin4;
 
 // @mixin flex-start-normal
 // @param {String} $dir - The flex direction. Default: row.
 // @module flexbox-start
 
 @mixin flex-start-normal($dir: row) {
-    @include LibMixin.f-prop($dir, start, normal);
+    @include LibMixin1.d-flex;
+    @include LibMixin2.flex-dir($dir);
+    @include LibMixin3.j-c(start);
+    @include LibMixin4.a-i(normal);
 }
 
 // @mixin flex-start-stretch
@@ -71,7 +77,10 @@
 // @module flexbox-start
 
 @mixin flex-start-stretch($dir: row) {
-    @include LibMixin.f-prop($dir, start, stretch);
+    @include LibMixin1.d-flex;
+    @include LibMixin2.flex-dir($dir);
+    @include LibMixin3.j-c(start);
+    @include LibMixin4.a-i(stretch);
 }
 
 // @mixin flex-start-start
@@ -79,7 +88,10 @@
 // @module flexbox-start
 
 @mixin flex-start-start($dir: row) {
-    @include LibMixin.f-prop($dir, start, start);
+    @include LibMixin1.d-flex;
+    @include LibMixin2.flex-dir($dir);
+    @include LibMixin3.j-c(start);
+    @include LibMixin4.a-i(start);
 }
 
 // @mixin flex-start-end
@@ -87,7 +99,10 @@
 // @module flexbox-start
 
 @mixin flex-start-end($dir: row) {
-    @include LibMixin.f-prop($dir, start, end);
+    @include LibMixin1.d-flex;
+    @include LibMixin2.flex-dir($dir);
+    @include LibMixin3.j-c(start);
+    @include LibMixin4.a-i(end);
 }
 
 // @mixin flex-start-fstart
@@ -95,7 +110,10 @@
 // @module flexbox-start
 
 @mixin flex-start-fstart($dir: row) {
-    @include LibMixin.f-prop($dir, start, flex-start);
+    @include LibMixin1.d-flex;
+    @include LibMixin2.flex-dir($dir);
+    @include LibMixin3.j-c(start);
+    @include LibMixin4.a-i(flex-start);
 }
 
 // @mixin flex-start-fend
@@ -103,7 +121,10 @@
 // @module flexbox-start
 
 @mixin flex-start-fend($dir: row) {
-    @include LibMixin.f-prop($dir, start, flex-end);
+    @include LibMixin1.d-flex;
+    @include LibMixin2.flex-dir($dir);
+    @include LibMixin3.j-c(start);
+    @include LibMixin4.a-i(flex-end);
 }
 
 // @mixin flex-start-center
@@ -111,7 +132,10 @@
 // @module flexbox-start
 
 @mixin flex-start-center($dir: row) {
-    @include LibMixin.f-prop($dir, start, center);
+    @include LibMixin1.d-flex;
+    @include LibMixin2.flex-dir($dir);
+    @include LibMixin3.j-c(start);
+    @include LibMixin4.a-i(center);
 }
 
 // @mixin flex-start-baseline
@@ -119,7 +143,10 @@
 // @module flexbox-start
 
 @mixin flex-start-baseline($dir: row) {
-    @include LibMixin.f-prop($dir, start, baseline);
+    @include LibMixin1.d-flex;
+    @include LibMixin2.flex-dir($dir);
+    @include LibMixin3.j-c(start);
+    @include LibMixin4.a-i(baseline);
 }
 
 // @mixin flex-start-inh
@@ -127,5 +154,8 @@
 // @module flexbox-start
 
 @mixin flex-start-inh($dir: row) {
-    @include LibMixin.f-prop($dir, start, inherit);
+    @include LibMixin1.d-flex;
+    @include LibMixin2.flex-dir($dir);
+    @include LibMixin3.j-c(start);
+    @include LibMixin4.a-i(inherit);
 }
