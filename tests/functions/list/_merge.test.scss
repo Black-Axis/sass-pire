@@ -27,7 +27,7 @@
 // stylelint-disable function-name-case
 
 @use "sass:map";
-@use "../../../node_modules/sass-true/sass/true" as True;
+@use "true" as *;
 @use "../../../src/functions/list/merge" as LibFunc;
 @use "../../../src/development-utils/error" as Dev;
 
@@ -42,9 +42,9 @@ $test-cases-merge-map: (
 );
 
 @each $case, $result in $test-cases-merge-map {
-    @include True.describe("[Function] merge(#{$case}), Result: #{$result}") {
-        @include True.it("merge(#{$case}).") {
-            @include True.assert-equal(LibFunc.merge($case), $result);
+    @include describe("[Function] merge(#{$case}), Result: #{$result}") {
+        @include it("merge(#{$case}).") {
+            @include assert-equal(LibFunc.merge($case), $result);
         }
     }
 }

@@ -27,7 +27,7 @@
 // stylelint-disable function-name-case
 
 @use "sass:map";
-@use "../../../node_modules/sass-true/sass/true" as True;
+@use "true" as *;
 @use "../../../src/functions/list/get-first-element" as LibFunc;
 @use "../../../src/development-utils/error" as Dev;
 
@@ -42,9 +42,9 @@ $test-cases-get-first-from-map: (
 );
 
 @each $case, $result in $test-cases-get-first-from-map {
-    @include True.describe("[Function] get-first-from(#{$case}), Result: #{$result}") {
-        @include True.it("get-first-from(#{$case}).") {
-            @include True.assert-equal(LibFunc.get-first-from($case), $result);
+    @include describe("[Function] get-first-from(#{$case}), Result: #{$result}") {
+        @include it("get-first-from(#{$case}).") {
+            @include assert-equal(LibFunc.get-first-from($case), $result);
         }
     }
 }
