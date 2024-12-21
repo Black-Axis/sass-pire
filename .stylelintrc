@@ -1,7 +1,10 @@
 {
     "plugins": ["stylelint-scss"],
     "extends": ["stylelint-config-standard", "stylelint-config-standard-scss"],
-    "ignoreFiles": ["dist/styles.css", "dist/test-styles.css", "dist/styles.min.css"],
+    "ignoreFiles": [
+        "dist/*.css",
+        "dist/*.min.css"
+    ],
     "rules": {
         "no-duplicate-selectors": true,
         "no-duplicate-at-import-rules": true,
