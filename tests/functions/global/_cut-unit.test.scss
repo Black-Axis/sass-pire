@@ -27,7 +27,7 @@
 // stylelint-disable number-max-precision
 // stylelint-disable function-name-case
 
-@use "../../../node_modules/sass-true/sass/true" as True;
+@use "true" as *;
 @use "../../../src/functions/global/cut-unit" as LibFunc;
 @use "../../../src/development-utils/error" as Dev;
 
@@ -47,9 +47,9 @@ $test-cases-cut-unit-map: (
 );
 
 @each $case, $result in $test-cases-cut-unit-map {
-    @include True.describe("[Function] cut-unit(#{$case}), Result: #{$result}") {
-        @include True.it("Cut the unit of (#{$case}) value.") {
-            @include True.assert-equal(LibFunc.cut-unit($case), $result);
+    @include describe("[Function] cut-unit(#{$case}), Result: #{$result}") {
+        @include it("Cut the unit of (#{$case}) value.") {
+            @include assert-equal(LibFunc.cut-unit($case), $result);
         }
     }
 }

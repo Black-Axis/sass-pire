@@ -28,7 +28,7 @@
 // stylelint-disable function-name-case
 
 @use "sass:map";
-@use "../../../node_modules/sass-true/sass/true" as True;
+@use "true" as *;
 @use "../../../src/functions/global/is-in-list" as LibFunc;
 @use "../../../src/development-utils/error" as Dev;
 
@@ -75,9 +75,9 @@ $test-cases-is-in-list-map: (
     $given-value: map.get($inner, "given");
     $expected-value: map.get($inner, "expected");
 
-    @include True.describe("[Function] is-in-list(#{$list-value}, #{$given-value}), Result: #{$expected-value}") {
-        @include True.it("is-in-list(#{$list-value}, #{$given-value}) value.") {
-            @include True.assert-equal(LibFunc.is-in-list($list-value, $given-value), $expected-value);
+    @include describe("[Function] is-in-list(#{$list-value}, #{$given-value}), Result: #{$expected-value}") {
+        @include it("is-in-list(#{$list-value}, #{$given-value}) value.") {
+            @include assert-equal(LibFunc.is-in-list($list-value, $given-value), $expected-value);
         }
     }
 }

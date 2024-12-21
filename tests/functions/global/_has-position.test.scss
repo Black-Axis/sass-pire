@@ -27,7 +27,7 @@
 // stylelint-disable number-max-precision
 // stylelint-disable function-name-case
 
-@use "../../../node_modules/sass-true/sass/true" as True;
+@use "true" as *;
 @use "../../../src/functions/global/has-position" as LibFunc;
 @use "../../../src/development-utils/error" as Dev;
 
@@ -51,9 +51,9 @@ $test-cases-has-position-map: (
 );
 
 @each $case, $result in $test-cases-has-position-map {
-    @include True.describe("[Function] has-pos(#{$case}), Result: #{$result}") {
-        @include True.it("has-pos(#{$case}) value.") {
-            @include True.assert-equal(LibFunc.has-pos($case), $result);
+    @include describe("[Function] has-pos(#{$case}), Result: #{$result}") {
+        @include it("has-pos(#{$case}) value.") {
+            @include assert-equal(LibFunc.has-pos($case), $result);
         }
     }
 }

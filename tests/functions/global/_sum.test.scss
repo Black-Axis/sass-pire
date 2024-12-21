@@ -27,7 +27,7 @@
 // stylelint-disable function-name-case
 
 @use "sass:map";
-@use "../../../node_modules/sass-true/sass/true" as True;
+@use "true" as *;
 @use "../../../src/functions/global/sum" as LibFunc;
 @use "../../../src/development-utils/error" as Dev;
 
@@ -47,9 +47,9 @@ $test-cases-sum-map: (
 );
 
 @each $case, $result in $test-cases-sum-map {
-    @include True.describe("[Function] sum(#{$case}), Result: #{$result}") {
-        @include True.it("sum(#{$case}) value.") {
-            @include True.assert-equal(LibFunc.sum($case), $result);
+    @include describe("[Function] sum(#{$case}), Result: #{$result}") {
+        @include it("sum(#{$case}) value.") {
+            @include assert-equal(LibFunc.sum($case), $result);
         }
     }
 }
