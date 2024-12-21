@@ -46,3 +46,9 @@
 // * display flex, justify-content, and align-items with its vendor prefixes.
 // @see flex-around-fend.test
 @forward "./flex-around-fend.test";
+
+// * forwarding the "flex-around-center.test" module.
+// * The "flex-around-center.test" module likely provides a test cases for
+// * display flex, justify-content, and align-items with its vendor prefixes.
+// @see flex-around-center.test
+@forward "./flex-around-center.test";
