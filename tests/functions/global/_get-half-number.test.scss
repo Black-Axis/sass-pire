@@ -27,7 +27,7 @@
 // stylelint-disable number-max-precision
 // stylelint-disable function-name-case
 
-@use "../../../node_modules/sass-true/sass/true" as True;
+@use "true" as *;
 @use "../../../src/functions/global/get-half-number" as LibFunc;
 @use "../../../src/development-utils/error" as Dev;
 
@@ -47,9 +47,9 @@ $test-cases-half-map: (
 );
 
 @each $case, $result in $test-cases-half-map {
-    @include True.describe("[Function] half(#{$case}), Result: #{$result}") {
-        @include True.it("half of (#{$case}) value.") {
-            @include True.assert-equal(LibFunc.half($case), $result);
+    @include describe("[Function] half(#{$case}), Result: #{$result}") {
+        @include it("half of (#{$case}) value.") {
+            @include assert-equal(LibFunc.half($case), $result);
         }
     }
 }
