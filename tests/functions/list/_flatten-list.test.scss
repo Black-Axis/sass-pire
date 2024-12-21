@@ -27,7 +27,7 @@
 // stylelint-disable function-name-case
 
 @use "sass:map";
-@use "../../../node_modules/sass-true/sass/true" as True;
+@use "true" as *;
 @use "../../../src/functions/list/flatten-list" as LibFunc;
 @use "../../../src/development-utils/error" as Dev;
 
@@ -43,9 +43,9 @@ $test-cases-flatten-list-map: (
 );
 
 @each $case, $result in $test-cases-flatten-list-map {
-    @include True.describe("[Function] flatten(#{$case}), Result: #{$result}") {
-        @include True.it("Flatten of (#{$case}).") {
-            @include True.assert-equal(LibFunc.flatten($case), $result);
+    @include describe("[Function] flatten(#{$case}), Result: #{$result}") {
+        @include it("Flatten of (#{$case}).") {
+            @include assert-equal(LibFunc.flatten($case), $result);
         }
     }
 }

@@ -27,7 +27,7 @@
 // stylelint-disable function-name-case
 
 @use "sass:map";
-@use "../../../node_modules/sass-true/sass/true" as True;
+@use "true" as *;
 @use "../../../src/functions/list/reverse" as LibFunc;
 @use "../../../src/development-utils/error" as Dev;
 
@@ -42,9 +42,9 @@ $test-cases-reverse-map: (
 );
 
 @each $case, $result in $test-cases-reverse-map {
-    @include True.describe("[Function] reverse(#{$case}), Result: #{$result}") {
-        @include True.it("reverse(#{$case}).") {
-            @include True.assert-equal(LibFunc.reverse($case), $result);
+    @include describe("[Function] reverse(#{$case}), Result: #{$result}") {
+        @include it("reverse(#{$case}).") {
+            @include assert-equal(LibFunc.reverse($case), $result);
         }
     }
 }
