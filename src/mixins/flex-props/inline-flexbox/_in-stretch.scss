@@ -24,7 +24,10 @@
 // @module inline-flexbox/stretch
 
 // @dependencies:
-// * - inflex-prop (mixin).
+// * - LibMixin1.d-inflex (mixin).
+// * - LibMixin2.flex-dir (mixin).
+// * - LibMixin3.j-c (mixin).
+// * - LibMixin4.a-i (mixin).
 
 // @example
 // * .example {
@@ -57,14 +60,20 @@
 // *   align-items: normal;
 // * }
 
-@use "../main-props/inflex-prop" as LibMixin;
+@use "../main-props/inline-flex" as LibMixin1;
+@use "../main-props/flex-direction" as LibMixin2;
+@use "../main-props/justify-content" as LibMixin3;
+@use "../main-props/align-items" as LibMixin4;
 
 // @mixin inflex-stretch-normal
 // @param {String} $dir - The flex direction. Default: row.
 // @module inline-flexbox-stretch
 
 @mixin inflex-stretch-normal($dir: row) {
-    @include LibMixin.inflex-prop($dir, stretch, normal);
+    @include LibMixin1.d-inflex;
+    @include LibMixin2.flex-dir($dir);
+    @include LibMixin3.j-c(stretch);
+    @include LibMixin4.a-i(normal);
 }
 
 // @mixin inflex-stretch-stretch
@@ -72,7 +81,10 @@
 // @module inline-flexbox-stretch
 
 @mixin inflex-stretch-stretch($dir: row) {
-    @include LibMixin.inflex-prop($dir, stretch, stretch);
+    @include LibMixin1.d-inflex;
+    @include LibMixin2.flex-dir($dir);
+    @include LibMixin3.j-c(stretch);
+    @include LibMixin4.a-i(stretch);
 }
 
 // @mixin inflex-stretch-start
@@ -80,7 +92,10 @@
 // @module inline-flexbox-stretch
 
 @mixin inflex-stretch-start($dir: row) {
-    @include LibMixin.inflex-prop($dir, stretch, start);
+    @include LibMixin1.d-inflex;
+    @include LibMixin2.flex-dir($dir);
+    @include LibMixin3.j-c(stretch);
+    @include LibMixin4.a-i(start);
 }
 
 // @mixin inflex-stretch-end
@@ -88,7 +103,10 @@
 // @module inline-flexbox-stretch
 
 @mixin inflex-stretch-end($dir: row) {
-    @include LibMixin.inflex-prop($dir, stretch, end);
+    @include LibMixin1.d-inflex;
+    @include LibMixin2.flex-dir($dir);
+    @include LibMixin3.j-c(stretch);
+    @include LibMixin4.a-i(end);
 }
 
 // @mixin inflex-stretch-fstart
@@ -96,7 +114,10 @@
 // @module inline-flexbox-stretch
 
 @mixin inflex-stretch-fstart($dir: row) {
-    @include LibMixin.inflex-prop($dir, stretch, flex-start);
+    @include LibMixin1.d-inflex;
+    @include LibMixin2.flex-dir($dir);
+    @include LibMixin3.j-c(stretch);
+    @include LibMixin4.a-i(flex-start);
 }
 
 // @mixin inflex-stretch-fend
@@ -104,7 +125,10 @@
 // @module inline-flexbox-stretch
 
 @mixin inflex-stretch-fend($dir: row) {
-    @include LibMixin.inflex-prop($dir, stretch, flex-end);
+    @include LibMixin1.d-inflex;
+    @include LibMixin2.flex-dir($dir);
+    @include LibMixin3.j-c(stretch);
+    @include LibMixin4.a-i(flex-end);
 }
 
 // @mixin inflex-stretch-center
@@ -112,7 +136,10 @@
 // @module inline-flexbox-stretch
 
 @mixin inflex-stretch-center($dir: row) {
-    @include LibMixin.inflex-prop($dir, stretch, center);
+    @include LibMixin1.d-inflex;
+    @include LibMixin2.flex-dir($dir);
+    @include LibMixin3.j-c(stretch);
+    @include LibMixin4.a-i(center);
 }
 
 // @mixin inflex-stretch-baseline
@@ -120,7 +147,10 @@
 // @module inline-flexbox-stretch
 
 @mixin inflex-stretch-baseline($dir: row) {
-    @include LibMixin.inflex-prop($dir, stretch, baseline);
+    @include LibMixin1.d-inflex;
+    @include LibMixin2.flex-dir($dir);
+    @include LibMixin3.j-c(stretch);
+    @include LibMixin4.a-i(baseline);
 }
 
 // @mixin inflex-stretch-inh
@@ -128,5 +158,8 @@
 // @module inline-flexbox-stretch
 
 @mixin inflex-stretch-inh($dir: row) {
-    @include LibMixin.inflex-prop($dir, stretch, inherit);
+    @include LibMixin1.d-inflex;
+    @include LibMixin2.flex-dir($dir);
+    @include LibMixin3.j-c(stretch);
+    @include LibMixin4.a-i(inherit);
 }

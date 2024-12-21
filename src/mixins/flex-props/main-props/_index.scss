@@ -68,12 +68,6 @@
 // @see flex-basis
 @forward "flex-basis";
 
-// * forwarding the "inflex-prop" module.
-// * The "inflex-prop" module probably provides styles for
-// * inline-flex property.
-// @see inflex-prop
-@forward "inflex-prop";
-
 // * forwarding the "order" module.
 // * This module likely provides styles for flex item ordering.
 // @see order
