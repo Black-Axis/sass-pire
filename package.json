@@ -58,10 +58,9 @@
         "tags:github": "git push repo --tags",
         "tags:gitlab": "git push gitlab --tags",
         "log": "changelog generate",
-        "gen:lock": "npm i --package-lock-only",
         "test:scss": "sass --no-source-map --load-path=./node_modules/sass-true/sass/ ./tests/test.scss:dist/test-styles.css --watch",
         "test:jest": "jest ./tests/sass.test.js --watchAll #runs all tests",
-        "test": "concurrently --prefix-colors=\"blue,red\" \"npm run test:jest\" \"npm run test:scss\""
+        "test": "concurrently --prefix-colors=\"blue,red\" \"yarn test:jest\" \"yarn test:scss\""
     },
     "dependencies": {
         "reset-zone": "^2.4.2",
