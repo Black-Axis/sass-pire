@@ -4,6 +4,11 @@
 // * This file forwards modules related to the base, utilities, abstracts,
 // * functions, mixins, helpers, and development utilities.
 
+// !important
+// * This file is used for testing only.
+// * You must change the `$test-environment` variable to `true`.
+// * This variable is in the "src/abstract" directory.
+
 // @author Khaled Mohamed
 
 // @license MIT
@@ -19,6 +24,12 @@
 // * to be used in testing.
 // @see true
 @use "true" as True;
+
+// * forwarding the "functions" module.
+// * The "functions" module contains functions which will be used
+// * during testing.
+// @see functions
+@use "./functions" as *;
 
 // * forwarding the "mixins" module.
 // * The "mixins" module contains mixins which will be used
