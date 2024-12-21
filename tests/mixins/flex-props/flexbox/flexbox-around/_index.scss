@@ -11,8 +11,14 @@
 
 // @namespace mixins
 
-// * forwarding the "around.test" module.
-// * The "around.test" module likely provides a test cases for
+// * forwarding the "flex-around-normal.test" module.
+// * The "flex-around-normal.test" module likely provides a test cases for
 // * display flex, justify-content, and align-items with its vendor prefixes.
-// @see around.test
+// @see flex-around-normal.test
 @forward "./flex-around-normal.test";
+
+// * forwarding the "flex-around-stretch.test" module.
+// * The "flex-around-stretch.test" module likely provides a test cases for
+// * display flex, justify-content, and align-items with its vendor prefixes.
+// @see flex-around-stretch.test
+@forward "./flex-around-stretch.test";
