@@ -27,7 +27,7 @@
 // stylelint-disable number-max-precision
 // stylelint-disable function-name-case
 
-@use "../../../node_modules/sass-true/sass/true" as True;
+@use "true" as *;
 @use "../../../src/functions/converters/inches-to-px" as LibFunc;
 @use "../../../src/development-utils/error" as Dev;
 
@@ -47,9 +47,9 @@ $test-cases-in-to-px-map: (
 );
 
 @each $case, $result in $test-cases-in-to-px-map {
-    @include True.describe("[Function] in-to-px(#{$case}), Result: #{$result}") {
-        @include True.it("Convert a value in inch to pixel.") {
-            @include True.assert-equal(LibFunc.in-to-px($case), $result);
+    @include describe("[Function] in-to-px(#{$case}), Result: #{$result}") {
+        @include it("Convert a value in inch to pixel.") {
+            @include assert-equal(LibFunc.in-to-px($case), $result);
         }
     }
 }
