@@ -16,3 +16,9 @@
 // * display flex, justify-content, and align-items with its vendor prefixes.
 // @see flexbox-around
 @forward "flexbox-around";
+
+// * forwarding the "flexbox-between" module.
+// * The "flexbox-between" module likely provides a test cases for
+// * display flex, justify-content, and align-items with its vendor prefixes.
+// @see flexbox-between
+@forward "flexbox-between";
