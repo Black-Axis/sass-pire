@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+// @description
+// * This file forwards various mixins for colors.
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace mixins/colors
+
+// * forwarding the "neutral" module.
+// * The "neutral" module probably contains mixin for selecting
+// * all neutral colors with different values and its dark theme.
+// @see neutral
+@forward "neutral";

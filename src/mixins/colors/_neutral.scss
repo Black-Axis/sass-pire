@@ -1,0 +1,140 @@
+@charset "UTF-8";
+
+// @description
+// * neutral mixin.
+// * This mixin generates CSS custom properties for using neutral colors
+// * in your application or website. It allows you to create a consistent
+// * color scheme for your design system or website.
+// * We can generate also dark mode neutral colors.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace colors
+
+// @module colors/neutral
+
+// @dependencies:
+// * - meta.type-of (SASS function).
+// * - var.$neutral-colors-light-map (variable).
+// * - var.$neutral-colors-dark-map (variable).
+// * - Error.throw (function).
+
+// @param {Boolean} $has-dark-scheme
+// * (optional) A boolean value indicating whether to generate dark mode
+// * of neutral colors.
+
+// @example 1
+// * @include neutral();
+
+// @output 1
+//  * @media (prefers-color-scheme: light) {
+//  *    :root {
+//  *      --sp-neutral-50: hsl(0, 0%, 100%);
+//  *      --sp-neutral-100: hsl(0, 0%, 95%);
+//  *      --sp-neutral-150: hsl(0, 0%, 90%);
+//  *      --sp-neutral-200: hsl(0, 0%, 85%);
+//  *      --sp-neutral-250: hsl(0, 0%, 80%);
+//  *      --sp-neutral-300: hsl(0, 0%, 75%);
+//  *      --sp-neutral-350: hsl(0, 0%, 70%);
+//  *      --sp-neutral-400: hsl(0, 0%, 65%);
+//  *      --sp-neutral-450: hsl(0, 0%, 60%);
+//  *      --sp-neutral-500: hsl(0, 0%, 55%);
+//  *      --sp-neutral-550: hsl(0, 0%, 50%);
+//  *      --sp-neutral-600: hsl(0, 0%, 45%);
+//  *      --sp-neutral-650: hsl(0, 0%, 40%);
+//  *      --sp-neutral-700: hsl(0, 0%, 35%);
+//  *      --sp-neutral-750: hsl(0, 0%, 30%);
+//  *      --sp-neutral-800: hsl(0, 0%, 25%);
+//  *      --sp-neutral-850: hsl(0, 0%, 20%);
+//  *      --sp-neutral-900: hsl(0, 0%, 15%);
+//  *      --sp-neutral-950: hsl(0, 0%, 10%);
+//  *    }
+//  * }
+
+// @example 2
+// * @include neutral(true);
+
+// @output 2
+//  * @media (prefers-color-scheme: light) {
+//  *    :root {
+//  *      --sp-neutral-50: hsl(0, 0%, 100%);
+//  *      --sp-neutral-100: hsl(0, 0%, 95%);
+//  *      --sp-neutral-150: hsl(0, 0%, 90%);
+//  *      --sp-neutral-200: hsl(0, 0%, 85%);
+//  *      --sp-neutral-250: hsl(0, 0%, 80%);
+//  *      --sp-neutral-300: hsl(0, 0%, 75%);
+//  *      --sp-neutral-350: hsl(0, 0%, 70%);
+//  *      --sp-neutral-400: hsl(0, 0%, 65%);
+//  *      --sp-neutral-450: hsl(0, 0%, 60%);
+//  *      --sp-neutral-500: hsl(0, 0%, 55%);
+//  *      --sp-neutral-550: hsl(0, 0%, 50%);
+//  *      --sp-neutral-600: hsl(0, 0%, 45%);
+//  *      --sp-neutral-650: hsl(0, 0%, 40%);
+//  *      --sp-neutral-700: hsl(0, 0%, 35%);
+//  *      --sp-neutral-750: hsl(0, 0%, 30%);
+//  *      --sp-neutral-800: hsl(0, 0%, 25%);
+//  *      --sp-neutral-850: hsl(0, 0%, 20%);
+//  *      --sp-neutral-900: hsl(0, 0%, 15%);
+//  *      --sp-neutral-950: hsl(0, 0%, 10%);
+//  *    }
+//  * }
+
+//  * @media (prefers-color-scheme: dark) {
+//  *    :root {
+//  *      --sp-neutral-50: hsl(0, 0%, 0%);
+//  *      --sp-neutral-100: hsl(0, 0%, 5%);
+//  *      --sp-neutral-150: hsl(0, 0%, 10%);
+//  *      --sp-neutral-200: hsl(0, 0%, 15%);
+//  *      --sp-neutral-250: hsl(0, 0%, 20%);
+//  *      --sp-neutral-300: hsl(0, 0%, 25%);
+//  *      --sp-neutral-350: hsl(0, 0%, 30%);
+//  *      --sp-neutral-400: hsl(0, 0%, 35%);
+//  *      --sp-neutral-450: hsl(0, 0%, 40%);
+//  *      --sp-neutral-500: hsl(0, 0%, 45%);
+//  *      --sp-neutral-550: hsl(0, 0%, 50%);
+//  *      --sp-neutral-600: hsl(0, 0%, 55%);
+//  *      --sp-neutral-650: hsl(0, 0%, 60%);
+//  *      --sp-neutral-700: hsl(0, 0%, 65%);
+//  *      --sp-neutral-750: hsl(0, 0%, 70%);
+//  *      --sp-neutral-800: hsl(0, 0%, 75%);
+//  *      --sp-neutral-850: hsl(0, 0%, 80%);
+//  *      --sp-neutral-900: hsl(0, 0%, 85%);
+//  *      --sp-neutral-950: hsl(0, 0%, 90%);
+//  *    }
+//  * }
+
+@use "sass:meta";
+@use "../../abstract/global-variables" as var;
+@use "../../development-utils/toggle-error-message" as Error;
+
+@mixin neutral($has-dark-scheme: false) {
+    @if meta.type-of($has-dark-scheme) != bool {
+        content: Error.throw("The parameter of neutral mixin must be in a boolean type.");
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            @each $neutral-color-degree, $actual-color in var.$neutral-colors-light-map {
+                --sp-neutral-#{$neutral-color-degree}: #{$actual-color};
+            }
+        }
+    }
+
+    @if $has-dark-scheme == true {
+        @media (prefers-color-scheme: dark) {
+            :root {
+                @each $neutral-color-degree, $actual-color in var.$neutral-colors-dark-map {
+                    --sp-neutral-#{$neutral-color-degree}: #{$actual-color};
+                }
+            }
+        }
+    }
+}

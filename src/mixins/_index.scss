@@ -65,3 +65,9 @@
 // * children HTML elements using CSS.
 // @see children
 @forward "children";
+
+// * forwarding the "colors" module.
+// * The "colors" module likely provides utilities for handling
+// * colors for HTML elements using CSS custom properties (variables).
+// @see colors
+@forward "colors";
