@@ -58,3 +58,9 @@
 // * display flex, justify-content, and align-items with its vendor prefixes.
 // @see flex-center-start.test
 @forward "./flex-center-start.test";
+
+// * forwarding the "flex-center-stretch.test" module.
+// * The "flex-center-stretch.test" module likely provides a test cases for
+// * display flex, justify-content, and align-items with its vendor prefixes.
+// @see flex-center-stretch.test
+@forward "./flex-center-stretch.test";
