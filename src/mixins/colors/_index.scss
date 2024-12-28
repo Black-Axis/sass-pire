@@ -16,3 +16,9 @@
 // * all neutral colors with different values and its dark theme.
 // @see neutral
 @forward "neutral";
+
+// * forwarding the "red" module.
+// * The "red" module probably contains a mixin for selecting
+// * all red colors with different values.
+// @see red
+@forward "red-color";
