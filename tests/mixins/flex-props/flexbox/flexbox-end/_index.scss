@@ -34,3 +34,9 @@
 // * display flex, justify-content, and align-items with its vendor prefixes.
 // @see flex-end-fend.test
 @forward "./flex-end-fend.test";
+
+// * forwarding the "flex-end-fstart.test" module.
+// * The "flex-end-fstart.test" module likely provides a test cases for
+// * display flex, justify-content, and align-items with its vendor prefixes.
+// @see flex-end-fstart.test
+@forward "./flex-end-fstart.test";
