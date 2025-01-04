@@ -16,3 +16,9 @@
 // * display flex, justify-content, and align-items with its vendor prefixes.
 // @see flex-evenly-baseline.test
 @forward "./flex-evenly-baseline.test";
+
+// * forwarding the "flex-evenly-center.test" module.
+// * The "flex-evenly-center.test" module likely provides a test cases for
+// * display flex, justify-content, and align-items with its vendor prefixes.
+// @see flex-evenly-center.test
+@forward "./flex-evenly-center.test";
