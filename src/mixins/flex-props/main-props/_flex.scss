@@ -23,7 +23,7 @@
 // @module main-props/d-flex
 
 // @dependencies:
-// * - Nothing.
+// * - var.$flex-prefixes-values (variable).
 
 // @example
 // * .example {
@@ -39,10 +39,10 @@
 // *   display: flex;
 // * }
 
-@mixin d-flex() {
-    $flex-prefixes-values: (-webkit-box, -moz-box, -ms-flexbox, -webkit-flex, flex) !default;
+@use "../../../abstract/global-variables" as var;
 
-    @each $flex-val in $flex-prefixes-values {
+@mixin d-flex() {
+    @each $flex-val in var.$flex-prefixes-values {
         display: $flex-val;
     }
 }

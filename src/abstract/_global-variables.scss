@@ -162,6 +162,14 @@ $main-directions: (
     left,
 ) !default;
 
+$flex-prefixes-values: (
+    -webkit-box,
+    -moz-box,
+    -ms-flexbox,
+    -webkit-flex,
+    flex
+) !default;
+
 $justify-content-props: (
     -webkit-box-pack,
     -webkit-justify-content,
