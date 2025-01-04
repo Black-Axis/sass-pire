@@ -58,3 +58,9 @@
 // * display flex, justify-content, and align-items with its vendor prefixes.
 // @see flex-evenly-start.test
 @forward "./flex-evenly-start.test";
+
+// * forwarding the "flex-evenly-stretch.test" module.
+// * The "flex-evenly-stretch.test" module likely provides a test cases for
+// * display flex, justify-content, and align-items with its vendor prefixes.
+// @see flex-evenly-stretch.test
+@forward "./flex-evenly-stretch.test";
