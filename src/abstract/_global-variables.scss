@@ -292,7 +292,7 @@ $neutral-colors-light-map: (
     850: hsl(0, 0%, 20%),
     900: hsl(0, 0%, 15%),
     950: hsl(0, 0%, 10%),
-);
+) !default;
 
 $neutral-colors-dark-map: (
     50: hsl(0, 0%, 0%),
@@ -314,7 +314,7 @@ $neutral-colors-dark-map: (
     850: hsl(0, 0%, 80%),
     900: hsl(0, 0%, 85%),
     950: hsl(0, 0%, 90%),
-);
+) !default;
 
 $red-colors-map: (
     50: hsl(0, 100%, 98%),
@@ -336,4 +336,4 @@ $red-colors-map: (
     850: hsl(0, 40%, 12%),
     900: hsl(0, 40%, 10%),
     950: hsl(0, 35%, 8%),
-);
+) !default;
