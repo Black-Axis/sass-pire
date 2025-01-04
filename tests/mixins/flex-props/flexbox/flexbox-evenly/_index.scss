@@ -28,3 +28,9 @@
 // * display flex, justify-content, and align-items with its vendor prefixes.
 // @see flex-evenly-end.test
 @forward "./flex-evenly-end.test";
+
+// * forwarding the "flex-evenly-fend.test" module.
+// * The "flex-evenly-fend.test" module likely provides a test cases for
+// * display flex, justify-content, and align-items with its vendor prefixes.
+// @see flex-evenly-fend.test
+@forward "./flex-evenly-fend.test";
