@@ -22,3 +22,9 @@
 // * colors to be used as CSS custom properties (variables).
 // @see colors
 @forward "colors";
+
+// * forwarding the "general" module.
+// * The "general" module likely provides a test cases for
+// * general module.
+// @see general
+@forward "general";

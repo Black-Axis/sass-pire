@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+// @description
+// * center-x mixin.
+// * This is a test cases for the center-x mixin.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace general
+
+// @module general/center-x
+
+// @dependencies:
+// * - map.get (SASS function).
+// * - True.describe (mixin function).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - LibMixin.center-x (mixin).
+
+@use "sass:map";
+@use "true" as *;
+@use "../../../src/mixins/general/center-x" as LibMixin;
+
+$test-cases-center-x-map: (
+    "test-case-1": (
+        selector: ".test-center-x-mixin",
+        expected: (
+            --sp-mx: auto,
+            margin-inline: var(--sp-mx),
+            margin-right: var(--sp-mx),
+            margin-left: var(--sp-mx),
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-center-x-map {
+    @include describe("[Mixin] center-x for #{$case-name}") {
+        @include it("should output correct center-x properties") {
+            @include assert {
+                @include output {
+                    #{map.get($case-data, selector)} {
+                        @include LibMixin.center-x;
+                    }
+                }
+
+                @include expect {
+                    #{map.get($case-data, selector)} {
+                        @each $property, $value in map.get($case-data, expected) {
+                            #{$property}: #{$value};
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
