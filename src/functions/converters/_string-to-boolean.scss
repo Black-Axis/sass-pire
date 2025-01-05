@@ -50,11 +50,15 @@
         @return Error.throw("The parameter of str-to-bool function must be in a string type.");
     }
 
-    @if $value == "true" {
-        @return true;
-    } @else if $value == "false" {
-        @return false;
+    $result: true;
+
+    @if $value == "true" or $value == "false" {
+        @if $value == "false" {
+            $result: false;
+        }
     } @else {
         @return Error.throw("The parameter of str-to-bool must be \"true\" or \"false\" in string type.");
     }
+
+    @return $result;
 }
