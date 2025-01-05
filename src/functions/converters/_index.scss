@@ -65,3 +65,9 @@
 // * please see the `decimal-to-percentage` function for details.
 // @see dec-to-ptg
 @forward "decimal-to-percentage";
+
+// * string to boolean forward.
+// * forwarding the functionality to convert string to boolean.
+// * please see the `str-to-bool` function for details.
+// @see string-to-boolean
+@forward "string-to-boolean";
