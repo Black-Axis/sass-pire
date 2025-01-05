@@ -1,3 +1,32 @@
+@charset "UTF-8";
+
+// @description
+// * flex-between-baseline mixin.
+// * This module tests a flex-between-baseline mixin.
+
+// @access private
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace flexbox
+
+// @module flexbox/between
+
+// @dependencies:
+// * - map.get (SASS function).
+// * - True.describe (mixin function).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - LibMixin.flex-between-baseline (mixin).
+
 @use "sass:map";
 @use "true" as *;
 @use "../../../../../src/mixins/flex-props/flexbox/between" as LibMixin;
