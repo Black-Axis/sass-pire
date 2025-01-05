@@ -1,3 +1,32 @@
+@charset "UTF-8";
+
+// @description
+// * flex-end-stretch mixin.
+// * This module tests a flex-end-stretch mixin.
+
+// @access private
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace flexbox
+
+// @module flexbox/end
+
+// @dependencies:
+// * - map.get (SASS function).
+// * - True.describe (mixin function).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - LibMixin.flex-end-stretch (mixin).
+
 @use "sass:map";
 @use "true" as *;
 @use "../../../../../src/mixins/flex-props/flexbox/end" as LibMixin;
