@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+// @description
+// * str-to-bool function.
+// * This module tests a functionality of str-to-bool function.
+
+// @access private
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace converters
+
+// @module converters/str-to-bool.test
+
+// @dependencies:
+// * - True.describe (true function).
+// * - True.it (true function).
+// * - True.assert-equal (true function).
+// * - Dev.err (function).
+
+// stylelint-disable function-name-case
+
+@use "true" as *;
+@use "../../../src/functions/converters/string-to-boolean" as LibFunc;
+@use "../../../src/development-utils/error" as Dev;
+
+$test-cases-str-to-bool-map: (
+    2: Dev.err("The parameter of str-to-bool function must be in a string type."),
+    "Just a number": Dev.err("The parameter of str-to-bool must be \"true\" or \"false\" in string type."),
+    "true": true,
+    "false": false,
+    (1, 2, 4): Dev.err("The parameter of str-to-bool function must be in a string type."),
+    true: Dev.err("The parameter of str-to-bool function must be in a string type."),
+    false: Dev.err("The parameter of str-to-bool function must be in a string type."),
+);
+
+@each $case, $result in $test-cases-str-to-bool-map {
+    @include describe("[Function] str-to-bool(#{$case}), Result: #{$result}") {
+        @include it("Convert a value in string to boolean.") {
+            @include assert-equal(LibFunc.str-to-bool($case), $result);
+        }
+    }
+}
