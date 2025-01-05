@@ -3,7 +3,8 @@
 // @description
 // * center-x mixin.
 // * This mixin generates CSS properties to horizontally center an element
-// * within its container. It sets the right and left margins to `auto`.
+// * within its container. It sets the right and left margins to `auto` and
+// * add margin-inline property and sets it to `auto`.
 
 // @access public
 
@@ -29,8 +30,10 @@
 
 // @output
 // * .example {
-// *   margin-right: auto;
-// *   margin-left: auto;
+// *   --sp-mx: auto;
+// *   margin-inline: var(--sp-mx);
+// *   margin-right: var(--sp-mx);
+// *   margin-left: var(--sp-mx);
 // * }
 
 // @note
@@ -38,8 +41,11 @@
 // * within their container.
 
 @mixin center-x {
+    --sp-mx: auto;
+
+    margin-inline: var(--sp-mx);
     margin: {
-        right: auto;
-        left: auto;
+        right: var(--sp-mx);
+        left: var(--sp-mx);
     }
 }
