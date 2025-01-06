@@ -1,3 +1,32 @@
+@charset "UTF-8";
+
+// @description
+// * f-w mixin.
+// * This module tests a f-w mixin.
+
+// @access private
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace main-props
+
+// @module main-props/f-w
+
+// @dependencies:
+// * - map.get (SASS function).
+// * - True.describe (mixin function).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - LibMixin.f-w (mixin).
+
 @use "sass:map";
 @use "true" as *;
 @use "../../../../src/mixins/flex-props/main-props/flex-wrap" as LibMixin;
