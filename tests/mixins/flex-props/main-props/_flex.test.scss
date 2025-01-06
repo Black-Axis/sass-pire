@@ -1,3 +1,32 @@
+@charset "UTF-8";
+
+// @description
+// * d-flex mixin.
+// * This module tests a d-flex mixin.
+
+// @access private
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace main-props
+
+// @module main-props/d-flex
+
+// @dependencies:
+// * - map.get (SASS function).
+// * - True.describe (mixin function).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - LibMixin.d-flex (mixin).
+
 @use "sass:map";
 @use "true" as *;
 @use "../../../../src/mixins/flex-props/main-props/_flex" as LibMixin;
