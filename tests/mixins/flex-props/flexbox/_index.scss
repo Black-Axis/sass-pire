@@ -46,3 +46,9 @@
 // * display flex, justify-content, and align-items with its vendor prefixes.
 // @see flexbox-fend
 @forward "flexbox-fend";
+
+// * forwarding the "flexbox-fstart" module.
+// * The "flexbox-fstart" module likely provides a test cases for
+// * display flex, justify-content, and align-items with its vendor prefixes.
+// @see flexbox-fstart
+@forward "flexbox-fstart";
