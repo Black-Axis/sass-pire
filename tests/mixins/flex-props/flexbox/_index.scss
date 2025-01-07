@@ -52,3 +52,9 @@
 // * display flex, justify-content, and align-items with its vendor prefixes.
 // @see flexbox-fstart
 @forward "flexbox-fstart";
+
+// * forwarding the "flexbox-inherit" module.
+// * The "flexbox-inherit" module likely provides a test cases for
+// * display flex, justify-content, and align-items with its vendor prefixes.
+// @see flexbox-inherit
+@forward "flexbox-inherit";
