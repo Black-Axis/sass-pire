@@ -28,3 +28,9 @@
 // * display flex, justify-content, and align-items with its vendor prefixes.
 // @see flex-inherit-end.test
 @forward "./flex-inherit-end.test";
+
+// * forwarding the "flex-inherit-fend.test" module.
+// * The "flex-inherit-fend.test" module likely provides a test cases for
+// * display flex, justify-content, and align-items with its vendor prefixes.
+// @see flex-inherit-fend.test
+@forward "./flex-inherit-fend.test";
