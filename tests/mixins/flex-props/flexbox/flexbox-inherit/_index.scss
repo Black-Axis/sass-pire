@@ -46,3 +46,9 @@
 // * display flex, justify-content, and align-items with its vendor prefixes.
 // @see flex-inherit-inherit.test
 @forward "./flex-inherit-inherit.test";
+
+// * forwarding the "flex-inherit-normal.test" module.
+// * The "flex-inherit-normal.test" module likely provides a test cases for
+// * display flex, justify-content, and align-items with its vendor prefixes.
+// @see flex-inherit-normal.test
+@forward "./flex-inherit-normal.test";
