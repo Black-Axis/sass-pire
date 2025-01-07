@@ -40,3 +40,9 @@
 // * display flex, justify-content, and align-items with its vendor prefixes.
 // @see flex-fend-fstart.test
 @forward "./flex-fend-fstart.test";
+
+// * forwarding the "flex-fend-inherit.test" module.
+// * The "flex-fend-inherit.test" module likely provides a test cases for
+// * display flex, justify-content, and align-items with its vendor prefixes.
+// @see flex-fend-inherit.test
+@forward "./flex-fend-inherit.test";
