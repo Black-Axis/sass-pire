@@ -58,3 +58,9 @@
 // * display flex, justify-content, and align-items with its vendor prefixes.
 // @see flex-fstart-start.test
 @forward "./flex-fstart-start.test";
+
+// * forwarding the "flex-fstart-stretch.test" module.
+// * The "flex-fstart-stretch.test" module likely provides a test cases for
+// * display flex, justify-content, and align-items with its vendor prefixes.
+// @see flex-fstart-stretch.test
+@forward "./flex-fstart-stretch.test";
