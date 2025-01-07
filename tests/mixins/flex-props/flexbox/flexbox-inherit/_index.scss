@@ -58,3 +58,9 @@
 // * display flex, justify-content, and align-items with its vendor prefixes.
 // @see flex-inherit-start.test
 @forward "./flex-inherit-start.test";
+
+// * forwarding the "flex-inherit-stretch.test" module.
+// * The "flex-inherit-stretch.test" module likely provides a test cases for
+// * display flex, justify-content, and align-items with its vendor prefixes.
+// @see flex-inherit-stretch.test
+@forward "./flex-inherit-stretch.test";
