@@ -1,0 +1,156 @@
+@charset "UTF-8";
+
+// @description
+// * flex-fstart-baseline mixin.
+// * This module tests a flex-fstart-baseline mixin.
+
+// @access private
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace flexbox
+
+// @module flexbox/even
+
+// @dependencies:
+// * - map.get (SASS function).
+// * - True.describe (mixin function).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - LibMixin.flex-fstart-baseline (mixin).
+
+@use "sass:map";
+@use "true" as *;
+@use "../../../../../src/mixins/flex-props/flexbox/fstart" as LibMixin;
+
+// stylelint-disable value-no-vendor-prefix
+// stylelint-disable declaration-block-no-duplicate-properties
+// stylelint-disable value-keyword-case
+// stylelint-disable scss/dollar-variable-empty-line-before
+
+$test-cases-flex-fstart-baseline-map: (
+    ".test-case-1": (
+        selector: ".test-flex-fstart-baseline-row-mixin",
+        direction: row,
+        expected: (-webkit-box-orient: horizontal,
+            -webkit-box-direction: normal,
+            -webkit-flex-direction: row,
+            -ms-flex-direction: row,
+            -moz-flex-direction: row,
+            -o-flex-direction: row,
+            flex-direction: row,
+            -webkit-box-pack: flex-start,
+            -webkit-justify-content: flex-start,
+            -ms-flex-pack: flex-start,
+            -moz-justify-content: flex-start,
+            justify-content: flex-start,
+            -webkit-box-align: baseline,
+            -webkit-align-items: baseline,
+            -ms-flex-align: baseline,
+            -moz-align-items: baseline,
+            align-items: baseline,
+        ),
+    ),
+    ".test-case-2": (
+        selector: ".test-flex-fstart-baseline-row-reverse-mixin",
+        direction: row-reverse,
+        expected: (-webkit-box-orient: horizontal,
+            -webkit-box-direction: reverse,
+            -webkit-flex-direction: row-reverse,
+            -ms-flex-direction: row-reverse,
+            -moz-flex-direction: row-reverse,
+            -o-flex-direction: row-reverse,
+            flex-direction: row-reverse,
+            -webkit-box-pack: flex-start,
+            -webkit-justify-content: flex-start,
+            -ms-flex-pack: flex-start,
+            -moz-justify-content: flex-start,
+            justify-content: flex-start,
+            -webkit-box-align: baseline,
+            -webkit-align-items: baseline,
+            -ms-flex-align: baseline,
+            -moz-align-items: baseline,
+            align-items: baseline,
+        ),
+    ),
+    ".test-case-3": (
+        selector: ".test-flex-fstart-baseline-column-mixin",
+        direction: column,
+        expected: (-webkit-box-orient: vertical,
+            -webkit-box-direction: normal,
+            -webkit-flex-direction: column,
+            -ms-flex-direction: column,
+            -moz-flex-direction: column,
+            -o-flex-direction: column,
+            flex-direction: column,
+            -webkit-box-pack: flex-start,
+            -webkit-justify-content: flex-start,
+            -ms-flex-pack: flex-start,
+            -moz-justify-content: flex-start,
+            justify-content: flex-start,
+            -webkit-box-align: baseline,
+            -webkit-align-items: baseline,
+            -ms-flex-align: baseline,
+            -moz-align-items: baseline,
+            align-items: baseline,
+        ),
+    ),
+    ".test-case-4": (
+        selector: ".test-flex-fstart-baseline-column-reverse-mixin",
+        direction: column-reverse,
+        expected: (-webkit-box-orient: vertical,
+            -webkit-box-direction: reverse,
+            -webkit-flex-direction: column-reverse,
+            -ms-flex-direction: column-reverse,
+            -moz-flex-direction: column-reverse,
+            -o-flex-direction: column-reverse,
+            flex-direction: column-reverse,
+            -webkit-box-pack: flex-start,
+            -webkit-justify-content: flex-start,
+            -ms-flex-pack: flex-start,
+            -moz-justify-content: flex-start,
+            justify-content: flex-start,
+            -webkit-box-align: baseline,
+            -webkit-align-items: baseline,
+            -ms-flex-align: baseline,
+            -moz-align-items: baseline,
+            align-items: baseline,
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-flex-fstart-baseline-map {
+    @include describe("[Mixin] flex-fstart-baseline") {
+        @include it("should output correct flex-fstart-baseline values") {
+            @include assert {
+                @include output {
+                    #{map.get($case-data, selector)} {
+                        @include LibMixin.flex-fstart-baseline(#{map.get($case-data, direction)});
+                    }
+                }
+
+                @include expect {
+                    #{map.get($case-data, selector)} {
+                        display: -webkit-box;
+                        display: -moz-box;
+                        display: -ms-flexbox;
+                        display: -webkit-flex;
+                        display: flex;
+
+                        @each $property, $value in map.get($case-data, expected) {
+                            #{$property}: #{$value};
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
