@@ -46,3 +46,9 @@
 // * display flex, justify-content, and align-items with its vendor prefixes.
 // @see flex-start-inherit.test
 @forward "./flex-start-inherit.test";
+
+// * forwarding the "flex-start-normal.test" module.
+// * The "flex-start-normal.test" module likely provides a test cases for
+// * display flex, justify-content, and align-items with its vendor prefixes.
+// @see flex-start-normal.test
+@forward "./flex-start-normal.test";
