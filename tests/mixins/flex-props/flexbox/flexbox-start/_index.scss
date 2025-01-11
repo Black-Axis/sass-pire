@@ -16,3 +16,9 @@
 // * display flex, justify-content, and align-items with its vendor prefixes.
 // @see flex-start-baseline.test
 @forward "./flex-start-baseline.test";
+
+// * forwarding the "flex-start-center.test" module.
+// * The "flex-start-center.test" module likely provides a test cases for
+// * display flex, justify-content, and align-items with its vendor prefixes.
+// @see flex-start-center.test
+@forward "./flex-start-center.test";
