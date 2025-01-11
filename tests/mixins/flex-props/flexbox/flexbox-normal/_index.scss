@@ -52,3 +52,9 @@
 // * display flex, justify-content, and align-items with its vendor prefixes.
 // @see flex-normal-normal.test
 @forward "./flex-normal-normal.test";
+
+// * forwarding the "flex-normal-start.test" module.
+// * The "flex-normal-start.test" module likely provides a test cases for
+// * display flex, justify-content, and align-items with its vendor prefixes.
+// @see flex-normal-start.test
+@forward "./flex-normal-start.test";
