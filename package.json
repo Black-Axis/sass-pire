@@ -60,13 +60,15 @@
         "log": "changelog generate",
         "test:scss": "sass --no-source-map --load-path=./node_modules/sass-true/sass/ ./tests/test.scss:dist/test-styles.css --watch",
         "test:jest": "jest ./tests/sass.test.js --watchAll #runs all tests",
-        "test": "concurrently --prefix-colors=\"blue,red\" \"yarn test:jest\" \"yarn test:scss\""
+        "test:messages": "node ./tests/cli-test-message.js",
+        "test": "yarn test:messages && concurrently --prefix-colors=\"blue,red\" \"yarn test:jest\" \"yarn test:scss\""
     },
     "dependencies": {
         "reset-zone": "^2.4.2",
         "sass": "^1.81.0"
     },
     "devDependencies": {
+        "chalk": "4",
         "concurrently": "^9.1.0",
         "cz-conventional-changelog": "^3.3.0",
         "eslint": ">=9.15.0",
