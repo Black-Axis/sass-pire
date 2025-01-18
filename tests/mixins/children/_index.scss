@@ -16,3 +16,9 @@
 // * children module.
 // @see after-first.test
 @forward "after-first.test";
+
+// * forwarding the "all-but.test" module.
+// * The "all-but.test" module likely provides a test cases for
+// * children module.
+// @see all-but.test
+@forward "all-but.test";

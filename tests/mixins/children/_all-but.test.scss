@@ -1,8 +1,8 @@
 @charset "UTF-8";
 
 // @description
-// * after-first mixin.
-// * This is a test cases for the after-first mixin.
+// * all-but mixin.
+// * This is a test cases for the all-but mixin.
 
 // @access public
 
@@ -16,7 +16,7 @@
 
 // @namespace children
 
-// @module children/after-first
+// @module children/all-but
 
 // @dependencies:
 // * - map.get (SASS function).
@@ -25,58 +25,51 @@
 // * - True.assert (true mixin).
 // * - True.output (true mixin).
 // * - True.expect (true mixin).
-// * - LibMixin.after-first (mixin).
+// * - LibMixin.all-but (mixin).
 
 @use "sass:map";
 @use "true" as *;
-@use "../../../src/mixins/children/after-first" as LibMixin;
+@use "../../../src/mixins/children/all-but" as LibMixin;
 
-$test-cases-after-first-map: (
+$test-cases-all-but-map: (
     "test-case-1": (
-        selector: ".test-after-first-1",
+        selector: ".test-all-but-1",
         num: 1,
         expected: (
-            nth-child: "n+2",
+            nth-child: "1",
         ),
     ),
     "test-case-2": (
-        selector: ".test-after-first-2",
+        selector: ".test-all-but-2",
         num: 2,
         expected: (
-            nth-child: "n+3",
+            nth-child: "2",
         ),
     ),
     "test-case-3": (
-        selector: ".test-after-first-3",
+        selector: ".test-all-but-3",
         num: 3,
         expected: (
-            nth-child: "n+4",
-        ),
-    ),
-    "test-case-4": (
-        selector: ".test-after-first-4",
-        num: 50,
-        expected: (
-            nth-child: "n+51",
+            nth-child: "3",
         ),
     ),
 );
 
-@each $case-name, $case-data in $test-cases-after-first-map {
-    @include describe("[Mixin] after-first for #{$case-name}") {
+@each $case-name, $case-data in $test-cases-all-but-map {
+    @include describe("[Mixin] all-but for #{$case-name}") {
         @include it("should apply styles to elements after the nth-child") {
             @include assert {
                 @include output {
                     #{map.get($case-data, selector)} {
-                        @include LibMixin.after-first(map.get($case-data, num)) {
-                            --sp-example-after-first: done;
+                        @include LibMixin.all-but(map.get($case-data, num)) {
+                            --sp-example-all-but: done;
                         }
                     }
                 }
 
                 @include expect {
-                    #{map.get($case-data, selector)}:nth-child(#{map.get(map.get($case-data, expected), nth-child)}) {
-                        --sp-example-after-first: done;
+                    #{map.get($case-data, selector)}:not(:nth-child(#{map.get(map.get($case-data, expected), nth-child)})) {
+                        --sp-example-all-but: done;
                     }
                 }
             }
