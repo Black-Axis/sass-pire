@@ -52,3 +52,9 @@
 // * testing all vendor prefixes.
 // @see prefix-ms-o.test
 @forward "prefix-val-ms-o.test";
+
+// * forwarding the "prefix-ms.test" module.
+// * The "prefix-ms.test" module likely provides a test cases for
+// * testing all vendor prefixes.
+// @see prefix-ms.test
+@forward "prefix-val-ms.test";
