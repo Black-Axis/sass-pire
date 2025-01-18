@@ -57,7 +57,7 @@ $test-cases-all-but-map: (
 
 @each $case-name, $case-data in $test-cases-all-but-map {
     @include describe("[Mixin] all-but for #{$case-name}") {
-        @include it("should apply styles to elements after the nth-child") {
+        @include it("should apply styles to elements in all-but mixin") {
             @include assert {
                 @include output {
                     #{map.get($case-data, selector)} {
