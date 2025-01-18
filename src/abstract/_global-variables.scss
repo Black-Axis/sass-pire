@@ -285,6 +285,26 @@ $grid-row-end: (
     grid-row-end,
 ) !default;
 
+$text-align-last-props: (
+    -moz-text-align-last,
+    text-align-last
+) !default;
+
+$text-align-last-props-values: (
+    auto,
+    start,
+    end,
+    left,
+    right,
+    center,
+    justify,
+    inherit,
+    initial,
+    revert,
+    revert-layer,
+    unset
+) !default;
+
 $neutral-colors-light-map: (
     50: hsl(0, 0%, 100%),
     100: hsl(0, 0%, 95%),

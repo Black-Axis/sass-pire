@@ -7,7 +7,7 @@
 
 // @access public
 
-// @version 1.0.0
+// @version 1.0.1
 
 // @author Khaled Mohamed
 
@@ -24,6 +24,8 @@
 // @dependencies:
 // * - meta.type-of (SASS function).
 // * - LibFunc.is-in-list (function).
+// * - var.var.$text-align-last-props (variable).
+// * - var.var.$text-align-last-props-values (variable).
 // * - Error.throw (function).
 
 // @param {String} $value
@@ -47,39 +49,19 @@
 @use "sass:meta";
 @use "sass:list";
 @use "../../functions/global/is-in-list" as LibFunc;
+@use "../../abstract/global-variables" as var;
 @use "../../development-utils/toggle-error-message" as Error;
 
 @mixin text-align-last($value: auto) {
-    $text-align-last-props: (
-        -moz-text-align-last,
-        text-align-last
-    ) !default;
-
-    // * stylelint-disable-next-line scss/dollar-variable-empty-line-before
-    $text-align-last-props-values: (
-        auto,
-        start,
-        end,
-        left,
-        right,
-        center,
-        justify,
-        inherit,
-        initial,
-        revert,
-        revert-layer,
-        unset
-    ) !default;
-
     @if meta.type-of($value) == string {
-        @if LibFunc.is-in-list($text-align-last-props-values, $value) {
-            @each $prop in $text-align-last-props {
+        @if LibFunc.is-in-list(var.$text-align-last-props-values, $value) {
+            @each $prop in var.$text-align-last-props {
                 #{$prop}: $value;
             }
         } @else {
-            content: Error.throw("The parameter of text-align-last mixin must has one of these values: (#{$text-align-last-props-values}).");
+            content: Error.throw("The parameter of text-align-last mixin must has one of these values: (#{var.$text-align-last-props-values}).");
         }
     } @else {
-        content: Error.throw("The parameter of text-align-last mixin must has one of these values: (#{$text-align-last-props-values}).");
+        content: Error.throw("The parameter of text-align-last mixin must has one of these values: (#{var.$text-align-last-props-values}).");
     }
 }
