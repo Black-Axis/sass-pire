@@ -46,3 +46,9 @@
 // * testing all vendor prefixes.
 // @see prefixing-moz-o.test
 @forward "prefixing-moz-o.test";
+
+// * forwarding the "prefixing-ms-o.test" module.
+// * The "prefixing-ms-o.test" module likely provides a test cases for
+// * testing all vendor prefixes.
+// @see prefixing-ms-o.test
+@forward "prefixing-ms-o.test";
