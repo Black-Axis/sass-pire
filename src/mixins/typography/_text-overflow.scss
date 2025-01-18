@@ -8,7 +8,7 @@
 
 // @access public
 
-// @version 1.0.0
+// @version 1.1.0
 
 // @author Khaled Mohamed
 
@@ -23,6 +23,8 @@
 // @dependencies:
 // * - meta.type-of (SASS function).
 // * - LibFunc.is-in-list (function).
+// * - var.var.$text-overflow-props (variable).
+// * - var.var.$text-overflow-props-values (variable).
 // * - Error.throw (function).
 
 // @param {String} $value
@@ -45,34 +47,19 @@
 @use "sass:meta";
 @use "sass:list";
 @use "../../functions/global/is-in-list" as LibFunc;
+@use "../../abstract/global-variables" as var;
 @use "../../development-utils/toggle-error-message" as Error;
 
 @mixin text-overflow($value: clip) {
-    $text-overflow-props: (
-        -o-text-overflow,
-        text-overflow
-    ) !default;
-
-    // * stylelint-disable-next-line scss/dollar-variable-empty-line-before
-    $text-overflow-props-values: (
-        clip,
-        ellipsis,
-        inherit,
-        initial,
-        revert,
-        revert-layer,
-        unset
-    ) !default;
-
     @if meta.type-of($value) == string {
-        @if LibFunc.is-in-list($text-overflow-props-values, $value) {
-            @each $prop in $text-overflow-props {
+        @if LibFunc.is-in-list(var.$text-overflow-props-values, $value) {
+            @each $prop in var.$text-overflow-props {
                 #{$prop}: $value;
             }
         } @else {
-            content: Error.throw("The parameter of text-overflow mixin must has one of these values: (#{$text-overflow-props-values}).");
+            content: Error.throw("The parameter of text-overflow mixin must has one of these values: (#{var.$text-overflow-props-values}).");
         }
     } @else {
-        content: Error.throw("The parameter of text-overflow mixin must has one of these values: (#{$text-overflow-props-values}).");
+        content: Error.throw("The parameter of text-overflow mixin must has one of these values: (#{var.$text-overflow-props-values}).");
     }
 }
