@@ -16,3 +16,9 @@
 // * overflow-x with its fallback.
 // @see overflow-x.test
 @forward "overflow-x.test";
+
+// * forwarding the "overflow-y.test" module.
+// * The "overflow-y.test" module likely provides a test cases for
+// * overflow-y with its fallback.
+// @see overflow-y.test
+@forward "overflow-y.test";
