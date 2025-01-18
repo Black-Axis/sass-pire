@@ -1,0 +1,152 @@
+@charset "UTF-8";
+
+// @description
+// * overflow-y mixin.
+// * This module tests a overflow-y mixin.
+
+// @access private
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace logical-props
+
+// @module logical-props/overflow-y
+
+// @dependencies:
+// * - map.get (SASS function).
+// * - True.describe (mixin function).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - LibMixin.overflow-y (mixin).
+
+@use "sass:map";
+@use "true" as *;
+@use "../../../src/mixins/logical-props/overflow-y" as LibMixin;
+
+// stylelint-disable value-no-vendor-prefix
+// stylelint-disable declaration-block-no-duplicate-properties
+// stylelint-disable value-keyword-case
+// stylelint-disable scss/dollar-variable-empty-line-before
+// stylelint-disable hue-degree-notation
+// stylelint-disable color-function-notation
+// stylelint-disable media-query-no-invalid
+
+$test-cases-overflow-y-map: (
+    ".test-case-1": (
+        selector: ".test-case-overflow-y-scroll",
+        value: scroll,
+        expected: (
+            overflow-y: scroll,
+            overflow-block: scroll,
+        ),
+    ),
+    ".test-case-2": (
+        selector: ".test-case-overflow-y-hidden",
+        value: hidden,
+        expected: (
+            overflow-y: hidden,
+            overflow-block: hidden,
+        ),
+    ),
+    ".test-case-3": (
+        selector: ".test-case-overflow-y-auto",
+        value: auto,
+        expected: (
+            overflow-y: auto,
+            overflow-block: auto,
+        ),
+    ),
+    ".test-case-4": (
+        selector: ".test-case-overflow-y-visible",
+        value: visible,
+        expected: (
+            overflow-y: visible,
+            overflow-block: visible,
+        ),
+    ),
+    ".test-case-5": (
+        selector: ".test-case-overflow-y-clip",
+        value: clip,
+        expected: (
+            overflow-y: clip,
+            overflow-block: clip,
+        ),
+    ),
+    ".test-case-6": (
+        selector: ".test-case-overflow-y-inherit",
+        value: inherit,
+        expected: (
+            overflow-y: inherit,
+            overflow-block: inherit,
+        ),
+    ),
+    ".test-case-7": (
+        selector: ".test-case-overflow-y-initial",
+        value: initial,
+        expected: (
+            overflow-y: initial,
+            overflow-block: initial,
+        ),
+    ),
+    ".test-case-8": (
+        selector: ".test-case-overflow-y-revert",
+        value: revert,
+        expected: (
+            overflow-y: revert,
+            overflow-block: revert,
+        ),
+    ),
+    ".test-case-9": (
+        selector: ".test-case-overflow-y-revert-layer",
+        value: revert-layer,
+        expected: (
+            overflow-y: revert-layer,
+            overflow-block: revert-layer,
+        ),
+    ),
+    ".test-case-10": (
+        selector: ".test-case-overflow-y-unset",
+        value: unset,
+        expected: (
+            overflow-y: unset,
+            overflow-block: unset,
+        ),
+    ),
+    ".test-case-11": (
+        selector: ".test-case-overflow-y-unknown-value",
+        value: xyz,
+        expected: (
+            content: '"ERROR: The parameter of overflow-y mixin must be one of these values: (scroll, hidden, auto, visible, clip, inherit, initial, revert, revert-layer, unset)."',
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-overflow-y-map {
+    @include describe("[Mixin] overflow-y") {
+        @include it("should output correct overflow-y mixin") {
+            @include assert {
+                @include output {
+                    #{map.get($case-data, selector)} {
+                        @include LibMixin.o-f-y(#{map.get($case-data, value)});
+                    }
+                }
+
+                @include expect {
+                    #{map.get($case-data, selector)} {
+                        @each $property, $value in map.get($case-data, expected) {
+                            #{$property}: #{$value};
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
