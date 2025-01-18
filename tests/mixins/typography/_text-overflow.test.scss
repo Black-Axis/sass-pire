@@ -1,0 +1,124 @@
+@charset "UTF-8";
+
+// @description
+// * text-overflow mixin.
+// * This module tests an text-overflow mixin.
+
+// @access private
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace typography
+
+// @module typography/text-overflow
+
+// @dependencies:
+// * - map.get (SASS function).
+// * - True.describe (mixin function).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - LibMixin.text-overflow (mixin).
+
+@use "sass:map";
+@use "true" as *;
+@use "../../../src/mixins/typography/text-overflow" as LibMixin;
+
+// stylelint-disable value-no-vendor-prefix
+// stylelint-disable declaration-block-no-duplicate-properties
+// stylelint-disable value-keyword-case
+
+$test-cases-text-overflow-map: (
+    "test-case-1": (
+        selector: ".test-text-overflow-clip",
+        value: clip,
+        expected: (
+            -o-text-overflow: clip,
+            text-overflow: clip,
+        ),
+    ),
+    "test-case-2": (
+        selector: ".test-text-overflow-ellipsis",
+        value: ellipsis,
+        expected: (
+            -o-text-overflow: ellipsis,
+            text-overflow: ellipsis,
+        ),
+    ),
+    "test-case-3": (
+        selector: ".test-text-overflow-inherit",
+        value: inherit,
+        expected: (
+            -o-text-overflow: inherit,
+            text-overflow: inherit,
+        ),
+    ),
+    "test-case-4": (
+        selector: ".test-text-overflow-initial",
+        value: initial,
+        expected: (
+            -o-text-overflow: initial,
+            text-overflow: initial,
+        ),
+    ),
+    "test-case-5": (
+        selector: ".test-text-overflow-revert",
+        value: revert,
+        expected: (
+            -o-text-overflow: revert,
+            text-overflow: revert,
+        ),
+    ),
+    "test-case-6": (
+        selector: ".test-text-overflow-revert-layer",
+        value: revert-layer,
+        expected: (
+            -o-text-overflow: revert-layer,
+            text-overflow: revert-layer,
+        ),
+    ),
+    "test-case-7": (
+        selector: ".test-text-overflow-unset",
+        value: unset,
+        expected: (
+            -o-text-overflow: unset,
+            text-overflow: unset,
+        ),
+    ),
+    "test-case-8": (
+        selector: ".test-text-overflow-unknown",
+        value: unknown,
+        expected: (
+            content: '"ERROR: The parameter of text-overflow mixin must has one of these values: (clip, ellipsis, inherit, initial, revert, revert-layer, unset)."',
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-text-overflow-map {
+    @include describe("[Mixin] text-overflow for #{$case-name}") {
+        @include it("should output correct text-overflow properties") {
+            @include assert {
+                @include output {
+                    #{map.get($case-data, selector)} {
+                        @include LibMixin.text-overflow(#{map.get($case-data, value)});
+                    }
+                }
+
+                @include expect {
+                    #{map.get($case-data, selector)} {
+                        @each $property, $value in map.get($case-data, expected) {
+                            #{$property}: #{$value};
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
