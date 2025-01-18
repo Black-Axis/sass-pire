@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+// @description
+// * all-but mixin.
+// * This is a test cases for the all-but mixin.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace children
+
+// @module children/all-but
+
+// @dependencies:
+// * - map.get (SASS function).
+// * - True.describe (mixin function).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - LibMixin.all-but (mixin).
+
+@use "sass:map";
+@use "true" as *;
+@use "../../../src/mixins/children/all-but" as LibMixin;
+
+$test-cases-all-but-map: (
+    "test-case-1": (
+        selector: ".test-all-but-1",
+        num: 1,
+        expected: (
+            nth-child: "1",
+        ),
+    ),
+    "test-case-2": (
+        selector: ".test-all-but-2",
+        num: 2,
+        expected: (
+            nth-child: "2",
+        ),
+    ),
+    "test-case-3": (
+        selector: ".test-all-but-3",
+        num: 3,
+        expected: (
+            nth-child: "3",
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-all-but-map {
+    @include describe("[Mixin] all-but for #{$case-name}") {
+        @include it("should apply styles to elements after the nth-child") {
+            @include assert {
+                @include output {
+                    #{map.get($case-data, selector)} {
+                        @include LibMixin.all-but(map.get($case-data, num)) {
+                            --sp-example-all-but: done;
+                        }
+                    }
+                }
+
+                @include expect {
+                    #{map.get($case-data, selector)}:not(:nth-child(#{map.get(map.get($case-data, expected), nth-child)})) {
+                        --sp-example-all-but: done;
+                    }
+                }
+            }
+        }
+    }
+}
