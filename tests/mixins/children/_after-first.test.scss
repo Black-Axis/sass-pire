@@ -69,14 +69,14 @@ $test-cases-after-first-map: (
                 @include output {
                     #{map.get($case-data, selector)} {
                         @include LibMixin.after-first(map.get($case-data, num)) {
-                            --sp-example: done;
+                            --sp-example-after-first: done;
                         }
                     }
                 }
 
                 @include expect {
                     #{map.get($case-data, selector)}:nth-child(#{map.get(map.get($case-data, expected), nth-child)}) {
-                        --sp-example: done;
+                        --sp-example-after-first: done;
                     }
                 }
             }
