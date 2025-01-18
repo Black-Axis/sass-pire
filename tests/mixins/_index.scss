@@ -40,3 +40,9 @@
 // * grid-props module.
 // @see grid-props
 @forward "grid-props";
+
+// * forwarding the "typography" module.
+// * The "typography" module likely provides a test cases for
+// * typography module.
+// @see typography
+@forward "typography";

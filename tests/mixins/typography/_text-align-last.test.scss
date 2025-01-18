@@ -1,0 +1,164 @@
+@charset "UTF-8";
+
+// @description
+// * text-align-last mixin.
+// * This module tests an text-align-last mixin.
+
+// @access private
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace typography
+
+// @module typography/text-align-last
+
+// @dependencies:
+// * - map.get (SASS function).
+// * - True.describe (mixin function).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - LibMixin.text-align-last (mixin).
+
+@use "sass:map";
+@use "true" as *;
+@use "../../../src/mixins/typography/text-align-last" as LibMixin;
+
+// stylelint-disable value-no-vendor-prefix
+// stylelint-disable declaration-block-no-duplicate-properties
+// stylelint-disable value-keyword-case
+
+$test-cases-text-align-last-map: (
+    "test-case-1": (
+        selector: ".test-text-align-last-auto",
+        value: auto,
+        expected: (
+            -moz-text-align-last: auto,
+            text-align-last: auto,
+        ),
+    ),
+    "test-case-2": (
+        selector: ".test-text-align-last-start",
+        value: start,
+        expected: (
+            -moz-text-align-last: start,
+            text-align-last: start,
+        ),
+    ),
+    "test-case-3": (
+        selector: ".test-text-align-last-end",
+        value: end,
+        expected: (
+            -moz-text-align-last: end,
+            text-align-last: end,
+        ),
+    ),
+    "test-case-4": (
+        selector: ".test-text-align-last-left",
+        value: left,
+        expected: (
+            -moz-text-align-last: left,
+            text-align-last: left,
+        ),
+    ),
+    "test-case-5": (
+        selector: ".test-text-align-last-right",
+        value: right,
+        expected: (
+            -moz-text-align-last: right,
+            text-align-last: right,
+        ),
+    ),
+    "test-case-6": (
+        selector: ".test-text-align-last-center",
+        value: center,
+        expected: (
+            -moz-text-align-last: center,
+            text-align-last: center,
+        ),
+    ),
+    "test-case-7": (
+        selector: ".test-text-align-last-justify",
+        value: justify,
+        expected: (
+            -moz-text-align-last: justify,
+            text-align-last: justify,
+        ),
+    ),
+    "test-case-8": (
+        selector: ".test-text-align-last-inherit",
+        value: inherit,
+        expected: (
+            -moz-text-align-last: inherit,
+            text-align-last: inherit,
+        ),
+    ),
+    "test-case-9": (
+        selector: ".test-text-align-last-initial",
+        value: initial,
+        expected: (
+            -moz-text-align-last: initial,
+            text-align-last: initial,
+        ),
+    ),
+    "test-case-10": (
+        selector: ".test-text-align-last-revert",
+        value: revert,
+        expected: (
+            -moz-text-align-last: revert,
+            text-align-last: revert,
+        ),
+    ),
+    "test-case-11": (
+        selector: ".test-text-align-last-revert-layer",
+        value: revert-layer,
+        expected: (
+            -moz-text-align-last: revert-layer,
+            text-align-last: revert-layer,
+        ),
+    ),
+    "test-case-12": (
+        selector: ".test-text-align-last-unset",
+        value: unset,
+        expected: (
+            -moz-text-align-last: unset,
+            text-align-last: unset,
+        ),
+    ),
+    "test-case-13": (
+        selector: ".test-text-align-last-unknown",
+        value: unknown,
+        expected: (
+            content: '"ERROR: The parameter of text-align-last mixin must has one of these values: (auto, start, end, left, right, center, justify, inherit, initial, revert, revert-layer, unset)."',
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-text-align-last-map {
+    @include describe("[Mixin] text-align-last for #{$case-name}") {
+        @include it("should output correct text-align-last properties") {
+            @include assert {
+                @include output {
+                    #{map.get($case-data, selector)} {
+                        @include LibMixin.text-align-last(#{map.get($case-data, value)});
+                    }
+                }
+
+                @include expect {
+                    #{map.get($case-data, selector)} {
+                        @each $property, $value in map.get($case-data, expected) {
+                            #{$property}: #{$value};
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
