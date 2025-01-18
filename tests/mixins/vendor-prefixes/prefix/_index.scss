@@ -28,3 +28,9 @@
 // * testing all vendor prefixes.
 // @see prefixing-web-moz.test
 @forward "prefixing-web-moz.test";
+
+// * forwarding the "prefixing-web-ms.test" module.
+// * The "prefixing-web-ms.test" module likely provides a test cases for
+// * testing all vendor prefixes.
+// @see prefixing-web-ms.test
+@forward "prefixing-web-ms.test";
