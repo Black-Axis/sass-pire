@@ -28,3 +28,9 @@
 // * general module.
 // @see general
 @forward "general";
+
+// * forwarding the "logical-props" module.
+// * The "logical-props" module likely provides a test cases for
+// * logical-props module.
+// @see logical-props
+@forward "logical-props";
