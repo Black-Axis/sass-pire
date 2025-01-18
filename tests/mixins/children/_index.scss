@@ -22,3 +22,9 @@
 // * children module.
 // @see all-but.test
 @forward "all-but.test";
+
+// * forwarding the "odd.test" module.
+// * The "odd.test" module likely provides a test cases for
+// * children module.
+// @see odd.test
+@forward "odd.test";
