@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+// @description
+// * This file as index for test cases of vendor prefixes.
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace mixins
+
+// * forwarding the "prefix" module.
+// * The "prefix" module likely provides a test cases for
+// * prefix for testing the vendor prefix.
+// @see prefix
+@forward "prefix";
