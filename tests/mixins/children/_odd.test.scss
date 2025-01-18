@@ -1,0 +1,93 @@
+@charset "UTF-8";
+
+// @description
+// * odd mixin.
+// * This is a test cases for the odd mixin.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace children
+
+// @module children/odd
+
+// @dependencies:
+// * - map.get (SASS function).
+// * - True.describe (mixin function).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - LibMixin.odd (mixin).
+
+@use "sass:map";
+@use "true" as *;
+@use "../../../src/mixins/children/odd" as LibMixin;
+
+// stylelint-disable custom-property-no-missing-var-function
+
+$test-cases-odd-map: (
+    "test-case-1": (
+        selector: ".test-odd-1",
+        num: 1,
+        output: (
+            --sp-example-odd: done,
+        ),
+        expected: (
+            --sp-example-odd: done,
+        ),
+    ),
+    "test-case-2": (
+        selector: ".test-odd-2",
+        num: 2,
+        output: (
+            --sp-example-odd: done,
+        ),
+        expected: (
+            --sp-example-odd: done,
+        ),
+    ),
+    "test-case-3": (
+        selector: ".test-odd-3",
+        num: 3,
+        output: (
+            --sp-example-odd: done,
+        ),
+        expected: (
+            --sp-example-odd: done,
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-odd-map {
+    @include describe("[Mixin] odd for #{$case-name}") {
+        @include it("should apply styles to elements for odd mixin") {
+            @include assert {
+                @include output {
+                    #{map.get($case-data, selector)} {
+                        @include LibMixin.odd {
+                            @each $property, $value in map.get($case-data, output) {
+                                #{$property}: #{$value};
+                            }
+                        }
+                    }
+                }
+
+                @include expect {
+                    #{map.get($case-data, selector)}:nth-child(odd) {
+                        @each $property, $value in map.get($case-data, expected) {
+                            #{$property}: #{$value};
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
