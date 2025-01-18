@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+// @description
+// * This file as index for test cases of prefix-val.
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace mixins
+
+// * forwarding the "prefix-all.test" module.
+// * The "prefix-all.test" module likely provides a test cases for
+// * testing all vendor prefixes.
+// @see prefix-all.test
+@forward "prefix-val-all.test";
+
+// * forwarding the "prefix-web-moz-ms.test" module.
+// * The "prefix-web-moz-ms.test" module likely provides a test cases for
+// * testing all vendor prefixes.
+// @see prefix-web-moz-ms.test
+@forward "prefix-val-web-moz-ms.test";
+
+// * forwarding the "prefix-web-moz.test" module.
+// * The "prefix-web-moz.test" module likely provides a test cases for
+// * testing all vendor prefixes.
+// @see prefix-web-moz.test
+@forward "prefix-val-web-moz.test";
+
+// * forwarding the "prefix-web-ms.test" module.
+// * The "prefix-web-ms.test" module likely provides a test cases for
+// * testing all vendor prefixes.
+// @see prefix-web-ms.test
+@forward "prefix-val-web-ms.test";
+
+// * forwarding the "prefix-web-o.test" module.
+// * The "prefix-web-o.test" module likely provides a test cases for
+// * testing all vendor prefixes.
+// @see prefix-web-o.test
+@forward "prefix-val-web-o.test";
+
+// * forwarding the "prefix-moz-o.test" module.
+// * The "prefix-moz-o.test" module likely provides a test cases for
+// * testing all vendor prefixes.
+// @see prefix-moz-o.test
+@forward "prefix-val-moz-o.test";
+
+// * forwarding the "prefix-ms-o.test" module.
+// * The "prefix-ms-o.test" module likely provides a test cases for
+// * testing all vendor prefixes.
+// @see prefix-ms-o.test
+@forward "prefix-val-ms-o.test";
+
+// * forwarding the "prefix-ms.test" module.
+// * The "prefix-ms.test" module likely provides a test cases for
+// * testing all vendor prefixes.
+// @see prefix-ms.test
+@forward "prefix-val-ms.test";

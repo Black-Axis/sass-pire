@@ -16,3 +16,9 @@
 // * prefix for testing the vendor prefix.
 // @see prefix
 @forward "prefix";
+
+// * forwarding the "prefix-val" module.
+// * The "prefix-val" module likely provides a test cases for
+// * prefix-val for testing the vendor prefix.
+// @see prefix-val
+@forward "prefix-val";

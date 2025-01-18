@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+// @description
+// * prefix-val-ms-o mixin.
+// * This module tests a prefix-val-ms-o mixin.
+
+// @access private
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace prefix
+
+// @module prefix/prefix-val-ms-o
+
+// @dependencies:
+// * - map.get (SASS function).
+// * - True.describe (mixin function).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - LibMixin.prefix-val-ms-o (mixin).
+
+@use "sass:map";
+@use "true" as *;
+@use "../../../../src/mixins/vendor-prefixes/prefix-val" as LibMixin;
+
+// stylelint-disable value-no-vendor-prefix
+// stylelint-disable declaration-block-no-duplicate-properties
+// stylelint-disable value-keyword-case
+// stylelint-disable scss/dollar-variable-empty-line-before
+
+$test-cases-prefix-val-ms-o-map: (
+    ".test-case-1": (
+        selector: ".test-prefix-val-ms-o-prop-1-value1-mixin",
+        prop: prop-1,
+        value: value-1,
+        expected: (
+            -ms-value-1,
+            -o-value-1,
+            value-1,
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-prefix-val-ms-o-map {
+    @include describe("[Mixin] prefix-val-ms-o") {
+        @include it("should output correct prefix-val-ms-o values") {
+            @include assert {
+                @include output {
+                    #{map.get($case-data, selector)} {
+                        @include LibMixin.prefix-val-ms-o(#{map.get($case-data, prop)}, #{map.get($case-data, value)});
+                    }
+                }
+
+                @include expect {
+                    #{map.get($case-data, selector)} {
+                        @each $value in map.get($case-data, expected) {
+                            #{map.get($case-data, prop)}: $value;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
