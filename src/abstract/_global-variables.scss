@@ -305,6 +305,21 @@ $text-align-last-props-values: (
     unset
 ) !default;
 
+$text-overflow-props: (
+    -o-text-overflow,
+    text-overflow
+) !default;
+
+$text-overflow-props-values: (
+    clip,
+    ellipsis,
+    inherit,
+    initial,
+    revert,
+    revert-layer,
+    unset
+) !default;
+
 $neutral-colors-light-map: (
     50: hsl(0, 0%, 100%),
     100: hsl(0, 0%, 95%),
