@@ -40,3 +40,9 @@
 // * testing all vendor prefixes.
 // @see prefixing-web-o.test
 @forward "prefixing-web-o.test";
+
+// * forwarding the "prefixing-moz-o.test" module.
+// * The "prefixing-moz-o.test" module likely provides a test cases for
+// * testing all vendor prefixes.
+// @see prefixing-moz-o.test
+@forward "prefixing-moz-o.test";
