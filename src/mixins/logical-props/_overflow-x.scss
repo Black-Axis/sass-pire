@@ -47,8 +47,8 @@
         content: Error.throw("The parameter of overflow-x mixin must be in a string type.");
     } @else {
         @if list.index(var.$overflow-values, $value) {
-            overflow-inline: $value;
             overflow-x: $value;
+            overflow-inline: $value;
         } @else {
             content: Error.throw("The parameter of overflow-x mixin must be one of these values: (#{var.$overflow-values}).");
         }
