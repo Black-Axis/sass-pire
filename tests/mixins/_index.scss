@@ -52,3 +52,9 @@
 // * vendor-prefixes module.
 // @see vendor-prefixes
 @forward "vendor-prefixes";
+
+// * forwarding the "children" module.
+// * The "children" module likely provides a test cases for
+// * children module.
+// @see children
+@forward "children";
