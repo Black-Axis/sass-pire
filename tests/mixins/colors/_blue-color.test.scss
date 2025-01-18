@@ -1,0 +1,89 @@
+/* stylelint-disable media-query-no-invalid */
+@charset "UTF-8";
+
+// @description
+// * blue-color mixin.
+// * This module tests a blue-color mixin.
+
+// @access private
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace colors
+
+// @module colors/blue-color
+
+// @dependencies:
+// * - map.get (SASS function).
+// * - True.describe (mixin function).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - LibMixin.blue-color (mixin).
+
+@use "sass:map";
+@use "true" as *;
+@use "../../../src/mixins/colors/blue-color" as LibMixin;
+
+// stylelint-disable value-no-vendor-prefix
+// stylelint-disable declaration-block-no-duplicate-properties
+// stylelint-disable value-keyword-case
+// stylelint-disable scss/dollar-variable-empty-line-before
+// stylelint-disable hue-degree-notation
+// stylelint-disable color-function-notation
+
+$test-cases-blue-color-map: (
+    ".test-case-1": (
+        test-name: ".test-case-1",
+        expected: (
+            --sp-blue-50: hsl(210, 100%, 98%),
+            --sp-blue-100: hsl(210, 100%, 95%),
+            --sp-blue-150: hsl(210, 85%, 87%),
+            --sp-blue-200: hsl(210, 75%, 75%),
+            --sp-blue-250: hsl(210, 70%, 64%),
+            --sp-blue-300: hsl(210, 70%, 56%),
+            --sp-blue-350: hsl(210, 65%, 47%),
+            --sp-blue-400: hsl(210, 65%, 39%),
+            --sp-blue-450: hsl(210, 60%, 35%),
+            --sp-blue-500: hsl(210, 60%, 31%),
+            --sp-blue-550: hsl(210, 55%, 28%),
+            --sp-blue-600: hsl(210, 55%, 24%),
+            --sp-blue-650: hsl(210, 50%, 22%),
+            --sp-blue-700: hsl(210, 50%, 19%),
+            --sp-blue-750: hsl(210, 45%, 16%),
+            --sp-blue-800: hsl(210, 45%, 14%),
+            --sp-blue-850: hsl(210, 40%, 12%),
+            --sp-blue-900: hsl(210, 40%, 10%),
+            --sp-blue-950: hsl(210, 35%, 8%),
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-blue-color-map {
+    @include describe("[Mixin] blue-color") {
+        @include it("should output correct blue-color mixin") {
+            @include assert {
+                @include output {
+                    #{map.get($case-data, test-name)} {
+                        @include LibMixin.blue-color;
+                    }
+                }
+
+                @include expect {
+                    #{map.get($case-data, test-name)} :root {
+                        @each $property, $value in map.get($case-data, expected) {
+                            #{$property}: #{$value};
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
