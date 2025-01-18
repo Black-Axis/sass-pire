@@ -16,3 +16,9 @@
 // * generating red colors.
 // @see red-color.test
 @forward "red-color.test";
+
+// * forwarding the "blue-color.test" module.
+// * The "blue-color.test" module likely provides a test cases for
+// * generating blue colors.
+// @see blue-color.test
+@forward "blue-color.test";
