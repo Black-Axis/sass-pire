@@ -1,0 +1,152 @@
+@charset "UTF-8";
+
+// @description
+// * overflow-x mixin.
+// * This module tests a overflow-x mixin.
+
+// @access private
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace logical-props
+
+// @module logical-props/overflow-x
+
+// @dependencies:
+// * - map.get (SASS function).
+// * - True.describe (mixin function).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - LibMixin.overflow-x (mixin).
+
+@use "sass:map";
+@use "true" as *;
+@use "../../../src/mixins/logical-props/overflow-x" as LibMixin;
+
+// stylelint-disable value-no-vendor-prefix
+// stylelint-disable declaration-block-no-duplicate-properties
+// stylelint-disable value-keyword-case
+// stylelint-disable scss/dollar-variable-empty-line-before
+// stylelint-disable hue-degree-notation
+// stylelint-disable color-function-notation
+// stylelint-disable media-query-no-invalid
+
+$test-cases-overflow-x-map: (
+    ".test-case-1": (
+        selector: ".test-case-overflow-x-scroll",
+        value: scroll,
+        expected: (
+            overflow-x: scroll,
+            overflow-inline: scroll,
+        ),
+    ),
+    ".test-case-2": (
+        selector: ".test-case-overflow-x-hidden",
+        value: hidden,
+        expected: (
+            overflow-x: hidden,
+            overflow-inline: hidden,
+        ),
+    ),
+    ".test-case-3": (
+        selector: ".test-case-overflow-x-auto",
+        value: auto,
+        expected: (
+            overflow-x: auto,
+            overflow-inline: auto,
+        ),
+    ),
+    ".test-case-4": (
+        selector: ".test-case-overflow-x-visible",
+        value: visible,
+        expected: (
+            overflow-x: visible,
+            overflow-inline: visible,
+        ),
+    ),
+    ".test-case-5": (
+        selector: ".test-case-overflow-x-clip",
+        value: clip,
+        expected: (
+            overflow-x: clip,
+            overflow-inline: clip,
+        ),
+    ),
+    ".test-case-6": (
+        selector: ".test-case-overflow-x-inherit",
+        value: inherit,
+        expected: (
+            overflow-x: inherit,
+            overflow-inline: inherit,
+        ),
+    ),
+    ".test-case-7": (
+        selector: ".test-case-overflow-x-initial",
+        value: initial,
+        expected: (
+            overflow-x: initial,
+            overflow-inline: initial,
+        ),
+    ),
+    ".test-case-8": (
+        selector: ".test-case-overflow-x-revert",
+        value: revert,
+        expected: (
+            overflow-x: revert,
+            overflow-inline: revert,
+        ),
+    ),
+    ".test-case-9": (
+        selector: ".test-case-overflow-x-revert-layer",
+        value: revert-layer,
+        expected: (
+            overflow-x: revert-layer,
+            overflow-inline: revert-layer,
+        ),
+    ),
+    ".test-case-10": (
+        selector: ".test-case-overflow-x-unset",
+        value: unset,
+        expected: (
+            overflow-x: unset,
+            overflow-inline: unset,
+        ),
+    ),
+    ".test-case-11": (
+        selector: ".test-case-overflow-x-unknown-value",
+        value: xyz,
+        expected: (
+            content: '"ERROR: The parameter of overflow-x mixin must be one of these values: (scroll, hidden, auto, visible, clip, inherit, initial, revert, revert-layer, unset)."',
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-overflow-x-map {
+    @include describe("[Mixin] overflow-x") {
+        @include it("should output correct overflow-x mixin") {
+            @include assert {
+                @include output {
+                    #{map.get($case-data, selector)} {
+                        @include LibMixin.o-f-x(#{map.get($case-data, value)});
+                    }
+                }
+
+                @include expect {
+                    #{map.get($case-data, selector)} {
+                        @each $property, $value in map.get($case-data, expected) {
+                            #{$property}: #{$value};
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
