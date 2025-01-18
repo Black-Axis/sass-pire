@@ -34,3 +34,9 @@
 // * logical-props module.
 // @see logical-props
 @forward "logical-props";
+
+// * forwarding the "grid-props" module.
+// * The "grid-props" module likely provides a test cases for
+// * grid-props module.
+// @see grid-props
+@forward "grid-props";

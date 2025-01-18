@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+// @description
+// * d-ingrid mixin.
+// * This module tests a d-ingrid mixin.
+
+// @access private
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace grid-props
+
+// @module grid-props/d-ingrid
+
+// @dependencies:
+// * - map.get (SASS function).
+// * - True.describe (mixin function).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - LibMixin.d-ingrid (mixin).
+
+@use "sass:map";
+@use "true" as *;
+@use "../../../src/mixins/grid-props/inline-grid" as LibMixin;
+
+// stylelint-disable value-no-vendor-prefix
+// stylelint-disable declaration-block-no-duplicate-properties
+// stylelint-disable value-keyword-case
+
+$test-cases-d-inline-grid-map: (
+    "test-case-1": (
+        selector: ".test-display-inline-grid",
+        expected: (
+            -ms-inline-grid,
+            inline-grid
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-d-inline-grid-map {
+    @include describe("[Mixin] d-inline-grid for #{$case-name}") {
+        @include it("should output correct display inline-grid properties") {
+            @include assert {
+                @include output {
+                    #{map.get($case-data, selector)} {
+                        @include LibMixin.d-ingrid;
+                    }
+                }
+
+                @include expect {
+                    #{map.get($case-data, selector)} {
+                        @each $value in map.get($case-data, expected) {
+                            display: $value;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
