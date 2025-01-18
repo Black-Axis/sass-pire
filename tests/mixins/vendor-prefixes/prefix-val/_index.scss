@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+// @description
+// * This file as index for test cases of prefix-val.
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace mixins
+
+// * forwarding the "prefix-all.test" module.
+// * The "prefix-all.test" module likely provides a test cases for
+// * testing all vendor prefixes.
+// @see prefix-all.test
+@forward "prefix-val-all.test";
