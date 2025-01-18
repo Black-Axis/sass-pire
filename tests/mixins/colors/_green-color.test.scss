@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+// @description
+// * green-color mixin.
+// * This module tests a green-color mixin.
+
+// @access private
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace colors
+
+// @module colors/green-color
+
+// @dependencies:
+// * - map.get (SASS function).
+// * - True.describe (mixin function).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - LibMixin.green-color (mixin).
+
+@use "sass:map";
+@use "true" as *;
+@use "../../../src/mixins/colors/green-color" as LibMixin;
+
+// stylelint-disable value-no-vendor-prefix
+// stylelint-disable declaration-block-no-duplicate-properties
+// stylelint-disable value-keyword-case
+// stylelint-disable scss/dollar-variable-empty-line-before
+// stylelint-disable hue-degree-notation
+// stylelint-disable color-function-notation
+// stylelint-disable media-query-no-invalid
+
+$test-cases-green-color-map: (
+    ".test-case-1": (
+        test-name: ".test-case-1",
+        expected: (
+            --sp-green-50: hsl(120, 100%, 98%),
+            --sp-green-100: hsl(120, 100%, 95%),
+            --sp-green-150: hsl(120, 85%, 87%),
+            --sp-green-200: hsl(120, 75%, 75%),
+            --sp-green-250: hsl(120, 70%, 64%),
+            --sp-green-300: hsl(120, 70%, 56%),
+            --sp-green-350: hsl(120, 65%, 47%),
+            --sp-green-400: hsl(120, 65%, 39%),
+            --sp-green-450: hsl(120, 60%, 35%),
+            --sp-green-500: hsl(120, 60%, 31%),
+            --sp-green-550: hsl(120, 55%, 28%),
+            --sp-green-600: hsl(120, 55%, 24%),
+            --sp-green-650: hsl(120, 50%, 22%),
+            --sp-green-700: hsl(120, 50%, 19%),
+            --sp-green-750: hsl(120, 45%, 16%),
+            --sp-green-800: hsl(120, 45%, 14%),
+            --sp-green-850: hsl(120, 40%, 12%),
+            --sp-green-900: hsl(120, 40%, 10%),
+            --sp-green-950: hsl(120, 35%, 8%),
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-green-color-map {
+    @include describe("[Mixin] green-color") {
+        @include it("should output correct green-color mixin") {
+            @include assert {
+                @include output {
+                    #{map.get($case-data, test-name)} {
+                        @include LibMixin.green-color;
+                    }
+                }
+
+                @include expect {
+                    #{map.get($case-data, test-name)} :root {
+                        @each $property, $value in map.get($case-data, expected) {
+                            #{$property}: #{$value};
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
