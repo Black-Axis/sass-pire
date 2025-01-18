@@ -28,3 +28,9 @@
 // * generating green colors.
 // @see green-color.test
 @forward "green-color.test";
+
+// * forwarding the "yellow-color.test" module.
+// * The "yellow-color.test" module likely provides a test cases for
+// * generating yellow colors.
+// @see yellow-color.test
+@forward "yellow-color.test";
