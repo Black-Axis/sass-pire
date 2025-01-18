@@ -40,3 +40,9 @@
 // * testing all vendor prefixes.
 // @see prefix-web-o.test
 @forward "prefix-val-web-o.test";
+
+// * forwarding the "prefix-moz-o.test" module.
+// * The "prefix-moz-o.test" module likely provides a test cases for
+// * testing all vendor prefixes.
+// @see prefix-moz-o.test
+@forward "prefix-val-moz-o.test";
