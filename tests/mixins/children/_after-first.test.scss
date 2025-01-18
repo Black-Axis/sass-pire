@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+// @description
+// * after-first mixin.
+// * This is a test cases for the after-first mixin.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace children
+
+// @module children/after-first
+
+// @dependencies:
+// * - map.get (SASS function).
+// * - True.describe (mixin function).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - LibMixin.after-first (mixin).
+
+@use "sass:map";
+@use "true" as *;
+@use "../../../src/mixins/children/after-first" as LibMixin;
+
+$test-cases-after-first-map: (
+    "test-case-1": (
+        selector: ".test-after-first-1",
+        num: 1,
+        expected: (
+            nth-child: "n+2",
+        ),
+    ),
+    "test-case-2": (
+        selector: ".test-after-first-2",
+        num: 2,
+        expected: (
+            nth-child: "n+3",
+        ),
+    ),
+    "test-case-3": (
+        selector: ".test-after-first-3",
+        num: 3,
+        expected: (
+            nth-child: "n+4",
+        ),
+    ),
+    "test-case-4": (
+        selector: ".test-after-first-4",
+        num: 50,
+        expected: (
+            nth-child: "n+51",
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-after-first-map {
+    @include describe("[Mixin] after-first for #{$case-name}") {
+        @include it("should apply styles to elements after the nth-child") {
+            @include assert {
+                @include output {
+                    #{map.get($case-data, selector)} {
+                        @include LibMixin.after-first(map.get($case-data, num)) {
+                            --sp-example: done;
+                        }
+                    }
+                }
+
+                @include expect {
+                    #{map.get($case-data, selector)}:nth-child(#{map.get(map.get($case-data, expected), nth-child)}) {
+                        --sp-example: done;
+                    }
+                }
+            }
+        }
+    }
+}

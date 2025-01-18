@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+// @description
+// * This file as index for test cases of children.
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace mixins
+
+// * forwarding the "after-first.test" module.
+// * The "after-first.test" module likely provides a test cases for
+// * children module.
+// @see after-first.test
+@forward "after-first.test";

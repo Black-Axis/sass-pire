@@ -58,13 +58,13 @@
 @use "../../development-utils/toggle-error-message" as Error;
 
 @mixin after-first($num: 1) {
-    @if meta.type-of($num) != number {
+    @if meta.type-of($num) == number {
+        $num-without-unit: LibFunc.cut-unit($num);
+
+        &:nth-child(n + #{$num-without-unit + 1}) {
+            @content;
+        }
+    } @else {
         content: Error.throw("The parameter of after-first mixin must be in a number type.");
-    }
-
-    $num-without-unit: LibFunc.cut-unit($num);
-
-    &:nth-child(n + #{$num-without-unit + 1}) {
-        @content;
     }
 }
