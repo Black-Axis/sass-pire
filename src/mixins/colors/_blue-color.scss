@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+// @description
+// * blue-color mixin.
+// * This mixin generates CSS custom properties for using blue colors
+// * in your application or website.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace colors
+
+// @module colors/blue-color
+
+// @dependencies:
+// * - var.$blue-colors-map (variable).
+
+// @example
+// * @include blue-color();
+
+// @output
+// * :root {
+// *     --sp-blue-50: hsl(210, 100%, 98%);
+// *     --sp-blue-100: hsl(210, 100%, 95%);
+// *     --sp-blue-150: hsl(210, 85%, 87%);
+// *     --sp-blue-200: hsl(210, 75%, 75%);
+// *     --sp-blue-250: hsl(210, 70%, 64%);
+// *     --sp-blue-300: hsl(210, 70%, 56%);
+// *     --sp-blue-350: hsl(210, 65%, 47%);
+// *     --sp-blue-400: hsl(210, 65%, 39%);
+// *     --sp-blue-450: hsl(210, 60%, 35%);
+// *     --sp-blue-500: hsl(210, 60%, 31%);
+// *     --sp-blue-550: hsl(210, 55%, 28%);
+// *     --sp-blue-600: hsl(210, 55%, 24%);
+// *     --sp-blue-650: hsl(210, 50%, 22%);
+// *     --sp-blue-700: hsl(210, 50%, 19%);
+// *     --sp-blue-750: hsl(210, 45%, 16%);
+// *     --sp-blue-800: hsl(210, 45%, 14%);
+// *     --sp-blue-850: hsl(210, 40%, 12%);
+// *     --sp-blue-900: hsl(210, 40%, 10%);
+// *     --sp-blue-950: hsl(210, 35%, 8%);
+// * }
+
+@use "../../abstract/global-variables" as var;
+
+@mixin blue-color() {
+    :root {
+        @each $blue-color-degree, $actual-color in var.$blue-colors-map {
+            --sp-blue-#{$blue-color-degree}: #{$actual-color};
+        }
+    }
+}

@@ -22,3 +22,9 @@
 // * all red colors with different values.
 // @see red
 @forward "red-color";
+
+// * forwarding the "blue" module.
+// * The "blue" module probably contains a mixin for selecting
+// * all blue colors with different values.
+// @see blue
+@forward "blue-color";
