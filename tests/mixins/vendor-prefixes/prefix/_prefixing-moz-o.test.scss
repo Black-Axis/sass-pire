@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+// @description
+// * prefixing-moz-o mixin.
+// * This module tests a prefixing-moz-o mixin.
+
+// @access private
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace prefix
+
+// @module prefix/prefixing-moz-o
+
+// @dependencies:
+// * - map.get (SASS function).
+// * - True.describe (mixin function).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - LibMixin.prefixing-moz-o (mixin).
+
+@use "sass:map";
+@use "true" as *;
+@use "../../../../src/mixins/vendor-prefixes/prefix" as LibMixin;
+
+// stylelint-disable value-no-vendor-prefix
+// stylelint-disable declaration-block-no-duplicate-properties
+// stylelint-disable value-keyword-case
+// stylelint-disable scss/dollar-variable-empty-line-before
+
+$test-cases-prefixing-moz-o-map: (
+    ".test-case-1": (
+        selector: ".test-prefixing-moz-o-prop-1-value1-mixin",
+        prop: prop-1,
+        value: value-1,
+        expected: (
+            -moz-prop-1: value-1,
+            -o-prop-1: value-1,
+            prop-1: value-1,
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-prefixing-moz-o-map {
+    @include describe("[Mixin] prefixing-moz-o") {
+        @include it("should output correct prefixing-moz-o values") {
+            @include assert {
+                @include output {
+                    #{map.get($case-data, selector)} {
+                        @include LibMixin.prefixing-moz-o(#{map.get($case-data, prop)}, #{map.get($case-data, value)});
+                    }
+                }
+
+                @include expect {
+                    #{map.get($case-data, selector)} {
+                        @each $property, $value in map.get($case-data, expected) {
+                            #{$property}: #{$value};
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
