@@ -34,3 +34,9 @@
 // * all yellow colors with different values.
 // @see yellow
 @forward "yellow-color";
+
+// * forwarding the "green" module.
+// * The "green" module probably contains a mixin for selecting
+// * all green colors with different values.
+// @see green
+@forward "green-color";
