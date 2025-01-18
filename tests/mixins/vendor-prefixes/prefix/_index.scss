@@ -58,3 +58,9 @@
 // * testing all vendor prefixes.
 // @see prefixing-ms.test
 @forward "prefixing-ms.test";
+
+// * forwarding the "prefixing-web.test" module.
+// * The "prefixing-web.test" module likely provides a test cases for
+// * testing all vendor prefixes.
+// @see prefixing-web.test
+@forward "prefixing-web.test";
