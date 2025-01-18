@@ -34,3 +34,9 @@
 // * testing all vendor prefixes.
 // @see prefix-web-ms.test
 @forward "prefix-val-web-ms.test";
+
+// * forwarding the "prefix-web-o.test" module.
+// * The "prefix-web-o.test" module likely provides a test cases for
+// * testing all vendor prefixes.
+// @see prefix-web-o.test
+@forward "prefix-val-web-o.test";
