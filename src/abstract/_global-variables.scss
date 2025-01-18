@@ -238,6 +238,11 @@ $flex-grow-values: (
     unset,
 ) !default;
 
+$inline-grid-prefixes-values: (
+    -ms-inline-grid,
+    inline-grid
+) !default;
+
 $column-gap-props: (
     -webkit-column-gap,
     -moz-column-gap,

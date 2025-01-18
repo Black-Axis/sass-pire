@@ -8,7 +8,7 @@
 
 // @access public
 
-// @version 1.1.0
+// @version 1.1.1
 
 // @author Khaled Mohamed
 
@@ -23,7 +23,7 @@
 // @module grid/d-ingrid
 
 // @dependencies:
-// * - Nothing.
+// * - var.$inline-grid-prefixes-values (variable).
 
 // @example
 // * .example {
@@ -36,10 +36,10 @@
 // *   display: inline-grid;
 // * }
 
-@mixin d-ingrid() {
-    $inline-grid-prefixes-values: (-ms-inline-grid, inline-grid) !default;
+@use "../../abstract/global-variables" as var;
 
-    @each $value in $inline-grid-prefixes-values {
+@mixin d-ingrid() {
+    @each $value in var.$inline-grid-prefixes-values {
         display: #{$value};
     }
 }
