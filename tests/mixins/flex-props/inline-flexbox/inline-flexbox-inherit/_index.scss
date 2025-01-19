@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+// @description
+// * This file as index for test cases for justify-content with value inherit.
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace mixins
+
+// * forwarding the "inflex-inherit-baseline.test" module.
+// * The "inflex-inherit-baseline.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-inherit-baseline.test
+@forward "./inflex-inherit-baseline.test";
+
+// * forwarding the "inflex-inherit-center.test" module.
+// * The "inflex-inherit-center.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-inherit-center.test
+@forward "./inflex-inherit-center.test";
+
+// * forwarding the "inflex-inherit-end.test" module.
+// * The "inflex-inherit-end.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-inherit-end.test
+@forward "./inflex-inherit-end.test";
+
+// * forwarding the "inflex-inherit-fend.test" module.
+// * The "inflex-inherit-fend.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-inherit-fend.test
+@forward "./inflex-inherit-fend.test";
+
+// * forwarding the "inflex-inherit-fstart.test" module.
+// * The "inflex-inherit-fstart.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-inherit-fstart.test
+@forward "./inflex-inherit-fstart.test";
+
+// * forwarding the "inflex-inherit-inherit.test" module.
+// * The "inflex-inherit-inherit.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-inherit-inherit.test
+@forward "./inflex-inherit-inherit.test";
+
+// * forwarding the "inflex-inherit-normal.test" module.
+// * The "inflex-inherit-normal.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-inherit-normal.test
+@forward "./inflex-inherit-normal.test";
+
+// * forwarding the "inflex-inherit-start.test" module.
+// * The "inflex-inherit-start.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-inherit-start.test
+@forward "./inflex-inherit-start.test";
+
+// * forwarding the "inflex-inherit-stretch.test" module.
+// * The "inflex-inherit-stretch.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-inherit-stretch.test
+@forward "./inflex-inherit-stretch.test";
