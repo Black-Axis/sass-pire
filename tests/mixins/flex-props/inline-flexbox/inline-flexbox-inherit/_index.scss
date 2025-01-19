@@ -16,3 +16,9 @@
 // * display flex, justify-content, and align-items with its vendor prefixes.
 // @see inflex-inherit-baseline.test
 @forward "./inflex-inherit-baseline.test";
+
+// * forwarding the "inflex-inherit-center.test" module.
+// * The "inflex-inherit-center.test" module likely provides a test cases for
+// * display flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-inherit-center.test
+@forward "./inflex-inherit-center.test";
