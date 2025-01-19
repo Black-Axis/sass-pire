@@ -34,3 +34,9 @@
 // * display inline-flex, justify-content, and align-items with its vendor prefixes.
 // @see inflex-fend-fend.test
 @forward "./inflex-fend-fend.test";
+
+// * forwarding the "inflex-fend-fstart.test" module.
+// * The "inflex-fend-fstart.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-fend-fstart.test
+@forward "./inflex-fend-fstart.test";
