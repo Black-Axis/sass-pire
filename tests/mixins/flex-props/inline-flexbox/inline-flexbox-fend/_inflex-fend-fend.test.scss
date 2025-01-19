@@ -1,0 +1,156 @@
+@charset "UTF-8";
+
+// @description
+// * inflex-fend-fend mixin.
+// * This module tests a inflex-fend-fend mixin.
+
+// @access private
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace flexbox
+
+// @module flexbox/even
+
+// @dependencies:
+// * - map.get (SASS function).
+// * - True.describe (mixin function).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - LibMixin.inflex-fend-fend (mixin).
+
+@use "sass:map";
+@use "true" as *;
+@use "../../../../../src/mixins/flex-props/inline-flexbox/in-fend" as LibMixin;
+
+// stylelint-disable value-no-vendor-prefix
+// stylelint-disable declaration-block-no-duplicate-properties
+// stylelint-disable value-keyword-case
+// stylelint-disable scss/dollar-variable-empty-line-before
+
+$test-cases-inflex-fend-fend-map: (
+    ".test-case-1": (
+        selector: ".test-inflex-fend-fend-row-mixin",
+        direction: row,
+        expected: (-webkit-box-orient: horizontal,
+            -webkit-box-direction: normal,
+            -webkit-flex-direction: row,
+            -ms-flex-direction: row,
+            -moz-flex-direction: row,
+            -o-flex-direction: row,
+            flex-direction: row,
+            -webkit-box-pack: flex-end,
+            -webkit-justify-content: flex-end,
+            -ms-flex-pack: flex-end,
+            -moz-justify-content: flex-end,
+            justify-content: flex-end,
+            -webkit-box-align: flex-end,
+            -webkit-align-items: flex-end,
+            -ms-flex-align: flex-end,
+            -moz-align-items: flex-end,
+            align-items: flex-end,
+        ),
+    ),
+    ".test-case-2": (
+        selector: ".test-inflex-fend-fend-row-reverse-mixin",
+        direction: row-reverse,
+        expected: (-webkit-box-orient: horizontal,
+            -webkit-box-direction: reverse,
+            -webkit-flex-direction: row-reverse,
+            -ms-flex-direction: row-reverse,
+            -moz-flex-direction: row-reverse,
+            -o-flex-direction: row-reverse,
+            flex-direction: row-reverse,
+            -webkit-box-pack: flex-end,
+            -webkit-justify-content: flex-end,
+            -ms-flex-pack: flex-end,
+            -moz-justify-content: flex-end,
+            justify-content: flex-end,
+            -webkit-box-align: flex-end,
+            -webkit-align-items: flex-end,
+            -ms-flex-align: flex-end,
+            -moz-align-items: flex-end,
+            align-items: flex-end,
+        ),
+    ),
+    ".test-case-3": (
+        selector: ".test-inflex-fend-fend-column-mixin",
+        direction: column,
+        expected: (-webkit-box-orient: vertical,
+            -webkit-box-direction: normal,
+            -webkit-flex-direction: column,
+            -ms-flex-direction: column,
+            -moz-flex-direction: column,
+            -o-flex-direction: column,
+            flex-direction: column,
+            -webkit-box-pack: flex-end,
+            -webkit-justify-content: flex-end,
+            -ms-flex-pack: flex-end,
+            -moz-justify-content: flex-end,
+            justify-content: flex-end,
+            -webkit-box-align: flex-end,
+            -webkit-align-items: flex-end,
+            -ms-flex-align: flex-end,
+            -moz-align-items: flex-end,
+            align-items: flex-end,
+        ),
+    ),
+    ".test-case-4": (
+        selector: ".test-inflex-fend-fend-column-reverse-mixin",
+        direction: column-reverse,
+        expected: (-webkit-box-orient: vertical,
+            -webkit-box-direction: reverse,
+            -webkit-flex-direction: column-reverse,
+            -ms-flex-direction: column-reverse,
+            -moz-flex-direction: column-reverse,
+            -o-flex-direction: column-reverse,
+            flex-direction: column-reverse,
+            -webkit-box-pack: flex-end,
+            -webkit-justify-content: flex-end,
+            -ms-flex-pack: flex-end,
+            -moz-justify-content: flex-end,
+            justify-content: flex-end,
+            -webkit-box-align: flex-end,
+            -webkit-align-items: flex-end,
+            -ms-flex-align: flex-end,
+            -moz-align-items: flex-end,
+            align-items: flex-end,
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-inflex-fend-fend-map {
+    @include describe("[Mixin] inflex-fend-fend") {
+        @include it("should output correct inflex-fend-fend values") {
+            @include assert {
+                @include output {
+                    #{map.get($case-data, selector)} {
+                        @include LibMixin.inflex-fend-fend(#{map.get($case-data, direction)});
+                    }
+                }
+
+                @include expect {
+                    #{map.get($case-data, selector)} {
+                        display: -webkit-inline-box;
+                        display: -webkit-inline-flex;
+                        display: -ms-inline-flexbox;
+                        display: -moz-inline-box;
+                        display: inline-flex;
+
+                        @each $property, $value in map.get($case-data, expected) {
+                            #{$property}: #{$value};
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
