@@ -22,3 +22,9 @@
 // * flexbox with its vendor prefixes.
 // @see flexbox
 @forward "flexbox";
+
+// * forwarding the "inline-flexbox" module.
+// * The "inline-flexbox" module likely provides a test cases for
+// * inline-flexbox with its vendor prefixes.
+// @see inline-flexbox
+@forward "inline-flexbox";
