@@ -46,3 +46,9 @@
 // * display inline-flex, justify-content, and align-items with its vendor prefixes.
 // @see inflex-around-inherit.test
 @forward "./inflex-around-inherit.test";
+
+// * forwarding the "inflex-around-normal.test" module.
+// * The "inflex-around-normal.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-around-normal.test
+@forward "./inflex-around-normal.test";
