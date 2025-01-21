@@ -58,3 +58,9 @@
 // * display inline-flex, justify-content, and align-items with its vendor prefixes.
 // @see inflex-around-start.test
 @forward "./inflex-around-start.test";
+
+// * forwarding the "inflex-around-stretch.test" module.
+// * The "inflex-around-stretch.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-around-stretch.test
+@forward "./inflex-around-stretch.test";
