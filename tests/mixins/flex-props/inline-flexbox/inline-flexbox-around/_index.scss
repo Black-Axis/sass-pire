@@ -16,3 +16,9 @@
 // * display inline-flex, justify-content, and align-items with its vendor prefixes.
 // @see inflex-around-baseline.test
 @forward "./inflex-around-baseline.test";
+
+// * forwarding the "inflex-around-center.test" module.
+// * The "inflex-around-center.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-around-center.test
+@forward "./inflex-around-center.test";
