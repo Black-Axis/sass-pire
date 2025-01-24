@@ -22,3 +22,9 @@
 // * display inline-flex, justify-content, and align-items with its vendor prefixes.
 // @see inflex-right-center.test
 @forward "./inflex-right-center.test";
+
+// * forwarding the "inflex-right-end.test" module.
+// * The "inflex-right-end.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-right-end.test
+@forward "./inflex-right-end.test";
