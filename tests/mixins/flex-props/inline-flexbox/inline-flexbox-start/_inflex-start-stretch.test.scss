@@ -1,0 +1,160 @@
+@charset "UTF-8";
+
+// @description
+// * inflex-start-stretch mixin.
+// * This module tests a inflex-start-stretch mixin.
+
+// @access private
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace flexbox
+
+// @module flexbox/start
+
+// @dependencies:
+// * - map.get (SASS function).
+// * - True.describe (mixin function).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - LibMixin.inflex-start-stretch (mixin).
+
+@use "sass:map";
+@use "true" as *;
+@use "../../../../../src/mixins/flex-props/inline-flexbox/in-start" as LibMixin;
+
+// stylelint-disable value-no-vendor-prefix
+// stylelint-disable declaration-block-no-duplicate-properties
+// stylelint-disable value-keyword-case
+// stylelint-disable scss/dollar-variable-empty-line-before
+
+$test-cases-inflex-start-stretch-map: (
+    ".test-case-1": (
+        selector: ".test-inflex-start-stretch-row-mixin",
+        direction: row,
+        expected: (
+            -webkit-box-orient: horizontal,
+            -webkit-box-direction: normal,
+            -webkit-flex-direction: row,
+            -ms-flex-direction: row,
+            -moz-flex-direction: row,
+            -o-flex-direction: row,
+            flex-direction: row,
+            -webkit-box-pack: start,
+            -webkit-justify-content: start,
+            -ms-flex-pack: start,
+            -moz-justify-content: start,
+            justify-content: start,
+            -webkit-box-align: stretch,
+            -webkit-align-items: stretch,
+            -ms-flex-align: stretch,
+            -moz-align-items: stretch,
+            align-items: stretch,
+        ),
+    ),
+    ".test-case-2": (
+        selector: ".test-inflex-start-stretch-row-reverse-mixin",
+        direction: row-reverse,
+        expected: (
+            -webkit-box-orient: horizontal,
+            -webkit-box-direction: reverse,
+            -webkit-flex-direction: row-reverse,
+            -ms-flex-direction: row-reverse,
+            -moz-flex-direction: row-reverse,
+            -o-flex-direction: row-reverse,
+            flex-direction: row-reverse,
+            -webkit-box-pack: start,
+            -webkit-justify-content: start,
+            -ms-flex-pack: start,
+            -moz-justify-content: start,
+            justify-content: start,
+            -webkit-box-align: stretch,
+            -webkit-align-items: stretch,
+            -ms-flex-align: stretch,
+            -moz-align-items: stretch,
+            align-items: stretch,
+        ),
+    ),
+    ".test-case-3": (
+        selector: ".test-inflex-start-stretch-column-mixin",
+        direction: column,
+        expected: (
+            -webkit-box-orient: vertical,
+            -webkit-box-direction: normal,
+            -webkit-flex-direction: column,
+            -ms-flex-direction: column,
+            -moz-flex-direction: column,
+            -o-flex-direction: column,
+            flex-direction: column,
+            -webkit-box-pack: start,
+            -webkit-justify-content: start,
+            -ms-flex-pack: start,
+            -moz-justify-content: start,
+            justify-content: start,
+            -webkit-box-align: stretch,
+            -webkit-align-items: stretch,
+            -ms-flex-align: stretch,
+            -moz-align-items: stretch,
+            align-items: stretch,
+        ),
+    ),
+    ".test-case-4": (
+        selector: ".test-inflex-start-stretch-column-reverse-mixin",
+        direction: column-reverse,
+        expected: (
+            -webkit-box-orient: vertical,
+            -webkit-box-direction: reverse,
+            -webkit-flex-direction: column-reverse,
+            -ms-flex-direction: column-reverse,
+            -moz-flex-direction: column-reverse,
+            -o-flex-direction: column-reverse,
+            flex-direction: column-reverse,
+            -webkit-box-pack: start,
+            -webkit-justify-content: start,
+            -ms-flex-pack: start,
+            -moz-justify-content: start,
+            justify-content: start,
+            -webkit-box-align: stretch,
+            -webkit-align-items: stretch,
+            -ms-flex-align: stretch,
+            -moz-align-items: stretch,
+            align-items: stretch,
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-inflex-start-stretch-map {
+    @include describe("[Mixin] inflex-start-stretch") {
+        @include it("should output correct inflex-start-stretch values") {
+            @include assert {
+                @include output {
+                    #{map.get($case-data, selector)} {
+                        @include LibMixin.inflex-start-stretch(#{map.get($case-data, direction)});
+                    }
+                }
+
+                @include expect {
+                    #{map.get($case-data, selector)} {
+                        display: -webkit-inline-box;
+                        display: -webkit-inline-flex;
+                        display: -ms-inline-flexbox;
+                        display: -moz-inline-box;
+                        display: inline-flex;
+
+                        @each $property, $value in map.get($case-data, expected) {
+                            #{$property}: #{$value};
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
