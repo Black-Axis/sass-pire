@@ -16,3 +16,9 @@
 // * display inline-flex, justify-content, and align-items with its vendor prefixes.
 // @see inflex-normal-baseline.test
 @forward "./inflex-normal-baseline.test";
+
+// * forwarding the "inflex-normal-center.test" module.
+// * The "inflex-normal-center.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-normal-center.test
+@forward "./inflex-normal-center.test";
