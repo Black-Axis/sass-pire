@@ -28,3 +28,9 @@
 // * display inline-flex, justify-content, and align-items with its vendor prefixes.
 // @see inflex-left-end.test
 @forward "./inflex-left-end.test";
+
+// * forwarding the "inflex-left-fend.test" module.
+// * The "inflex-left-fend.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-left-fend.test
+@forward "./inflex-left-fend.test";
