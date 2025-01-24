@@ -46,3 +46,9 @@
 // * display inline-flex, justify-content, and align-items with its vendor prefixes.
 // @see inline-flexbox-start
 @forward "inline-flexbox-start";
+
+// * forwarding the "inline-flexbox-fstart" module.
+// * The "inline-flexbox-fstart" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inline-flexbox-fstart
+@forward "inline-flexbox-fstart";
