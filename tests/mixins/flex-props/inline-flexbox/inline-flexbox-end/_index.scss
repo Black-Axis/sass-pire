@@ -40,3 +40,9 @@
 // * display inline-flex, justify-content, and align-items with its vendor prefixes.
 // @see inflex-end-fstart.test
 @forward "./inflex-end-fstart.test";
+
+// * forwarding the "inflex-end-inherit.test" module.
+// * The "inflex-end-inherit.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-end-inherit.test
+@forward "./inflex-end-inherit.test";
