@@ -52,3 +52,9 @@
 // * display inline-flex, justify-content, and align-items with its vendor prefixes.
 // @see inflex-start-normal.test
 @forward "./inflex-start-normal.test";
+
+// * forwarding the "inflex-start-start.test" module.
+// * The "inflex-start-start.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-start-start.test
+@forward "./inflex-start-start.test";
