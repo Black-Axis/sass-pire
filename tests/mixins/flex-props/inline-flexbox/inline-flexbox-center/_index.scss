@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+// @description
+// * This file as index for test cases for justify-content with value center.
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace mixins
+
+// * forwarding the "inflex-center-baseline.test" module.
+// * The "inflex-center-baseline.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-center-baseline.test
+@forward "./inflex-center-baseline.test";
+
+// * forwarding the "inflex-center-center.test" module.
+// * The "inflex-center-center.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-center-center.test
+@forward "./inflex-center-center.test";
+
+// * forwarding the "inflex-center-end.test" module.
+// * The "inflex-center-end.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-center-end.test
+@forward "./inflex-center-end.test";
+
+// * forwarding the "inflex-center-fend.test" module.
+// * The "inflex-center-fend.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-center-fend.test
+@forward "./inflex-center-fend.test";
+
+// * forwarding the "inflex-center-fstart.test" module.
+// * The "inflex-center-fstart.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-center-fstart.test
+@forward "./inflex-center-fstart.test";
+
+// * forwarding the "inflex-center-inherit.test" module.
+// * The "inflex-center-inherit.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-center-inherit.test
+@forward "./inflex-center-inherit.test";
+
+// * forwarding the "inflex-center-normal.test" module.
+// * The "inflex-center-normal.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-center-normal.test
+@forward "./inflex-center-normal.test";
+
+// * forwarding the "inflex-center-start.test" module.
+// * The "inflex-center-start.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-center-start.test
+@forward "./inflex-center-start.test";
+
+// * forwarding the "inflex-center-stretch.test" module.
+// * The "inflex-center-stretch.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-center-stretch.test
+@forward "./inflex-center-stretch.test";

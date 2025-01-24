@@ -1,0 +1,160 @@
+@charset "UTF-8";
+
+// @description
+// * inflex-center-end mixin.
+// * This module tests a inflex-center-end mixin.
+
+// @access private
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace inline-flexbox
+
+// @module inline-flexbox/center
+
+// @dependencies:
+// * - map.get (SASS function).
+// * - True.describe (mixin function).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - LibMixin.inflex-center-end (mixin).
+
+@use "sass:map";
+@use "true" as *;
+@use "../../../../../src/mixins/flex-props/inline-flexbox/in-center" as LibMixin;
+
+// stylelint-disable value-no-vendor-prefix
+// stylelint-disable declaration-block-no-duplicate-properties
+// stylelint-disable value-keyword-case
+// stylelint-disable scss/dollar-variable-empty-line-before
+
+$test-cases-inflex-center-end-map: (
+    ".test-case-1": (
+        selector: ".test-inflex-center-end-row-mixin",
+        direction: row,
+        expected: (
+            -webkit-box-orient: horizontal,
+            -webkit-box-direction: normal,
+            -webkit-flex-direction: row,
+            -ms-flex-direction: row,
+            -moz-flex-direction: row,
+            -o-flex-direction: row,
+            flex-direction: row,
+            -webkit-box-pack: center,
+            -webkit-justify-content: center,
+            -ms-flex-pack: center,
+            -moz-justify-content: center,
+            justify-content: center,
+            -webkit-box-align: end,
+            -webkit-align-items: end,
+            -ms-flex-align: end,
+            -moz-align-items: end,
+            align-items: end,
+        ),
+    ),
+    ".test-case-2": (
+        selector: ".test-inflex-center-end-row-reverse-mixin",
+        direction: row-reverse,
+        expected: (
+            -webkit-box-orient: horizontal,
+            -webkit-box-direction: reverse,
+            -webkit-flex-direction: row-reverse,
+            -ms-flex-direction: row-reverse,
+            -moz-flex-direction: row-reverse,
+            -o-flex-direction: row-reverse,
+            flex-direction: row-reverse,
+            -webkit-box-pack: center,
+            -webkit-justify-content: center,
+            -ms-flex-pack: center,
+            -moz-justify-content: center,
+            justify-content: center,
+            -webkit-box-align: end,
+            -webkit-align-items: end,
+            -ms-flex-align: end,
+            -moz-align-items: end,
+            align-items: end,
+        ),
+    ),
+    ".test-case-3": (
+        selector: ".test-inflex-center-end-column-mixin",
+        direction: column,
+        expected: (
+            -webkit-box-orient: vertical,
+            -webkit-box-direction: normal,
+            -webkit-flex-direction: column,
+            -ms-flex-direction: column,
+            -moz-flex-direction: column,
+            -o-flex-direction: column,
+            flex-direction: column,
+            -webkit-box-pack: center,
+            -webkit-justify-content: center,
+            -ms-flex-pack: center,
+            -moz-justify-content: center,
+            justify-content: center,
+            -webkit-box-align: end,
+            -webkit-align-items: end,
+            -ms-flex-align: end,
+            -moz-align-items: end,
+            align-items: end,
+        ),
+    ),
+    ".test-case-4": (
+        selector: ".test-inflex-center-end-column-reverse-mixin",
+        direction: column-reverse,
+        expected: (
+            -webkit-box-orient: vertical,
+            -webkit-box-direction: reverse,
+            -webkit-flex-direction: column-reverse,
+            -ms-flex-direction: column-reverse,
+            -moz-flex-direction: column-reverse,
+            -o-flex-direction: column-reverse,
+            flex-direction: column-reverse,
+            -webkit-box-pack: center,
+            -webkit-justify-content: center,
+            -ms-flex-pack: center,
+            -moz-justify-content: center,
+            justify-content: center,
+            -webkit-box-align: end,
+            -webkit-align-items: end,
+            -ms-flex-align: end,
+            -moz-align-items: end,
+            align-items: end,
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-inflex-center-end-map {
+    @include describe("[Mixin] inflex-center-end") {
+        @include it("should output correct inflex-center-end values") {
+            @include assert {
+                @include output {
+                    #{map.get($case-data, selector)} {
+                        @include LibMixin.inflex-center-end(#{map.get($case-data, direction)});
+                    }
+                }
+
+                @include expect {
+                    #{map.get($case-data, selector)} {
+                        display: -webkit-inline-box;
+                        display: -webkit-inline-flex;
+                        display: -ms-inline-flexbox;
+                        display: -moz-inline-box;
+                        display: inline-flex;
+
+                        @each $property, $value in map.get($case-data, expected) {
+                            #{$property}: #{$value};
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
