@@ -46,3 +46,9 @@
 // * display inline-flex, justify-content, and align-items with its vendor prefixes.
 // @see inflex-fstart-inherit.test
 @forward "./inflex-fstart-inherit.test";
+
+// * forwarding the "inflex-fstart-normal.test" module.
+// * The "inflex-fstart-normal.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-fstart-normal.test
+@forward "./inflex-fstart-normal.test";
