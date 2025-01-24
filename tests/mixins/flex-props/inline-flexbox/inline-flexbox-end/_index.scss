@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+// @description
+// * This file as index for test cases for justify-content with value end.
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace mixins
+
+// * forwarding the "inflex-end-baseline.test" module.
+// * The "inflex-end-baseline.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-end-baseline.test
+@forward "./inflex-end-baseline.test";
+
+// * forwarding the "inflex-end-center.test" module.
+// * The "inflex-end-center.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-end-center.test
+@forward "./inflex-end-center.test";
+
+// * forwarding the "inflex-end-end.test" module.
+// * The "inflex-end-end.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-end-end.test
+@forward "./inflex-end-end.test";
+
+// * forwarding the "inflex-end-fend.test" module.
+// * The "inflex-end-fend.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-end-fend.test
+@forward "./inflex-end-fend.test";
+
+// * forwarding the "inflex-end-fstart.test" module.
+// * The "inflex-end-fstart.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-end-fstart.test
+@forward "./inflex-end-fstart.test";
+
+// * forwarding the "inflex-end-inherit.test" module.
+// * The "inflex-end-inherit.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-end-inherit.test
+@forward "./inflex-end-inherit.test";
+
+// * forwarding the "inflex-end-normal.test" module.
+// * The "inflex-end-normal.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-end-normal.test
+@forward "./inflex-end-normal.test";
+
+// * forwarding the "inflex-end-start.test" module.
+// * The "inflex-end-start.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-end-start.test
+@forward "./inflex-end-start.test";
+
+// * forwarding the "inflex-end-stretch.test" module.
+// * The "inflex-end-stretch.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-end-stretch.test
+@forward "./inflex-end-stretch.test";
