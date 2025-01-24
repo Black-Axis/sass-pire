@@ -46,3 +46,9 @@
 // * display inline-flex, justify-content, and align-items with its vendor prefixes.
 // @see inflex-stretch-inherit.test
 @forward "./inflex-stretch-inherit.test";
+
+// * forwarding the "inflex-stretch-normal.test" module.
+// * The "inflex-stretch-normal.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-stretch-normal.test
+@forward "./inflex-stretch-normal.test";
