@@ -58,3 +58,9 @@
 // * display inline-flex, justify-content, and align-items with its vendor prefixes.
 // @see inline-flexbox-left
 @forward "inline-flexbox-left";
+
+// * forwarding the "inline-flexbox-right" module.
+// * The "inline-flexbox-right" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inline-flexbox-right
+@forward "inline-flexbox-right";
