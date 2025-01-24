@@ -40,3 +40,9 @@
 // * display inline-flex, justify-content, and align-items with its vendor prefixes.
 // @see inflex-between-fstart.test
 @forward "./inflex-between-fstart.test";
+
+// * forwarding the "inflex-between-inherit.test" module.
+// * The "inflex-between-inherit.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-between-inherit.test
+@forward "./inflex-between-inherit.test";
