@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+// @description
+// * This file as index for test cases for justify-content with value space-between.
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace mixins
+
+// * forwarding the "inflex-between-baseline.test" module.
+// * The "inflex-between-baseline.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-between-baseline.test
+@forward "./inflex-between-baseline.test";
+
+// * forwarding the "inflex-between-center.test" module.
+// * The "inflex-between-center.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-between-center.test
+@forward "./inflex-between-center.test";
+
+// * forwarding the "inflex-between-end.test" module.
+// * The "inflex-between-end.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-between-end.test
+@forward "./inflex-between-end.test";
+
+// * forwarding the "inflex-between-fend.test" module.
+// * The "inflex-between-fend.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-between-fend.test
+@forward "./inflex-between-fend.test";
+
+// * forwarding the "inflex-between-fstart.test" module.
+// * The "inflex-between-fstart.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-between-fstart.test
+@forward "./inflex-between-fstart.test";
+
+// * forwarding the "inflex-between-inherit.test" module.
+// * The "inflex-between-inherit.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-between-inherit.test
+@forward "./inflex-between-inherit.test";
+
+// * forwarding the "inflex-between-normal.test" module.
+// * The "inflex-between-normal.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-between-normal.test
+@forward "./inflex-between-normal.test";
+
+// * forwarding the "inflex-between-start.test" module.
+// * The "inflex-between-start.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-between-start.test
+@forward "./inflex-between-start.test";
+
+// * forwarding the "inflex-between-stretch.test" module.
+// * The "inflex-between-stretch.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-between-stretch.test
+@forward "./inflex-between-stretch.test";
