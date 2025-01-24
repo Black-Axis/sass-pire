@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+// @description
+// * This file as index for test cases for justify-content with value stretch.
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace mixins
+
+// * forwarding the "inflex-stretch-baseline.test" module.
+// * The "inflex-stretch-baseline.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-stretch-baseline.test
+@forward "./inflex-stretch-baseline.test";
+
+// * forwarding the "inflex-stretch-center.test" module.
+// * The "inflex-stretch-center.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-stretch-center.test
+@forward "./inflex-stretch-center.test";
+
+// * forwarding the "inflex-stretch-end.test" module.
+// * The "inflex-stretch-end.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-stretch-end.test
+@forward "./inflex-stretch-end.test";
+
+// * forwarding the "inflex-stretch-fend.test" module.
+// * The "inflex-stretch-fend.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-stretch-fend.test
+@forward "./inflex-stretch-fend.test";
+
+// * forwarding the "inflex-stretch-fstart.test" module.
+// * The "inflex-stretch-fstart.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-stretch-fstart.test
+@forward "./inflex-stretch-fstart.test";
+
+// * forwarding the "inflex-stretch-inherit.test" module.
+// * The "inflex-stretch-inherit.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-stretch-inherit.test
+@forward "./inflex-stretch-inherit.test";
+
+// * forwarding the "inflex-stretch-normal.test" module.
+// * The "inflex-stretch-normal.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-stretch-normal.test
+@forward "./inflex-stretch-normal.test";
+
+// * forwarding the "inflex-stretch-start.test" module.
+// * The "inflex-stretch-start.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-stretch-start.test
+@forward "./inflex-stretch-start.test";
+
+// * forwarding the "inflex-stretch-stretch.test" module.
+// * The "inflex-stretch-stretch.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-stretch-stretch.test
+@forward "./inflex-stretch-stretch.test";
