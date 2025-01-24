@@ -46,3 +46,9 @@
 // * display inline-flex, justify-content, and align-items with its vendor prefixes.
 // @see inflex-even-inherit.test
 @forward "./inflex-even-inherit.test";
+
+// * forwarding the "inflex-even-normal.test" module.
+// * The "inflex-even-normal.test" module likely provides a test cases for
+// * display inline-flex, justify-content, and align-items with its vendor prefixes.
+// @see inflex-even-normal.test
+@forward "./inflex-even-normal.test";
