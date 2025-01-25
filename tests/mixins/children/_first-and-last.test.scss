@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+// @description
+// * first-last mixin.
+// * This is a test cases for the first-last mixin.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace children
+
+// @module children/first-last
+
+// @dependencies:
+// * - map.get (SASS function).
+// * - True.describe (mixin function).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - LibMixin.first-last (mixin).
+
+@use "sass:map";
+@use "true" as *;
+@use "../../../src/mixins/children/first-and-last" as LibMixin;
+
+$test-cases-first-last-map: (
+    "test-case-1": (
+        selector: ".test-first-last-1",
+    ),
+    "test-case-2": (
+        selector: ".test-first-last-2",
+    ),
+    "test-case-3": (
+        selector: ".test-first-last-3",
+    ),
+    "test-case-4": (
+        selector: ".test-first-last-4",
+    ),
+    "test-case-5": (
+        selector: ".test-first-last-5",
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-first-last-map {
+    @include describe("[Mixin] first-last for #{$case-name}") {
+        @include it("should apply styles to elements after the nth-child") {
+            @include assert {
+                @include output {
+                    #{map.get($case-data, selector)} {
+                        @include LibMixin.first-last {
+                            --sp-example-first-last: done;
+                        }
+                    }
+                }
+
+                @include expect {
+                    #{map.get($case-data, selector)}:first-child,
+                    #{map.get($case-data, selector)}:last-child {
+                        --sp-example-first-last: done;
+                    }
+                }
+            }
+        }
+    }
+}
