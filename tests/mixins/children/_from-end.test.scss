@@ -1,0 +1,92 @@
+@charset "UTF-8";
+
+// @description
+// * from-end mixin.
+// * This is a test cases for the from-end mixin.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace children
+
+// @module children/from-end
+
+// @dependencies:
+// * - map.get (SASS function).
+// * - True.describe (mixin function).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - LibMixin.from-end (mixin).
+
+@use "sass:map";
+@use "true" as *;
+@use "../../../src/mixins/children/from-end" as LibMixin;
+
+$test-cases-from-end-map: (
+    "test-case-1": (
+        selector: ".test-from-end-1",
+        num: 42%,
+        expected: (
+            nth-child: "42",
+        ),
+    ),
+    "test-case-2": (
+        selector: ".test-from-end-2",
+        num: 68,
+        expected: (
+            nth-child: "68",
+        ),
+    ),
+    "test-case-3": (
+        selector: ".test-from-end-3",
+        num: 13rem,
+        expected: (
+            nth-child: "13",
+        ),
+    ),
+    "test-case-4": (
+        selector: ".test-from-end-4",
+        num: 5,
+        expected: (
+            nth-child: "5",
+        ),
+    ),
+    "test-case-5": (
+        selector: ".test-from-end-5",
+        num: 2px,
+        expected: (
+            nth-child: "2",
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-from-end-map {
+    @include describe("[Mixin] from-end for #{$case-name}") {
+        @include it("should apply styles to elements after the nth-child") {
+            @include assert {
+                @include output {
+                    #{map.get($case-data, selector)} {
+                        @include LibMixin.from-end(map.get($case-data, num)) {
+                            --sp-example-from-end: done;
+                        }
+                    }
+                }
+
+                @include expect {
+                    #{map.get($case-data, selector)}:nth-last-child(#{map.get(map.get($case-data, expected), nth-child)}) {
+                        --sp-example-from-end: done;
+                    }
+                }
+            }
+        }
+    }
+}
