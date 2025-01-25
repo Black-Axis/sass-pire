@@ -28,3 +28,9 @@
 // * children module.
 // @see odd.test
 @forward "odd.test";
+
+// * forwarding the "every.test" module.
+// * The "every.test" module likely provides a test cases for
+// * children module.
+// @see every.test
+@forward "every.test";

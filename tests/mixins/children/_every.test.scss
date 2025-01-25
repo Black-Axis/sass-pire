@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+// @description
+// * every mixin.
+// * This is a test cases for the every mixin.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace children
+
+// @module children/every
+
+// @dependencies:
+// * - map.get (SASS function).
+// * - True.describe (mixin function).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - LibMixin.every (mixin).
+
+@use "sass:map";
+@use "true" as *;
+@use "../../../src/mixins/children/every" as LibMixin;
+
+$test-cases-every-map: (
+    "test-case-1": (
+        selector: ".test-every-1",
+        num: 4,
+        expected: (
+            nth-child: "4n",
+        ),
+    ),
+    "test-case-2": (
+        selector: ".test-every-2",
+        num: 2,
+        expected: (
+            nth-child: "2n",
+        ),
+    ),
+    "test-case-3": (
+        selector: ".test-every-3",
+        num: 10,
+        expected: (
+            nth-child: "10n",
+        ),
+    ),
+    "test-case-4": (
+        selector: ".test-every-4",
+        num: -50,
+        expected: (
+            nth-child: "-50n",
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-every-map {
+    @include describe("[Mixin] every for #{$case-name}") {
+        @include it("should apply styles to elements after the nth-child") {
+            @include assert {
+                @include output {
+                    #{map.get($case-data, selector)} {
+                        @include LibMixin.every(map.get($case-data, num)) {
+                            --sp-example-every: done;
+                        }
+                    }
+                }
+
+                @include expect {
+                    #{map.get($case-data, selector)}:nth-child(#{map.get(map.get($case-data, expected), nth-child)}) {
+                        --sp-example-every: done;
+                    }
+                }
+            }
+        }
+    }
+}
