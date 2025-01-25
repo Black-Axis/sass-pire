@@ -46,3 +46,9 @@
 // * children module.
 // @see first.test
 @forward "first.test";
+
+// * forwarding the "first-and-last.test" module.
+// * The "first-and-last.test" module likely provides a test cases for
+// * children module.
+// @see first-and-last.test
+@forward "first-and-last.test";
