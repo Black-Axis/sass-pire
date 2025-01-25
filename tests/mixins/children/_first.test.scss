@@ -1,0 +1,98 @@
+@charset "UTF-8";
+
+// @description
+// * first mixin.
+// * This is a test cases for the first mixin.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace children
+
+// @module children/first
+
+// @dependencies:
+// * - map.get (SASS function).
+// * - True.describe (mixin function).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - LibMixin.first (mixin).
+
+@use "sass:map";
+@use "true" as *;
+@use "../../../src/mixins/children/first" as LibMixin;
+
+$test-cases-first-map: (
+    "test-case-1": (
+        selector: ".test-first-1",
+        num: 1,
+        expected: (
+            nth-child: "1",
+        ),
+    ),
+    "test-case-2": (
+        selector: ".test-first-2",
+        num: 2,
+        expected: (
+            nth-child: "-n+2",
+        ),
+    ),
+    "test-case-3": (
+        selector: ".test-first-3",
+        num: 10,
+        expected: (
+            nth-child: "-n+10",
+        ),
+    ),
+    "test-case-4": (
+        selector: ".test-first-4",
+        num: 50,
+        expected: (
+            nth-child: "-n+50",
+        ),
+    ),
+    "test-case-5": (
+        selector: ".test-first-5",
+        num: 200,
+        expected: (
+            nth-child: "-n+200",
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-first-map {
+    @include describe("[Mixin] first for #{$case-name}") {
+        @include it("should apply styles to nth-first-child elements") {
+            @include assert {
+                @include output {
+                    #{map.get($case-data, selector)} {
+                        @include LibMixin.first(map.get($case-data, num)) {
+                            --sp-example-first: done;
+                        }
+                    }
+                }
+
+                @include expect {
+                    @if map.get($case-data, num) == 1 {
+                        #{map.get($case-data, selector)}:first-child {
+                            --sp-example-first: done;
+                        }
+                    } @else {
+                        #{map.get($case-data, selector)}:nth-child(#{map.get(map.get($case-data, expected), nth-child)}) {
+                            --sp-example-first: done;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

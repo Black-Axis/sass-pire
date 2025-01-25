@@ -40,3 +40,9 @@
 // * children module.
 // @see last.test
 @forward "last.test";
+
+// * forwarding the "first.test" module.
+// * The "first.test" module likely provides a test cases for
+// * children module.
+// @see first.test
+@forward "first.test";
