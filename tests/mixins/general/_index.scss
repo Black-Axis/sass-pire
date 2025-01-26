@@ -16,3 +16,9 @@
 // * general module.
 // @see center-x.test
 @forward "center-x.test";
+
+// * forwarding the "circle.test" module.
+// * The "circle.test" module likely provides a test cases for
+// * general module.
+// @see circle.test
+@forward "circle.test";
