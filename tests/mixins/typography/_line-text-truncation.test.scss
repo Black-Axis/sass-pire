@@ -1,0 +1,157 @@
+@charset "UTF-8";
+
+// @description
+// * line-text-trunc mixin.
+// * This module tests an line-text-trunc mixin.
+
+// @access private
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace typography
+
+// @module typography/line-text-trunc
+
+// @dependencies:
+// * - map.get (SASS function).
+// * - True.describe (mixin function).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - LibMixin.line-text-trunc (mixin).
+
+@use "sass:map";
+@use "true" as *;
+@use "../../../src/mixins/typography/line-text-truncation" as LibMixin;
+
+$test-cases-line-text-trunc-map: (
+    "test-case-minus-1": (
+        selector: ".test-line-text-trunc-minus-1",
+        value: -1,
+        expected: (
+            -o-text-overflow: ellipsis,
+            text-overflow: ellipsis,
+            overflow: hidden,
+            display: -webkit-box,
+            -webkit-box-orient: vertical,
+            content: '"ERROR: The value of line-text-trunc argument must be bigger than or equal to one."',
+        ),
+    ),
+    "test-case-1": (
+        selector: ".test-line-text-trunc-1",
+        value: 1,
+        expected: (
+            -o-text-overflow: ellipsis,
+            text-overflow: ellipsis,
+            overflow: hidden,
+            display: -webkit-box,
+            -webkit-box-orient: vertical,
+            white-space: nowrap,
+        ),
+    ),
+    "test-case-2": (
+        selector: ".test-line-text-trunc-2",
+        value: 2,
+        expected: (
+            -o-text-overflow: ellipsis,
+            text-overflow: ellipsis,
+            overflow: hidden,
+            display: -webkit-box,
+            -webkit-box-orient: vertical,
+            -webkit-line-clamp: 2,
+            line-clamp: 2,
+        ),
+    ),
+    "test-case-string": (
+        selector: ".test-line-text-trunc-string",
+        value: "This is a string",
+        expected: (
+            content: '"ERROR: The value of line-text-trunc mixin must be in a number type."',
+        ),
+    ),
+    "test-case-zero": (
+        selector: ".test-line-text-trunc-zero",
+        value: 0,
+        expected: (
+            -o-text-overflow: ellipsis,
+            text-overflow: ellipsis,
+            overflow: hidden,
+            display: -webkit-box,
+            -webkit-box-orient: vertical,
+            content: '"ERROR: The value of line-text-trunc argument must be bigger than or equal to one."',
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-line-text-trunc-map {
+    @include describe("[Mixin] line-text-trunc for #{$case-name}") {
+        @include it("should output correct line-text-trunc properties") {
+            @include assert {
+                @include output {
+                    #{map.get($case-data, selector)} {
+                        $value: 0;
+
+                        @if map.get($case-data, value) == 0 {
+                            $value: 0;
+                        } @else if map.get($case-data, value) == 1 {
+                            $value: 1;
+                        } @else if map.get($case-data, value) == 2 {
+                            $value: 2;
+                        } @else if map.get($case-data, value) == 3 {
+                            $value: 3;
+                        } @else if map.get($case-data, value) == 4 {
+                            $value: 4;
+                        } @else if map.get($case-data, value) == 5 {
+                            $value: 5;
+                        } @else if map.get($case-data, value) == 6 {
+                            $value: 6;
+                        } @else if map.get($case-data, value) == 7 {
+                            $value: 7;
+                        } @else if map.get($case-data, value) == 8 {
+                            $value: 8;
+                        } @else if map.get($case-data, value) == 9 {
+                            $value: 9;
+                        } @else if map.get($case-data, value) == -1 {
+                            $value: -1;
+                        } @else if map.get($case-data, value) == -2 {
+                            $value: -2;
+                        } @else if map.get($case-data, value) == -3 {
+                            $value: -3;
+                        } @else if map.get($case-data, value) == -4 {
+                            $value: -4;
+                        } @else if map.get($case-data, value) == -5 {
+                            $value: -5;
+                        } @else if map.get($case-data, value) == -6 {
+                            $value: -6;
+                        } @else if map.get($case-data, value) == -7 {
+                            $value: -7;
+                        } @else if map.get($case-data, value) == -8 {
+                            $value: -8;
+                        } @else if map.get($case-data, value) == -9 {
+                            $value: -9;
+                        } @else {
+                            $value: map.get($case-data, value);
+                        }
+
+                        @include LibMixin.line-text-trunc($value);
+                    }
+                }
+
+                @include expect {
+                    #{map.get($case-data, selector)} {
+                        @each $property, $value in map.get($case-data, expected) {
+                            #{$property}: #{$value};
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
