@@ -1,0 +1,142 @@
+@charset "UTF-8";
+
+// @description
+// * circle mixin.
+// * This module tests an circle mixin.
+
+// @access private
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace typography
+
+// @module typography/circle
+
+// @dependencies:
+// * - map.get (SASS function).
+// * - True.describe (mixin function).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - LibMixin.circle (mixin).
+
+@use "sass:map";
+@use "true" as *;
+@use "../../../src/mixins/general/circle" as LibMixin;
+
+$test-cases-circle-map: (
+    "test-case-50px": (
+        selector: ".test-circle-50px",
+        value: 50px,
+        expected: (
+            width: 50px,
+            height: 50px,
+            border-radius: 50%,
+        ),
+    ),
+    "test-case-3rem": (
+        selector: ".test-circle-3rem",
+        value: 3rem,
+        expected: (
+            width: 3rem,
+            height: 3rem,
+            border-radius: 50%,
+        ),
+    ),
+    "test-case-60dvh": (
+        selector: ".test-circle-60dvh",
+        value: 60dvh,
+        expected: (
+            width: 60dvh,
+            height: 60dvh,
+            border-radius: 50%,
+        ),
+    ),
+    "test-case-string": (
+        selector: ".test-circle-string",
+        value: string,
+        expected: (
+            content: '"ERROR: The parameter of circle mixin must be in a number type."',
+        ),
+    ),
+    "test-case-bool": (
+        selector: ".test-circle-bool",
+        value: bool,
+        expected: (
+            content: '"ERROR: The parameter of circle mixin must be in a number type."',
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-circle-map {
+    @include describe("[Mixin] circle for #{$case-name}") {
+        @include it("should output correct circle") {
+            @include assert {
+                @include output {
+                    #{map.get($case-data, selector)} {
+                        $value: 0;
+
+                        @if map.get($case-data, value) == 0 {
+                            $value: 0;
+                        } @else if map.get($case-data, value) == 1 {
+                            $value: 1;
+                        } @else if map.get($case-data, value) == 2 {
+                            $value: 2;
+                        } @else if map.get($case-data, value) == 3 {
+                            $value: 3;
+                        } @else if map.get($case-data, value) == 4 {
+                            $value: 4;
+                        } @else if map.get($case-data, value) == 5 {
+                            $value: 5;
+                        } @else if map.get($case-data, value) == 6 {
+                            $value: 6;
+                        } @else if map.get($case-data, value) == 7 {
+                            $value: 7;
+                        } @else if map.get($case-data, value) == 8 {
+                            $value: 8;
+                        } @else if map.get($case-data, value) == 9 {
+                            $value: 9;
+                        } @else if map.get($case-data, value) == -1 {
+                            $value: -1;
+                        } @else if map.get($case-data, value) == -2 {
+                            $value: -2;
+                        } @else if map.get($case-data, value) == -3 {
+                            $value: -3;
+                        } @else if map.get($case-data, value) == -4 {
+                            $value: -4;
+                        } @else if map.get($case-data, value) == -5 {
+                            $value: -5;
+                        } @else if map.get($case-data, value) == -6 {
+                            $value: -6;
+                        } @else if map.get($case-data, value) == -7 {
+                            $value: -7;
+                        } @else if map.get($case-data, value) == -8 {
+                            $value: -8;
+                        } @else if map.get($case-data, value) == -9 {
+                            $value: -9;
+                        } @else {
+                            $value: map.get($case-data, value);
+                        }
+
+                        @include LibMixin.circle($value);
+                    }
+                }
+
+                @include expect {
+                    #{map.get($case-data, selector)} {
+                        @each $property, $value in map.get($case-data, expected) {
+                            #{$property}: #{$value};
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
