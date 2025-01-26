@@ -64,3 +64,9 @@
 // * children module.
 // @see odd-between.test
 @forward "odd-between.test";
+
+// * forwarding the "even-between.test" module.
+// * The "even-between.test" module likely provides a test cases for
+// * children module.
+// @see even-between.test
+@forward "even-between.test";
