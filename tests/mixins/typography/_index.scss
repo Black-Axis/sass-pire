@@ -22,3 +22,9 @@
 // * text-overflow with its vendor prefix.
 // @see text-overflow.test
 @forward "text-overflow.test";
+
+// * forwarding the "line-text-truncation.test" module.
+// * The "line-text-truncation.test" module likely provides a test cases for
+// * line-text-truncation with its vendor prefix.
+// @see line-text-truncation.test
+@forward "line-text-truncation.test";
