@@ -1,0 +1,140 @@
+@charset "UTF-8";
+
+// @description
+// * square mixin.
+// * This module tests an square mixin.
+
+// @access private
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace typography
+
+// @module typography/square
+
+// @dependencies:
+// * - map.get (SASS function).
+// * - True.describe (mixin function).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - LibMixin.square (mixin).
+
+@use "sass:map";
+@use "true" as *;
+@use "../../../src/mixins/general/square" as LibMixin;
+
+$test-cases-square-map: (
+    "test-case-50px": (
+        selector: ".test-square-50px",
+        value: 50px,
+        expected: (
+            --sp-one-side: 50px,
+            width: var(--sp-one-side),
+            height: var(--sp-one-side),
+        ),
+    ),
+    "test-case-3rem": (
+        selector: ".test-square-3rem",
+        value: 3rem,
+        expected: (
+            --sp-one-side: 3rem,
+            width: var(--sp-one-side),
+            height: var(--sp-one-side),
+        ),
+    ),
+    "test-case-5": (
+        selector: ".test-square-5",
+        value: 5,
+        expected: (
+            content: '"ERROR: The parameter of square mixin has a unit of a number type."',
+        ),
+    ),
+    "test-case-string": (
+        selector: ".test-square-string",
+        value: string,
+        expected: (
+            content: '"ERROR: The parameter of square mixin must be in a number type."',
+        ),
+    ),
+    "test-case-3unit": (
+        selector: ".test-square-3unit",
+        value: 3unit,
+        expected: (
+            content: '"ERROR: The parameter of square mixin must be one of: (cm, mm, in, px, pt, pc, %, em, ex, ch, rem, vw, vh, vmin, vmax, dpi, dpcm, dppx, vw, svw, lvw, dvw, vh, lvh, dvh, vi, svi, lvi, vmin, svmin, lvmin, dvmin, vmax, svmax, lvmax, dvmax, vb, lvb, dvb, hz, khz, fr, ratio, cqw, cqh, cqi, cqb, cqmin, cqmax)."',
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-square-map {
+    @include describe("[Mixin] square for #{$case-name}") {
+        @include it("should output correct square") {
+            @include assert {
+                @include output {
+                    #{map.get($case-data, selector)} {
+                        $value: 0;
+
+                        @if map.get($case-data, value) == 0 {
+                            $value: 0;
+                        } @else if map.get($case-data, value) == 1 {
+                            $value: 1;
+                        } @else if map.get($case-data, value) == 2 {
+                            $value: 2;
+                        } @else if map.get($case-data, value) == 3 {
+                            $value: 3;
+                        } @else if map.get($case-data, value) == 4 {
+                            $value: 4;
+                        } @else if map.get($case-data, value) == 5 {
+                            $value: 5;
+                        } @else if map.get($case-data, value) == 6 {
+                            $value: 6;
+                        } @else if map.get($case-data, value) == 7 {
+                            $value: 7;
+                        } @else if map.get($case-data, value) == 8 {
+                            $value: 8;
+                        } @else if map.get($case-data, value) == 9 {
+                            $value: 9;
+                        } @else if map.get($case-data, value) == -1 {
+                            $value: -1;
+                        } @else if map.get($case-data, value) == -2 {
+                            $value: -2;
+                        } @else if map.get($case-data, value) == -3 {
+                            $value: -3;
+                        } @else if map.get($case-data, value) == -4 {
+                            $value: -4;
+                        } @else if map.get($case-data, value) == -5 {
+                            $value: -5;
+                        } @else if map.get($case-data, value) == -6 {
+                            $value: -6;
+                        } @else if map.get($case-data, value) == -7 {
+                            $value: -7;
+                        } @else if map.get($case-data, value) == -8 {
+                            $value: -8;
+                        } @else if map.get($case-data, value) == -9 {
+                            $value: -9;
+                        } @else {
+                            $value: map.get($case-data, value);
+                        }
+
+                        @include LibMixin.sq($value);
+                    }
+                }
+
+                @include expect {
+                    #{map.get($case-data, selector)} {
+                        @each $property, $value in map.get($case-data, expected) {
+                            #{$property}: #{$value};
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
