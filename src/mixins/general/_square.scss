@@ -6,7 +6,7 @@
 
 // @access public
 
-// @version 1.4.1
+// @version 1.5.1
 
 // @author Khaled Mohamed
 
@@ -36,8 +36,9 @@
 
 // @output
 // * .example {
-// *   width: 50px;
-// *   height: 50px;
+// *   --sp-one-side: 50px;
+// *   width: var(--sp-one-side);
+// *   height: var(--sp-one-side);
 // * }
 
 // @note
@@ -60,9 +61,7 @@
             @if LibFunc.is-in-list(var.$all-units, math.unit($one-side)) {
                 --sp-one-side: #{$one-side};
 
-                inline-size: var(--sp-one-side);
                 width: var(--sp-one-side);
-                block-size: var(--sp-one-side);
                 height: var(--sp-one-side);
             } @else {
                 content: Error.throw("The parameter of square mixin must be one of: (#{var.$all-units}).");
