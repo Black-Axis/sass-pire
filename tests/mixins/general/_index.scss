@@ -28,3 +28,9 @@
 // * general module.
 // @see square.test
 @forward "square.test";
+
+// * forwarding the "object-fit.test" module.
+// * The "object-fit.test" module likely provides a test cases for
+// * general module.
+// @see object-fit.test
+@forward "object-fit.test";
