@@ -1,0 +1,162 @@
+@charset "UTF-8";
+
+// @description
+// * object-fit mixin.
+// * This module tests an object-fit mixin.
+
+// @access private
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace general
+
+// @module general/object-fit
+
+// @dependencies:
+// * - map.get (SASS function).
+// * - True.describe (mixin function).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - LibMixin.object-fit (mixin).
+
+@use "sass:map";
+@use "true" as *;
+@use "../../../src/mixins/general/object-fit" as LibMixin;
+
+$test-cases-object-fit-map: (
+    "test-case-1": (
+        selector: ".test-object-fit-fill",
+        value: fill,
+        expected: (
+            -o-object-fit: fill,
+            object-fit: fill,
+        ),
+    ),
+    "test-case-2": (
+        selector: ".test-object-fit-contain",
+        value: contain,
+        expected: (
+            -o-object-fit: contain,
+            object-fit: contain,
+        ),
+    ),
+    "test-case-3": (
+        selector: ".test-object-fit-cover",
+        value: cover,
+        expected: (
+            -o-object-fit: cover,
+            object-fit: cover,
+        ),
+    ),
+    "test-case-4": (
+        selector: ".test-object-fit-none",
+        value: none,
+        expected: (
+            -o-object-fit: none,
+            object-fit: none,
+        ),
+    ),
+    "test-case-5": (
+        selector: ".test-object-fit-scale-down",
+        value: scale-down,
+        expected: (
+            -o-object-fit: scale-down,
+            object-fit: scale-down,
+        ),
+    ),
+    "test-case-6": (
+        selector: ".test-object-fit-text",
+        value: text,
+        expected: (
+            content: '"ERROR: The parameter of object-fit mixin must be one of: (fill, contain, cover, none, scale-down)."',
+        ),
+    ),
+    "test-case-7": (
+        selector: ".test-object-fit-3rem",
+        value: 3rem,
+        expected: (
+            content: '"ERROR: The parameter of circle mixin must be in a string type."',
+        ),
+    ),
+    "test-case-8": (
+        selector: ".test-object-fit-3ch",
+        value: 3ch,
+        expected: (
+            content: '"ERROR: The parameter of circle mixin must be in a string type."',
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-object-fit-map {
+    @include describe("[Mixin] object-fit for #{$case-name}") {
+        @include it("should output correct object-fit") {
+            @include assert {
+                @include output {
+                    #{map.get($case-data, selector)} {
+                        $value: 0;
+
+                        @if map.get($case-data, value) == 0 {
+                            $value: 0;
+                        } @else if map.get($case-data, value) == 1 {
+                            $value: 1;
+                        } @else if map.get($case-data, value) == 2 {
+                            $value: 2;
+                        } @else if map.get($case-data, value) == 3 {
+                            $value: 3;
+                        } @else if map.get($case-data, value) == 4 {
+                            $value: 4;
+                        } @else if map.get($case-data, value) == 5 {
+                            $value: 5;
+                        } @else if map.get($case-data, value) == 6 {
+                            $value: 6;
+                        } @else if map.get($case-data, value) == 7 {
+                            $value: 7;
+                        } @else if map.get($case-data, value) == 8 {
+                            $value: 8;
+                        } @else if map.get($case-data, value) == 9 {
+                            $value: 9;
+                        } @else if map.get($case-data, value) == -1 {
+                            $value: -1;
+                        } @else if map.get($case-data, value) == -2 {
+                            $value: -2;
+                        } @else if map.get($case-data, value) == -3 {
+                            $value: -3;
+                        } @else if map.get($case-data, value) == -4 {
+                            $value: -4;
+                        } @else if map.get($case-data, value) == -5 {
+                            $value: -5;
+                        } @else if map.get($case-data, value) == -6 {
+                            $value: -6;
+                        } @else if map.get($case-data, value) == -7 {
+                            $value: -7;
+                        } @else if map.get($case-data, value) == -8 {
+                            $value: -8;
+                        } @else if map.get($case-data, value) == -9 {
+                            $value: -9;
+                        } @else {
+                            $value: map.get($case-data, value);
+                        }
+
+                        @include LibMixin.object-fit($value);
+                    }
+                }
+
+                @include expect {
+                    #{map.get($case-data, selector)} {
+                        @each $property, $value in map.get($case-data, expected) {
+                            #{$property}: #{$value};
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
