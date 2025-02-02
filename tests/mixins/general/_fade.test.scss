@@ -1,0 +1,103 @@
+@charset "UTF-8";
+
+// @description
+// * fade mixin.
+// * This module tests an fade mixin.
+
+// @access private
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace general
+
+// @module general/fade
+
+// @dependencies:
+// * - map.get (SASS function).
+// * - True.describe (mixin function).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - LibMixin.fade (mixin).
+
+@use "sass:map";
+@use "true" as *;
+@use "../../../src/mixins/general/fade" as LibMixin;
+
+$test-cases-fade-map: (
+    "test-case-show": (
+        selector: ".test-fade-show",
+        value: show,
+        expected: (
+            visibility: visible,
+            opacity: 1,
+        ),
+    ),
+    "test-case-yes": (
+        selector: ".test-fade-yes",
+        value: yes,
+        expected: (
+            visibility: visible,
+            opacity: 1,
+        ),
+    ),
+    "test-case-hide": (
+        selector: ".test-fade-hide",
+        value: hide,
+        expected: (
+            visibility: hidden,
+            opacity: 0,
+        ),
+    ),
+    "test-case-no": (
+        selector: ".test-fade-no",
+        value: no,
+        expected: (
+            visibility: hidden,
+            opacity: 0,
+        ),
+    ),
+    "test-case-y": (
+        selector: ".test-fade-y",
+        value: y,
+        expected: (
+            content: '"ERROR: The type parameter of fade mixin must be one of these values: (hide, show, yes, no)."',
+        ),
+    ),
+    "test-case-nothing": (
+        selector: ".test-fade-nothing",
+        value: "",
+        expected: (
+            content: '"ERROR: The type parameter of fade mixin must be one of these values: (hide, show, yes, no)."',
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-fade-map {
+    @include describe("[Mixin] fade for #{$case-name}") {
+        @include it("should output correct fade properties") {
+            @include assert {
+                @include output {
+                    #{map.get($case-data, selector)} {
+                        @include LibMixin.fade(#{map.get($case-data, value)});
+                    }
+                }
+
+                @include expect {
+                    #{map.get($case-data, selector)} {
+                        @each $property, $value in map.get($case-data, expected) {
+                            #{$property}: #{$value};
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
