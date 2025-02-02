@@ -40,3 +40,9 @@
 // * general module.
 // @see fade.test
 @forward "fade.test";
+
+// * forwarding the "selections.test" module.
+// * The "selections.test" module likely provides a test cases for
+// * general module.
+// @see selections.test
+@forward "selections.test";

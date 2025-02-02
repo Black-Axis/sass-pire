@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+// @description
+// * select mixin.
+// * This module tests an select mixin.
+
+// @access private
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace general
+
+// @module general/select
+
+// @dependencies:
+// * - map.get (SASS function).
+// * - True.describe (mixin function).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - LibMixin.select (mixin).
+
+// stylelint-disable selector-no-vendor-prefix
+// stylelint-disable color-function-notation
+// stylelint-disable hue-degree-notation
+
+@use "sass:meta";
+@use "sass:map";
+@use "true" as *;
+@use "../../../src/mixins/general/selections" as LibMixin;
+
+$test-cases-selections-map: (
+    "test-case-selections-1": (
+        selector: ".test-1",
+        background-color-value: var(--sp-bg-color),
+        text-color-value: var(--sp-text-color),
+        expected: (
+            background-color: var(--sp-bg-color),
+            color: var(--sp-text-color),
+        ),
+    ),
+    "test-case-selections-2": (
+        selector: ".test-2",
+        background-color-value: #ff0000,
+        text-color-value: #ffffff,
+        expected: (
+            background-color: #ff0000,
+            color: #ffffff,
+        ),
+    ),
+    "test-case-selections-3": (
+        selector: ".test-3",
+        background-color-value: hsl(0, 100%, 50%),
+        text-color-value: hsl(0, 0%, 100%),
+        expected: (
+            background-color: hsl(0, 100%, 50%),
+            color: hsl(0, 0%, 100%),
+        ),
+    ),
+    "test-case-selections-4": (
+        selector: ".test-4",
+        background-color-value: hwb(0 0% 0%),
+        text-color-value: hwb(0 100% 0%),
+        expected: (
+            background-color: hwb(0 0% 0%),
+            color: hwb(0 100% 0%),
+        ),
+    ),
+    "test-case-selections-5": (
+        selector: ".test-5",
+        background-color-value: rgb(255, 0, 0),
+        text-color-value: rgb(255, 255, 255),
+        expected: (
+            background-color: rgb(255, 0, 0),
+            color: rgb(255, 255, 255),
+        ),
+    ),
+    "test-case-selections-6": (
+        selector: ".test-6",
+        background-color-value: green,
+        text-color-value: white,
+        expected: (
+            background-color: green,
+            color: white,
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-selections-map {
+    @include describe("[Mixin] select for #{$case-name}") {
+        @include it("should output correct select properties") {
+            @include assert {
+                @include output {
+                    @include LibMixin.select(#{map.get($case-data, background-color-value)}, #{map.get($case-data, text-color-value)});
+                }
+
+                @include expect {
+                    ::-moz-selection {
+                        @each $property, $value in map.get($case-data, expected) {
+                            #{$property}: #{$value};
+                        }
+                    }
+
+                    ::selection {
+                        @each $property, $value in map.get($case-data, expected) {
+                            #{$property}: #{$value};
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
