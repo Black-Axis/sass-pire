@@ -46,3 +46,9 @@
 // * general module.
 // @see selections.test
 @forward "selections.test";
+
+// * forwarding the "overscroll-behavior.test" module.
+// * The "overscroll-behavior.test" module likely provides a test cases for
+// * general module.
+// @see overscroll-behavior.test
+@forward "overscroll-behavior.test";

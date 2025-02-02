@@ -1,0 +1,181 @@
+@charset "UTF-8";
+
+// @description
+// * overscroll mixin.
+// * This module tests an overscroll mixin.
+
+// @access private
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace general
+
+// @module general/overscroll
+
+// @dependencies:
+// * - map.get (SASS function).
+// * - True.describe (mixin function).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - LibMixin.overscroll (mixin).
+
+// stylelint-disable selector-no-vendor-prefix
+// stylelint-disable color-function-notation
+// stylelint-disable hue-degree-notation
+
+@use "sass:meta";
+@use "sass:map";
+@use "true" as *;
+@use "../../../src/mixins/general/overscroll-behavior" as LibMixin;
+
+$test-cases-overscroll-map: (
+    "test-case-overscroll-1": (
+        selector: ".test-overscroll-auto",
+        value: auto,
+        expected: (
+            -ms-scroll-chaining: chained,
+            overscroll-behavior: auto,
+        ),
+    ),
+    "test-case-overscroll-2": (
+        selector: ".test-overscroll-contain",
+        value: contain,
+        expected: (
+            -ms-scroll-chaining: none,
+            overscroll-behavior: contain,
+        ),
+    ),
+    "test-case-overscroll-3": (
+        selector: ".test-overscroll-none",
+        value: none,
+        expected: (
+            -ms-scroll-chaining: none,
+            overscroll-behavior: none,
+        ),
+    ),
+    "test-case-overscroll-4": (
+        selector: ".test-overscroll-initial",
+        value: initial,
+        expected: (
+            -ms-scroll-chaining: initial,
+            overscroll-behavior: initial,
+        ),
+    ),
+    "test-case-overscroll-5": (
+        selector: ".test-overscroll-inherit",
+        value: inherit,
+        expected: (
+            -ms-scroll-chaining: inherit,
+            overscroll-behavior: inherit,
+        ),
+    ),
+    "test-case-overscroll-6": (
+        selector: ".test-overscroll-string",
+        value: string,
+        expected: (
+            content: '"ERROR: The type parameter of overscroll mixin must be one of these values: (auto, contain, none, initial, inherit)."',
+        ),
+    ),
+    "test-case-overscroll-7": (
+        selector: ".test-overscroll-200px",
+        value: 200px,
+        expected: (
+            content: '"ERROR: The parameters of overscroll mixin must be in a string type."',
+        ),
+    ),
+    "test-case-overscroll-8": (
+        selector: ".test-overscroll-0",
+        value: 0,
+        expected: (
+            content: '"ERROR: The parameters of overscroll mixin must be in a string type."',
+        ),
+    ),
+    "test-case-overscroll-9": (
+        selector: ".test-overscroll-\-100px",
+        value: -100px,
+        expected: (
+            content: '"ERROR: The parameters of overscroll mixin must be in a string type."',
+        ),
+    ),
+    "test-case-overscroll-10": (
+        selector: ".test-overscroll-true",
+        value: true,
+        expected: (
+            content: '"ERROR: The parameters of overscroll mixin must be in a string type."',
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-overscroll-map {
+    @include describe("[Mixin] overscroll for #{$case-name}") {
+        @include it("should output correct overscroll properties") {
+            @include assert {
+                @include output {
+                    #{map.get($case-data, selector)} {
+                        $value: 0;
+
+                        @if map.get($case-data, value) == 0 {
+                            $value: 0;
+                        } @else if map.get($case-data, value) == 1 {
+                            $value: 1;
+                        } @else if map.get($case-data, value) == 2 {
+                            $value: 2;
+                        } @else if map.get($case-data, value) == 3 {
+                            $value: 3;
+                        } @else if map.get($case-data, value) == 4 {
+                            $value: 4;
+                        } @else if map.get($case-data, value) == 5 {
+                            $value: 5;
+                        } @else if map.get($case-data, value) == 6 {
+                            $value: 6;
+                        } @else if map.get($case-data, value) == 7 {
+                            $value: 7;
+                        } @else if map.get($case-data, value) == 8 {
+                            $value: 8;
+                        } @else if map.get($case-data, value) == 9 {
+                            $value: 9;
+                        } @else if map.get($case-data, value) == -1 {
+                            $value: -1;
+                        } @else if map.get($case-data, value) == -2 {
+                            $value: -2;
+                        } @else if map.get($case-data, value) == -3 {
+                            $value: -3;
+                        } @else if map.get($case-data, value) == -4 {
+                            $value: -4;
+                        } @else if map.get($case-data, value) == -5 {
+                            $value: -5;
+                        } @else if map.get($case-data, value) == -6 {
+                            $value: -6;
+                        } @else if map.get($case-data, value) == -7 {
+                            $value: -7;
+                        } @else if map.get($case-data, value) == -8 {
+                            $value: -8;
+                        } @else if map.get($case-data, value) == -9 {
+                            $value: -9;
+                        } @else {
+                            $value: map.get($case-data, value);
+                        }
+
+                        @include LibMixin.overscroll($value);
+                    }
+                }
+
+                @include expect {
+                    #{map.get($case-data, selector)} {
+                        @each $property, $value in map.get($case-data, expected) {
+                            #{$property}: #{$value};
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
