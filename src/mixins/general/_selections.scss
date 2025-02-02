@@ -50,22 +50,15 @@
 
 @use "sass:meta";
 @use "sass:string";
+@use "../../development-utils/toggle-error-message" as Error;
 
-@mixin select($bg-color: black, $text-color: white) {
-    @if meta.type-of($bg-color) == string {
-        @if not string.index($bg-color, "var") {
-            @error "You must pass a CSS variable in the first argument of select mixin.";
-        }
-    } @else if meta.type-of($bg-color) != color {
-        @error "Background color (first argument) of select mixin must be in color type.";
+@mixin select($bg-color: #000000, $text-color: #ffffff) {
+    @if meta.type-of($bg-color) != string {
+        content: Error.throw("Background color (first argument) of select mixin must be in string type.");
     }
 
-    @if meta.type-of($text-color) == string {
-        @if not string.index($text-color, "var") {
-            @error "You must pass a CSS variable in the second argument of select mixin.";
-        }
-    } @else if meta.type-of($text-color) != color {
-        @error "Text color (second argument) of select mixin must be in color type.";
+    @if meta.type-of($bg-color) != string {
+        content: Error.throw("Text color (second argument) of select mixin must be in string type.");
     }
 
     ::-moz-selection {
