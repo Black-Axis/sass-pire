@@ -22,7 +22,7 @@ Name_Of_Flexbox-Justify_Content_Value-Align_Items_Value;
 Example:
 To use a flex box with justify content center and align items start, you can write this pattern as a mixin:
 
-``` 
+```
     @include flex-center-start();
 ```
 
@@ -30,12 +30,12 @@ This means that you are using flex box from first part of pattern (flex) and usi
 
 You can go with pattern to write all values of two properties of justify content and align items.
 
-### Be more productive
+# Be more productive
 You can pass an argument to this mixins as a direction for flex box.
 
 Example:
 
-``` 
+```
     @include inflex-center-end(row-reverse);
 ```
 
