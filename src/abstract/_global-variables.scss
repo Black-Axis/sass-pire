@@ -121,12 +121,14 @@ $breakpoints: (
     "md-max": 1150px,
     "lg": 1200px,
     "lg-max": 1300px,
-    "xl": 1400px,
-    "xl-max": 1550px,
-    "xl-2": 1900px,
-    "xl-3": 2400px,
-    "xl-4": 2800px,
-    "xxl": 3000px,
+    "xl-1": 1400px,
+    "xl-2": 1550px,
+    "xl-3": 1900px,
+    "xxl-1": 2400px,
+    "xxl-2": 2560px,
+    "xxl-3": 2800px,
+    "xxl-4": 3000px,
+    "x4k": 3840px,
 ) !default;
 
 $overflow-values: (
