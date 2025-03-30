@@ -20,23 +20,25 @@
 // @module utils/max-width
 
 // @dependencies:
-// * Nothing.
+// * - Setting.$brand-lib-name (setting variable)
 
 // @example 1
-// * <div class="u-max-w-min"></div>
+// * <div class="sp-max-w-min"></div>
 
 // @output 1
-// * .u-max-w-min {
+// * .sp-max-w-min {
 // *   max-width: min-content;
 // * }
 
 // @example 2
-// * <div class="u-max-w-full"></div>
+// * <div class="sp-max-w-full"></div>
 
 // @output 2
-// * .u-max-w-full {
+// * .sp-max-w-full {
 // *   max-width: 100%;
 // * }
+
+@use "../../abstract/settings" as Setting;
 
 $max-width-values: (
     max-w-full: 100%,
@@ -50,7 +52,7 @@ $max-width-values: (
 );
 
 @each $max-width-class-name, $max-width-value in $max-width-values {
-    .u-#{$max-width-class-name} {
+    .#{Setting.$brand-lib-name}-#{$max-width-class-name} {
         max-width: $max-width-value;
     }
 }

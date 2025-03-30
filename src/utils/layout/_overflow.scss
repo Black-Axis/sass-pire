@@ -21,24 +21,26 @@
 
 // @dependencies:
 // * - list.nth (SASS function).
+// * - Setting.$brand-lib-name (setting variable)
 
 // @example 1
-// * <div class="u-overflow-auto"></div>
+// * <div class="sp-overflow-auto"></div>
 
 // @output 1
-// * .u-overflow-auto {
+// * .sp-overflow-auto {
 // *   overflow: auto;
 // * }
 
 // @example 2
-// * <div class="u-overflow-x-hidden"></div>
+// * <div class="sp-overflow-x-hidden"></div>
 
 // @output 2
-// * .u-overflow-x-hidden {
+// * .sp-overflow-x-hidden {
 // *   overflow-x: hidden;
 // * }
 
 @use "sass:list";
+@use "../../abstract/settings" as Setting;
 
 $overflow-map-values: (
     overflow-auto: (overflow, auto),
@@ -63,7 +65,7 @@ $overflow-map-values: (
 );
 
 @each $overflow-class-name, $overflow-value-list in $overflow-map-values {
-    .u-#{$overflow-class-name} {
+    .#{Setting.$brand-lib-name}-#{$overflow-class-name} {
         $css-prop-name: list.nth($overflow-value-list, 1);
         $css-prop-value: list.nth($overflow-value-list, 2);
 

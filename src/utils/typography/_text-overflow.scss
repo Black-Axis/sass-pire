@@ -20,26 +20,28 @@
 // @module utils/text-overflow
 
 // @dependencies:
+// * - Setting.$brand-lib-name (setting variable)
 // * LibMixin.text-overflow (mixin).
 
 // @example 1
-// * <div class="u-text-ellipsis"></div>
+// * <div class="sp-text-ellipsis"></div>
 
 // @output 1
-// * .u-text-ellipsis {
+// * .sp-text-ellipsis {
 // *   -o-text-overflow: ellipsis;
 // *   text-overflow: ellipsis;
 // * }
 
 // @example 2
-// * <div class="u-text-clip"></div>
+// * <div class="sp-text-clip"></div>
 
 // @output 2
-// * .u-text-clip {
+// * .sp-text-clip {
 // *   -o-text-overflow: clip;
 // *   text-overflow: clip;
 // * }
 
+@use "../../abstract/settings" as Setting;
 @use "../../mixins/typography/text-overflow" as LibMixin;
 
 $text-overflow-values: (
@@ -53,14 +55,14 @@ $text-overflow-values: (
 );
 
 @each $text-overflow-class-name, $text-overflow-value in $text-overflow-values {
-    .u-#{$text-overflow-class-name} {
+    .#{Setting.$brand-lib-name}-#{$text-overflow-class-name} {
         @include LibMixin.text-overflow($text-overflow-value);
     }
 }
 
-.u-text-truncate {
+.#{Setting.$brand-lib-name}-text-truncate {
     overflow: hidden;
     white-space: nowrap;
-    
+
     @include LibMixin.text-overflow(ellipsis);
 }

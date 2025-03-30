@@ -20,15 +20,17 @@
 // @module utils/z-index
 
 // @dependencies:
-// * Nothing
+// * - Setting.$brand-lib-name (setting variable)
 
 // @example
-// * <div class="u-z-30"></div>
+// * <div class="sp-z-30"></div>
 
 // @output
-// * .u-z-30 {
+// * .sp-z-30 {
 // *   z-index: 30;
 // * }
+
+@use "../../abstract/settings" as Setting;
 
 $z-index-values: (
     auto: auto,
@@ -46,7 +48,7 @@ $z-index-values: (
 );
 
 @each $z-index-class-name, $z-index-value in $z-index-values {
-    .u-z-#{$z-index-class-name} {
+    .#{Setting.$brand-lib-name}-z-#{$z-index-class-name} {
         z-index: $z-index-value;
     }
 }

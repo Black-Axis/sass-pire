@@ -20,23 +20,25 @@
 // @module utils/max-height
 
 // @dependencies:
-// * Nothing.
+// * - Setting.$brand-lib-name (setting variable)
 
 // @example 1
-// * <div class="u-max-h-min"></div>
+// * <div class="sp-max-h-min"></div>
 
 // @output 1
-// * .u-max-h-min {
+// * .sp-max-h-min {
 // *   max-height: min-content;
 // * }
 
 // @example 2
-// * <div class="u-max-h-full"></div>
+// * <div class="sp-max-h-full"></div>
 
 // @output 2
-// * .u-max-h-full {
+// * .sp-max-h-full {
 // *   max-height: 100%;
 // * }
+
+@use "../../abstract/settings" as Setting;
 
 $max-height-values: (
     max-h-full: 100%,
@@ -49,7 +51,7 @@ $max-height-values: (
 );
 
 @each $max-height-class-name, $max-height-value in $max-height-values {
-    .u-#{$max-height-class-name} {
+    .#{Setting.$brand-lib-name}-#{$max-height-class-name} {
         max-height: $max-height-value;
     }
 }

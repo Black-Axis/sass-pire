@@ -2,7 +2,7 @@
 
 // @description
 // * justify-content utility class.
-// * This file provides the `u-jc-*` utility class.
+// * This file provides the `sp-jc-*` utility class.
 // * It can be used as a standalone class in any where it is needed.
 
 // @access public
@@ -21,13 +21,14 @@
 
 // @dependencies:
 // * - var.$justify-content-values (variable).
+// * - Setting.$brand-lib-name (setting variable)
 // * - LibMixin.j-c (mixin).
 
 // @example
-// * <div class="u-jc-center"></div>
+// * <div class="sp-jc-center"></div>
 
 // @output:
-// * .u-jc-center {
+// * .sp-jc-center {
 // *   -webkit-box-pack: center;
 // *   -webkit-justify-content: center;
 // *   -ms-flex-pack: center;
@@ -36,10 +37,11 @@
 // * }
 
 @use "../../abstract/global-variables" as var;
+@use "../../abstract/settings" as Setting;
 @use "../../mixins/flex-props/main-props/justify-content" as LibMixin;
 
 @each $value in var.$justify-content-values {
-    .u-jc-#{$value} {
+    .#{Setting.$brand-lib-name}-jc-#{$value} {
         @include LibMixin.j-c($value);
     }
 }

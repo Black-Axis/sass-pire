@@ -20,15 +20,17 @@
 // @module utils/opacity
 
 // @dependencies:
-// * Nothing
+// * - Setting.$brand-lib-name (setting variable)
 
 // @example
-// * <div class="u-opacity-40"></div>
+// * <div class="sp-opacity-40"></div>
 
 // @output
-// * .u-opacity-40 {
+// * .sp-opacity-40 {
 // *   opacity: 40%;
 // * }
+
+@use "../../abstract/settings" as Setting;
 
 $opacity-values: (
     0: 0,
@@ -45,7 +47,7 @@ $opacity-values: (
 );
 
 @each $opacity-class-name, $opacity-value in $opacity-values {
-    .u-opacity-#{$opacity-class-name} {
+    .#{Setting.$brand-lib-name}-opacity-#{$opacity-class-name} {
         opacity: #{$opacity-value} + '%';
     }
 }

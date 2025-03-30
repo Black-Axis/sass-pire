@@ -20,23 +20,25 @@
 // @module utils/text-decoration
 
 // @dependencies:
-// * Nothing.
+// * - Setting.$brand-lib-name (setting variable)
 
 // @example 1
-// * <div class="u-underline"></div>
+// * <div class="sp-underline"></div>
 
 // @output 1
-// * .u-underline {
+// * .sp-underline {
 // *   text-decoration: underline;
 // * }
 
 // @example 2
-// * <div class="u-overline"></div>
+// * <div class="sp-overline"></div>
 
 // @output 2
-// * .u-overline {
+// * .sp-overline {
 // *   text-decoration: overline;
 // * }
+
+@use "../../abstract/settings" as Setting;
 
 $text-decoration-values: (
     dashed: dashed,
@@ -51,7 +53,7 @@ $text-decoration-values: (
 );
 
 @each $text-decoration-class-name, $text-decoration-value in $text-decoration-values {
-    .u-#{$text-decoration-class-name} {
+    .#{Setting.$brand-lib-name}-#{$text-decoration-class-name} {
         text-decoration: $text-decoration-value;
     }
 }

@@ -20,23 +20,25 @@
 // @module utils/white-space
 
 // @dependencies:
-// * Nothing.
+// * - Setting.$brand-lib-name (setting variable)
 
 // @example 1
-// * <div class="u-whitespace-normal"></div>
+// * <div class="sp-whitespace-normal"></div>
 
 // @output 1
-// * .u-whitespace-normal {
+// * .sp-whitespace-normal {
 // *   white-space: normal;
 // * }
 
 // @example 2
-// * <div class="u-whitespace-pre"></div>
+// * <div class="sp-whitespace-pre"></div>
 
 // @output 2
-// * .u-whitespace-pre {
+// * .sp-whitespace-pre {
 // *   white-space: pre;
 // * }
+
+@use "../../abstract/settings" as Setting;
 
 $white-space-values: (
     whitespace-normal: normal,
@@ -50,7 +52,7 @@ $white-space-values: (
 );
 
 @each $white-space-class-name, $white-space-value in $white-space-values {
-    .u-#{$white-space-class-name} {
+    .#{Setting.$brand-lib-name}-#{$white-space-class-name} {
         white-space: $white-space-value;
     }
 }

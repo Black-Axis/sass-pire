@@ -20,26 +20,28 @@
 // @module utils/object-fit
 
 // @dependencies:
-// * LibMixin.object-fit (mixin).
+// * - Setting.$brand-lib-name (setting variable)
+// * - LibMixin.object-fit (mixin).
 
 // @example 1
-// * <div class="u-object-contain"></div>
+// * <div class="sp-object-contain"></div>
 
 // @output 1
-// * .u-object-contain {
+// * .sp-object-contain {
 // *   -o-object-fit: contain;
 // *   object-fit: contain;
 // * }
 
 // @example 2
-// * <div class="u-object-fill"></div>
+// * <div class="sp-object-fill"></div>
 
 // @output 2
-// * .u-object-fill {
+// * .sp-object-fill {
 // *   -o-object-fit: fill;
 // *   object-fit: fill;
 // * }
 
+@use "../../abstract/settings" as Setting;
 @use "../../mixins/general/object-fit" as LibMixin;
 
 $object-fit-values: (
@@ -51,7 +53,7 @@ $object-fit-values: (
 );
 
 @each $object-fit-class-name, $object-fit-value in $object-fit-values {
-    .u-#{$object-fit-class-name} {
+    .#{Setting.$brand-lib-name}-#{$object-fit-class-name} {
         @include LibMixin.object-fit($object-fit-value);
     }
 }

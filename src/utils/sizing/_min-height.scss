@@ -20,23 +20,25 @@
 // @module utils/min-height
 
 // @dependencies:
-// * Nothing.
+// * - Setting.$brand-lib-name (setting variable)
 
 // @example 1
-// * <div class="u-min-h-min"></div>
+// * <div class="sp-min-h-min"></div>
 
 // @output 1
-// * .u-min-h-min {
+// * .sp-min-h-min {
 // *   min-height: min-content;
 // * }
 
 // @example 2
-// * <div class="u-min-h-full"></div>
+// * <div class="sp-min-h-full"></div>
 
 // @output 2
-// * .u-min-h-full {
+// * .sp-min-h-full {
 // *   min-height: 100%;
 // * }
+
+@use "../../abstract/settings" as Setting;
 
 $min-height-values: (
     min-h-full: 100%,
@@ -50,7 +52,7 @@ $min-height-values: (
 );
 
 @each $min-height-class-name, $min-height-value in $min-height-values {
-    .u-#{$min-height-class-name} {
+    .#{Setting.$brand-lib-name}-#{$min-height-class-name} {
         min-height: $min-height-value;
     }
 }

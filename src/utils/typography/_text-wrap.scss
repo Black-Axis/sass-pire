@@ -20,23 +20,25 @@
 // @module utils/text-wrap
 
 // @dependencies:
-// * Nothing.
+// * - Setting.$brand-lib-name (setting variable)
 
 // @example 1
-// * <div class="u-text-wrap"></div>
+// * <div class="sp-text-wrap"></div>
 
 // @output 1
-// * .u-text-wrap {
+// * .sp-text-wrap {
 // *   text-wrap: wrap;
 // * }
 
 // @example 2
-// * <div class="u-text-pretty"></div>
+// * <div class="sp-text-pretty"></div>
 
 // @output 2
-// * .u-text-pretty {
+// * .sp-text-pretty {
 // *   text-wrap: pretty;
 // * }
+
+@use "../../abstract/settings" as Setting;
 
 $text-wrap-values: (
     text-wrap: wrap,
@@ -47,7 +49,7 @@ $text-wrap-values: (
 );
 
 @each $text-wrap-class-name, $text-wrap-value in $text-wrap-values {
-    .u-#{$text-wrap-class-name} {
+    .#{Setting.$brand-lib-name}-#{$text-wrap-class-name} {
         text-wrap: $text-wrap-value;
     }
 }

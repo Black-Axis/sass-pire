@@ -20,15 +20,17 @@
 // @module utils/background-origin
 
 // @dependencies:
-// * Nothing.
+// * - Setting.$brand-lib-name (setting variable)
 
 // @example
-// * <div class="u-bg-origin-border"></div>
+// * <div class="sp-bg-origin-border"></div>
 
 // @output
-// * .u-bg-origin-border {
+// * .sp-bg-origin-border {
 // *   background-origin: border-box;
 // * }
+
+@use "../../abstract/settings" as Setting;
 
 $bg-origin-values: (
     bg-origin-border: border-box,
@@ -39,7 +41,7 @@ $bg-origin-values: (
 );
 
 @each $bg-origin-class-name, $bg-origin-value in $bg-origin-values {
-    .u-#{$bg-origin-class-name} {
+    .#{Setting.$brand-lib-name}-#{$bg-origin-class-name} {
         background-origin: $bg-origin-value;
     }
 }

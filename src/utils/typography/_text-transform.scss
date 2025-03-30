@@ -20,23 +20,25 @@
 // @module utils/text-transform
 
 // @dependencies:
-// * Nothing.
+// * - Setting.$brand-lib-name (setting variable)
 
 // @example 1
-// * <div class="u-uppercase"></div>
+// * <div class="sp-uppercase"></div>
 
 // @output 1
-// * .u-uppercase {
+// * .sp-uppercase {
 // *   text-transform: uppercase;
 // * }
 
 // @example 2
-// * <div class="u-capitalize"></div>
+// * <div class="sp-capitalize"></div>
 
 // @output 2
-// * .u-capitalize {
+// * .sp-capitalize {
 // *   text-transform: capitalize;
 // * }
+
+@use "../../abstract/settings" as Setting;
 
 $text-transform-values: (
     uppercase: uppercase,
@@ -46,7 +48,7 @@ $text-transform-values: (
 );
 
 @each $text-transform-class-name, $text-transform-value in $text-transform-values {
-    .u-#{$text-transform-class-name} {
+    .#{Setting.$brand-lib-name}-#{$text-transform-class-name} {
         text-transform: $text-transform-value;
     }
 }

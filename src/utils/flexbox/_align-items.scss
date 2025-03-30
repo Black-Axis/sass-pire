@@ -2,7 +2,7 @@
 
 // @description
 // * align-items utility class.
-// * This file provides the `u-ai-*` utility class.
+// * This file provides the `sp-ai-*` utility class.
 // * It can be used as a standalone class in any where it is needed.
 
 // @access public
@@ -21,13 +21,14 @@
 
 // @dependencies:
 // * - var.$align-items-values (variable).
+// * - Setting.$brand-lib-name (setting variable)
 // * - LibMixin.a-i (mixin).
 
 // @example
-// * <div class="u-ai-center"></div>
+// * <div class="sp-ai-center"></div>
 
 // @output:
-// * .u-ai-center {
+// * .sp-ai-center {
 // *   -webkit-box-align: center;
 // *   -webkit-align-items: center;
 // *   -ms-flex-align: center;
@@ -36,10 +37,11 @@
 // * }
 
 @use "../../abstract/global-variables" as var;
+@use "../../abstract/settings" as Setting;
 @use "../../mixins/flex-props/main-props/align-items" as LibMixin;
 
 @each $value in var.$align-items-values {
-    .u-ai-#{$value} {
+    .#{Setting.$brand-lib-name}-ai-#{$value} {
         @include LibMixin.a-i($value);
     }
 }

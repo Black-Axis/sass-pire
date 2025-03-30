@@ -20,23 +20,25 @@
 // @module utils/text-align
 
 // @dependencies:
-// * Nothing.
+// * - Setting.$brand-lib-name (setting variable)
 
 // @example 1
-// * <div class="u-text-left"></div>
+// * <div class="sp-text-left"></div>
 
 // @output 1
-// * .u-text-left {
+// * .sp-text-left {
 // *   text-align: left;
 // * }
 
 // @example 2
-// * <div class="u-text-right"></div>
+// * <div class="sp-text-right"></div>
 
 // @output 2
-// * .u-text-right {
+// * .sp-text-right {
 // *   text-align: right;
 // * }
+
+@use "../../abstract/settings" as Setting;
 
 $text-align-values: (
     text-left: left,
@@ -48,7 +50,7 @@ $text-align-values: (
 );
 
 @each $text-align-class-name, $text-align-value in $text-align-values {
-    .u-#{$text-align-class-name} {
+    .#{Setting.$brand-lib-name}-#{$text-align-class-name} {
         text-align: $text-align-value;
     }
 }

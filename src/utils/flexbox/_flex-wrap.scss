@@ -19,17 +19,19 @@
 // @module utils/flex-wrap
 
 // @dependencies:
+// * - Setting.$brand-lib-name (setting variable)
 // * - LibMixin.flex-wrap (mixin).
 
 // @example
-// * <div class="u-flex-nowrap"></div>
+// * <div class="sp-flex-nowrap"></div>
 
 // @output:
-// * .u-flex-nowrap {
+// * .sp-flex-nowrap {
 // *   -ms-flex-wrap: nowrap;
 // *   flex-wrap: nowrap;
 // * }
 
+@use "../../abstract/settings" as Setting;
 @use "../../mixins/flex-props/main-props/flex-wrap" as LibMixin;
 
 $flex-wrap-values: (
@@ -39,7 +41,7 @@ $flex-wrap-values: (
 );
 
 @each $flex-wrap-class-name, $flex-wrap-value in $flex-wrap-values {
-    .u-#{$flex-wrap-class-name} {
+    .#{Setting.$brand-lib-name}-#{$flex-wrap-class-name} {
         @include LibMixin.flex-wrap($flex-wrap-value);
     }
 }
