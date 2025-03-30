@@ -73,11 +73,11 @@
         @if LibFunc.is-in-list($main-dimensions, $dimension) {
             @if map.has-key(var.$breakpoints, $breakpoint-name) {
                 $actual-dimension: map.get(var.$breakpoints, $breakpoint-name);
-    
+
                 @if $type == max {
                     $actual-dimension: $actual-dimension - 1px;
                 }
-    
+
                 @if $dimension == width or $dimension == w {
                     @media only screen and (#{$type}-width: #{$actual-dimension}) {
                         @content;
@@ -88,10 +88,10 @@
                     }
                 }
             } @else {
-                content: Error.throw("Please, Enter the valid breakpoint. #{$breakpoint-name} does not exist in (#{var.$breakpoints})");
+                content: Error.throw("Please, Enter a valid breakpoint! #{$breakpoint-name} does not exist in (#{var.$breakpoints})");
             }
         } @else {
-            content: Error.throw("The dimension parameter of align-items mixin must be one of: (#{$main-dimensions}).");
+            content: Error.throw("The parameter of mq-general (or mq-gen) mixin must be one of: (#{$main-dimensions}).");
         }
     } @else {
         content: Error.throw("The type parameter of mq-general mixin must be one of: (#{$main-mq-types}).");
