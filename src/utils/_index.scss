@@ -28,6 +28,11 @@
 // @see layout
 @forward "layout";
 
+// * forwarding the "effects" module.
+// * This module likely contains all effects classes.
+// @see effects
+@forward "effects";
+
 // * forwarding the "sizing" module.
 // * This module likely contains all sizing classes.
 // @see sizing

@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+// @description
+// * This file forwards various modules and utilities classes
+// * for effects classes.
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils/effects
+
+// * forwarding the "opacity" module.
+// * This module likely contains opacity as class.
+// @see opacity
+@forward "opacity";

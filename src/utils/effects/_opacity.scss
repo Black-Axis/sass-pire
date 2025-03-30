@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+// @description
+// * opacity utility class.
+// * This file provides a utility class for opacity.
+// * It can be used as a standalone class in any where it is needed.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils
+
+// @module utils/opacity
+
+// @dependencies:
+// * Nothing
+
+// @example
+// * <div class="u-opacity-40"></div>
+
+// @output
+// * .u-opacity-40 {
+// *   opacity: 40%;
+// * }
+
+$opacity-values: (
+    0: 0,
+    10: 10,
+    20: 20,
+    30: 30,
+    40: 40,
+    50: 50,
+    60: 60,
+    70: 70,
+    80: 80,
+    90: 90,
+    100: 100,
+);
+
+@each $opacity-class-name, $opacity-value in $opacity-values {
+    .u-opacity-#{$opacity-class-name} {
+        opacity: #{$opacity-value} + '%';
+    }
+}
