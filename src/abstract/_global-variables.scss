@@ -24,6 +24,14 @@
 
 // stylelint-disable scss/dollar-variable-empty-line-before
 
+$global-values: (
+    inherit,
+    initial,
+    revert,
+    revert-layer,
+    unset,
+) !default;
+
 $all-units: (
     cm,
     mm,
