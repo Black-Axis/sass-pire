@@ -37,6 +37,11 @@
 // @see position
 @forward "position";
 
+// * forwarding the "z-index" module.
+// * This module likely contains z-index as class.
+// @see z-index
+@forward "z-index";
+
 // * forwarding the "object-fit" module.
 // * This module likely contains object-fit as class.
 // @see object-fit

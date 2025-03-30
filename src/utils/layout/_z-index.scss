@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+// @description
+// * z-[*] utility class.
+// * This file provides a utility class for z-index.
+// * It can be used as a standalone class in any where it is needed.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils
+
+// @module utils/z-index
+
+// @dependencies:
+// * Nothing
+
+// @example
+// * <div class="u-z-30"></div>
+
+// @output
+// * .u-z-30 {
+// *   z-index: 30;
+// * }
+
+$z-index-values: (
+    auto: auto,
+    -50: -50,
+    -40: -40,
+    -30: -30,
+    -20: -20,
+    -10: -10,
+    0: 0,
+    10: 10,
+    20: 20,
+    30: 30,
+    40: 40,
+    50: 50,
+);
+
+@each $z-index-class-name, $z-index-value in $z-index-values {
+    .u-z-#{$z-index-class-name} {
+        z-index: $z-index-value;
+    }
+}
