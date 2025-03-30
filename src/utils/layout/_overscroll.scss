@@ -21,27 +21,29 @@
 
 // @dependencies:
 // * - list.nth (SASS function).
+// * - Setting.$brand-lib-name (setting variable)
 // * - LibMixin.overscroll (mixin).
 
 // @example 1
-// * <div class="u-overscroll-auto"></div>
+// * <div class="sp-overscroll-auto"></div>
 
 // @output 1
-// * .u-overscroll-auto {
+// * .sp-overscroll-auto {
 // *   -ms-scroll-chaining: chained;
 // *   overscroll-behavior: auto;
 // * }
 
 // @example 2
-// * <div class="u-overscroll-contain"></div>
+// * <div class="sp-overscroll-contain"></div>
 
 // @output 2
-// * .u-overscroll-contain {
+// * .sp-overscroll-contain {
 // *   -ms-scroll-chaining: none;
 // *   overscroll-behavior: contain;
 // * }
 
 @use "sass:list";
+@use "../../abstract/settings" as Setting;
 @use "../../mixins/general/overscroll-behavior" as LibMixin;
 
 $overscroll-values: (
@@ -51,7 +53,7 @@ $overscroll-values: (
 );
 
 @each $overscroll-class-name, $overscroll-value-list in $overscroll-values {
-    .u-#{$overscroll-class-name} {
+    .#{Setting.$brand-lib-name}-#{$overscroll-class-name} {
         $css-prop-value: list.nth($overscroll-value-list, 2);
 
         @include LibMixin.overscroll($css-prop-value);

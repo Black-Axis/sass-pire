@@ -20,23 +20,25 @@
 // @module utils/visibility
 
 // @dependencies:
-// * Nothing.
+// * - Setting.$brand-lib-name (setting variable)
 
 // @example 1
-// * <div class="u-invisible"></div>
+// * <div class="sp-invisible"></div>
 
 // @output 1
-// * .u-invisible {
+// * .sp-invisible {
 // *   visibility: hidden;
 // * }
 
 // @example 2
-// * <div class="u-visible"></div>
+// * <div class="sp-visible"></div>
 
 // @output 2
-// * .u-visible {
+// * .sp-visible {
 // *   visibility: visible;
 // * }
+
+@use "../../abstract/settings" as Setting;
 
 $visibility-values: (
     visible: visible,
@@ -45,7 +47,7 @@ $visibility-values: (
 );
 
 @each $visibility-class-name, $visibility-value in $visibility-values {
-    .u-#{$visibility-class-name} {
+    .#{Setting.$brand-lib-name}-#{$visibility-class-name} {
         visibility: $visibility-value;
     }
 }

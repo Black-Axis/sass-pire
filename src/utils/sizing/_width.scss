@@ -20,23 +20,25 @@
 // @module utils/width
 
 // @dependencies:
-// * Nothing.
+// * - Setting.$brand-lib-name (setting variable)
 
 // @example 1
-// * <div class="u-w-full"></div>
+// * <div class="sp-w-full"></div>
 
 // @output 1
-// * .u-w-full {
+// * .sp-w-full {
 // *   width: 100%;
 // * }
 
 // @example 2
-// * <div class="u-w-min"></div>
+// * <div class="sp-w-min"></div>
 
 // @output 2
-// * .u-w-min {
+// * .sp-w-min {
 // *   width: min-content;
 // * }
+
+@use "../../abstract/settings" as Setting;
 
 $width-values: (
     w-full: 100%,
@@ -51,7 +53,7 @@ $width-values: (
 );
 
 @each $width-class-name, $width-value in $width-values {
-    .u-#{$width-class-name} {
+    .#{Setting.$brand-lib-name}-#{$width-class-name} {
         width: $width-value;
     }
 }

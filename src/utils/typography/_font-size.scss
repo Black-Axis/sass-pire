@@ -20,15 +20,17 @@
 // @module utils/font-size
 
 // @dependencies:
-// * Nothing.
+// * - Setting.$brand-lib-name (setting variable)
 
 // @example
-// * <div class="u-small"></div>
+// * <div class="sp-small"></div>
 
 // @output
-// * .u-small {
+// * .sp-small {
 // *   font-size: small;
 // * }
+
+@use "../../abstract/settings" as Setting;
 
 $font-size-values: (
     xx-small: xx-small,
@@ -43,7 +45,7 @@ $font-size-values: (
 );
 
 @each $font-size-class-name, $font-size-value in $font-size-values {
-    .u-#{$font-size-class-name} {
+    .#{Setting.$brand-lib-name}-#{$font-size-class-name} {
         font-size: $font-size-value;
     }
 }

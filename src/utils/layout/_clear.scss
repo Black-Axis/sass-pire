@@ -20,23 +20,25 @@
 // @module utils/clear
 
 // @dependencies:
-// * Nothing
+// * - Setting.$brand-lib-name (setting variable)
 
 // @example 1
-// * <div class="u-clear-start"></div>
+// * <div class="sp-clear-start"></div>
 
 // @output 1
-// * .u-clear-start {
+// * .sp-clear-start {
 // *   clear: inline-start;
 // * }
 
 // @example 2
-// * <div class="u-clear-right"></div>
+// * <div class="sp-clear-right"></div>
 
 // @output 2
-// * .u-clear-right {
+// * .sp-clear-right {
 // *   clear: right;
 // * }
+
+@use "../../abstract/settings" as Setting;
 
 $clear-values: (
     clear-start: inline-start,
@@ -48,7 +50,7 @@ $clear-values: (
 );
 
 @each $clear-class-name, $clear-value in $clear-values {
-    .u-#{$clear-class-name} {
+    .#{Setting.$brand-lib-name}-#{$clear-class-name} {
         clear: $clear-value;
     }
 }

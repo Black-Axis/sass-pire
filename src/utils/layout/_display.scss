@@ -20,24 +20,25 @@
 // @module utils/display
 
 // @dependencies:
-// * LibMixin1.d-flex (mixin).
-// * LibMixin2.d-inflex (mixin).
-// * LibMixin3.d-grid (mixin).
-// * LibMixin4.d-ingrid (mixin).
+// * - Setting.$brand-lib-name (setting variable)
+// * - LibMixin1.d-flex (mixin).
+// * - LibMixin2.d-inflex (mixin).
+// * - LibMixin3.d-grid (mixin).
+// * - LibMixin4.d-ingrid (mixin).
 
 // @example 1
-// * <div class="u-table"></div>
+// * <div class="sp-table"></div>
 
 // @output 1
-// * .u-table {
+// * .sp-table {
 // *   display: table;
 // * }
 
 // @example 2
-// * <div class="u-flex"></div>
+// * <div class="sp-flex"></div>
 
 // @output 2
-// * .u-flex {
+// * .sp-flex {
 // *   display: -webkit-box;
 // *   display: -moz-box;
 // *   display: -ms-flexbox;
@@ -49,6 +50,7 @@
 // * We separated (flex & grid) from the $display-values map
 // * because of the vendor prefixes of them.
 
+@use "../../abstract/settings" as Setting;
 @use "../../mixins/flex-props/main-props/flex" as LibMixin1;
 @use "../../mixins/flex-props/main-props/inline-flex" as LibMixin2;
 @use "../../mixins/grid-props/grid" as LibMixin3;
@@ -76,23 +78,23 @@ $display-values: (
 );
 
 @each $display-class-name, $display-value in $display-values {
-    .u-#{$display-class-name} {
+    .#{Setting.$brand-lib-name}-#{$display-class-name} {
         display: $display-value;
     }
 }
 
-.u-flex {
+.#{Setting.$brand-lib-name}-flex {
     @include LibMixin1.d-flex;
 }
 
-.u-inline-flex {
+.#{Setting.$brand-lib-name}-inline-flex {
     @include LibMixin2.d-inflex;
 }
 
-.u-grid {
+.#{Setting.$brand-lib-name}-grid {
     @include LibMixin3.d-grid;
 }
 
-.u-inline-grid {
+.#{Setting.$brand-lib-name}-inline-grid {
     @include LibMixin4.d-ingrid;
 }

@@ -20,16 +20,17 @@
 // @module utils/container
 
 // @dependencies:
+// * - Setting.$brand-lib-name (setting variable)
 // * - LibMixin1.mis (mixin).
 // * - LibMixin2.mie (mixin).
 // * - LibMixin3.pis (mixin).
 // * - LibMixin4.pie (mixin).
 
 // @example
-// * <div class="u-container"></div>
+// * <div class="sp-container"></div>
 
 // @output
-// * .u-container {
+// * .sp-container {
 // *   width: min(100%, 62rem);
 // *   -webkit-margin-start: auto;
 // *   -moz-margin-start: auto;
@@ -45,12 +46,13 @@
 // *   padding-inline-end: 1rem;
 // * }
 
+@use "../../abstract/settings" as Setting;
 @use "../../mixins/logical-props/margin-inline-start" as LibMixin1;
 @use "../../mixins/logical-props/margin-inline-end" as LibMixin2;
 @use "../../mixins/logical-props/padding-inline-start" as LibMixin3;
 @use "../../mixins/logical-props/padding-inline-end" as LibMixin4;
 
-.u-container {
+.#{Setting.$brand-lib-name}-container {
     width: min(100%, 62rem);
 
     @include LibMixin1.mis(auto);

@@ -20,15 +20,17 @@
 // @module utils/background-clip
 
 // @dependencies:
-// * Nothing.
+// * - Setting.$brand-lib-name (setting variable)
 
 // @example
-// * <div class="u-bg-clip-border"></div>
+// * <div class="sp-bg-clip-border"></div>
 
 // @output
-// * .u-bg-clip-border {
+// * .sp-bg-clip-border {
 // *   background-clip: border-box;
 // * }
+
+@use "../../abstract/settings" as Setting;
 
 $bg-clip-values: (
     bg-clip-border: border-box,
@@ -40,7 +42,7 @@ $bg-clip-values: (
 );
 
 @each $bg-clip-class-name, $bg-clip-value in $bg-clip-values {
-    .u-#{$bg-clip-class-name} {
+    .#{Setting.$brand-lib-name}-#{$bg-clip-class-name} {
         background-clip: $bg-clip-value;
     }
 }

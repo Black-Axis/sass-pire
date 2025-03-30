@@ -20,15 +20,17 @@
 // @module utils/background-attachment
 
 // @dependencies:
-// * Nothing.
+// * - Setting.$brand-lib-name (setting variable)
 
 // @example
-// * <div class="u-bg-att-fixed"></div>
+// * <div class="sp-bg-att-fixed"></div>
 
 // @output
-// * .u-bg-att-fixed {
+// * .sp-bg-att-fixed {
 // *   background-attachment: fixed;
 // * }
+
+@use "../../abstract/settings" as Setting;
 
 $bg-attachment-values: (
     bg-att-fixed: fixed,
@@ -39,7 +41,7 @@ $bg-attachment-values: (
 );
 
 @each $bg-attachment-class-name, $bg-attachment-value in $bg-attachment-values {
-    .u-#{$bg-attachment-class-name} {
+    .#{Setting.$brand-lib-name}-#{$bg-attachment-class-name} {
         background-attachment: $bg-attachment-value;
     }
 }

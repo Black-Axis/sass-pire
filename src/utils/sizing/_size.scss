@@ -21,25 +21,27 @@
 // @module utils/size
 
 // @dependencies:
-// * Nothing.
+// * - Setting.$brand-lib-name (setting variable)
 
 // @example 1
-// * <div class="u-size-min"></div>
+// * <div class="sp-size-min"></div>
 
 // @output 1
-// * .u-size-min {
+// * .sp-size-min {
 // *   width: min-content;
 // *   height: min-content;
 // * }
 
 // @example 2
-// * <div class="u-size-full"></div>
+// * <div class="sp-size-full"></div>
 
 // @output 2
-// * .u-size-full {
+// * .sp-size-full {
 // *   width: 100%;
 // *   height: 100%;
 // * }
+
+@use "../../abstract/settings" as Setting;
 
 $size-values: (
     size-full: 100%,
@@ -51,7 +53,7 @@ $size-values: (
 );
 
 @each $size-class-name, $size-value in $size-values {
-    .u-#{$size-class-name} {
+    .#{Setting.$brand-lib-name}-#{$size-class-name} {
         width: $size-value;
         height: $size-value;
     }

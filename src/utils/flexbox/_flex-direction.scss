@@ -20,13 +20,14 @@
 // @module utils/flex-direction
 
 // @dependencies:
+// * - Setting.$brand-lib-name (setting variable)
 // * - LibMixin.flex-dir (mixin).
 
 // @example
-// * <div class="u-flex-col"></div>
+// * <div class="sp-flex-col"></div>
 
 // @output:
-// * .u-flex-col {
+// * .sp-flex-col {
 // *   -webkit-box-orient: vertical;
 // *   -webkit-box-direction: normal;
 // *   -webkit-flex-direction: column;
@@ -36,6 +37,7 @@
 // *   flex-direction: column;
 // * }
 
+@use "../../abstract/settings" as Setting;
 @use "../../mixins/flex-props/main-props/flex-direction" as LibMixin;
 
 $flex-direction-values: (
@@ -46,7 +48,7 @@ $flex-direction-values: (
 );
 
 @each $flex-direction-class-name, $flex-direction-value in $flex-direction-values {
-    .u-#{$flex-direction-class-name} {
+    .#{Setting.$brand-lib-name}-#{$flex-direction-class-name} {
         @include LibMixin.flex-dir($flex-direction-value);
     }
 }

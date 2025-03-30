@@ -20,23 +20,25 @@
 // @module utils/height
 
 // @dependencies:
-// * Nothing.
+// * - Setting.$brand-lib-name (setting variable)
 
 // @example 1
-// * <div class="u-h-full"></div>
+// * <div class="sp-h-full"></div>
 
 // @output 1
-// * .u-h-full {
+// * .sp-h-full {
 // *   height: 100%;
 // * }
 
 // @example 2
-// * <div class="u-h-min"></div>
+// * <div class="sp-h-min"></div>
 
 // @output 2
-// * .u-h-min {
+// * .sp-h-min {
 // *   height: min-content;
 // * }
+
+@use "../../abstract/settings" as Setting;
 
 $height-values: (
     h-full: 100%,
@@ -51,7 +53,7 @@ $height-values: (
 );
 
 @each $height-class-name, $height-value in $height-values {
-    .u-#{$height-class-name} {
+    .#{Setting.$brand-lib-name}-#{$height-class-name} {
         height: $height-value;
     }
 }

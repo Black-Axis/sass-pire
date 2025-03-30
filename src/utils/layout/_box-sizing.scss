@@ -20,15 +20,17 @@
 // @module utils/box-sizing
 
 // @dependencies:
-// * Nothing.
+// * - Setting.$brand-lib-name (setting variable)
 
 // @example 1
-// * <div class="u-box-border"></div>
+// * <div class="sp-box-border"></div>
 
 // @output 1
-// * .u-box-border {
+// * .sp-box-border {
 // *   box-sizing: border-box;
 // * }
+
+@use "../../abstract/settings" as Setting;
 
 $box-sizing-values: (
     box-border: border-box,
@@ -36,7 +38,7 @@ $box-sizing-values: (
 );
 
 @each $box-sizing-class-name, $box-sizing-value in $box-sizing-values {
-    .u-#{$box-sizing-class-name} {
+    .#{Setting.$brand-lib-name}-#{$box-sizing-class-name} {
         box-sizing: $box-sizing-value;
     }
 }

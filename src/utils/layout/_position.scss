@@ -20,23 +20,25 @@
 // @module utils/position
 
 // @dependencies:
-// * Nothing
+// * - Setting.$brand-lib-name (setting variable)
 
 // @example 1
-// * <div class="u-relative"></div>
+// * <div class="sp-relative"></div>
 
 // @output 1
-// * .u-relative {
+// * .sp-relative {
 // *   position: relative;
 // * }
 
 // @example 2
-// * <div class="u-absolute"></div>
+// * <div class="sp-absolute"></div>
 
 // @output 2
-// * .u-absolute {
+// * .sp-absolute {
 // *   position: absolute;
 // * }
+
+@use "../../abstract/settings" as Setting;
 
 $position-values: (
     static: static,
@@ -47,7 +49,7 @@ $position-values: (
 );
 
 @each $position-class-name, $position-value in $position-values {
-    .u-#{$position-class-name} {
+    .#{Setting.$brand-lib-name}-#{$position-class-name} {
         position: $position-value;
     }
 }

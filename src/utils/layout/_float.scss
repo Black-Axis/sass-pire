@@ -20,23 +20,25 @@
 // @module utils/float
 
 // @dependencies:
-// * Nothing
+// * - Setting.$brand-lib-name (setting variable)
 
 // @example 1
-// * <div class="u-float-start"></div>
+// * <div class="sp-float-start"></div>
 
 // @output 1
-// * .u-float-start {
+// * .sp-float-start {
 // *   float: inline-start;
 // * }
 
 // @example 2
-// * <div class="u-float-right"></div>
+// * <div class="sp-float-right"></div>
 
 // @output 2
-// * .u-float-right {
+// * .sp-float-right {
 // *   float: right;
 // * }
+
+@use "../../abstract/settings" as Setting;
 
 $float-values: (
     float-start: inline-start,
@@ -46,7 +48,7 @@ $float-values: (
 );
 
 @each $float-class-name, $float-value in $float-values {
-    .u-#{$float-class-name} {
+    .#{Setting.$brand-lib-name}-#{$float-class-name} {
         float: $float-value;
     }
 }

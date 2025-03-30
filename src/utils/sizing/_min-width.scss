@@ -20,23 +20,25 @@
 // @module utils/min-width
 
 // @dependencies:
-// * Nothing.
+// * - Setting.$brand-lib-name (setting variable)
 
 // @example 1
-// * <div class="u-min-w-min"></div>
+// * <div class="sp-min-w-min"></div>
 
 // @output 1
-// * .u-min-w-min {
+// * .sp-min-w-min {
 // *   min-width: min-content;
 // * }
 
 // @example 2
-// * <div class="u-min-w-full"></div>
+// * <div class="sp-min-w-full"></div>
 
 // @output 2
-// * .u-min-w-full {
+// * .sp-min-w-full {
 // *   min-width: 100%;
 // * }
+
+@use "../../abstract/settings" as Setting;
 
 $min-width-values: (
     min-w-full: 100%,
@@ -50,7 +52,7 @@ $min-width-values: (
 );
 
 @each $min-width-class-name, $min-width-value in $min-width-values {
-    .u-#{$min-width-class-name} {
+    .#{Setting.$brand-lib-name}-#{$min-width-class-name} {
         min-width: $min-width-value;
     }
 }

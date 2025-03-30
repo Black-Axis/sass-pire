@@ -20,23 +20,25 @@
 // @module utils/vertical-align
 
 // @dependencies:
-// * Nothing.
+// * - Setting.$brand-lib-name (setting variable)
 
 // @example 1
-// * <div class="u-align-top"></div>
+// * <div class="sp-align-top"></div>
 
 // @output 1
-// * .u-align-top {
+// * .sp-align-top {
 // *   vertical-align: top;
 // * }
 
 // @example 2
-// * <div class="u-align-middle"></div>
+// * <div class="sp-align-middle"></div>
 
 // @output 2
-// * .u-align-middle {
+// * .sp-align-middle {
 // *   vertical-align: middle;
 // * }
+
+@use "../../abstract/settings" as Setting;
 
 $vertical-align-values: (
     align-baseline: baseline,
@@ -50,7 +52,7 @@ $vertical-align-values: (
 );
 
 @each $vertical-align-class-name, $vertical-align-value in $vertical-align-values {
-    .u-#{$vertical-align-class-name} {
+    .#{Setting.$brand-lib-name}-#{$vertical-align-class-name} {
         vertical-align: $vertical-align-value;
     }
 }
