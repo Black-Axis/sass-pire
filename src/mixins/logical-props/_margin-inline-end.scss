@@ -7,7 +7,7 @@
 
 // @access public
 
-// @version 1.1.0
+// @version 1.2.0
 
 // @author Khaled Mohamed
 
@@ -22,8 +22,8 @@
 // @dependencies:
 // * - meta.type-of (SASS function).
 // * - math.unit (SASS function).
-// * - list.index (SASS function).
 // * - var.$all-units (variable).
+// * - LibFunc.is-in-list (function).
 // * - Error.throw (function).
 
 // @example
@@ -41,24 +41,44 @@
 @use "sass:list";
 @use "sass:math";
 @use "../../abstract/global-variables" as var;
+@use "../../functions/global/is-in-list" as LibFunc;
 @use "../../development-utils/toggle-error-message" as Error;
 
-@mixin mie($value: 0) {
-    @if meta.type-of($value) != number {
-        content: Error.throw("The parameter of mie mixin must be in a number type.");
-    } @else {
+// @access private
+// @description
+// * mie-values mixin.
+// * This mixin sets the margin-inline-end to a value for private use.
+
+@mixin mie-values($value) {
+    -webkit-margin-end: $value;
+    -moz-margin-end: $value;
+    margin-inline-end: $value;
+}
+
+@mixin mie($value) {
+    @if meta.type-of($value) == string {
+        @if not LibFunc.is-in-list(var.$global-values, $value) {
+            @if $value == auto {
+                @include mie-values(auto);
+            } @else {
+                content: Error.throw("The parameter of mie mixin must not be one of these values: (#{var.$global-values}).");
+            }
+        } @else {
+            @include mie-values($value);
+        }
+    } @else if meta.type-of($value) == number {
         $get-unit: math.unit($value);
 
         @if $get-unit != "" {
             @if list.index(var.$all-units, $get-unit) {
-                -webkit-margin-end: $value;
-                -moz-margin-end: $value;
-                margin-inline-end: $value;
+                @include mie-values($value);
             } @else {
                 content: Error.throw("The parameter of mie mixin must be one of these values: (#{var.$all-units}).");
             }
         } @else {
             content: Error.throw("The parameter of mie mixin must have a unit.");
         }
+    } @else {
+        content: Error.throw("The parameter of mie mixin must be in a string or number type.");
     }
 }
