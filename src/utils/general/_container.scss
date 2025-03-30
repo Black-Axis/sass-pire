@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+// @description
+// * container utility class.
+// * This file provides the `container` as utility class.
+// * It can be used as a standalone class in any where it is needed.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace utils
+
+// @module utils/container
+
+// @dependencies:
+// * - LibMixin1.mis (mixin).
+// * - LibMixin2.mie (mixin).
+// * - LibMixin3.pis (mixin).
+// * - LibMixin4.pie (mixin).
+
+// @example
+// * <div class="u-container"></div>
+
+// @output
+// * .u-container {
+// *   width: min(100%, 62rem);
+// *   -webkit-margin-start: auto;
+// *   -moz-margin-start: auto;
+// *   margin-inline-start: auto;
+// *   -webkit-margin-end: auto;
+// *   -moz-margin-end: auto;
+// *   margin-inline-end: auto;
+// *   -webkit-padding-start: 1rem;
+// *   -moz-padding-start: 1rem;
+// *   padding-inline-start: 1rem;
+// *   -webkit-padding-end: 1rem;
+// *   -moz-padding-end: 1rem;
+// *   padding-inline-end: 1rem;
+// * }
+
+@use "../../mixins/logical-props/margin-inline-start" as LibMixin1;
+@use "../../mixins/logical-props/margin-inline-end" as LibMixin2;
+@use "../../mixins/logical-props/padding-inline-start" as LibMixin3;
+@use "../../mixins/logical-props/padding-inline-end" as LibMixin4;
+
+.u-container {
+    width: min(100%, 62rem);
+
+    @include LibMixin1.mis(auto);
+    @include LibMixin2.mie(auto);
+    @include LibMixin3.pis(1rem);
+    @include LibMixin4.pie(1rem);
+}
