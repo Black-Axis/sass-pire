@@ -8,6 +8,7 @@ build/
 docs/
 tests/
 dist/
+!packages/**/dist
 index.html
 *.log
 MAINTAINERS.md
