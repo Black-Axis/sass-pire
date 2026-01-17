@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+// @description:
+// This file is used to generate the font utilities for the sass-pire design system.
+// in the dist folder for using CSS output.
+
+// @access public
+
+// @version 1.0.0
+
+// @license MIT
+
+// @author Khaled Mohamed
+
+// @package @sass-pire/fonts
+
+// @library sass-pire
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+@use "../size" as *;
+
+@use "../weight" as *;
+
+@include sp-get-fs;
+
+@include sp-get-fw;
