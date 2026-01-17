@@ -1,6 +1,7 @@
 {
     "name": "sass-pire",
     "aliasName": "sp",
+    "private": true,
     "version": "5.0.0",
     "description": "Just a more mixins and functions with SCSS for more productive projects.",
     "markdown": "github",
@@ -31,12 +32,6 @@
         "ui-library",
         "sass-library",
         "scss-library"
-    ],
-    "files": [
-        "src/**/*.scss",
-        "index.scss",
-        "LICENSE.md",
-        "README.md"
     ],
     "exports": {
         "sass": "./index.scss",
