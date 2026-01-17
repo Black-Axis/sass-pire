@@ -18,13 +18,13 @@
 
 // @repository: https://github.com/Black-Axis/sass-pire
 
-@use "../size" as *;
+@use "../src/size" as *;
 
-@use "../weight" as *;
+@use "../src/weight" as *;
 
-@use "../line-height" as *;
+@use "../src/line-height" as *;
 
-@use "../letter-spacing" as *;
+@use "../src/letter-spacing" as *;
 
 @include sp-get-fs;
 

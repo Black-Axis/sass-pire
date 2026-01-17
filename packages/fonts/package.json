@@ -40,7 +40,7 @@
         "dev": "concurrently --prefix-colors=\"cyan,yellow,green,magenta\" \"yarn sass:watch\" \"yarn sass:comp\" \"yarn css:watch\" \"yarn css:comp\"",
         "sass:watch": "sass ./index.scss:dist/index.compiled.css --watch",
         "sass:comp": "sass ./index.scss:dist/index.compiled.min.css --watch --style=compressed",
-        "css:watch": "sass ./src/styles/index.scss:dist/index.css --watch",
-        "css:comp": "sass ./src/styles/index.scss:dist/index.min.css --watch --style=compressed"
+        "css:watch": "sass ./styles/index.scss:dist/index.css --watch",
+        "css:comp": "sass ./styles/index.scss:dist/index.min.css --watch --style=compressed"
     }
 }
