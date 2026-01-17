@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+// @description
+// * sp-get-ls mixin tests.
+// * This module tests the output of sp-get-ls mixin.
+
+// @access private
+
+// @version 1.0.0
+
+// @license MIT
+
+// @author Khaled Mohamed
+
+// @package @sass-pire/fonts
+
+// @library sass-pire
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @dependencies:
+// * - True.describe (true mixin).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+
+// stylelint-disable custom-property-no-missing-var-function
+
+@use "sass:map";
+@use "true" as *;
+@use "../../src/letter-spacing" as LetterSpacing;
+
+$test-cases-ls-map: (
+    "test-case-1": (
+        selector: ":root",
+        expected: (
+            --sp-ls-1: -0.05em,
+            --sp-ls-2: -0.025em,
+            --sp-ls-3: 0,
+            --sp-ls-4: 0.025em,
+            --sp-ls-5: 0.05em,
+            --sp-ls-6: 0.1em,
+        ),
+    ),
+    "test-case-2": (
+        selector: ".test",
+        expected: (
+            --sp-ls-1: -0.05em,
+            --sp-ls-2: -0.025em,
+            --sp-ls-3: 0,
+            --sp-ls-4: 0.025em,
+            --sp-ls-5: 0.05em,
+            --sp-ls-6: 0.1em,
+        ),
+    ),
+    "test-case-3": (
+        selector: "#app",
+        expected: (
+            --sp-ls-1: -0.05em,
+            --sp-ls-2: -0.025em,
+            --sp-ls-3: 0,
+            --sp-ls-4: 0.025em,
+            --sp-ls-5: 0.05em,
+            --sp-ls-6: 0.1em,
+        ),
+    ),
+    "test-case-4": (
+        selector: "[data-example='example']",
+        expected: (
+            --sp-ls-1: -0.05em,
+            --sp-ls-2: -0.025em,
+            --sp-ls-3: 0,
+            --sp-ls-4: 0.025em,
+            --sp-ls-5: 0.05em,
+            --sp-ls-6: 0.1em,
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-ls-map {
+    @include describe("[Mixin] sp-get-ls() for #{$case-name}") {
+        @include it("Should generate letter spacing CSS custom properties on #{$case-name} selector.") {
+            @include assert {
+                @include output {
+                    @include LetterSpacing.sp-get-ls(map.get($case-data, selector));
+                }
+
+                @include expect {
+                    #{map.get($case-data, selector)} {
+                        @each $property, $value in map.get($case-data, expected) {
+                            #{$property}: #{$value};
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
