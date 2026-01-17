@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+// @description:
+// Font sizes configuration for the sass-pire design system.
+// Based on 320px min viewport and 1440px max viewport
+// Using Major Second scale (1.125) for consistent progression
+
+// @access public
+
+// @version 1.0.0
+
+// @license MIT
+
+// @author Khaled Mohamed
+
+// @package @sass-pire/fonts
+
+// @library sass-pire
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @usage:
+// @include sp-get-fs();
+
+// stylelint-disable number-max-precision
+// stylelint-disable custom-property-empty-line-before
+// stylelint-disable at-rule-empty-line-before
+
+@use "sass:meta";
+
+@mixin sp-get-fs($selector: ":root") {
+    @if meta.type-of($selector) != "string" {
+        @error "The `$selector` argument of sp-get-fs mixin must be a string type.";
+    }
+
+    #{$selector} {
+        --sp-fs-xxs: clamp(0.625rem, calc(0.5536rem + 0.3571vw), 0.75rem);
+        --sp-fs-xs: clamp(0.75rem, calc(0.6786rem + 0.3571vw), 0.875rem);
+        --sp-fs-sm: clamp(0.875rem, calc(0.8036rem + 0.3571vw), 1rem);
+
+        --sp-fs-base: clamp(1rem, calc(0.9286rem + 0.3571vw), 1.125rem);
+        --sp-fs-md: clamp(1.125rem, calc(1.0536rem + 0.3571vw), 1.266rem);
+        --sp-fs-lg: clamp(1.266rem, calc(1.1696rem + 0.4821vw), 1.424rem);
+
+        --sp-fs-xl: clamp(1.424rem, calc(1.3036rem + 0.6071vw), 1.602rem);
+        --sp-fs-2xl: clamp(1.602rem, calc(1.4554rem + 0.7321vw), 1.802rem);
+        --sp-fs-3xl: clamp(1.802rem, calc(1.6232rem + 0.8929vw), 2.027rem);
+        --sp-fs-4xl: clamp(2.027rem, calc(1.8089rem + 1.0893vw), 2.281rem);
+        --sp-fs-5xl: clamp(2.5rem, calc(2.1429rem + 1.7857vw), 3rem);
+    }
+}
