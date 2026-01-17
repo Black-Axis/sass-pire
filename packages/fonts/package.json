@@ -1,0 +1,46 @@
+{
+    "name": "@sass-pire/fonts",
+    "version": "1.0.0",
+    "description": "Font utilities and configuration for the sass-pire design system.",
+    "license": "MIT",
+    "author": "Khaled Mohamed <k.mohamed.11.98@gmail.com> (https://github.com/krypton225)",
+    "contributors": [
+        "Khaled Mohamed"
+    ],
+    "bugs": {
+        "url": "https://github.com/Black-Axis/sass-pire/issues",
+        "email": "black_axis@outlook.com"
+    },
+    "keywords": [
+        "scss",
+        "sass",
+        "sass-pire",
+        "fonts",
+        "design-system",
+        "ui-library",
+        "sass-library",
+        "scss-library"
+    ],
+    "exports": {
+        ".": "./index.scss",
+        "./scss": "./index.scss",
+        "./css": "./dist/index.css",
+        "./css/min": "./dist/index.min.css"
+    },
+    "sideEffects": [
+        "*.css",
+        "*.scss"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Black-Axis/sass-pire",
+        "directory": "packages/fonts"
+    },
+    "scripts": {
+        "dev": "concurrently --prefix-colors=\"cyan,yellow,green,magenta\" \"yarn sass:watch\" \"yarn sass:comp\" \"yarn css:watch\" \"yarn css:comp\"",
+        "sass:watch": "sass ./index.scss:dist/index.compiled.css --watch",
+        "sass:comp": "sass ./index.scss:dist/index.compiled.min.css --watch --style=compressed",
+        "css:watch": "sass ./styles/index.scss:dist/index.css --watch",
+        "css:comp": "sass ./styles/index.scss:dist/index.min.css --watch --style=compressed"
+    }
+}

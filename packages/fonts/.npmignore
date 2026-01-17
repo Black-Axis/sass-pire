@@ -1,0 +1,37 @@
+# Exclude everything first, then include what we need
+# This ensures styles folder is excluded
+
+# Development files
+node_modules/
+.vscode/
+.DS_Store
+.git/
+.gitignore
+.editorconfig
+
+# Build and test files
+build/
+tests/
+*.log
+
+# Styles folder - MUST BE EXCLUDED
+styles
+styles/
+styles/**
+**/styles
+**/styles/
+**/styles/**
+
+# HTML demo file
+index.html
+
+# Documentation files
+docs/
+
+# Compiled files we don't need in the package
+dist/index.compiled.css
+dist/index.compiled.min.css
+
+# Keep only these in dist:
+# dist/index.css
+# dist/index.min.css
