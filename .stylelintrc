@@ -3,7 +3,16 @@
     "extends": ["stylelint-config-standard", "stylelint-config-standard-scss"],
     "ignoreFiles": [
         "dist/*.css",
-        "dist/*.min.css"
+        "dist/*.min.css",
+        "packages/**/dist/*.css",
+        "packages/**/dist/*.css.map",
+        "packages/**/dist/*.min.css",
+        "packages/**/dist/*.min.css.map",
+        "packages/**/dist/*.compiled.css",
+        "packages/**/dist/*.compiled.css.map",
+        "packages/**/dist/*.compiled.min.css",
+        "packages/**/dist/*.compiled.min.css.map",
+        "packages/**/index.scss"
     ],
     "rules": {
         "no-duplicate-selectors": true,
