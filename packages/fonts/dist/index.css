@@ -24,4 +24,18 @@
   --sp-fw-900: 900;
 }
 
+:root {
+  --sp-lh-1: 1.2;
+  --sp-lh-2: 1.4;
+  --sp-lh-3: 1.6;
+  --sp-lh-4: 1.8;
+  --sp-lh-5: 2;
+  --sp-lh-6: 2.4;
+  --sp-lh-7: 2.8;
+  --sp-lh-8: 3.2;
+  --sp-lh-9: 3.6;
+  --sp-lh-10: 4;
+  --sp-lh-11: 4.4;
+}
+
 /*# sourceMappingURL=index.css.map */
