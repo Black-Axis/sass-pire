@@ -24,8 +24,12 @@
 
 @use "../line-height" as *;
 
+@use "../letter-spacing" as *;
+
 @include sp-get-fs;
 
 @include sp-get-fw;
 
 @include sp-get-lh;
+
+@include sp-get-ls;

@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+// @description:
+// Letter spacing configuration for the sass-pire design system.
+
+// @access public
+
+// @version 1.0.0
+
+// @license MIT
+
+// @author Khaled Mohamed
+
+// @package @sass-pire/fonts
+
+// @library sass-pire
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+@use "sass:meta";
+
+@mixin sp-get-ls($selector: ":root") {
+    @if meta.type-of($selector) != "string" {
+        @error "The `$selector` argument of sp-get-ls mixin must be a string type.";
+    }
+
+    #{$selector} {
+        --sp-ls-1: -0.05em;
+        --sp-ls-2: -0.025em;
+        --sp-ls-3: 0;
+        --sp-ls-4: 0.025em;
+        --sp-ls-5: 0.05em;
+        --sp-ls-6: 0.1em;
+    }
+}
