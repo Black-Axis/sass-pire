@@ -7,6 +7,9 @@
     "license": "MIT",
     "organizationName": "Black Axis",
     "packageManager": "yarn@4.5.0",
+    "workspaces": [
+        "packages/*"
+    ],
     "licenses": [
         {
             "type": "MIT",
@@ -61,7 +64,8 @@
         "test:scss": "sass --no-source-map --load-path=./node_modules/sass-true/sass/ ./tests/test.scss:dist/test-styles.css --watch",
         "test:jest": "jest ./tests/sass.test.js --watchAll #runs all tests",
         "test:messages": "node ./tests/cli-test-message.js",
-        "test": "yarn test:messages && concurrently --prefix-colors=\"blue,red\" \"yarn test:jest\" \"yarn test:scss\""
+        "test": "yarn test:messages && concurrently --prefix-colors=\"blue,red\" \"yarn test:jest\" \"yarn test:scss\"",
+        "dev:fonts": "yarn workspace @sass-pire/fonts dev"
     },
     "dependencies": {
         "reset-zone": "^2.4.2",
