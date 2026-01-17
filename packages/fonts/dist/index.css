@@ -38,4 +38,13 @@
   --sp-lh-11: 4.4;
 }
 
+:root {
+  --sp-ls-1: -0.05em;
+  --sp-ls-2: -0.025em;
+  --sp-ls-3: 0;
+  --sp-ls-4: 0.025em;
+  --sp-ls-5: 0.05em;
+  --sp-ls-6: 0.1em;
+}
+
 /*# sourceMappingURL=index.css.map */
