@@ -8,6 +8,13 @@ node_modules
 !.yarn/versions
 
 /dist
+index.html
+
+packages/**/index.html
+packages/**/dist/**.compiled.css
+packages/**/dist/**.compiled.css.map
+packages/**/dist/**.compiled.min.css
+packages/**/dist/**.compiled.min.css.map
 
 /.vscode/*
 !.vscode/settings.json
