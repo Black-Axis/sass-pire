@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+// @description:
+// Font line heights configuration for the sass-pire design system.
+// Based on 320px min viewport and 1440px max viewport
+// Using Major Second scale (1.125) for consistent progression
+
+// @access public
+
+// @version 1.0.0
+
+// @license MIT
+
+// @author Khaled Mohamed
+
+// @package @sass-pire/fonts
+
+// @library sass-pire
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+@use "sass:meta";
+
+@mixin sp-get-lh($selector: ":root") {
+    @if meta.type-of($selector) != "string" {
+        @error "The `$selector` argument of sp-get-lh mixin must be a string type.";
+    }
+
+    #{$selector} {
+        --sp-lh-1: 1.2;
+        --sp-lh-2: 1.4;
+        --sp-lh-3: 1.6;
+        --sp-lh-4: 1.8;
+        --sp-lh-5: 2;
+        --sp-lh-6: 2.4;
+        --sp-lh-7: 2.8;
+        --sp-lh-8: 3.2;
+        --sp-lh-9: 3.6;
+        --sp-lh-10: 4;
+        --sp-lh-11: 4.4;
+    }
+}

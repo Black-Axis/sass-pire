@@ -22,6 +22,10 @@
 
 @use "../weight" as *;
 
+@use "../line-height" as *;
+
 @include sp-get-fs;
 
 @include sp-get-fw;
+
+@include sp-get-lh;
