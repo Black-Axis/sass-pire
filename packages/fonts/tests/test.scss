@@ -19,6 +19,7 @@
 
 @use "./size/sp-get-fs.test" as *;
 @use "./weight/sp-get-fw.test" as *;
+@use "./line-height/sp-get-lh.test" as *;
 
 // * There is a `$catch-errors` variable set to `true` by default.
 // * If you want to disable it, set it to `false`.

@@ -1,0 +1,80 @@
+@charset "UTF-8";
+
+// @description
+// * sp-get-lh mixin tests.
+// * This module tests the functionality of sp-get-lh mixin.
+
+// @access private
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace fonts/line-height
+
+// @module fonts/sp-get-lh.test
+
+// @dependencies:
+// * - True.describe (true mixin).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - sp-get-lh (package mixin).
+
+@use "true" as *;
+@use "../../src/line-height" as LineHeightMixin;
+
+@include describe("[Mixin] sp-get-lh()") {
+    @include it("Should generate line height CSS custom properties on :root selector by default.") {
+        @include assert {
+            @include output {
+                @include LineHeightMixin.sp-get-lh;
+            }
+
+            @include expect {
+                :root {
+                    --sp-lh-1: 1.2;
+                    --sp-lh-2: 1.4;
+                    --sp-lh-3: 1.6;
+                    --sp-lh-4: 1.8;
+                    --sp-lh-5: 2;
+                    --sp-lh-6: 2.4;
+                    --sp-lh-7: 2.8;
+                    --sp-lh-8: 3.2;
+                    --sp-lh-9: 3.6;
+                    --sp-lh-10: 4;
+                    --sp-lh-11: 4.4;
+                }
+            }
+        }
+    }
+
+    @include it("Should generate line height CSS custom properties on custom selector.") {
+        @include assert {
+            @include output {
+                @include LineHeightMixin.sp-get-lh("#app");
+            }
+
+            @include expect {
+                #app {
+                    --sp-lh-1: 1.2;
+                    --sp-lh-2: 1.4;
+                    --sp-lh-3: 1.6;
+                    --sp-lh-4: 1.8;
+                    --sp-lh-5: 2;
+                    --sp-lh-6: 2.4;
+                    --sp-lh-7: 2.8;
+                    --sp-lh-8: 3.2;
+                    --sp-lh-9: 3.6;
+                    --sp-lh-10: 4;
+                    --sp-lh-11: 4.4;
+                }
+            }
+        }
+    }
+}
