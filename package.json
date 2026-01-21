@@ -60,7 +60,8 @@
         "test:jest": "jest ./tests/sass.test.js --watchAll #runs all tests",
         "test:messages": "node ./tests/cli-test-message.js",
         "test": "yarn test:messages && concurrently --prefix-colors=\"blue,red\" \"yarn test:jest\" \"yarn test:scss\"",
-        "dev:fonts": "yarn workspace @sass-pire/fonts dev"
+        "dev:fonts": "yarn workspace @sass-pire/fonts dev",
+        "test:fonts": "jest ./packages/fonts/tests/sass.test.js --watchAll"
     },
     "dependencies": {
         "reset-zone": "^2.4.2",

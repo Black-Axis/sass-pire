@@ -5,5 +5,5 @@ module.exports = {
         "^.+\\.js$": "babel-jest",
         "^.+\\.scss$": "jest-scss-transform"
     },
-    testRegex: "tests/sass\\.test\\.js$"
+    testRegex: "(tests|packages/.*/tests)/sass\\.test\\.js$"
 };

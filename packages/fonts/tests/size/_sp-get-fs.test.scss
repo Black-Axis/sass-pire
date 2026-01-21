@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+// @description
+// * sp-get-fs mixin tests.
+// * This module tests the functionality of sp-get-fs mixin.
+
+// @access private
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace fonts/size
+
+// @module fonts/sp-get-fs.test
+
+// @dependencies:
+// * - True.describe (true mixin).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - sp-get-fs (package mixin).
+
+// stylelint-disable number-max-precision
+
+@use "true" as *;
+@use "../../src/size" as FontSizeMixin;
+
+@include describe("[Mixin] sp-get-fs()") {
+    @include it("Should generate font size CSS custom properties on :root selector by default.") {
+        @include assert {
+            @include output {
+                @include FontSizeMixin.sp-get-fs;
+            }
+
+            @include expect {
+                :root {
+                    --sp-fs-1: clamp(0.625rem, calc(0.5536rem + 0.3571vw), 0.75rem);
+                    --sp-fs-2: clamp(0.75rem, calc(0.6786rem + 0.3571vw), 0.875rem);
+                    --sp-fs-3: clamp(0.875rem, calc(0.8036rem + 0.3571vw), 1rem);
+                    --sp-fs-4: clamp(1rem, calc(0.9286rem + 0.3571vw), 1.125rem);
+                    --sp-fs-5: clamp(1.125rem, calc(1.0536rem + 0.3571vw), 1.266rem);
+                    --sp-fs-6: clamp(1.266rem, calc(1.1696rem + 0.4821vw), 1.424rem);
+                    --sp-fs-7: clamp(1.424rem, calc(1.3036rem + 0.6071vw), 1.602rem);
+                    --sp-fs-8: clamp(1.602rem, calc(1.4554rem + 0.7321vw), 1.802rem);
+                    --sp-fs-9: clamp(1.802rem, calc(1.6232rem + 0.8929vw), 2.027rem);
+                    --sp-fs-10: clamp(2.027rem, calc(1.8089rem + 1.0893vw), 2.281rem);
+                    --sp-fs-11: clamp(2.5rem, calc(2.1429rem + 1.7857vw), 3rem);
+                }
+            }
+        }
+    }
+
+    @include it("Should generate font size CSS custom properties on custom selector.") {
+        @include assert {
+            @include output {
+                @include FontSizeMixin.sp-get-fs(".custom-class");
+            }
+
+            @include expect {
+                .custom-class {
+                    --sp-fs-1: clamp(0.625rem, calc(0.5536rem + 0.3571vw), 0.75rem);
+                    --sp-fs-2: clamp(0.75rem, calc(0.6786rem + 0.3571vw), 0.875rem);
+                    --sp-fs-3: clamp(0.875rem, calc(0.8036rem + 0.3571vw), 1rem);
+                    --sp-fs-4: clamp(1rem, calc(0.9286rem + 0.3571vw), 1.125rem);
+                    --sp-fs-5: clamp(1.125rem, calc(1.0536rem + 0.3571vw), 1.266rem);
+                    --sp-fs-6: clamp(1.266rem, calc(1.1696rem + 0.4821vw), 1.424rem);
+                    --sp-fs-7: clamp(1.424rem, calc(1.3036rem + 0.6071vw), 1.602rem);
+                    --sp-fs-8: clamp(1.602rem, calc(1.4554rem + 0.7321vw), 1.802rem);
+                    --sp-fs-9: clamp(1.802rem, calc(1.6232rem + 0.8929vw), 2.027rem);
+                    --sp-fs-10: clamp(2.027rem, calc(1.8089rem + 1.0893vw), 2.281rem);
+                    --sp-fs-11: clamp(2.5rem, calc(2.1429rem + 1.7857vw), 3rem);
+                }
+            }
+        }
+    }
+}
