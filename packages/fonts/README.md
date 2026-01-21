@@ -55,8 +55,10 @@ Import the package in your SCSS files to access font utilities:
 @use '@sass-pire/fonts' as fonts;
 
 // Or import specific modules
-@use '@sass-pire/fonts/src/sizes' as sizes;
-@use '@sass-pire/fonts/src/weights' as weights;
+@use '@sass-pire/fonts/src/size' as sizes;
+@use '@sass-pire/fonts/src/weight' as weights;
+@use '@sass-pire/fonts/src/letter-spacing' as letter-spacing;
+@use '@sass-pire/fonts/src/line-height' as line-height;
 ```
 
 ### Using Font Size Utilities
@@ -64,7 +66,7 @@ Import the package in your SCSS files to access font utilities:
 The package provides responsive font sizes using CSS custom properties with `clamp()` for fluid typography:
 
 ```scss
-@use '@sass-pire/fonts/src/sizes' as *;
+@use '@sass-pire/fonts/src/size' as *;
 
 // Include the font size mixin to generate CSS custom properties
 @include sp-get-fs(); // Generates variables on :root by default
@@ -112,7 +114,7 @@ The package provides responsive font sizes using CSS custom properties with `cla
 The package provides standard font weight values:
 
 ```scss
-@use '@sass-pire/fonts/src/weights' as *;
+@use '@sass-pire/fonts/src/weight' as *;
 
 // Include the font weight mixin to generate CSS custom properties
 @include sp-get-fw(); // Generates variables on :root by default
@@ -153,14 +155,76 @@ The package provides standard font weight values:
 }
 ```
 
+### Using Letter Spacing Utilities
+
+The package provides standard letter spacing values:
+
+```scss
+@use '@sass-pire/fonts/src/letter-spacing' as *;
+
+// Include the letter spacing mixin to generate CSS custom properties
+@include sp-get-ls(); // Generates variables on :root by default
+
+// Or target a specific selector
+@include sp-get-ls('.my-component');
+```
+
+**Generated CSS Custom Properties:**
+
+```css
+:root {
+  --sp-ls-1: -0.05em;
+  --sp-ls-2: -0.025em;
+  --sp-ls-3: 0;
+  --sp-ls-4: 0.025em;
+  --sp-ls-5: 0.05em;
+  --sp-ls-6: 0.1em;
+}
+```
+
+### Using Line Height Utilities
+
+The package provides line height values based on a Major Second scale (1.125):
+
+```scss
+@use '@sass-pire/fonts/src/line-height' as *;
+
+// Include the line height mixin to generate CSS custom properties
+@include sp-get-lh(); // Generates variables on :root by default
+
+// Or target a specific selector
+@include sp-get-lh('.my-component');
+```
+
+**Generated CSS Custom Properties:**
+
+```css
+:root {
+  --sp-lh-1: 1.2;
+  --sp-lh-2: 1.4;
+  --sp-lh-3: 1.6;
+  --sp-lh-4: 1.8;
+  --sp-lh-5: 2;
+  --sp-lh-6: 2.4;
+  --sp-lh-7: 2.8;
+  --sp-lh-8: 3.2;
+  --sp-lh-9: 3.6;
+  --sp-lh-10: 4;
+  --sp-lh-11: 4.4;
+}
+```
+```
+
 ### Complete Example
 
 ```scss
-@use '@sass-pire/fonts' as fonts;
+@use '@sass-pire/fonts' as *;
 
 // Generate all font utilities
-@include fonts.sp-get-fs();
-@include fonts.sp-get-fw();
+@include sp-get-fs();
+@include sp-get-fw();
+@include sp-get-ls();
+@include sp-get-lh();
 
 // Use in your components
 .hero-title {
@@ -176,7 +240,8 @@ The package provides standard font weight values:
 .paragraph {
   font-size: var(--sp-fs-base);
   font-weight: var(--sp-fw-400);
-  line-height: 1.6;
+  line-height: var(--sp-lh-3);
+  letter-spacing: var(--sp-ls-3);
 }
 
 .caption {
@@ -246,10 +311,14 @@ This will watch for changes and compile SCSS files automatically.
 ```
 @sass-pire/fonts/
 ├── src/
-│   ├── sizes/
+│   ├── size/
 │   │   └── _index.scss       # Font size utilities
-│   └── weights/
-│       └── _index.scss        # Font weight utilities
+│   ├── weight/
+│   │   └── _index.scss       # Font weight utilities
+│   ├── letter-spacing/
+│   │   └── _index.scss       # Letter spacing utilities
+│   └── line-height/
+│       └── _index.scss       # Line height utilities
 ├── styles/
 │   └── index.scss             # CSS output generator
 ├── dist/
@@ -292,6 +361,32 @@ Generates font weight CSS custom properties.
 @include sp-get-fw('.theme');   // Generates on .theme
 ```
 
+#### `sp-get-ls($selector)`
+
+Generates letter spacing CSS custom properties.
+
+**Parameters:**
+- `$selector` (String, optional) - Target selector for the variables. Default: `:root`
+
+**Example:**
+```scss
+@include sp-get-ls();           // Generates on :root
+@include sp-get-ls('.theme');   // Generates on .theme
+```
+
+#### `sp-get-lh($selector)`
+
+Generates line height CSS custom properties.
+
+**Parameters:**
+- `$selector` (String, optional) - Target selector for the variables. Default: `:root`
+
+**Example:**
+```scss
+@include sp-get-lh();           // Generates on :root
+@include sp-get-lh('.theme');   // Generates on .theme
+```
+
 ## 🤝 Contributing
 
 This package is part of the [sass-pire](https://github.com/Black-Axis/sass-pire) monorepo. Please refer to the main repository for contribution guidelines.
@@ -307,8 +402,7 @@ Report issues at: [https://github.com/Black-Axis/sass-pire/issues](https://githu
 ## 📧 Contact
 
 - **Author:** Khaled Mohamed
-- **Email:** k.mohamed.11.98@gmail.com
-- **Organization Email:** black_axis@outlook.com
+- **Org. Email:** black_axis@outlook.com
 
 ---
 
