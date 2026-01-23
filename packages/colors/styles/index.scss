@@ -4,6 +4,9 @@
 // This file is used to generate the color utilities for the sass-pire design system.
 // in the dist folder for using CSS output.
 
+// @note:
+// If you need to remove any color from CSS output, please, remove it from the index.scss file too.
+
 // @access public
 
 // @version 1.0.0
@@ -26,6 +29,8 @@
 
 @use "../src/blue" as *;
 
+@use "../src/green" as *;
+
 @include sp-get-neutral;
 
 @include sp-get-red;
@@ -33,3 +38,5 @@
 @include sp-get-blue;
 
 @include sp-get-orange;
+
+@include sp-get-green;
