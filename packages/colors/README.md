@@ -2,7 +2,7 @@
 
 Color utilities and configuration for the sass-pire design system.
 
-## � Table of Contents
+## Table of Contents
 
 - [�📦 Installation](#-installation)
 - [🚀 Usage](#-usage)
