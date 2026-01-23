@@ -33,6 +33,8 @@
 
 @use "../src/yellow" as *;
 
+@use "../src/violet" as *;
+
 @include sp-get-neutral;
 
 @include sp-get-red;
@@ -44,3 +46,5 @@
 @include sp-get-green;
 
 @include sp-get-yellow;
+
+@include sp-get-violet;
