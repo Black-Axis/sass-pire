@@ -2,6 +2,28 @@
 
 Color utilities and configuration for the sass-pire design system.
 
+## � Table of Contents
+
+- [�📦 Installation](#-installation)
+- [🚀 Usage](#-usage)
+  - [SCSS Import](#scss-import)
+  - [Using Neutral Color Utilities](#using-neutral-color-utilities)
+  - [Using Yellow Color Utilities](#using-yellow-color-utilities)
+  - [Using Violet Color Utilities](#using-violet-color-utilities)
+  - [Using Cyan Color Utilities](#using-cyan-color-utilities)
+  - [Using Red Color Utilities](#using-red-color-utilities)
+  - [Using Blue Color Utilities](#using-blue-color-utilities)
+  - [Using Orange Color Utilities](#using-orange-color-utilities)
+  - [Complete Example](#complete-example)
+- [🎨 Using Pre-compiled CSS](#-using-pre-compiled-css)
+- [🛠️ Development](#-development)
+- [📁 Package Structure](#-package-structure)
+- [🔗 API Reference](#-api-reference)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
+- [🐛 Issues](#-issues)
+- [📧 Contact](#-contact)
+
 ## 📦 Installation
 
 ### In a Monorepo Workspace
@@ -43,6 +65,8 @@ npm install @sass-pire/colors
 # Using pnpm
 pnpm add @sass-pire/colors
 ```
+
+[↑ Back to Top](#-sass-pirecolors)
 
 ## 🚀 Usage
 
@@ -489,6 +513,8 @@ The package provides a comprehensive orange color scale using CSS custom propert
 }
 ```
 
+[↑ Back to Top](#-sass-pirecolors)
+
 ## 🎨 Using Pre-compiled CSS
 
 If you prefer to use CSS directly without SCSS compilation:
@@ -500,6 +526,8 @@ If you prefer to use CSS directly without SCSS compilation:
 <!-- Or the minified version -->
 <link rel="stylesheet" href="node_modules/@sass-pire/colors/dist/index.min.css">
 ```
+
+[↑ Back to Top](#-sass-pirecolors)
 
 ## 🛠️ Development
 
@@ -522,6 +550,8 @@ This will watch for changes and compile SCSS files automatically.
 - `yarn sass:comp` - Watch and compile SCSS to CSS (compressed)
 - `yarn css:watch` - Watch and compile styles to CSS (uncompressed)
 - `yarn css:comp` - Watch and compile styles to CSS (compressed)
+
+[↑ Back to Top](#-sass-pirecolors)
 
 ## 📁 Package Structure
 
@@ -648,6 +678,8 @@ Generates cyan color CSS custom properties.
 @include sp-get-cyan();           // Generates on :root
 @include sp-get-cyan('.theme');   // Generates on .theme
 ```
+
+[↑ Back to Top](#-sass-pirecolors)
 
 ## 🤝 Contributing
 
