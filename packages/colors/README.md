@@ -66,7 +66,7 @@ npm install @sass-pire/colors
 pnpm add @sass-pire/colors
 ```
 
-[↑ Back to Top](#-sass-pirecolors)
+[↑ Back to Top](#)
 
 ## 🚀 Usage
 
@@ -88,7 +88,7 @@ Import the package in your SCSS files to access color utilities:
 @use '@sass-pire/colors/src/cyan' as cyan;
 ```
 
-[↑ Back to Top](#-sass-pirecolors)
+[↑ Back to Top](#)
 
 ### Using Neutral Color Utilities
 
@@ -144,7 +144,7 @@ The package provides a comprehensive neutral color scale using CSS custom proper
 }
 ```
 
-[↑ Back to Top](#-sass-pirecolors)
+[↑ Back to Top](#)
 
 ### Using Yellow Color Utilities
 
@@ -200,7 +200,7 @@ The package provides a comprehensive yellow color scale with high saturation in 
 }
 ```
 
-[↑ Back to Top](#-sass-pirecolors)
+[↑ Back to Top](#)
 
 ### Using Violet Color Utilities
 
@@ -254,7 +254,7 @@ The package provides a comprehensive violet color scale using CSS custom propert
   background-color: var(--sp-violet-500);
 }
 
-[↑ Back to Top](#-sass-pirecolors)
+[↑ Back to Top](#)
 
 ### Using Cyan Color Utilities
 
@@ -309,7 +309,7 @@ The package provides a comprehensive cyan color scale using CSS custom propertie
 }
 ```
 
-[↑ Back to Top](#-sass-pirecolors)
+[↑ Back to Top](#)
 
 ### Using Red Color Utilities
 
@@ -366,7 +366,7 @@ The package provides a comprehensive red color scale using CSS custom properties
 }
 ```
 
-[↑ Back to Top](#-sass-pirecolors)
+[↑ Back to Top](#)
 
 ### Using Blue Color Utilities
 
@@ -418,7 +418,7 @@ The package provides a comprehensive blue color scale using CSS custom propertie
 }
 ```
 
-[↑ Back to Top](#-sass-pirecolors)
+[↑ Back to Top](#)
 
 ### Using Orange Color Utilities
 
@@ -470,7 +470,7 @@ The package provides a comprehensive orange color scale using CSS custom propert
 }
 ```
 
-[↑ Back to Top](#-sass-pirecolors)
+[↑ Back to Top](#)
 
 ### Complete Example
 
@@ -529,7 +529,7 @@ The package provides a comprehensive orange color scale using CSS custom propert
 }
 ```
 
-[↑ Back to Top](#-sass-pirecolors)
+[↑ Back to Top](#)
 
 ## 🎨 Using Pre-compiled CSS
 
@@ -543,7 +543,7 @@ If you prefer to use CSS directly without SCSS compilation:
 <link rel="stylesheet" href="node_modules/@sass-pire/colors/dist/index.min.css">
 ```
 
-[↑ Back to Top](#-sass-pirecolors)
+[↑ Back to Top](#)
 
 ## 🛠️ Development
 
@@ -567,7 +567,7 @@ This will watch for changes and compile SCSS files automatically.
 - `yarn css:watch` - Watch and compile styles to CSS (uncompressed)
 - `yarn css:comp` - Watch and compile styles to CSS (compressed)
 
-[↑ Back to Top](#-sass-pirecolors)
+[↑ Back to Top](#)
 
 ## 📁 Package Structure
 
@@ -600,7 +600,7 @@ This will watch for changes and compile SCSS files automatically.
 └── README.md
 ```
 
-[↑ Back to Top](#-sass-pirecolors)
+[↑ Back to Top](#)
 
 ## 🔗 API Reference
 
@@ -697,13 +697,13 @@ Generates cyan color CSS custom properties.
 @include sp-get-cyan('.theme');   // Generates on .theme
 ```
 
-[↑ Back to Top](#-sass-pirecolors)
+[↑ Back to Top](#)
 
 ## 🤝 Contributing
 
 This package is part of the [sass-pire](https://github.com/Black-Axis/sass-pire) monorepo. Please refer to the main repository for contribution guidelines.
 
-[↑ Back to Top](#-sass-pirecolors)
+[↑ Back to Top](#)
 
 ## 📄 License
 
