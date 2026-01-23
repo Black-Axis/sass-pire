@@ -22,6 +22,8 @@
 
 @use "../src/red" as *;
 
+@use "../src/orange" as *;
+
 @use "../src/blue" as *;
 
 @include sp-get-neutral;
@@ -29,3 +31,5 @@
 @include sp-get-red;
 
 @include sp-get-blue;
+
+@include sp-get-orange;

@@ -64,4 +64,26 @@
   --sp-blue-950: hsl(210deg 50% 15%);
 }
 
+:root {
+  --sp-orange-50: hsl(30deg 100% 97%);
+  --sp-orange-100: hsl(30deg 95% 92%);
+  --sp-orange-150: hsl(30deg 93% 87%);
+  --sp-orange-200: hsl(30deg 90% 83%);
+  --sp-orange-250: hsl(30deg 88% 77%);
+  --sp-orange-300: hsl(30deg 85% 72%);
+  --sp-orange-350: hsl(30deg 83% 66%);
+  --sp-orange-400: hsl(30deg 80% 61%);
+  --sp-orange-450: hsl(30deg 78% 55%);
+  --sp-orange-500: hsl(30deg 75% 50%);
+  --sp-orange-550: hsl(30deg 73% 46%);
+  --sp-orange-600: hsl(30deg 70% 42%);
+  --sp-orange-650: hsl(30deg 68% 38%);
+  --sp-orange-700: hsl(30deg 65% 35%);
+  --sp-orange-750: hsl(30deg 63% 31%);
+  --sp-orange-800: hsl(30deg 60% 28%);
+  --sp-orange-850: hsl(30deg 58% 24%);
+  --sp-orange-900: hsl(30deg 55% 21%);
+  --sp-orange-950: hsl(30deg 50% 15%);
+}
+
 /*# sourceMappingURL=index.css.map */
