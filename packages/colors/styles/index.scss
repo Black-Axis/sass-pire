@@ -37,6 +37,8 @@
 
 @use "../src/cyan" as *;
 
+@use "../src/pink" as *;
+
 @include sp-get-neutral;
 
 @include sp-get-red;
@@ -52,3 +54,5 @@
 @include sp-get-violet;
 
 @include sp-get-cyan;
+
+@include sp-get-pink;
