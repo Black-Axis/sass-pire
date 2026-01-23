@@ -1,23 +1,23 @@
 :root {
-  --sp-neutral-50: hsl(0deg 0% 100%);
-  --sp-neutral-100: hsl(0deg 0% 95%);
-  --sp-neutral-150: hsl(0deg 0% 90%);
-  --sp-neutral-200: hsl(0deg 0% 85%);
-  --sp-neutral-250: hsl(0deg 0% 80%);
-  --sp-neutral-300: hsl(0deg 0% 75%);
-  --sp-neutral-350: hsl(0deg 0% 70%);
-  --sp-neutral-400: hsl(0deg 0% 65%);
-  --sp-neutral-450: hsl(0deg 0% 60%);
-  --sp-neutral-500: hsl(0deg 0% 55%);
-  --sp-neutral-550: hsl(0deg 0% 50%);
-  --sp-neutral-600: hsl(0deg 0% 45%);
-  --sp-neutral-650: hsl(0deg 0% 40%);
+  --sp-neutral-50: hsl(0deg 0% 97%);
+  --sp-neutral-100: hsl(0deg 0% 92%);
+  --sp-neutral-150: hsl(0deg 0% 87%);
+  --sp-neutral-200: hsl(0deg 0% 83%);
+  --sp-neutral-250: hsl(0deg 0% 77%);
+  --sp-neutral-300: hsl(0deg 0% 72%);
+  --sp-neutral-350: hsl(0deg 0% 66%);
+  --sp-neutral-400: hsl(0deg 0% 61%);
+  --sp-neutral-450: hsl(0deg 0% 55%);
+  --sp-neutral-500: hsl(0deg 0% 50%);
+  --sp-neutral-550: hsl(0deg 0% 46%);
+  --sp-neutral-600: hsl(0deg 0% 42%);
+  --sp-neutral-650: hsl(0deg 0% 38%);
   --sp-neutral-700: hsl(0deg 0% 35%);
-  --sp-neutral-750: hsl(0deg 0% 30%);
-  --sp-neutral-800: hsl(0deg 0% 25%);
-  --sp-neutral-850: hsl(0deg 0% 20%);
-  --sp-neutral-900: hsl(0deg 0% 15%);
-  --sp-neutral-950: hsl(0deg 0% 10%);
+  --sp-neutral-750: hsl(0deg 0% 31%);
+  --sp-neutral-800: hsl(0deg 0% 28%);
+  --sp-neutral-850: hsl(0deg 0% 24%);
+  --sp-neutral-900: hsl(0deg 0% 21%);
+  --sp-neutral-950: hsl(0deg 0% 15%);
 }
 
 :root {
