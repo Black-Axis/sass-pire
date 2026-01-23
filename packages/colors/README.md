@@ -51,12 +51,14 @@ pnpm add @sass-pire/colors
 Import the package in your SCSS files to access color utilities:
 
 ```scss
-// Import all color utilities (neutral and red)
+// Import all color utilities (neutral, red, blue, and orange)
 @use '@sass-pire/colors' as colors;
 
 // Or import specific modules
 @use '@sass-pire/colors/src/neutral' as neutral;
 @use '@sass-pire/colors/src/red' as red;
+@use '@sass-pire/colors/src/blue' as blue;
+@use '@sass-pire/colors/src/orange' as orange;
 ```
 
 ### Using Neutral Color Utilities
@@ -168,6 +170,106 @@ The package provides a comprehensive red color scale using CSS custom properties
 }
 ```
 
+### Using Blue Color Utilities
+
+The package provides a comprehensive blue color scale using CSS custom properties:
+
+```scss
+@use '@sass-pire/colors/src/blue' as *;
+
+// Include the blue colors mixin to generate CSS custom properties
+@include sp-get-blue(); // Generates variables on :root by default
+
+// Or target a specific selector
+@include sp-get-blue('.my-component');
+```
+
+**Generated CSS Custom Properties:**
+
+```css
+:root {
+    --sp-blue-50: hsl(210deg 100% 97%);
+    --sp-blue-100: hsl(210deg 95% 92%);
+    --sp-blue-150: hsl(210deg 93% 87%);
+    --sp-blue-200: hsl(210deg 90% 83%);
+    --sp-blue-250: hsl(210deg 88% 77%);
+    --sp-blue-300: hsl(210deg 85% 72%);
+    --sp-blue-350: hsl(210deg 83% 66%);
+    --sp-blue-400: hsl(210deg 80% 61%);
+    --sp-blue-450: hsl(210deg 78% 55%);
+    --sp-blue-500: hsl(210deg 75% 50%);
+    --sp-blue-550: hsl(210deg 73% 46%);
+    --sp-blue-600: hsl(210deg 70% 42%);
+    --sp-blue-650: hsl(210deg 68% 38%);
+    --sp-blue-700: hsl(210deg 65% 35%);
+    --sp-blue-750: hsl(210deg 63% 31%);
+    --sp-blue-800: hsl(210deg 60% 28%);
+    --sp-blue-850: hsl(210deg 58% 24%);
+    --sp-blue-900: hsl(210deg 55% 21%);
+    --sp-blue-950: hsl(210deg 50% 15%);
+}
+```
+
+**Using in Your Styles:**
+
+```css
+.info-box {
+  background-color: var(--sp-blue-50);
+  border: 1px solid var(--sp-blue-200);
+  color: var(--sp-blue-800);
+}
+```
+
+### Using Orange Color Utilities
+
+The package provides a comprehensive orange color scale using CSS custom properties:
+
+```scss
+@use '@sass-pire/colors/src/orange' as *;
+
+// Include the orange colors mixin to generate CSS custom properties
+@include sp-get-orange(); // Generates variables on :root by default
+
+// Or target a specific selector
+@include sp-get-orange('.my-component');
+```
+
+**Generated CSS Custom Properties:**
+
+```css
+:root {
+    --sp-orange-50: hsl(30deg 100% 97%);
+    --sp-orange-100: hsl(30deg 95% 92%);
+    --sp-orange-150: hsl(30deg 93% 87%);
+    --sp-orange-200: hsl(30deg 90% 83%);
+    --sp-orange-250: hsl(30deg 88% 77%);
+    --sp-orange-300: hsl(30deg 85% 72%);
+    --sp-orange-350: hsl(30deg 83% 66%);
+    --sp-orange-400: hsl(30deg 80% 61%);
+    --sp-orange-450: hsl(30deg 78% 55%);
+    --sp-orange-500: hsl(30deg 75% 50%);
+    --sp-orange-550: hsl(30deg 73% 46%);
+    --sp-orange-600: hsl(30deg 70% 42%);
+    --sp-orange-650: hsl(30deg 68% 38%);
+    --sp-orange-700: hsl(30deg 65% 35%);
+    --sp-orange-750: hsl(30deg 63% 31%);
+    --sp-orange-800: hsl(30deg 60% 28%);
+    --sp-orange-850: hsl(30deg 58% 24%);
+    --sp-orange-900: hsl(30deg 55% 21%);
+    --sp-orange-950: hsl(30deg 50% 15%);
+}
+```
+
+**Using in Your Styles:**
+
+```css
+.warning-toast {
+  background-color: var(--sp-orange-100);
+  border-left: 4px solid var(--sp-orange-500);
+  color: var(--sp-orange-900);
+}
+```
+
 ### Complete Example
 
 ```scss
@@ -176,6 +278,8 @@ The package provides a comprehensive red color scale using CSS custom properties
 // Generate all color palettes
 @include sp-get-neutral();
 @include sp-get-red();
+@include sp-get-blue();
+@include sp-get-orange();
 
 // Use in your components
 .alert {
@@ -186,6 +290,18 @@ The package provides a comprehensive red color scale using CSS custom properties
     background-color: var(--sp-neutral-50);
     border: 1px solid var(--sp-red-300);
     color: var(--sp-red-700);
+  }
+
+  &--info {
+    background-color: var(--sp-blue-50);
+    border: 1px solid var(--sp-blue-300);
+    color: var(--sp-blue-700);
+  }
+
+  &--warning {
+    background-color: var(--sp-orange-50);
+    border: 1px solid var(--sp-orange-300);
+    color: var(--sp-orange-700);
   }
 }
 ```
@@ -231,8 +347,12 @@ This will watch for changes and compile SCSS files automatically.
 ├── src/
 │   ├── neutral/
 │   │   └── _index.scss       # Neutral color utilities
-│   └── red/
-│       └── _index.scss       # Red color utilities
+│   ├── red/
+│   │   └── _index.scss       # Red color utilities
+│   ├── blue/
+│   │   └── _index.scss       # Blue color utilities
+│   └── orange/
+│       └── _index.scss       # Orange color utilities
 ├── styles/
 │   └── index.scss             # CSS output generator
 ├── dist/
@@ -273,6 +393,32 @@ Generates red color CSS custom properties.
 ```scss
 @include sp-get-red();           // Generates on :root
 @include sp-get-red('.theme');   // Generates on .theme
+```
+
+#### `sp-get-blue($selector)`
+
+Generates blue color CSS custom properties.
+
+**Parameters:**
+- `$selector` (String, optional) - Target selector for the variables. Default: `:root`
+
+**Example:**
+```scss
+@include sp-get-blue();           // Generates on :root
+@include sp-get-blue('.theme');   // Generates on .theme
+```
+
+#### `sp-get-orange($selector)`
+
+Generates orange color CSS custom properties.
+
+**Parameters:**
+- `$selector` (String, optional) - Target selector for the variables. Default: `:root`
+
+**Example:**
+```scss
+@include sp-get-orange();           // Generates on :root
+@include sp-get-orange('.theme');   // Generates on .theme
 ```
 
 ## 🤝 Contributing
