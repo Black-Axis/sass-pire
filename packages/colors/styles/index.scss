@@ -20,4 +20,8 @@
 
 @use "../src/neutral" as *;
 
+@use "../src/red" as *;
+
 @include sp-get-neutral;
+
+@include sp-get-red;
