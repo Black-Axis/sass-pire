@@ -60,6 +60,7 @@ Import the package in your SCSS files to access color utilities:
 @use '@sass-pire/colors/src/blue' as blue;
 @use '@sass-pire/colors/src/orange' as orange;
 @use '@sass-pire/colors/src/yellow' as yellow;
+@use '@sass-pire/colors/src/violet' as violet;
 ```
 
 ### Using Neutral Color Utilities
@@ -115,6 +116,112 @@ The package provides a comprehensive neutral color scale using CSS custom proper
   color: var(--sp-neutral-600);
 }
 ```
+
+### Using Yellow Color Utilities
+
+The package provides a comprehensive yellow color scale with high saturation in dark shades to maintain vibrancy:
+
+```scss
+@use '@sass-pire/colors/src/yellow' as *;
+
+// Include the yellow colors mixin to generate CSS custom properties
+@include sp-get-yellow(); // Generates variables on :root by default
+
+// Or target a specific selector
+@include sp-get-yellow('.my-component');
+```
+
+**Generated CSS Custom Properties:**
+
+```css
+:root {
+    --sp-yellow-50: hsl(48deg 100% 96%);
+    --sp-yellow-100: hsl(48deg 100% 92%);
+    --sp-yellow-150: hsl(48deg 100% 87%);
+    --sp-yellow-200: hsl(48deg 100% 83%);
+    --sp-yellow-250: hsl(48deg 100% 77%);
+    --sp-yellow-300: hsl(48deg 100% 72%);
+    --sp-yellow-350: hsl(48deg 100% 66%);
+    --sp-yellow-400: hsl(48deg 100% 61%);
+    --sp-yellow-450: hsl(48deg 100% 55%);
+    --sp-yellow-500: hsl(48deg 100% 50%);
+    --sp-yellow-550: hsl(48deg 100% 46%);
+    --sp-yellow-600: hsl(48deg 100% 42%);
+    --sp-yellow-650: hsl(48deg 100% 38%);
+    --sp-yellow-700: hsl(48deg 100% 35%);
+    --sp-yellow-750: hsl(48deg 100% 31%);
+    --sp-yellow-800: hsl(48deg 100% 28%);
+    --sp-yellow-850: hsl(48deg 100% 24%);
+    --sp-yellow-900: hsl(48deg 100% 21%);
+    --sp-yellow-950: hsl(48deg 100% 15%);
+}
+```
+
+**Using in Your Styles:**
+
+```css
+.card-highlight {
+  background-color: var(--sp-yellow-50);
+  border: 1px solid var(--sp-yellow-300);
+}
+
+.on-yellow-dark {
+  color: var(--sp-neutral-50);
+  background-color: var(--sp-yellow-700);
+}
+```
+
+### Using Violet Color Utilities
+
+The package provides a comprehensive violet color scale using CSS custom properties:
+
+```scss
+@use '@sass-pire/colors/src/violet' as *;
+
+// Include the violet colors mixin to generate CSS custom properties
+@include sp-get-violet(); // Generates variables on :root by default
+
+// Or target a specific selector
+@include sp-get-violet('.my-component');
+```
+
+**Generated CSS Custom Properties:**
+
+```css
+:root {
+    --sp-violet-50: hsl(270deg 100% 97%);
+    --sp-violet-100: hsl(270deg 95% 92%);
+    --sp-violet-150: hsl(270deg 93% 87%);
+    --sp-violet-200: hsl(270deg 90% 83%);
+    --sp-violet-250: hsl(270deg 88% 77%);
+    --sp-violet-300: hsl(270deg 85% 72%);
+    --sp-violet-350: hsl(270deg 83% 66%);
+    --sp-violet-400: hsl(270deg 80% 61%);
+    --sp-violet-450: hsl(270deg 78% 55%);
+    --sp-violet-500: hsl(270deg 75% 50%);
+    --sp-violet-550: hsl(270deg 73% 46%);
+    --sp-violet-600: hsl(270deg 70% 42%);
+    --sp-violet-650: hsl(270deg 68% 38%);
+    --sp-violet-700: hsl(270deg 65% 35%);
+    --sp-violet-750: hsl(270deg 63% 31%);
+    --sp-violet-800: hsl(270deg 60% 28%);
+    --sp-violet-850: hsl(270deg 58% 24%);
+    --sp-violet-900: hsl(270deg 55% 21%);
+    --sp-violet-950: hsl(270deg 50% 15%);
+}
+```
+
+**Using in Your Styles:**
+
+```css
+.sidebar-active {
+  background-color: var(--sp-violet-50);
+  color: var(--sp-violet-700);
+}
+
+.brand-accent {
+  background-color: var(--sp-violet-500);
+}
 
 ### Using Red Color Utilities
 
@@ -281,6 +388,8 @@ The package provides a comprehensive orange color scale using CSS custom propert
 @include sp-get-red();
 @include sp-get-blue();
 @include sp-get-orange();
+@include sp-get-yellow();
+@include sp-get-violet();
 
 // Use in your components
 .alert {
@@ -303,6 +412,18 @@ The package provides a comprehensive orange color scale using CSS custom propert
     background-color: var(--sp-orange-50);
     border: 1px solid var(--sp-orange-300);
     color: var(--sp-orange-700);
+  }
+
+  &--highlight {
+    background-color: var(--sp-yellow-50);
+    border: 1px solid var(--sp-yellow-300);
+    color: var(--sp-yellow-900);
+  }
+
+  &--brand {
+    background-color: var(--sp-violet-50);
+    border: 1px solid var(--sp-violet-300);
+    color: var(--sp-violet-700);
   }
 }
 ```
@@ -354,8 +475,10 @@ This will watch for changes and compile SCSS files automatically.
 │   │   └── _index.scss       # Blue color utilities
 │   ├── orange/
 │   │   └── _index.scss       # Orange color utilities
-│   └── yellow/
-│       └── _index.scss       # Yellow color utilities
+│   ├── yellow/
+│   │   └── _index.scss       # Yellow color utilities
+│   └── violet/
+│       └── _index.scss       # Violet color utilities
 ├── styles/
 │   └── index.scss             # CSS output generator
 ├── dist/
@@ -435,6 +558,19 @@ Generates yellow color CSS custom properties.
 ```scss
 @include sp-get-yellow();           // Generates on :root
 @include sp-get-yellow('.theme');   // Generates on .theme
+```
+
+#### `sp-get-violet($selector)`
+
+Generates violet color CSS custom properties.
+
+**Parameters:**
+- `$selector` (String, optional) - Target selector for the variables. Default: `:root`
+
+**Example:**
+```scss
+@include sp-get-violet();           // Generates on :root
+@include sp-get-violet('.theme');   // Generates on .theme
 ```
 
 ## 🤝 Contributing
