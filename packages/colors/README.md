@@ -51,11 +51,12 @@ pnpm add @sass-pire/colors
 Import the package in your SCSS files to access color utilities:
 
 ```scss
-// Import all color utilities (currently neutral)
+// Import all color utilities (neutral and red)
 @use '@sass-pire/colors' as colors;
 
 // Or import specific modules
 @use '@sass-pire/colors/src/neutral' as neutral;
+@use '@sass-pire/colors/src/red' as red;
 ```
 
 ### Using Neutral Color Utilities
@@ -112,23 +113,80 @@ The package provides a comprehensive neutral color scale using CSS custom proper
 }
 ```
 
+### Using Red Color Utilities
+
+The package provides a comprehensive red color scale using CSS custom properties:
+
+```scss
+@use '@sass-pire/colors/src/red' as *;
+
+// Include the red colors mixin to generate CSS custom properties
+@include sp-get-red(); // Generates variables on :root by default
+
+// Or target a specific selector
+@include sp-get-red('.my-component');
+```
+
+**Generated CSS Custom Properties:**
+
+```css
+:root {
+    --sp-red-50: hsl(0deg 100% 97%);
+    --sp-red-100: hsl(0deg 95% 92%);
+    --sp-red-150: hsl(0deg 93% 87%);
+    --sp-red-200: hsl(0deg 90% 83%);
+    --sp-red-250: hsl(0deg 88% 77%);
+    --sp-red-300: hsl(0deg 85% 72%);
+    --sp-red-350: hsl(0deg 83% 66%);
+    --sp-red-400: hsl(0deg 80% 61%);
+    --sp-red-450: hsl(0deg 78% 55%);
+    --sp-red-500: hsl(0deg 75% 50%);
+    --sp-red-550: hsl(0deg 73% 46%);
+    --sp-red-600: hsl(0deg 70% 42%);
+    --sp-red-650: hsl(0deg 68% 38%);
+    --sp-red-700: hsl(0deg 65% 35%);
+    --sp-red-750: hsl(0deg 63% 31%);
+    --sp-red-800: hsl(0deg 60% 28%);
+    --sp-red-850: hsl(0deg 58% 24%);
+    --sp-red-900: hsl(0deg 55% 21%);
+    --sp-red-950: hsl(0deg 50% 15%);
+}
+```
+
+**Using in Your Styles:**
+
+```css
+.error-message {
+  color: var(--sp-red-600);
+  background-color: var(--sp-red-50);
+  border: 1px solid var(--sp-red-200);
+}
+
+.button-danger {
+  background-color: var(--sp-red-500);
+  color: var(--sp-neutral-50);
+}
+```
+
 ### Complete Example
 
 ```scss
 @use '@sass-pire/colors' as *;
 
-// Generate neutral color palette
+// Generate all color palettes
 @include sp-get-neutral();
+@include sp-get-red();
 
 // Use in your components
-.app-container {
-  background-color: var(--sp-neutral-100);
-  color: var(--sp-neutral-950);
-}
+.alert {
+  padding: 1rem;
+  border-radius: 4px;
 
-.sidebar {
-  background-color: var(--sp-neutral-50);
-  border-right: 1px solid var(--sp-neutral-300);
+  &--error {
+    background-color: var(--sp-neutral-50);
+    border: 1px solid var(--sp-red-300);
+    color: var(--sp-red-700);
+  }
 }
 ```
 
@@ -174,7 +232,7 @@ This will watch for changes and compile SCSS files automatically.
 │   ├── neutral/
 │   │   └── _index.scss       # Neutral color utilities
 │   └── red/
-│       └── (empty)           # Future red color utilities
+│       └── _index.scss       # Red color utilities
 ├── styles/
 │   └── index.scss             # CSS output generator
 ├── dist/
@@ -202,6 +260,19 @@ Generates neutral color CSS custom properties.
 ```scss
 @include sp-get-neutral();           // Generates on :root
 @include sp-get-neutral('.theme');   // Generates on .theme
+```
+
+#### `sp-get-red($selector)`
+
+Generates red color CSS custom properties.
+
+**Parameters:**
+- `$selector` (String, optional) - Target selector for the variables. Default: `:root`
+
+**Example:**
+```scss
+@include sp-get-red();           // Generates on :root
+@include sp-get-red('.theme');   // Generates on .theme
 ```
 
 ## 🤝 Contributing
