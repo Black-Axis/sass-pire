@@ -1,0 +1,128 @@
+@charset "UTF-8";
+
+// @description
+// * sp-get-neutral mixin tests.
+// * This module tests the functionality of sp-get-neutral mixin.
+
+// @access private
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace colors/neutral
+
+// @module colors/sp-get-neutral.test
+
+// @dependencies:
+// * - True.describe (true mixin).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - sp-get-neutral (package mixin).
+
+@use "true" as *;
+@use "../../src/neutral" as NeutralMixin;
+
+@include describe("[Mixin] sp-get-neutral()") {
+    @include it("Should generate neutral color CSS custom properties on :root selector by default.") {
+        @include assert {
+            @include output {
+                @include NeutralMixin.sp-get-neutral;
+            }
+
+            @include expect {
+                :root {
+                    --sp-neutral-50: hsl(0deg 0% 97%);
+                    --sp-neutral-100: hsl(0deg 0% 92%);
+                    --sp-neutral-150: hsl(0deg 0% 87%);
+                    --sp-neutral-200: hsl(0deg 0% 83%);
+                    --sp-neutral-250: hsl(0deg 0% 77%);
+                    --sp-neutral-300: hsl(0deg 0% 72%);
+                    --sp-neutral-350: hsl(0deg 0% 66%);
+                    --sp-neutral-400: hsl(0deg 0% 61%);
+                    --sp-neutral-450: hsl(0deg 0% 55%);
+                    --sp-neutral-500: hsl(0deg 0% 50%);
+                    --sp-neutral-550: hsl(0deg 0% 46%);
+                    --sp-neutral-600: hsl(0deg 0% 42%);
+                    --sp-neutral-650: hsl(0deg 0% 38%);
+                    --sp-neutral-700: hsl(0deg 0% 35%);
+                    --sp-neutral-750: hsl(0deg 0% 31%);
+                    --sp-neutral-800: hsl(0deg 0% 28%);
+                    --sp-neutral-850: hsl(0deg 0% 24%);
+                    --sp-neutral-900: hsl(0deg 0% 21%);
+                    --sp-neutral-950: hsl(0deg 0% 15%);
+                }
+            }
+        }
+    }
+
+    @include it("Should generate neutral color CSS custom properties on custom selector.") {
+        @include assert {
+            @include output {
+                @include NeutralMixin.sp-get-neutral(".custom-neutral-theme");
+            }
+
+            @include expect {
+                .custom-neutral-theme {
+                    --sp-neutral-50: hsl(0deg 0% 97%);
+                    --sp-neutral-100: hsl(0deg 0% 92%);
+                    --sp-neutral-150: hsl(0deg 0% 87%);
+                    --sp-neutral-200: hsl(0deg 0% 83%);
+                    --sp-neutral-250: hsl(0deg 0% 77%);
+                    --sp-neutral-300: hsl(0deg 0% 72%);
+                    --sp-neutral-350: hsl(0deg 0% 66%);
+                    --sp-neutral-400: hsl(0deg 0% 61%);
+                    --sp-neutral-450: hsl(0deg 0% 55%);
+                    --sp-neutral-500: hsl(0deg 0% 50%);
+                    --sp-neutral-550: hsl(0deg 0% 46%);
+                    --sp-neutral-600: hsl(0deg 0% 42%);
+                    --sp-neutral-650: hsl(0deg 0% 38%);
+                    --sp-neutral-700: hsl(0deg 0% 35%);
+                    --sp-neutral-750: hsl(0deg 0% 31%);
+                    --sp-neutral-800: hsl(0deg 0% 28%);
+                    --sp-neutral-850: hsl(0deg 0% 24%);
+                    --sp-neutral-900: hsl(0deg 0% 21%);
+                    --sp-neutral-950: hsl(0deg 0% 15%);
+                }
+            }
+        }
+    }
+
+    @include it("Should generate neutral color CSS custom properties on custom data-theme selector.") {
+        @include assert {
+            @include output {
+                @include NeutralMixin.sp-get-neutral("[data-theme='custom-neutral-theme']");
+            }
+
+            @include expect {
+                [data-theme="custom-neutral-theme"] {
+                    --sp-neutral-50: hsl(0deg 0% 97%);
+                    --sp-neutral-100: hsl(0deg 0% 92%);
+                    --sp-neutral-150: hsl(0deg 0% 87%);
+                    --sp-neutral-200: hsl(0deg 0% 83%);
+                    --sp-neutral-250: hsl(0deg 0% 77%);
+                    --sp-neutral-300: hsl(0deg 0% 72%);
+                    --sp-neutral-350: hsl(0deg 0% 66%);
+                    --sp-neutral-400: hsl(0deg 0% 61%);
+                    --sp-neutral-450: hsl(0deg 0% 55%);
+                    --sp-neutral-500: hsl(0deg 0% 50%);
+                    --sp-neutral-550: hsl(0deg 0% 46%);
+                    --sp-neutral-600: hsl(0deg 0% 42%);
+                    --sp-neutral-650: hsl(0deg 0% 38%);
+                    --sp-neutral-700: hsl(0deg 0% 35%);
+                    --sp-neutral-750: hsl(0deg 0% 31%);
+                    --sp-neutral-800: hsl(0deg 0% 28%);
+                    --sp-neutral-850: hsl(0deg 0% 24%);
+                    --sp-neutral-900: hsl(0deg 0% 21%);
+                    --sp-neutral-950: hsl(0deg 0% 15%);
+                }
+            }
+        }
+    }
+}
