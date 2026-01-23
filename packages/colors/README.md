@@ -59,6 +59,7 @@ Import the package in your SCSS files to access color utilities:
 @use '@sass-pire/colors/src/red' as red;
 @use '@sass-pire/colors/src/blue' as blue;
 @use '@sass-pire/colors/src/orange' as orange;
+@use '@sass-pire/colors/src/yellow' as yellow;
 ```
 
 ### Using Neutral Color Utilities
@@ -351,8 +352,10 @@ This will watch for changes and compile SCSS files automatically.
 │   │   └── _index.scss       # Red color utilities
 │   ├── blue/
 │   │   └── _index.scss       # Blue color utilities
-│   └── orange/
-│       └── _index.scss       # Orange color utilities
+│   ├── orange/
+│   │   └── _index.scss       # Orange color utilities
+│   └── yellow/
+│       └── _index.scss       # Yellow color utilities
 ├── styles/
 │   └── index.scss             # CSS output generator
 ├── dist/
@@ -419,6 +422,19 @@ Generates orange color CSS custom properties.
 ```scss
 @include sp-get-orange();           // Generates on :root
 @include sp-get-orange('.theme');   // Generates on .theme
+```
+
+#### `sp-get-yellow($selector)`
+
+Generates yellow color CSS custom properties.
+
+**Parameters:**
+- `$selector` (String, optional) - Target selector for the variables. Default: `:root`
+
+**Example:**
+```scss
+@include sp-get-yellow();           // Generates on :root
+@include sp-get-yellow('.theme');   // Generates on .theme
 ```
 
 ## 🤝 Contributing
