@@ -62,6 +62,7 @@
         "test:messages": "node ./tests/cli-test-message.js",
         "test": "yarn test:messages && concurrently --prefix-colors=\"blue,red\" \"yarn test:jest\" \"yarn test:scss\"",
         "dev:fonts": "yarn workspace @sass-pire/fonts dev",
+        "dev:colors": "yarn workspace @sass-pire/colors dev",
         "test:fonts": "jest ./packages/fonts/tests/sass.test.js --watchAll"
     },
     "dependencies": {
