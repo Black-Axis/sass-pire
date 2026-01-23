@@ -22,6 +22,10 @@
 
 @use "../src/red" as *;
 
+@use "../src/blue" as *;
+
 @include sp-get-neutral;
 
 @include sp-get-red;
+
+@include sp-get-blue;
