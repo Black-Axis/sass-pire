@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+// @description:
+// Orange colors configuration for the sass-pire design system.
+
+// @access public
+
+// @version 1.0.0
+
+// @license MIT
+
+// @author Khaled Mohamed
+
+// @package @sass-pire/colors
+
+// @library sass-pire
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+@use "sass:meta";
+
+@mixin sp-get-orange($selector: ":root") {
+    @if meta.type-of($selector) != "string" {
+        @error "The `$selector` argument of sp-get-orange mixin must be a string type.";
+    }
+
+    #{$selector} {
+        --sp-orange-50: hsl(30deg 100% 97%);
+        --sp-orange-100: hsl(30deg 95% 92%);
+        --sp-orange-150: hsl(30deg 93% 87%);
+        --sp-orange-200: hsl(30deg 90% 83%);
+        --sp-orange-250: hsl(30deg 88% 77%);
+        --sp-orange-300: hsl(30deg 85% 72%);
+        --sp-orange-350: hsl(30deg 83% 66%);
+        --sp-orange-400: hsl(30deg 80% 61%);
+        --sp-orange-450: hsl(30deg 78% 55%);
+        --sp-orange-500: hsl(30deg 75% 50%);
+        --sp-orange-550: hsl(30deg 73% 46%);
+        --sp-orange-600: hsl(30deg 70% 42%);
+        --sp-orange-650: hsl(30deg 68% 38%);
+        --sp-orange-700: hsl(30deg 65% 35%);
+        --sp-orange-750: hsl(30deg 63% 31%);
+        --sp-orange-800: hsl(30deg 60% 28%);
+        --sp-orange-850: hsl(30deg 58% 24%);
+        --sp-orange-900: hsl(30deg 55% 21%);
+        --sp-orange-950: hsl(30deg 50% 15%);
+    }
+}
