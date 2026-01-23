@@ -66,7 +66,7 @@
     },
     "dependencies": {
         "reset-zone": "^2.4.2",
-        "sass": "^1.86.0"
+        "sass": "^1.97.3"
     },
     "devDependencies": {
         "chalk": "4",
