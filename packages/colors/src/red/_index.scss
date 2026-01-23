@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+// @description:
+// Red colors configuration for the sass-pire design system.
+
+// @access public
+
+// @version 1.0.0
+
+// @license MIT
+
+// @author Khaled Mohamed
+
+// @package @sass-pire/colors
+
+// @library sass-pire
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+@use "sass:meta";
+
+@mixin sp-get-red($selector: ":root") {
+    @if meta.type-of($selector) != "string" {
+        @error "The `$selector` argument of sp-get-red mixin must be a string type.";
+    }
+
+    #{$selector} {
+        --sp-red-50: hsl(0deg 100% 97%);
+        --sp-red-100: hsl(0deg 95% 92%);
+        --sp-red-150: hsl(0deg 93% 87%);
+        --sp-red-200: hsl(0deg 90% 83%);
+        --sp-red-250: hsl(0deg 88% 77%);
+        --sp-red-300: hsl(0deg 85% 72%);
+        --sp-red-350: hsl(0deg 83% 66%);
+        --sp-red-400: hsl(0deg 80% 61%);
+        --sp-red-450: hsl(0deg 78% 55%);
+        --sp-red-500: hsl(0deg 75% 50%);
+        --sp-red-550: hsl(0deg 73% 46%);
+        --sp-red-600: hsl(0deg 70% 42%);
+        --sp-red-650: hsl(0deg 68% 38%);
+        --sp-red-700: hsl(0deg 65% 35%);
+        --sp-red-750: hsl(0deg 63% 31%);
+        --sp-red-800: hsl(0deg 60% 28%);
+        --sp-red-850: hsl(0deg 58% 24%);
+        --sp-red-900: hsl(0deg 55% 21%);
+        --sp-red-950: hsl(0deg 50% 15%);
+    }
+}
