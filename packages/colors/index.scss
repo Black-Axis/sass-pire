@@ -3,6 +3,10 @@
 // @description:
 // color utilities and configuration for the sass-pire design system.
 
+// @note:
+// If you need to remove any color, please, remove it from the index.scss file
+// and don't forget to remove it from the styles folder too.
+
 // @author Khaled Mohamed
 
 // @license MIT
@@ -22,3 +26,5 @@
 @forward "./src/blue";
 
 @forward "./src/orange";
+
+@forward "./src/green";
