@@ -14,6 +14,7 @@ Color utilities and configuration for the sass-pire design system.
   - [Using Red Color Utilities](#using-red-color-utilities)
   - [Using Blue Color Utilities](#using-blue-color-utilities)
   - [Using Orange Color Utilities](#using-orange-color-utilities)
+  - [Using Pink Color Utilities](#using-pink-color-utilities)
   - [Complete Example](#complete-example)
 - [🎨 Using Pre-compiled CSS](#-using-pre-compiled-css)
 - [🛠️ Development](#-development)
@@ -86,6 +87,7 @@ Import the package in your SCSS files to access color utilities:
 @use '@sass-pire/colors/src/yellow' as yellow;
 @use '@sass-pire/colors/src/violet' as violet;
 @use '@sass-pire/colors/src/cyan' as cyan;
+@use '@sass-pire/colors/src/pink' as pink;
 ```
 
 [↑ Back to Top](#table-of-contents)
@@ -307,6 +309,61 @@ The package provides a comprehensive cyan color scale using CSS custom propertie
 .action-cyan {
   background-color: var(--sp-cyan-500);
 }
+
+[↑ Back to Top](#table-of-contents)
+
+### Using Pink Color Utilities
+
+The package provides a comprehensive pink color scale using CSS custom properties:
+
+```scss
+@use '@sass-pire/colors/src/pink' as *;
+
+// Include the pink colors mixin to generate CSS custom properties
+@include sp-get-pink(); // Generates variables on :root by default
+
+// Or target a specific selector
+@include sp-get-pink('.my-component');
+```
+
+**Generated CSS Custom Properties:**
+
+```css
+:root {
+    --sp-pink-50: hsl(330deg 100% 97%);
+    --sp-pink-100: hsl(330deg 95% 92%);
+    --sp-pink-150: hsl(330deg 93% 87%);
+    --sp-pink-200: hsl(330deg 90% 83%);
+    --sp-pink-250: hsl(330deg 88% 77%);
+    --sp-pink-300: hsl(330deg 85% 72%);
+    --sp-pink-350: hsl(330deg 83% 66%);
+    --sp-pink-400: hsl(330deg 80% 61%);
+    --sp-pink-450: hsl(330deg 78% 55%);
+    --sp-pink-500: hsl(330deg 75% 50%);
+    --sp-pink-550: hsl(330deg 73% 46%);
+    --sp-pink-600: hsl(330deg 70% 42%);
+    --sp-pink-650: hsl(330deg 68% 38%);
+    --sp-pink-700: hsl(330deg 65% 35%);
+    --sp-pink-750: hsl(330deg 63% 31%);
+    --sp-pink-800: hsl(330deg 60% 28%);
+    --sp-pink-850: hsl(330deg 58% 24%);
+    --sp-pink-900: hsl(330deg 55% 21%);
+    --sp-pink-950: hsl(330deg 50% 15%);
+}
+```
+
+**Using in Your Styles:**
+
+```css
+.event-badge {
+  background-color: var(--sp-pink-50);
+  color: var(--sp-pink-700);
+}
+
+.primary-accent-pink {
+  background-color: var(--sp-pink-500);
+}
+```
 ```
 
 [↑ Back to Top](#table-of-contents)
@@ -485,6 +542,7 @@ The package provides a comprehensive orange color scale using CSS custom propert
 @include sp-get-yellow();
 @include sp-get-violet();
 @include sp-get-cyan();
+@include sp-get-pink();
 
 // Use in your components
 .alert {
@@ -525,6 +583,12 @@ The package provides a comprehensive orange color scale using CSS custom propert
     background-color: var(--sp-cyan-50);
     border: 1px solid var(--sp-cyan-300);
     color: var(--sp-cyan-700);
+  }
+
+  &--accent {
+    background-color: var(--sp-pink-50);
+    border: 1px solid var(--sp-pink-300);
+    color: var(--sp-pink-700);
   }
 }
 ```
@@ -586,8 +650,10 @@ This will watch for changes and compile SCSS files automatically.
 │   │   └── _index.scss       # Yellow color utilities
 │   ├── violet/
 │   │   └── _index.scss       # Violet color utilities
-│   └── cyan/
-│       └── _index.scss       # Cyan color utilities
+│   ├── cyan/
+│   │   └── _index.scss       # Cyan color utilities
+│   └── pink/
+│       └── _index.scss       # Pink color utilities
 ├── styles/
 │   └── index.scss             # CSS output generator
 ├── dist/
@@ -695,6 +761,19 @@ Generates cyan color CSS custom properties.
 ```scss
 @include sp-get-cyan();           // Generates on :root
 @include sp-get-cyan('.theme');   // Generates on .theme
+```
+
+#### `sp-get-pink($selector)`
+
+Generates pink color CSS custom properties.
+
+**Parameters:**
+- `$selector` (String, optional) - Target selector for the variables. Default: `:root`
+
+**Example:**
+```scss
+@include sp-get-pink();           // Generates on :root
+@include sp-get-pink('.theme');   // Generates on .theme
 ```
 
 [↑ Back to Top](#table-of-contents)
