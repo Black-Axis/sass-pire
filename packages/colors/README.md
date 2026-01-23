@@ -61,6 +61,7 @@ Import the package in your SCSS files to access color utilities:
 @use '@sass-pire/colors/src/orange' as orange;
 @use '@sass-pire/colors/src/yellow' as yellow;
 @use '@sass-pire/colors/src/violet' as violet;
+@use '@sass-pire/colors/src/cyan' as cyan;
 ```
 
 ### Using Neutral Color Utilities
@@ -222,6 +223,59 @@ The package provides a comprehensive violet color scale using CSS custom propert
 .brand-accent {
   background-color: var(--sp-violet-500);
 }
+
+### Using Cyan Color Utilities
+
+The package provides a comprehensive cyan color scale using CSS custom properties:
+
+```scss
+@use '@sass-pire/colors/src/cyan' as *;
+
+// Include the cyan colors mixin to generate CSS custom properties
+@include sp-get-cyan(); // Generates variables on :root by default
+
+// Or target a specific selector
+@include sp-get-cyan('.my-component');
+```
+
+**Generated CSS Custom Properties:**
+
+```css
+:root {
+    --sp-cyan-50: hsl(180deg 100% 97%);
+    --sp-cyan-100: hsl(180deg 95% 92%);
+    --sp-cyan-150: hsl(180deg 93% 87%);
+    --sp-cyan-200: hsl(180deg 90% 83%);
+    --sp-cyan-250: hsl(180deg 88% 77%);
+    --sp-cyan-300: hsl(180deg 85% 72%);
+    --sp-cyan-350: hsl(180deg 83% 66%);
+    --sp-cyan-400: hsl(180deg 80% 61%);
+    --sp-cyan-450: hsl(180deg 78% 55%);
+    --sp-cyan-500: hsl(180deg 75% 50%);
+    --sp-cyan-550: hsl(180deg 73% 46%);
+    --sp-cyan-600: hsl(180deg 70% 42%);
+    --sp-cyan-650: hsl(180deg 68% 38%);
+    --sp-cyan-700: hsl(180deg 65% 35%);
+    --sp-cyan-750: hsl(180deg 63% 31%);
+    --sp-cyan-800: hsl(180deg 60% 28%);
+    --sp-cyan-850: hsl(180deg 58% 24%);
+    --sp-cyan-900: hsl(180deg 55% 21%);
+    --sp-cyan-950: hsl(180deg 50% 15%);
+}
+```
+
+**Using in Your Styles:**
+
+```css
+.hero-secondary {
+  background-color: var(--sp-cyan-50);
+  color: var(--sp-cyan-800);
+}
+
+.action-cyan {
+  background-color: var(--sp-cyan-500);
+}
+```
 
 ### Using Red Color Utilities
 
@@ -390,6 +444,7 @@ The package provides a comprehensive orange color scale using CSS custom propert
 @include sp-get-orange();
 @include sp-get-yellow();
 @include sp-get-violet();
+@include sp-get-cyan();
 
 // Use in your components
 .alert {
@@ -424,6 +479,12 @@ The package provides a comprehensive orange color scale using CSS custom propert
     background-color: var(--sp-violet-50);
     border: 1px solid var(--sp-violet-300);
     color: var(--sp-violet-700);
+  }
+
+  &--action {
+    background-color: var(--sp-cyan-50);
+    border: 1px solid var(--sp-cyan-300);
+    color: var(--sp-cyan-700);
   }
 }
 ```
@@ -477,8 +538,10 @@ This will watch for changes and compile SCSS files automatically.
 │   │   └── _index.scss       # Orange color utilities
 │   ├── yellow/
 │   │   └── _index.scss       # Yellow color utilities
-│   └── violet/
-│       └── _index.scss       # Violet color utilities
+│   ├── violet/
+│   │   └── _index.scss       # Violet color utilities
+│   └── cyan/
+│       └── _index.scss       # Cyan color utilities
 ├── styles/
 │   └── index.scss             # CSS output generator
 ├── dist/
@@ -571,6 +634,19 @@ Generates violet color CSS custom properties.
 ```scss
 @include sp-get-violet();           // Generates on :root
 @include sp-get-violet('.theme');   // Generates on .theme
+```
+
+#### `sp-get-cyan($selector)`
+
+Generates cyan color CSS custom properties.
+
+**Parameters:**
+- `$selector` (String, optional) - Target selector for the variables. Default: `:root`
+
+**Example:**
+```scss
+@include sp-get-cyan();           // Generates on :root
+@include sp-get-cyan('.theme');   // Generates on .theme
 ```
 
 ## 🤝 Contributing
