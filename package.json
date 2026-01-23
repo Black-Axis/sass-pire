@@ -51,6 +51,7 @@
         "sass:watch": "sass --no-source-map --load-path=./src/ ./index.scss:dist/styles.css --watch",
         "sass:comp": "sass --no-source-map --load-path=./src/ ./index.scss:dist/styles.min.css --watch --style=compressed",
         "upgrade": "ncu --upgrade",
+        "upgrade:package": "ncu -i",
         "lint": "npx stylelint ./src/**/*.scss",
         "cmt": "cz",
         "tags:github": "git push repo --tags",
