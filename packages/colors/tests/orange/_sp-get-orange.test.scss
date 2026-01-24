@@ -1,0 +1,128 @@
+@charset "UTF-8";
+
+// @description
+// * sp-get-orange mixin tests.
+// * This module tests the functionality of sp-get-orange mixin.
+
+// @access private
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace colors/orange
+
+// @module colors/sp-get-orange.test
+
+// @dependencies:
+// * - True.describe (true mixin).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - sp-get-orange (package mixin).
+
+@use "true" as *;
+@use "../../src/orange" as OrangeMixin;
+
+@include describe("[Mixin] sp-get-orange()") {
+    @include it("Should generate orange color CSS custom properties on :root selector by default.") {
+        @include assert {
+            @include output {
+                @include OrangeMixin.sp-get-orange;
+            }
+
+            @include expect {
+                :root {
+                    --sp-orange-50: hsl(30deg 100% 97%);
+                    --sp-orange-100: hsl(30deg 95% 92%);
+                    --sp-orange-150: hsl(30deg 93% 87%);
+                    --sp-orange-200: hsl(30deg 90% 83%);
+                    --sp-orange-250: hsl(30deg 88% 77%);
+                    --sp-orange-300: hsl(30deg 85% 72%);
+                    --sp-orange-350: hsl(30deg 83% 66%);
+                    --sp-orange-400: hsl(30deg 80% 61%);
+                    --sp-orange-450: hsl(30deg 78% 55%);
+                    --sp-orange-500: hsl(30deg 75% 50%);
+                    --sp-orange-550: hsl(30deg 73% 46%);
+                    --sp-orange-600: hsl(30deg 70% 42%);
+                    --sp-orange-650: hsl(30deg 68% 38%);
+                    --sp-orange-700: hsl(30deg 65% 35%);
+                    --sp-orange-750: hsl(30deg 63% 31%);
+                    --sp-orange-800: hsl(30deg 60% 28%);
+                    --sp-orange-850: hsl(30deg 58% 24%);
+                    --sp-orange-900: hsl(30deg 55% 21%);
+                    --sp-orange-950: hsl(30deg 50% 15%);
+                }
+            }
+        }
+    }
+
+    @include it("Should generate orange color CSS custom properties on custom selector.") {
+        @include assert {
+            @include output {
+                @include OrangeMixin.sp-get-orange(".custom-orange-theme");
+            }
+
+            @include expect {
+                .custom-orange-theme {
+                    --sp-orange-50: hsl(30deg 100% 97%);
+                    --sp-orange-100: hsl(30deg 95% 92%);
+                    --sp-orange-150: hsl(30deg 93% 87%);
+                    --sp-orange-200: hsl(30deg 90% 83%);
+                    --sp-orange-250: hsl(30deg 88% 77%);
+                    --sp-orange-300: hsl(30deg 85% 72%);
+                    --sp-orange-350: hsl(30deg 83% 66%);
+                    --sp-orange-400: hsl(30deg 80% 61%);
+                    --sp-orange-450: hsl(30deg 78% 55%);
+                    --sp-orange-500: hsl(30deg 75% 50%);
+                    --sp-orange-550: hsl(30deg 73% 46%);
+                    --sp-orange-600: hsl(30deg 70% 42%);
+                    --sp-orange-650: hsl(30deg 68% 38%);
+                    --sp-orange-700: hsl(30deg 65% 35%);
+                    --sp-orange-750: hsl(30deg 63% 31%);
+                    --sp-orange-800: hsl(30deg 60% 28%);
+                    --sp-orange-850: hsl(30deg 58% 24%);
+                    --sp-orange-900: hsl(30deg 55% 21%);
+                    --sp-orange-950: hsl(30deg 50% 15%);
+                }
+            }
+        }
+    }
+
+    @include it("Should generate orange color CSS custom properties on custom selector.") {
+        @include assert {
+            @include output {
+                @include OrangeMixin.sp-get-orange("[data-theme='custom-orange-theme']");
+            }
+
+            @include expect {
+                [data-theme="custom-orange-theme"] {
+                    --sp-orange-50: hsl(30deg 100% 97%);
+                    --sp-orange-100: hsl(30deg 95% 92%);
+                    --sp-orange-150: hsl(30deg 93% 87%);
+                    --sp-orange-200: hsl(30deg 90% 83%);
+                    --sp-orange-250: hsl(30deg 88% 77%);
+                    --sp-orange-300: hsl(30deg 85% 72%);
+                    --sp-orange-350: hsl(30deg 83% 66%);
+                    --sp-orange-400: hsl(30deg 80% 61%);
+                    --sp-orange-450: hsl(30deg 78% 55%);
+                    --sp-orange-500: hsl(30deg 75% 50%);
+                    --sp-orange-550: hsl(30deg 73% 46%);
+                    --sp-orange-600: hsl(30deg 70% 42%);
+                    --sp-orange-650: hsl(30deg 68% 38%);
+                    --sp-orange-700: hsl(30deg 65% 35%);
+                    --sp-orange-750: hsl(30deg 63% 31%);
+                    --sp-orange-800: hsl(30deg 60% 28%);
+                    --sp-orange-850: hsl(30deg 58% 24%);
+                    --sp-orange-900: hsl(30deg 55% 21%);
+                    --sp-orange-950: hsl(30deg 50% 15%);
+                }
+            }
+        }
+    }
+}
