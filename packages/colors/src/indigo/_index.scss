@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+// @description:
+// Indigo colors configuration for the sass-pire design system.
+
+// @access public
+
+// @version 1.0.0
+
+// @license MIT
+
+// @author Khaled Mohamed
+
+// @package @sass-pire/colors
+
+// @library sass-pire
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+@use "sass:meta";
+
+@mixin sp-get-indigo($selector: ":root") {
+    @if meta.type-of($selector) != "string" {
+        @error "The `$selector` argument of sp-get-indigo mixin must be a string type.";
+    }
+
+    #{$selector} {
+        --sp-indigo-50: hsl(240deg 100% 97%);
+        --sp-indigo-100: hsl(240deg 95% 92%);
+        --sp-indigo-150: hsl(240deg 93% 87%);
+        --sp-indigo-200: hsl(240deg 90% 83%);
+        --sp-indigo-250: hsl(240deg 88% 77%);
+        --sp-indigo-300: hsl(240deg 85% 72%);
+        --sp-indigo-350: hsl(240deg 83% 66%);
+        --sp-indigo-400: hsl(240deg 80% 61%);
+        --sp-indigo-450: hsl(240deg 78% 55%);
+        --sp-indigo-500: hsl(240deg 75% 50%);
+        --sp-indigo-550: hsl(240deg 73% 46%);
+        --sp-indigo-600: hsl(240deg 70% 42%);
+        --sp-indigo-650: hsl(240deg 68% 38%);
+        --sp-indigo-700: hsl(240deg 65% 35%);
+        --sp-indigo-750: hsl(240deg 63% 31%);
+        --sp-indigo-800: hsl(240deg 60% 28%);
+        --sp-indigo-850: hsl(240deg 58% 24%);
+        --sp-indigo-900: hsl(240deg 55% 21%);
+        --sp-indigo-950: hsl(240deg 50% 15%);
+    }
+}
