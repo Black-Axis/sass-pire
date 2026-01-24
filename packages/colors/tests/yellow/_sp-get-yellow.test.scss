@@ -1,0 +1,128 @@
+@charset "UTF-8";
+
+// @description
+// * sp-get-yellow mixin tests.
+// * This module tests the functionality of sp-get-yellow mixin.
+
+// @access private
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace colors/yellow
+
+// @module colors/sp-get-yellow.test
+
+// @dependencies:
+// * - True.describe (true mixin).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - sp-get-yellow (package mixin).
+
+@use "true" as *;
+@use "../../src/yellow" as YellowMixin;
+
+@include describe("[Mixin] sp-get-yellow()") {
+    @include it("Should generate yellow color CSS custom properties on :root selector by default.") {
+        @include assert {
+            @include output {
+                @include YellowMixin.sp-get-yellow;
+            }
+
+            @include expect {
+                :root {
+                    --sp-yellow-50: hsl(48deg 100% 96%);
+                    --sp-yellow-100: hsl(48deg 100% 92%);
+                    --sp-yellow-150: hsl(48deg 100% 87%);
+                    --sp-yellow-200: hsl(48deg 100% 83%);
+                    --sp-yellow-250: hsl(48deg 100% 77%);
+                    --sp-yellow-300: hsl(48deg 100% 72%);
+                    --sp-yellow-350: hsl(48deg 100% 66%);
+                    --sp-yellow-400: hsl(48deg 100% 61%);
+                    --sp-yellow-450: hsl(48deg 100% 55%);
+                    --sp-yellow-500: hsl(48deg 100% 50%);
+                    --sp-yellow-550: hsl(48deg 100% 46%);
+                    --sp-yellow-600: hsl(48deg 100% 42%);
+                    --sp-yellow-650: hsl(48deg 100% 38%);
+                    --sp-yellow-700: hsl(48deg 100% 35%);
+                    --sp-yellow-750: hsl(48deg 100% 31%);
+                    --sp-yellow-800: hsl(48deg 100% 28%);
+                    --sp-yellow-850: hsl(48deg 100% 24%);
+                    --sp-yellow-900: hsl(48deg 100% 21%);
+                    --sp-yellow-950: hsl(48deg 100% 15%);
+                }
+            }
+        }
+    }
+
+    @include it("Should generate yellow color CSS custom properties on custom selector.") {
+        @include assert {
+            @include output {
+                @include YellowMixin.sp-get-yellow(".custom-yellow-theme");
+            }
+
+            @include expect {
+                .custom-yellow-theme {
+                    --sp-yellow-50: hsl(48deg 100% 96%);
+                    --sp-yellow-100: hsl(48deg 100% 92%);
+                    --sp-yellow-150: hsl(48deg 100% 87%);
+                    --sp-yellow-200: hsl(48deg 100% 83%);
+                    --sp-yellow-250: hsl(48deg 100% 77%);
+                    --sp-yellow-300: hsl(48deg 100% 72%);
+                    --sp-yellow-350: hsl(48deg 100% 66%);
+                    --sp-yellow-400: hsl(48deg 100% 61%);
+                    --sp-yellow-450: hsl(48deg 100% 55%);
+                    --sp-yellow-500: hsl(48deg 100% 50%);
+                    --sp-yellow-550: hsl(48deg 100% 46%);
+                    --sp-yellow-600: hsl(48deg 100% 42%);
+                    --sp-yellow-650: hsl(48deg 100% 38%);
+                    --sp-yellow-700: hsl(48deg 100% 35%);
+                    --sp-yellow-750: hsl(48deg 100% 31%);
+                    --sp-yellow-800: hsl(48deg 100% 28%);
+                    --sp-yellow-850: hsl(48deg 100% 24%);
+                    --sp-yellow-900: hsl(48deg 100% 21%);
+                    --sp-yellow-950: hsl(48deg 100% 15%);
+                }
+            }
+        }
+    }
+
+    @include it("Should generate yellow color CSS custom properties on custom selector.") {
+        @include assert {
+            @include output {
+                @include YellowMixin.sp-get-yellow("[data-theme='custom-yellow-theme']");
+            }
+
+            @include expect {
+                [data-theme="custom-yellow-theme"] {
+                    --sp-yellow-50: hsl(48deg 100% 96%);
+                    --sp-yellow-100: hsl(48deg 100% 92%);
+                    --sp-yellow-150: hsl(48deg 100% 87%);
+                    --sp-yellow-200: hsl(48deg 100% 83%);
+                    --sp-yellow-250: hsl(48deg 100% 77%);
+                    --sp-yellow-300: hsl(48deg 100% 72%);
+                    --sp-yellow-350: hsl(48deg 100% 66%);
+                    --sp-yellow-400: hsl(48deg 100% 61%);
+                    --sp-yellow-450: hsl(48deg 100% 55%);
+                    --sp-yellow-500: hsl(48deg 100% 50%);
+                    --sp-yellow-550: hsl(48deg 100% 46%);
+                    --sp-yellow-600: hsl(48deg 100% 42%);
+                    --sp-yellow-650: hsl(48deg 100% 38%);
+                    --sp-yellow-700: hsl(48deg 100% 35%);
+                    --sp-yellow-750: hsl(48deg 100% 31%);
+                    --sp-yellow-800: hsl(48deg 100% 28%);
+                    --sp-yellow-850: hsl(48deg 100% 24%);
+                    --sp-yellow-900: hsl(48deg 100% 21%);
+                    --sp-yellow-950: hsl(48deg 100% 15%);
+                }
+            }
+        }
+    }
+}
