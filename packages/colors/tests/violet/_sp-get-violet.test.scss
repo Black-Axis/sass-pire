@@ -1,0 +1,128 @@
+@charset "UTF-8";
+
+// @description
+// * sp-get-violet mixin tests.
+// * This module tests the functionality of sp-get-violet mixin.
+
+// @access private
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace colors/violet
+
+// @module colors/sp-get-violet.test
+
+// @dependencies:
+// * - True.describe (true mixin).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - sp-get-violet (package mixin).
+
+@use "true" as *;
+@use "../../src/violet" as VioletMixin;
+
+@include describe("[Mixin] sp-get-violet()") {
+    @include it("Should generate violet color CSS custom properties on :root selector by default.") {
+        @include assert {
+            @include output {
+                @include VioletMixin.sp-get-violet;
+            }
+
+            @include expect {
+                :root {
+                    --sp-violet-50: hsl(270deg 100% 97%);
+                    --sp-violet-100: hsl(270deg 95% 92%);
+                    --sp-violet-150: hsl(270deg 93% 87%);
+                    --sp-violet-200: hsl(270deg 90% 83%);
+                    --sp-violet-250: hsl(270deg 88% 77%);
+                    --sp-violet-300: hsl(270deg 85% 72%);
+                    --sp-violet-350: hsl(270deg 83% 66%);
+                    --sp-violet-400: hsl(270deg 80% 61%);
+                    --sp-violet-450: hsl(270deg 78% 55%);
+                    --sp-violet-500: hsl(270deg 75% 50%);
+                    --sp-violet-550: hsl(270deg 73% 46%);
+                    --sp-violet-600: hsl(270deg 70% 42%);
+                    --sp-violet-650: hsl(270deg 68% 38%);
+                    --sp-violet-700: hsl(270deg 65% 35%);
+                    --sp-violet-750: hsl(270deg 63% 31%);
+                    --sp-violet-800: hsl(270deg 60% 28%);
+                    --sp-violet-850: hsl(270deg 58% 24%);
+                    --sp-violet-900: hsl(270deg 55% 21%);
+                    --sp-violet-950: hsl(270deg 50% 15%);
+                }
+            }
+        }
+    }
+
+    @include it("Should generate violet color CSS custom properties on custom selector.") {
+        @include assert {
+            @include output {
+                @include VioletMixin.sp-get-violet(".custom-violet-theme");
+            }
+
+            @include expect {
+                .custom-violet-theme {
+                    --sp-violet-50: hsl(270deg 100% 97%);
+                    --sp-violet-100: hsl(270deg 95% 92%);
+                    --sp-violet-150: hsl(270deg 93% 87%);
+                    --sp-violet-200: hsl(270deg 90% 83%);
+                    --sp-violet-250: hsl(270deg 88% 77%);
+                    --sp-violet-300: hsl(270deg 85% 72%);
+                    --sp-violet-350: hsl(270deg 83% 66%);
+                    --sp-violet-400: hsl(270deg 80% 61%);
+                    --sp-violet-450: hsl(270deg 78% 55%);
+                    --sp-violet-500: hsl(270deg 75% 50%);
+                    --sp-violet-550: hsl(270deg 73% 46%);
+                    --sp-violet-600: hsl(270deg 70% 42%);
+                    --sp-violet-650: hsl(270deg 68% 38%);
+                    --sp-violet-700: hsl(270deg 65% 35%);
+                    --sp-violet-750: hsl(270deg 63% 31%);
+                    --sp-violet-800: hsl(270deg 60% 28%);
+                    --sp-violet-850: hsl(270deg 58% 24%);
+                    --sp-violet-900: hsl(270deg 55% 21%);
+                    --sp-violet-950: hsl(270deg 50% 15%);
+                }
+            }
+        }
+    }
+
+    @include it("Should generate violet color CSS custom properties on custom selector.") {
+        @include assert {
+            @include output {
+                @include VioletMixin.sp-get-violet("[data-theme='custom-violet-theme']");
+            }
+
+            @include expect {
+                [data-theme="custom-violet-theme"] {
+                    --sp-violet-50: hsl(270deg 100% 97%);
+                    --sp-violet-100: hsl(270deg 95% 92%);
+                    --sp-violet-150: hsl(270deg 93% 87%);
+                    --sp-violet-200: hsl(270deg 90% 83%);
+                    --sp-violet-250: hsl(270deg 88% 77%);
+                    --sp-violet-300: hsl(270deg 85% 72%);
+                    --sp-violet-350: hsl(270deg 83% 66%);
+                    --sp-violet-400: hsl(270deg 80% 61%);
+                    --sp-violet-450: hsl(270deg 78% 55%);
+                    --sp-violet-500: hsl(270deg 75% 50%);
+                    --sp-violet-550: hsl(270deg 73% 46%);
+                    --sp-violet-600: hsl(270deg 70% 42%);
+                    --sp-violet-650: hsl(270deg 68% 38%);
+                    --sp-violet-700: hsl(270deg 65% 35%);
+                    --sp-violet-750: hsl(270deg 63% 31%);
+                    --sp-violet-800: hsl(270deg 60% 28%);
+                    --sp-violet-850: hsl(270deg 58% 24%);
+                    --sp-violet-900: hsl(270deg 55% 21%);
+                    --sp-violet-950: hsl(270deg 50% 15%);
+                }
+            }
+        }
+    }
+}
