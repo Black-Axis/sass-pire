@@ -1,0 +1,128 @@
+@charset "UTF-8";
+
+// @description
+// * sp-get-pink mixin tests.
+// * This module tests the functionality of sp-get-pink mixin.
+
+// @access private
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace colors/pink
+
+// @module colors/sp-get-pink.test
+
+// @dependencies:
+// * - True.describe (true mixin).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - sp-get-pink (package mixin).
+
+@use "true" as *;
+@use "../../src/pink" as PinkMixin;
+
+@include describe("[Mixin] sp-get-pink()") {
+    @include it("Should generate pink color CSS custom properties on :root selector by default.") {
+        @include assert {
+            @include output {
+                @include PinkMixin.sp-get-pink;
+            }
+
+            @include expect {
+                :root {
+                    --sp-pink-50: hsl(330deg 100% 97%);
+                    --sp-pink-100: hsl(330deg 95% 92%);
+                    --sp-pink-150: hsl(330deg 93% 87%);
+                    --sp-pink-200: hsl(330deg 90% 83%);
+                    --sp-pink-250: hsl(330deg 88% 77%);
+                    --sp-pink-300: hsl(330deg 85% 72%);
+                    --sp-pink-350: hsl(330deg 83% 66%);
+                    --sp-pink-400: hsl(330deg 80% 61%);
+                    --sp-pink-450: hsl(330deg 78% 55%);
+                    --sp-pink-500: hsl(330deg 75% 50%);
+                    --sp-pink-550: hsl(330deg 73% 46%);
+                    --sp-pink-600: hsl(330deg 70% 42%);
+                    --sp-pink-650: hsl(330deg 68% 38%);
+                    --sp-pink-700: hsl(330deg 65% 35%);
+                    --sp-pink-750: hsl(330deg 63% 31%);
+                    --sp-pink-800: hsl(330deg 60% 28%);
+                    --sp-pink-850: hsl(330deg 58% 24%);
+                    --sp-pink-900: hsl(330deg 55% 21%);
+                    --sp-pink-950: hsl(330deg 50% 15%);
+                }
+            }
+        }
+    }
+
+    @include it("Should generate pink color CSS custom properties on custom selector.") {
+        @include assert {
+            @include output {
+                @include PinkMixin.sp-get-pink(".custom-pink-theme");
+            }
+
+            @include expect {
+                .custom-pink-theme {
+                    --sp-pink-50: hsl(330deg 100% 97%);
+                    --sp-pink-100: hsl(330deg 95% 92%);
+                    --sp-pink-150: hsl(330deg 93% 87%);
+                    --sp-pink-200: hsl(330deg 90% 83%);
+                    --sp-pink-250: hsl(330deg 88% 77%);
+                    --sp-pink-300: hsl(330deg 85% 72%);
+                    --sp-pink-350: hsl(330deg 83% 66%);
+                    --sp-pink-400: hsl(330deg 80% 61%);
+                    --sp-pink-450: hsl(330deg 78% 55%);
+                    --sp-pink-500: hsl(330deg 75% 50%);
+                    --sp-pink-550: hsl(330deg 73% 46%);
+                    --sp-pink-600: hsl(330deg 70% 42%);
+                    --sp-pink-650: hsl(330deg 68% 38%);
+                    --sp-pink-700: hsl(330deg 65% 35%);
+                    --sp-pink-750: hsl(330deg 63% 31%);
+                    --sp-pink-800: hsl(330deg 60% 28%);
+                    --sp-pink-850: hsl(330deg 58% 24%);
+                    --sp-pink-900: hsl(330deg 55% 21%);
+                    --sp-pink-950: hsl(330deg 50% 15%);
+                }
+            }
+        }
+    }
+
+    @include it("Should generate pink color CSS custom properties on custom selector.") {
+        @include assert {
+            @include output {
+                @include PinkMixin.sp-get-pink("[data-theme='custom-pink-theme']");
+            }
+
+            @include expect {
+                [data-theme="custom-pink-theme"] {
+                    --sp-pink-50: hsl(330deg 100% 97%);
+                    --sp-pink-100: hsl(330deg 95% 92%);
+                    --sp-pink-150: hsl(330deg 93% 87%);
+                    --sp-pink-200: hsl(330deg 90% 83%);
+                    --sp-pink-250: hsl(330deg 88% 77%);
+                    --sp-pink-300: hsl(330deg 85% 72%);
+                    --sp-pink-350: hsl(330deg 83% 66%);
+                    --sp-pink-400: hsl(330deg 80% 61%);
+                    --sp-pink-450: hsl(330deg 78% 55%);
+                    --sp-pink-500: hsl(330deg 75% 50%);
+                    --sp-pink-550: hsl(330deg 73% 46%);
+                    --sp-pink-600: hsl(330deg 70% 42%);
+                    --sp-pink-650: hsl(330deg 68% 38%);
+                    --sp-pink-700: hsl(330deg 65% 35%);
+                    --sp-pink-750: hsl(330deg 63% 31%);
+                    --sp-pink-800: hsl(330deg 60% 28%);
+                    --sp-pink-850: hsl(330deg 58% 24%);
+                    --sp-pink-900: hsl(330deg 55% 21%);
+                    --sp-pink-950: hsl(330deg 50% 15%);
+                }
+            }
+        }
+    }
+}
