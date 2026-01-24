@@ -1,0 +1,128 @@
+@charset "UTF-8";
+
+// @description
+// * sp-get-green mixin tests.
+// * This module tests the functionality of sp-get-green mixin.
+
+// @access private
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace colors/green
+
+// @module colors/sp-get-green.test
+
+// @dependencies:
+// * - True.describe (true mixin).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - sp-get-green (package mixin).
+
+@use "true" as *;
+@use "../../src/green" as GreenMixin;
+
+@include describe("[Mixin] sp-get-green()") {
+    @include it("Should generate green color CSS custom properties on :root selector by default.") {
+        @include assert {
+            @include output {
+                @include GreenMixin.sp-get-green;
+            }
+
+            @include expect {
+                :root {
+                    --sp-green-50: hsl(150deg 100% 97%);
+                    --sp-green-100: hsl(150deg 95% 92%);
+                    --sp-green-150: hsl(150deg 93% 87%);
+                    --sp-green-200: hsl(150deg 90% 83%);
+                    --sp-green-250: hsl(150deg 88% 77%);
+                    --sp-green-300: hsl(150deg 85% 72%);
+                    --sp-green-350: hsl(150deg 83% 66%);
+                    --sp-green-400: hsl(150deg 80% 61%);
+                    --sp-green-450: hsl(150deg 78% 55%);
+                    --sp-green-500: hsl(150deg 75% 50%);
+                    --sp-green-550: hsl(150deg 73% 46%);
+                    --sp-green-600: hsl(150deg 70% 42%);
+                    --sp-green-650: hsl(150deg 68% 38%);
+                    --sp-green-700: hsl(150deg 65% 35%);
+                    --sp-green-750: hsl(150deg 63% 31%);
+                    --sp-green-800: hsl(150deg 60% 28%);
+                    --sp-green-850: hsl(150deg 58% 24%);
+                    --sp-green-900: hsl(150deg 55% 21%);
+                    --sp-green-950: hsl(150deg 50% 15%);
+                }
+            }
+        }
+    }
+
+    @include it("Should generate green color CSS custom properties on custom selector.") {
+        @include assert {
+            @include output {
+                @include GreenMixin.sp-get-green(".custom-green-theme");
+            }
+
+            @include expect {
+                .custom-green-theme {
+                    --sp-green-50: hsl(150deg 100% 97%);
+                    --sp-green-100: hsl(150deg 95% 92%);
+                    --sp-green-150: hsl(150deg 93% 87%);
+                    --sp-green-200: hsl(150deg 90% 83%);
+                    --sp-green-250: hsl(150deg 88% 77%);
+                    --sp-green-300: hsl(150deg 85% 72%);
+                    --sp-green-350: hsl(150deg 83% 66%);
+                    --sp-green-400: hsl(150deg 80% 61%);
+                    --sp-green-450: hsl(150deg 78% 55%);
+                    --sp-green-500: hsl(150deg 75% 50%);
+                    --sp-green-550: hsl(150deg 73% 46%);
+                    --sp-green-600: hsl(150deg 70% 42%);
+                    --sp-green-650: hsl(150deg 68% 38%);
+                    --sp-green-700: hsl(150deg 65% 35%);
+                    --sp-green-750: hsl(150deg 63% 31%);
+                    --sp-green-800: hsl(150deg 60% 28%);
+                    --sp-green-850: hsl(150deg 58% 24%);
+                    --sp-green-900: hsl(150deg 55% 21%);
+                    --sp-green-950: hsl(150deg 50% 15%);
+                }
+            }
+        }
+    }
+
+    @include it("Should generate green color CSS custom properties on custom selector.") {
+        @include assert {
+            @include output {
+                @include GreenMixin.sp-get-green("[data-theme='custom-green-theme']");
+            }
+
+            @include expect {
+                [data-theme="custom-green-theme"] {
+                    --sp-green-50: hsl(150deg 100% 97%);
+                    --sp-green-100: hsl(150deg 95% 92%);
+                    --sp-green-150: hsl(150deg 93% 87%);
+                    --sp-green-200: hsl(150deg 90% 83%);
+                    --sp-green-250: hsl(150deg 88% 77%);
+                    --sp-green-300: hsl(150deg 85% 72%);
+                    --sp-green-350: hsl(150deg 83% 66%);
+                    --sp-green-400: hsl(150deg 80% 61%);
+                    --sp-green-450: hsl(150deg 78% 55%);
+                    --sp-green-500: hsl(150deg 75% 50%);
+                    --sp-green-550: hsl(150deg 73% 46%);
+                    --sp-green-600: hsl(150deg 70% 42%);
+                    --sp-green-650: hsl(150deg 68% 38%);
+                    --sp-green-700: hsl(150deg 65% 35%);
+                    --sp-green-750: hsl(150deg 63% 31%);
+                    --sp-green-800: hsl(150deg 60% 28%);
+                    --sp-green-850: hsl(150deg 58% 24%);
+                    --sp-green-900: hsl(150deg 55% 21%);
+                    --sp-green-950: hsl(150deg 50% 15%);
+                }
+            }
+        }
+    }
+}
