@@ -63,6 +63,7 @@
         "test": "yarn test:messages && concurrently --prefix-colors=\"blue,red\" \"yarn test:jest\" \"yarn test:scss\"",
         "dev:fonts": "yarn workspace @sass-pire/fonts dev",
         "dev:colors": "yarn workspace @sass-pire/colors dev",
+        "dev:handlers": "yarn workspace @sass-pire/handlers dev",
         "test:fonts": "jest ./packages/fonts/tests/sass.test.js --watchAll",
         "test:colors": "jest ./packages/colors/tests/sass.test.js --watchAll"
     },
