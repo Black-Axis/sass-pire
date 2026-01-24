@@ -20,6 +20,7 @@
 @use "./red/sp-get-red.test" as *;
 @use "./neutral/sp-get-neutral.test" as *;
 @use "./blue/sp-get-blue.test" as *;
+@use "./cyan/sp-get-cyan.test" as *;
 
 // * There is a `$catch-errors` variable set to `true` by default.
 // * If you want to disable it, set it to `false`.
