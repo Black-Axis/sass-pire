@@ -1,0 +1,38 @@
+{
+    "name": "@sass-pire/handlers",
+    "version": "1.0.0",
+    "description": "Error handling utilities for the sass-pire.",
+    "license": "MIT",
+    "author": "Khaled Mohamed <k.mohamed.11.98@gmail.com> (https://github.com/krypton225)",
+    "contributors": [
+        "Khaled Mohamed"
+    ],
+    "bugs": {
+        "url": "https://github.com/Black-Axis/sass-pire/issues",
+        "email": "black_axis@outlook.com"
+    },
+    "keywords": [
+        "scss",
+        "sass",
+        "sass-pire",
+        "errors-handling",
+        "sass-library",
+        "scss-library"
+    ],
+    "exports": {
+        ".": "./index.scss",
+        "./scss": "./index.scss"
+    },
+    "sideEffects": [
+        "*.scss"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Black-Axis/sass-pire",
+        "directory": "packages/handlers"
+    },
+    "scripts": {
+        "dev": "concurrently --prefix-colors=\"magenta\" \"yarn sass:watch\"",
+        "sass:watch": "sass ./index.scss:dist/handlers.compiled.css --watch"
+    }
+}
