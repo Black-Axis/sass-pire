@@ -15,6 +15,7 @@ Color utilities and configuration for the sass-pire design system.
   - [Using Blue Color Utilities](#using-blue-color-utilities)
   - [Using Orange Color Utilities](#using-orange-color-utilities)
   - [Using Pink Color Utilities](#using-pink-color-utilities)
+  - [Using Indigo Color Utilities](#using-indigo-color-utilities)
   - [Complete Example](#complete-example)
 - [🎨 Using Pre-compiled CSS](#-using-pre-compiled-css)
 - [🛠️ Development](#-development)
@@ -88,6 +89,7 @@ Import the package in your SCSS files to access color utilities:
 @use '@sass-pire/colors/src/violet' as violet;
 @use '@sass-pire/colors/src/cyan' as cyan;
 @use '@sass-pire/colors/src/pink' as pink;
+@use '@sass-pire/colors/src/indigo' as indigo;
 ```
 
 [↑ Back to Top](#table-of-contents)
@@ -363,7 +365,60 @@ The package provides a comprehensive pink color scale using CSS custom propertie
 .primary-accent-pink {
   background-color: var(--sp-pink-500);
 }
+
+[↑ Back to Top](#table-of-contents)
+
+### Using Indigo Color Utilities
+
+The package provides a comprehensive indigo color scale using CSS custom properties:
+
+```scss
+@use '@sass-pire/colors/src/indigo' as *;
+
+// Include the indigo colors mixin to generate CSS custom properties
+@include sp-get-indigo(); // Generates variables on :root by default
+
+// Or target a specific selector
+@include sp-get-indigo('.my-component');
 ```
+
+**Generated CSS Custom Properties:**
+
+```css
+:root {
+    --sp-indigo-50: hsl(240deg 100% 97%);
+    --sp-indigo-100: hsl(240deg 95% 92%);
+    --sp-indigo-150: hsl(240deg 93% 87%);
+    --sp-indigo-200: hsl(240deg 90% 83%);
+    --sp-indigo-250: hsl(240deg 88% 77%);
+    --sp-indigo-300: hsl(240deg 85% 72%);
+    --sp-indigo-350: hsl(240deg 83% 66%);
+    --sp-indigo-400: hsl(240deg 80% 61%);
+    --sp-indigo-450: hsl(240deg 78% 55%);
+    --sp-indigo-500: hsl(240deg 75% 50%);
+    --sp-indigo-550: hsl(240deg 73% 46%);
+    --sp-indigo-600: hsl(240deg 70% 42%);
+    --sp-indigo-650: hsl(240deg 68% 38%);
+    --sp-indigo-700: hsl(240deg 65% 35%);
+    --sp-indigo-750: hsl(240deg 63% 31%);
+    --sp-indigo-800: hsl(240deg 60% 28%);
+    --sp-indigo-850: hsl(240deg 58% 24%);
+    --sp-indigo-900: hsl(240deg 55% 21%);
+    --sp-indigo-950: hsl(240deg 50% 15%);
+}
+```
+
+**Using in Your Styles:**
+
+```css
+.sidebar-link {
+  color: var(--sp-indigo-700);
+}
+
+.on-indigo-dark {
+  color: var(--sp-neutral-50);
+  background-color: var(--sp-indigo-800);
+}
 ```
 
 [↑ Back to Top](#table-of-contents)
@@ -543,6 +598,7 @@ The package provides a comprehensive orange color scale using CSS custom propert
 @include sp-get-violet();
 @include sp-get-cyan();
 @include sp-get-pink();
+@include sp-get-indigo();
 
 // Use in your components
 .alert {
@@ -589,6 +645,12 @@ The package provides a comprehensive orange color scale using CSS custom propert
     background-color: var(--sp-pink-50);
     border: 1px solid var(--sp-pink-300);
     color: var(--sp-pink-700);
+  }
+
+  &--system {
+    background-color: var(--sp-indigo-50);
+    border: 1px solid var(--sp-indigo-300);
+    color: var(--sp-indigo-700);
   }
 }
 ```
@@ -652,8 +714,10 @@ This will watch for changes and compile SCSS files automatically.
 │   │   └── _index.scss       # Violet color utilities
 │   ├── cyan/
 │   │   └── _index.scss       # Cyan color utilities
-│   └── pink/
-│       └── _index.scss       # Pink color utilities
+│   ├── pink/
+│   │   └── _index.scss       # Pink color utilities
+│   └── indigo/
+│       └── _index.scss       # Indigo color utilities
 ├── styles/
 │   └── index.scss             # CSS output generator
 ├── dist/
@@ -774,6 +838,19 @@ Generates pink color CSS custom properties.
 ```scss
 @include sp-get-pink();           // Generates on :root
 @include sp-get-pink('.theme');   // Generates on .theme
+```
+
+#### `sp-get-indigo($selector)`
+
+Generates indigo color CSS custom properties.
+
+**Parameters:**
+- `$selector` (String, optional) - Target selector for the variables. Default: `:root`
+
+**Example:**
+```scss
+@include sp-get-indigo();           // Generates on :root
+@include sp-get-indigo('.theme');   // Generates on .theme
 ```
 
 [↑ Back to Top](#table-of-contents)
