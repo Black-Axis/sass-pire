@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+// @description
+// * has-ptg function.
+// * This function checks if the provided argument has a percentage unit.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace type-checks
+
+// @module type-checks/has-ptg
+
+// @dependencies:
+// * - meta.type-of (SASS function).
+// * - math.unit (SASS function).
+// * - Error.throw (handler package's function).
+
+// @param {number} $val
+// * The number to check for a percentage unit.
+
+// @throws {string}
+// * Throws an error if @param is not a number.
+
+// @example
+// * .example {
+// *   content: has-ptg(12%);
+// * }
+
+// @output
+// * .example {
+// *   content: true;
+// * }
+
+// @return {boolean} - Returns true if the argument has a percentage unit,
+// * otherwise false.
+
+@use "sass:meta";
+@use "sass:math";
+@use "@sass-pire/handlers" as Error;
+
+@function has-ptg($value) {
+    @if meta.type-of($value) != number {
+        @return Error.throw("The parameter of has-ptg function must be in a number type.");
+    }
+
+    $flag: true;
+
+    @if math.unit($value) != "%" {
+        $flag: false;
+    }
+
+    @return $flag;
+}
