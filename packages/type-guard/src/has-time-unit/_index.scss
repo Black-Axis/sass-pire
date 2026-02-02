@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+// @description
+// * has-time-unit function.
+// * This module provides a function to check if the argument has a time
+// * type or not.
+
+// @access public
+
+// @version 1.5.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace type-checks
+
+// @module type-checks/has-time-unit
+
+// @dependencies:
+// * - meta.type-of (SASS function).
+// * - list.index (SASS function).
+// * - math.unit (SASS function).
+// * - Error.throw (handler package's function).
+
+// @param {number} $val
+// * A number to check if it has a time type or not.
+
+// @throw
+// * The parameter of has-time-unit function must be in a number type.
+
+// @example
+// * .example {
+// *   content: has-time-unit(12s);
+// * }
+
+// @output
+// * .example {
+// *   content: true;
+// * }
+
+// @returns {boolean} - True if it's a time type, false if not.
+
+@use "sass:meta";
+@use "sass:list";
+@use "sass:math";
+@use "@sass-pire/handlers" as Error;
+
+@function has-time-unit($value) {
+    @if meta.type-of($value) != number {
+        @return Error.throw("The parameter of has-time-unit function must be in a number type.");
+    }
+
+    $time-units: (
+        ms,
+        s,
+    ) !default;
+    $flag: true;
+    $get-unit: math.unit($value);
+
+    @if not list.index($time-units, $get-unit) {
+        $flag: false;
+    }
+
+    @return $flag;
+}
