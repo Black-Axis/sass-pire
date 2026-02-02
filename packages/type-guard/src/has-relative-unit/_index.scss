@@ -1,0 +1,98 @@
+@charset "UTF-8";
+
+// @description
+// * has-rel-unit function.
+// * This function checks if the provided argument has relative units.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace type-checks
+
+// @module type-checks/has-rel-unit
+
+// @dependencies:
+// * - meta.type-of (SASS function).
+// * - list.index (SASS function).
+// * - math.unit (SASS function).
+// * - Error.throw (function).
+
+// @param {number} $val
+// * The number to check for relative units.
+
+// @throws {string}
+// * Throws an error if @param is not a number or not in
+// * $relative-units list.
+
+// @example
+// * .example {
+// *   content: has-rel-unit(12em);
+// * }
+
+// @output
+// * .example {
+// *   content: true;
+// * }
+
+// @return {boolean} - Returns true if the argument has one of the
+// * relative units, otherwise false.
+
+@use "sass:meta";
+@use "sass:list";
+@use "sass:math";
+@use "@sass-pire/handlers" as Error;
+
+@function has-rel-unit($value) {
+    @if meta.type-of($value) != number {
+        @return Error.throw("The parameter of has-rel-unit function must be in a number type.");
+    }
+
+    $relative-units: (
+        // Font-relative
+        em,
+        rem,
+        ex,
+        ch,
+        cap,
+        ic,
+        lh,
+        rlh,
+
+        // Viewport-relative (classic)
+        vw,
+        vh,
+        vmin,
+        vmax,
+
+        // Viewport-relative (small)
+        svw,
+        svh,
+        svmin,
+        svmax,
+
+        // Viewport-relative (large)
+        lvw,
+        lvh,
+        lvmin,
+        lvmax,
+
+        // Viewport-relative (dynamic)
+        dvw,
+        dvh,
+        dvmin,
+        dvmax) !default;
+    $flag: true;
+
+    @if not list.index($relative-units, math.unit($value)) {
+        $flag: false;
+    }
+
+    @return $flag;
+}
