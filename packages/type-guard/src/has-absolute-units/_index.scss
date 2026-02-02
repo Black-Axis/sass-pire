@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+// @description
+// * has-abs-unit function.
+// * This function checks if the provided argument has an absolute unit.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace type-checks
+
+// @module type-checks/has-abs-unit
+
+// @dependencies:
+// * - meta.type-of (SASS function).
+// * - list.index (SASS function).
+// * - math.unit (SASS function).
+// * - Error.throw (handlers package's function).
+
+// @param {number} $val
+// * The number to check for an absolute unit.
+
+// @throws {string}
+// * Throws an error if @param is not a number or @param is
+// * not in $absolute-units list.
+
+// @example
+// * .example {
+// *   content: has-abs-unit(12cm);
+// * }
+
+// @output
+// * .example {
+// *   content: true;
+// * }
+
+// @return {boolean} - Returns true if the argument has an absolute unit,
+// * otherwise false.
+
+@use "sass:meta";
+@use "sass:list";
+@use "sass:math";
+@use "@sass-pire/handlers" as Error;
+
+@function has-abs-unit($value) {
+    @if meta.type-of($value) != number {
+        @return Error.throw("The parameter of has-abs-unit function must be in a number type.");
+    }
+
+    $absolute-units: (cm, mm, q, in, px, pt, pc) !default;
+    $flag: true;
+
+    @if not list.index($absolute-units, math.unit($value)) {
+        $flag: false;
+    }
+
+    @return $flag;
+}
