@@ -1,0 +1,47 @@
+{
+    "name": "@sass-pire/type-guard",
+    "version": "1.0.0",
+    "description": "Type utilities and checker for the sass-pire design system.",
+    "license": "MIT",
+    "author": "Khaled Mohamed <k.mohamed.11.98@gmail.com> (https://github.com/krypton225)",
+    "contributors": [
+        "Khaled Mohamed"
+    ],
+    "bugs": {
+        "url": "https://github.com/Black-Axis/sass-pire/issues",
+        "email": "black_axis@outlook.com"
+    },
+    "keywords": [
+        "scss",
+        "sass",
+        "sass-pire",
+        "type-guard",
+        "type-checks",
+        "type-checker",
+        "ui-library",
+        "sass-library",
+        "scss-library"
+    ],
+    "exports": {
+        ".": "./index.scss",
+        "./scss": "./index.scss",
+        "./css": "./dist/index.css",
+        "./css/min": "./dist/index.min.css"
+    },
+    "sideEffects": [
+        "*.css",
+        "*.scss"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Black-Axis/sass-pire",
+        "directory": "packages/type-guard"
+    },
+    "scripts": {
+        "dev": "concurrently --prefix-colors=\"cyan,yellow,green,magenta\" \"yarn sass:watch\"",
+        "sass:watch": "sass --load-path=../../node_modules ./index.scss:dist/index.compiled.css --watch"
+    },
+    "devDependencies": {
+        "@sass-pire/handlers": "workspace:*"
+    }
+}
