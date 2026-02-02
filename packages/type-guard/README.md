@@ -1,0 +1,1 @@
+# @sass-pire/type-guard
