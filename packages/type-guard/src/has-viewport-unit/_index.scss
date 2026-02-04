@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+// @description
+// * has-vp-unit function.
+// * It checks if the provided argument has viewport units.
+
+// @access public
+
+// @version 1.0.0
+
+// @license MIT
+
+// @author Khaled Mohamed
+
+// @package @sass-pire/type-guard
+
+// @library sass-pire
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @dependencies:
+// * - meta.type-of (SASS function).
+// * - list.index (SASS function).
+// * - math.unit (SASS function).
+// * - Error.throw (handler package's function).
+
+// @param {number} $value
+// * The number to check for viewport units.
+
+// @throws {string}
+// * Throws an error if @param is not a number or param is
+// * not in $viewport-units list.
+
+// @example
+// * .example {
+// *   content: has-vp-unit(12lvh);
+// * }
+
+// @output
+// * .example {
+// *   content: true;
+// * }
+
+// @returns {boolean} - Returns true if the argument has one of the
+// * viewport units, otherwise false.
+
+@use "sass:meta";
+@use "sass:list";
+@use "sass:math";
+@use "@sass-pire/handlers" as Error;
+
+@function has-vp-unit($value) {
+    @if meta.type-of($value) != number {
+        @return Error.throw("The parameter of has-vp-unit function must be in a number type.");
+    }
+
+    $viewport-units: (
+        vw,
+        vh,
+        vi,
+        vb,
+        vmin,
+        vmax,
+        svw,
+        svh,
+        svi,
+        svb,
+        svmin,
+        svmax,
+        lvw,
+        lvh,
+        lvi,
+        lvb,
+        lvmin,
+        lvmax,
+        dvw,
+        dvh,
+        dvi,
+        dvb,
+        dvmin,
+        dvmax,
+        ) !default;
+    $flag: true;
+
+    @if not list.index($viewport-units, math.unit($value)) {
+        $flag: false;
+    }
+
+    @return $flag;
+}
