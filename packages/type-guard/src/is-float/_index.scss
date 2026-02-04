@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+// @description
+// * is-float function.
+// * This module provides a function to check if the argument is
+// * a floating-point number.
+
+// @access public
+
+// @version 1.0.0
+
+// @license MIT
+
+// @author Khaled Mohamed
+
+// @package @sass-pire/type-guard
+
+// @library sass-pire
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @dependencies:
+// * - meta.type-of (SASS function).
+// * - LibFunc.cut-unit (function).
+// * - Error.throw (handler package's function).
+
+// @param {number} $value
+// * A number to check if it is a floating-point
+// * number or not.
+
+// @throw {string}
+// * You must pass an argument with number type to the
+// * is-float function.
+
+// @example
+// * .example {
+// *   content: is-float(12.66deg);
+// * }
+
+// @output
+// * .example {
+// *   content: true;
+// * }
+
+// @returns {boolean} - True if it is a floating-point number,
+// * false if not.
+
+@use "sass:meta";
+@use "sass:math";
+@use "@sass-pire/handlers" as Error;
+
+@function is-float($value) {
+    @if meta.type-of($value) != number {
+        @return Error.throw("The parameter of is-float function must be in a number type.");
+    }
+
+    $flag: false;
+    $actual-number: math.div($value, ($value * 0 + 1));
+
+    @if $actual-number % 1 != 0 {
+        $flag: true;
+    }
+
+    @return $flag;
+}
