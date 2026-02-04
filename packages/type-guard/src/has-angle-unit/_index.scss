@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+// @description
+// * has-angle-unit function.
+// * This module provides a function to check if the argument has angle units.
+
+// @access public
+
+// @version 1.0.0
+
+// @license MIT
+
+// @author Khaled Mohamed
+
+// @package @sass-pire/type-guard
+
+// @library sass-pire
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @dependencies:
+// * - meta.type-of (SASS function).
+// * - list.index (SASS function).
+// * - math.unit (SASS function).
+// * - var.$angle-units (variable).
+// * - Error.throw (handler package's function).
+
+// @param {number} $value
+// * A number to check if it has angle units or not.
+
+// @throw {string}
+// * You must pass an argument with number type to the
+// * has-angle-unit function.
+
+// @example
+// * .example {
+// *   content: has-angle-unit(12deg);
+// * }
+
+// @output
+// * .example {
+// *   content: true;
+// * }
+
+// @returns {boolean} - True if it has one of the angle units,
+// * false if not.
+
+@use "sass:meta";
+@use "sass:list";
+@use "sass:math";
+@use "@sass-pire/handlers" as Error;
+
+@function has-angle-unit($value) {
+    @if meta.type-of($value) != number {
+        @return Error.throw("The parameter of has-angle-unit function must be in a number type.");
+    }
+
+    $angle-units: (
+        deg,
+        rad,
+        grad,
+        turn,
+    ) !default;
+    $flag: true;
+    $get-unit: math.unit($value);
+
+    @if not list.index($angle-units, $get-unit) {
+        $flag: false;
+    }
+
+    @return $flag;
+}
