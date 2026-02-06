@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+// @description
+// * flatten function.
+// * This module tests a functionality of flatten function.
+
+// @access private
+
+// @version 1.0.0
+
+// @license MIT
+
+// @author Khaled Mohamed
+
+// @package @sass-pire/lists
+
+// @library sass-pire
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @dependencies:
+// * - True.describe (true function).
+// * - True.it (true function).
+// * - True.assert-equal (true function).
+
+// stylelint-disable function-name-case
+
+@use "sass:map";
+@use "true" as *;
+@use "../../src/flatten" as Func;
+
+$test-cases-flatten-map: (
+    (1, 2, 4): (1, 2, 4),
+    344px: (344px,),
+    true: (true,),
+    (69, 48, 54, (32, (11, 43))): (69, 48, 54, 32, 11, 43),
+    (69, 48, 54, (32, (11, 43, (21, (11, "Yes"))))): (69, 48, 54, 32, 11, 43, 21, 11, "Yes"),
+    "Just a number": ("Just a number",),
+    ((true, false), (0, "Just a text"), (2, 32, 4)): (true, false, 0, "Just a text", 2, 32, 4),
+);
+
+@each $case, $result in $test-cases-flatten-map {
+    @include describe("[Function] flatten(#{$case}), Result: #{$result}") {
+        @include it("Flatten of (#{$case}).") {
+            @include assert-equal(Func.flatten($case), $result);
+        }
+    }
+}
