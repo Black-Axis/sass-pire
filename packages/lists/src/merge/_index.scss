@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+// @description
+// * merge function.
+// * This function merges lists together and return all in a one list.
+
+// @access private
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @namespace list
+
+// @module list/merge
+
+// @dependencies:
+// * - meta.type-of (SASS function).
+// * - list.join (SASS function).
+// * - Func.flatten (function).
+// * - Error.throw (handlers package's function).
+
+// @param {List} $list...
+// * A group of lists that may contain nested lists.
+
+// @return {List} - Returns a merged list.
+
+// @example
+// * .example {
+// *   content: merge((2, 4, 5, (12, 5, 6)), (22, 38), (44, ((323)))); // 2 4 5 12 5 6 22 38 44 323
+// *   content: merge((4)); // 4
+// * }
+
+@use "sass:meta";
+@use "sass:list";
+@use "../flatten" as Func;
+@use "@sass-pire/handlers" as Error;
+
+@function merge($lists...) {
+    @if list.length($lists) == 0 {
+        @return null;
+    }
+
+    $separator: list.separator(list.nth($lists, 1));
+    $merged: ();
+
+    @each $list in $lists {
+        $flat: Func.flatten($list);
+
+        @each $item in $flat {
+            $merged: list.append($merged, $item, $separator);
+        }
+    }
+
+    @if list.length($merged) == 0 {
+        @return null;
+    }
+
+    @return $merged;
+}
