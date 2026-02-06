@@ -44,7 +44,7 @@
 @function middle($list: ()) {
     @if meta.type-of($list) != list {
         // stylelint-disable-next-line scss/operator-no-newline-after
-        @debug "⚠️  The parameter of the middle function must be of a list type. " +
+        @warn "⚠️  The parameter of the middle function must be of a list type. " +
               "So, we converted the parameter to a list type.";
         @return ($list, );
     }

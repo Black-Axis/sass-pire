@@ -43,7 +43,7 @@
 @function get-first($list: ()) {
     @if meta.type-of($list) != list {
         // stylelint-disable-next-line scss/operator-no-newline-after
-        @debug "⚠️  The parameter of the get-first function must be of a list type. " +
+        @warn "⚠️  The parameter of the get-first function must be of a list type. " +
               "So, we converted the parameter to a list type.";
         @return ($list, );
     }
