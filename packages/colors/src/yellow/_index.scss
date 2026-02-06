@@ -21,6 +21,16 @@
 
 // @repository: https://github.com/Black-Axis/sass-pire
 
+// @dependencies:
+// * - meta.type-of (SASS function).
+
+// @param {string} $selector
+// * The selector to apply the color configuration to.
+
+// @example scss
+// @include sp-get-yellow();           // Generates on :root
+// @include sp-get-yellow('.theme');   // Generates on .theme
+
 @use "sass:meta";
 
 @mixin sp-get-yellow($selector: ":root") {

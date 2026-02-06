@@ -17,6 +17,16 @@
 
 // @repository: https://github.com/Black-Axis/sass-pire
 
+// @dependencies:
+// * - meta.type-of (SASS function).
+
+// @param {string} $selector
+// * The selector to apply the color configuration to.
+
+// @example scss
+// @include sp-get-violet();           // Generates on :root
+// @include sp-get-violet('.theme');   // Generates on .theme
+
 @use "sass:meta";
 
 @mixin sp-get-violet($selector: ":root") {
