@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+// @description
+// * merge function.
+// * This module tests a functionality of merge function.
+
+// @access private
+
+// @version 1.0.0
+
+// @license MIT
+
+// @author Khaled Mohamed
+
+// @package @sass-pire/lists
+
+// @library sass-pire
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @dependencies:
+// * - True.describe (true function).
+// * - True.it (true function).
+// * - True.assert-equal (true function).
+// * - Func.merge (function).
+
+// stylelint-disable function-name-case
+
+@use "sass:map";
+@use "true" as *;
+@use "../../src/merge" as Func;
+
+$test-cases-merge-map: (
+    (1, 2, 4): (1, 2, 4),
+    (69, 48, 54, (32, (11, 43))): (69, 48, 54, 32, 11, 43),
+    ((true, false), (0, "Just a text"), (2, ((32)), 4)): (true, false, 0, "Just a text", 2, 32, 4),
+    (89, 48, 54, (32, (11, 43, (21, (11, "Yes"))))): (89, 48, 54, 32, 11, 43, 21, 11, "Yes"),
+    ("first", ("second", "third")): ("first", "second", "third"),
+);
+
+@each $case, $result in $test-cases-merge-map {
+    @include describe("[Function] merge(#{$case}), Result: #{$result}") {
+        @include it("merge(#{$case}).") {
+            @include assert-equal(Func.merge($case), $result);
+        }
+    }
+}
