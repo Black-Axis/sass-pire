@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+// @description
+// * get-last function.
+// * This module tests a functionality of get-last function.
+
+// @access private
+
+// @version 1.0.0
+
+// @license MIT
+
+// @author Khaled Mohamed
+
+// @package @sass-pire/lists
+
+// @library sass-pire
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @dependencies:
+// * - True.describe (true function).
+// * - True.it (true function).
+// * - True.assert-equal (true function).
+
+// stylelint-disable function-name-case
+
+@use "sass:map";
+@use "true" as *;
+@use "../../src/last" as Func;
+
+$test-cases-get-last-map: (
+    (1, 2, 4): 4,
+    344px: 344px,
+    (69, 48, 54, (32, (11, 43))): 43,
+    ((true, false), (0, "Just a text"), (2, 32, 4)): 4,
+    (89, 48, 54, (32, (11, 43, (21, (11, "Yes"))))): "Yes",
+    true: true,
+    false: false,
+    ("Just a number", "Just a text"): "Just a text",
+);
+
+@each $case, $result in $test-cases-get-last-map {
+    @include describe("[Function] get-last(#{$case}), Result: #{$result}") {
+        @include it("get-last(#{$case}).") {
+            @include assert-equal(Func.get-last($case), $result);
+        }
+    }
+}

@@ -21,6 +21,8 @@
 
 @use "./first/first.test" as *;
 
+@use "./last/last.test" as *;
+
 // * There is a `$catch-errors` variable set to `true` by default.
 // * If you want to disable it, set it to `false`.
 // * It comes from `sass-true` $catch-errors and we override it here.
