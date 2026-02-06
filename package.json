@@ -67,7 +67,8 @@
         "dev:type-guard": "yarn workspace @sass-pire/type-guard dev",
         "dev:lists": "yarn workspace @sass-pire/lists dev",
         "test:fonts": "jest ./packages/fonts/tests/sass.test.js --watchAll",
-        "test:colors": "jest ./packages/colors/tests/sass.test.js --watchAll"
+        "test:colors": "jest ./packages/colors/tests/sass.test.js --watchAll",
+        "test:lists": "jest ./packages/lists/tests/sass.test.js --watchAll"
     },
     "dependencies": {
         "reset-zone": "^2.4.2",
