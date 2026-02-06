@@ -1,0 +1,71 @@
+@charset "UTF-8";
+
+// @description
+// * flatten function.
+// * This function flattens a given list by removing nested lists.
+
+// @access public
+
+// @version 1.0.0
+
+// @license MIT
+
+// @author Khaled Mohamed
+
+// @package @sass-pire/lists
+
+// @library sass-pire
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @dependencies:
+// * - meta.type-of (SASS function).
+// * - list.join (SASS function).
+// * - list.append (SASS function).
+// * - Error.throw (handlers package's function).
+
+// @param {List} $list
+// * A list that may contain nested lists to be flattened.
+
+// @throw {Exception}
+// * Throws an exception if the provided parameter is not a list.
+
+// @return {List} - Returns a flattened list.
+
+// @example
+// * .example {
+// *   content: flatten((1, (2, 3)));               // 1, 2, 3
+// *   content: flatten((1, (2, 3), (4)));          // 1, 2, 3, 4
+// *   content: flatten(((1), (2, 3), ((4), 5)));   // 1, 2, 3, 4, 5
+// *   content: flatten((1, null));                 // 1
+// * }
+
+// @note
+// * If you have one value in the list, you can pass this one value
+// * with `null` value as second value of list. It will ignore the
+// * `null` value and return the another value because the SASS will read
+// * the one value as not list type. You can see the example number 3 to
+// * know what I mean.
+
+@use "sass:meta";
+@use "sass:list";
+@use "@sass-pire/handlers" as Error;
+
+@function flatten($list: ()) {
+    @if meta.type-of($list) != list {
+        @return Error.throw("The parameter of flatten function must be in a list type.");
+    }
+
+    $separator: list.separator($list);
+    $flat-list: ();
+
+    @each $item in $list {
+        @if meta.type-of($item) == list {
+            $flat-list: list.join($flat-list, flatten($item), $separator: $separator);
+        } @else {
+            $flat-list: list.append($flat-list, $item, $separator: $separator);
+        }
+    }
+
+    @return $flat-list;
+}
