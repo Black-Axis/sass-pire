@@ -27,8 +27,7 @@
 // @param {List} $list
 // * A list that may contain nested lists to be flattened.
 
-// @throw {Exception}
-// * Throws an exception if the provided parameter is not a list.
+// @warning The parameter of the flatten function must be of a list type.
 
 // @return {List} - Returns a flattened list.
 
@@ -53,7 +52,10 @@
 
 @function flatten($list: ()) {
     @if meta.type-of($list) != list {
-        @return Error.throw("The parameter of flatten function must be in a list type.");
+        // stylelint-disable-next-line scss/operator-no-newline-after
+        @warn "⚠️  The parameter of the flatten function must be of a list type. " +
+              "So, we converted the parameter to a list type.";
+        @return ($list, );
     }
 
     $separator: list.separator($list);
