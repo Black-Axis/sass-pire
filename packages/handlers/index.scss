@@ -37,7 +37,7 @@ $dev-env: true !default;
     $value: "";
 
     @if $dev-env == true {
-        @error $message;
+        @error "❌ " + $message;
     } @else {
         $value: "❌ Error: #{$message}";
     }
