@@ -65,6 +65,7 @@
         "dev:colors": "yarn workspace @sass-pire/colors dev",
         "dev:handlers": "yarn workspace @sass-pire/handlers dev",
         "dev:type-guard": "yarn workspace @sass-pire/type-guard dev",
+        "dev:lists": "yarn workspace @sass-pire/lists dev",
         "test:fonts": "jest ./packages/fonts/tests/sass.test.js --watchAll",
         "test:colors": "jest ./packages/colors/tests/sass.test.js --watchAll"
     },
