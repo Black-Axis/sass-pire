@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+// @description
+// * get-last function.
+// * This function retrieves the first element from the given list.
+
+// @access public
+
+// @version 1.0.0
+
+// @license MIT
+
+// @author Khaled Mohamed
+
+// @package @sass-pire/lists
+
+// @library sass-pire
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @dependencies:
+// * - meta.type-of (SASS function).
+// * - list.index (SASS function).
+// * - list.nth (SASS function).
+// * - var.$main-data-types (variable).
+// * - Func.flatten (function).
+
+// @param {List} $list
+// * A list from which to retrieve the last element.
+
+// @return {Any} - Returns the last element from the list.
+
+// @example
+// * .example {
+// *   content: get-last((12, 43, 4));     // 4
+// *   content: get-last(((22, 3), 5));    // 5
+// * }
+
+@use "sass:meta";
+@use "sass:list";
+@use "../flatten" as Func;
+
+@function get-last($list: ()) {
+    @if meta.type-of($list) != list {
+        // stylelint-disable-next-line scss/operator-no-newline-after
+        @warn "⚠️  The parameter of the get-last function must be of a list type. " +
+              "So, we converted the parameter to a list type.";
+        @return ($list, );
+    }
+
+    $flatten-list: Func.flatten($list);
+    $flatten-list-length: list.length($flatten-list);
+
+    @if $flatten-list-length == 0 {
+        @return null;
+    }
+
+    @return list.nth($flatten-list, list.length($flatten-list));
+}
