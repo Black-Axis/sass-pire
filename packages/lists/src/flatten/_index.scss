@@ -22,7 +22,6 @@
 // * - meta.type-of (SASS function).
 // * - list.join (SASS function).
 // * - list.append (SASS function).
-// * - Error.throw (handlers package's function).
 
 // @param {List} $list
 // * A list that may contain nested lists to be flattened.
@@ -48,7 +47,6 @@
 
 @use "sass:meta";
 @use "sass:list";
-@use "@sass-pire/handlers" as Error;
 
 @function flatten($list: ()) {
     @if meta.type-of($list) != list {
