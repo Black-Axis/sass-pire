@@ -17,11 +17,15 @@
 
 // @repository: https://github.com/Black-Axis/sass-pire
 
-// @usage:
-// @include sp-get-fw();
+// @dependencies:
+// * - meta.type-of (SASS function).
 
-// stylelint-disable number-max-precision
-// stylelint-disable at-rule-empty-line-before
+// @param {string} $selector
+// * The selector to apply the letter spacing configuration to.
+
+// @example scss
+// @include sp-get-fw();           // Generates on :root
+// @include sp-get-fw('.theme');   // Generates on .theme
 
 @use "sass:meta";
 
