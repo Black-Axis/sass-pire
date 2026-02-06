@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+// @description
+// * reverse-flat function.
+// * This function retrieves the flat reversed list from the given one.
+
+// @access public
+
+// @version 1.0.0
+
+// @license MIT
+
+// @author Khaled Mohamed
+
+// @package @sass-pire/lists
+
+// @library sass-pire
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @dependencies:
+// * - meta.type-of (SASS function).
+// * - list.length (SASS function).
+// * - list.append (SASS function).
+// * - list.nth (SASS function).
+// * - Func.flatten (function).
+
+// @param {List} $list
+// * A list to be reversed.
+
+// @return {List} - Returns the reversed list from the given list.
+
+// @example
+// * .example {
+// *   content: reverse(((12, 43, 4), (33, 555, 6))); // 33, 555, 6, 12, 43, 4
+// * }
+
+@use "sass:meta";
+@use "sass:list";
+@use "../flatten" as Func;
+
+@function reverse-flat($list: ()) {
+    @if meta.type-of($list) != list {
+        // stylelint-disable-next-line scss/operator-no-newline-after
+        @debug "⚠️  The parameter of the reverse-flat function must be of a list type. " +
+              "So, we converted the parameter to a list type.";
+        @return ($list, );
+    }
+
+    $flat-list: Func.flatten($list);
+
+    @if list.length($flat-list) == 0 {
+        @return null;
+    }
+
+    $separator: list.separator($flat-list);
+    $reversed-list: ();
+
+    @for $i from list.length($flat-list) through 1 {
+        $reversed-list: list.append($reversed-list, list.nth($flat-list, $i), $separator: $separator);
+    }
+
+    @return $reversed-list;
+}
