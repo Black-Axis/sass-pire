@@ -12,19 +12,6 @@
 
 // @namespace functions/global
 
-// * forwarding the "cut-unit" module.
-// * The "cut-unit" module likely contains a function to
-// * cut the unit or strip it from a given number.
-// @see cut-unit
-@forward "cut-unit";
-
-// * forwarding the "get-half-number" module.
-// * The "get-half-number" module probably contains a function
-// * to get the half of a number passed to it, whether it has
-// * a unit or not.
-// @see get-half-number
-@forward "get-half-number";
-
 // * forwarding the "is-in-list" module.
 // * The "is-in-list" module appears to have a function to check
 // * if a value is in a given list, returning true if the value
