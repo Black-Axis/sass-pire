@@ -9,21 +9,21 @@
 
 // @version 1.0.0
 
+// @license MIT
+
 // @author Lucas Bonomi
 // @link: https://github.com/LukyVj/family.scss
 
-// @license MIT
+// @package @sass-pire/family
+
+// @library sass-pire
 
 // @repository: https://github.com/Black-Axis/sass-pire
 
-// @namespace children
-
-// @module children/every
-
 // @dependencies:
 // * - meta.type-of (SASS function).
-// * - LibFunc.cut-unit (function).
-// * - Error.throw (function).
+// * - Func.cut-unit (functions package's function).
+// * - Error.throw (handlers package's function).
 
 // @update
 // * We updated the mixin with validations.
@@ -51,15 +51,15 @@
 // * }
 
 @use "sass:meta";
-@use "../../functions/global/cut-unit" as LibFunc;
-@use "../../development-utils/toggle-error-message" as Error;
+@use "@sass-pire/functions" as Func;
+@use "@sass-pire/handlers" as Error;
 
 @mixin every($num: 1) {
     @if meta.type-of($num) != number {
         content: Error.throw("The parameter of every mixin must be in a number type.");
     }
 
-    $num-without-unit: LibFunc.cut-unit($num);
+    $num-without-unit: Func.cut-unit($num);
 
     &:nth-child(#{$num-without-unit}n) {
         @content;
