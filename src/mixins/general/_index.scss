@@ -34,12 +34,6 @@
 // @see fade
 @forward "fade";
 
-// * forwarding the "color-generator-vars" module.
-// * The "color-generator-vars" module likely contains variables for
-// * color generation.
-// @see color-generator-vars
-@forward "color-generator-vars";
-
 // * forwarding the "circle" module.
 // * The "circle" module probably provides styles for
 // * creating circular elements.
@@ -69,12 +63,6 @@
 // * scrolling effects.
 // @see scroll
 @forward "scroll";
-
-// * forwarding the "color-generator-dark-mode" module.
-// * The "color-generator-dark-mode" module likely contains styles for
-// * dark mode color generation.
-// @see color-generator-dark-mode
-@forward "color-generator-dark-mode";
 
 // * forwarding the "selections" module.
 // * The "selections" module probably provides styles for text selections.
