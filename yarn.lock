@@ -1406,13 +1406,22 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@sass-pire/family@workspace:packages/family":
+  version: 0.0.0-use.local
+  resolution: "@sass-pire/family@workspace:packages/family"
+  dependencies:
+    "@sass-pire/functions": "workspace:*"
+    "@sass-pire/handlers": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
 "@sass-pire/fonts@workspace:packages/fonts":
   version: 0.0.0-use.local
   resolution: "@sass-pire/fonts@workspace:packages/fonts"
   languageName: unknown
   linkType: soft
 
-"@sass-pire/functions@workspace:packages/functions":
+"@sass-pire/functions@workspace:*, @sass-pire/functions@workspace:packages/functions":
   version: 0.0.0-use.local
   resolution: "@sass-pire/functions@workspace:packages/functions"
   dependencies:
