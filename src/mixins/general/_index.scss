@@ -42,12 +42,6 @@
 // @see banner
 @forward "banner";
 
-// * forwarding the "shape-margin" mixin from the "shape-margin" module.
-// * The "shape-margin" mixin sets a margin for a CSS shape created
-// * using shape-outside property.
-// @see shape-margin
-@forward "shape-margin";
-
 // * forwarding the "object-fit" mixin from the "object-fit" module.
 // * The "object-fit" mixin sets an object-fit property.
 // @see object-fit
