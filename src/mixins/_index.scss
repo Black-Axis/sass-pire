@@ -12,12 +12,6 @@
 
 // @namespace mixins
 
-// * forwarding the "vendor-prefixes" module.
-// * The "vendor-prefixes" module likely provides utilities for
-// * handling various CSS vendor prefixes.
-// @see vendor-prefixes
-@forward "vendor-prefixes";
-
 // * forwarding the "general" module.
 // * The "general" module may contain general-purpose utilities for
 // * styling and layout.
