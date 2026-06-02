@@ -12,12 +12,6 @@
 
 // @namespace mixins/children
 
-// * forwarding the "after-first" module.
-// * The "after-first" module probably contains mixin for selecting
-// * the after-first child element(s).
-// @see after-first
-@forward "after-first";
-
 // * forwarding the "from-end" module.
 // * The "from-end" module probably contains mixin for selecting
 // * the from-end child element(s).
