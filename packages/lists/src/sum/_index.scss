@@ -6,7 +6,7 @@
 
 // @access public
 
-// @version 1.4.0
+// @version 1.0.0
 
 // @author Khaled Mohamed
 
@@ -22,8 +22,8 @@
 // * - meta.type-of (SASS function).
 // * - list.nth (SASS function).
 // * - list.length (SASS function).
-// * - LibFunc.flatten-list (function).
-// * - Error.throw (function).
+// * - Func.flatten (package's function).
+// * - Error.throw (handlers package's function).
 
 // @param {...Number or List} $args
 // * Variable number of arguments, either numbers or lists of numbers.
@@ -76,15 +76,15 @@
 @use "sass:meta";
 @use "sass:math";
 @use "sass:list";
-@use "../../functions/list/flatten-list" as LibFunc;
-@use "../../development-utils/toggle-error-message" as Error;
+@use "../flatten" as Func;
+@use "@sass-pire/handlers" as Error;
 
 @function sum($args: ()) {
     @if meta.type-of($args) != list {
         @return Error.throw("The parameter of sum function must be in a list type.");
     } @else {
         $sum: 0;
-        $flatten-list: LibFunc.flatten($args);
+        $flatten-list: Func.flatten($args);
         $length-of-list: list.length($flatten-list);
 
         @if $length-of-list == 0 {
