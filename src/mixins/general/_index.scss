@@ -57,12 +57,6 @@
 // @see backdrop
 @forward "backdrop";
 
-// * forwarding the "user-select" module.
-// * The "user-select" module likely contains styles for
-// * controlling user text selection.
-// @see user-select
-@forward "user-select";
-
 // * forwarding the "banner" mixin from the "banner" module.
 // * The "banner" mixin is used to add a banner to the top
 // * of the compiled CSS file, providing information about
