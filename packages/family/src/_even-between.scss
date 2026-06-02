@@ -9,21 +9,21 @@
 
 // @version 1.0.0
 
+// @license MIT
+
 // @author Lucas Bonomi
 // @link: https://github.com/LukyVj/family.scss
 
-// @license MIT
+// @package @sass-pire/family
+
+// @library sass-pire
 
 // @repository: https://github.com/Black-Axis/sass-pire
 
-// @namespace children
-
-// @module children/even-between
-
 // @dependencies:
 // * - meta.type-of (SASS function).
-// * - LibFunc.cut-unit (function).
-// * - Error.throw (function).
+// * - Func.cut-unit (functions package's function).
+// * - Error.throw (handlers package's function).
 
 // @update
 // * We updated the mixin with validations
@@ -55,16 +55,16 @@
 
 @use "sass:meta";
 @use "sass:math";
-@use "../../functions/global/cut-unit" as LibFunc;
-@use "../../development-utils/toggle-error-message" as Error;
+@use "@sass-pire/functions" as Func;
+@use "@sass-pire/handlers" as Error;
 
 @mixin even-between($first-num: 1, $last-num) {
     @if meta.type-of($first-num) != number or meta.type-of($last-num) != number {
         content: Error.throw("The parameters of even-between mixin must be in a number type.");
     }
 
-    $first-num-without-unit: LibFunc.cut-unit($first-num);
-    $last-num-without-unit: LibFunc.cut-unit($last-num);
+    $first-num-without-unit: Func.cut-unit($first-num);
+    $last-num-without-unit: Func.cut-unit($last-num);
 
     &:nth-child(even):nth-child(n + #{$first-num-without-unit}):nth-child(-n + #{$last-num-without-unit}) {
         @content;
