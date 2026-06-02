@@ -23,21 +23,3 @@
 // * a new approach in responsive designs.
 // @see container-query
 @forward "container-query";
-
-// * forwarding the "phones" module.
-// * The "phones" module likely contains styles for
-// * responsive designs.
-// @see phones
-@forward "phones";
-
-// * forwarding the "tablets" module.
-// * The "tablets" module likely contains styles for
-// * responsive designs.
-// @see tablets
-@forward "tablets";
-
-// * forwarding the "laptops" module.
-// * The "laptops" module likely contains styles for
-// * responsive designs.
-// @see laptops
-@forward "laptops";
