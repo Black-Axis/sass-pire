@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+// @description
+// * half function.
+// * This function calculates the half of a given number.
+
+// @access public
+
+// @version 1.0.0
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @dependencies:
+// * - meta.type-of (SASS function).
+// * - math.unit (SASS function).
+// * - math.is-unitless (SASS function).
+// * - string.unquote (SASS function).
+// * - LibFunc.cut-unit (function).
+// * - Error.throw (handlers package's function).
+
+// @param {Number} $number
+// * The number to calculate the half of.
+// * It can have a unit or be unitless.
+
+// @throw {Exception}
+// * Throws an exception if the parameter is not a number.
+
+// @example
+// * .example {
+// *   content: half(12);
+// *   content: half(130rem);
+// *   content: half(22cm);
+// * }
+
+// @output
+// * .example {
+// *   content: 6;
+// *   content: 65rem;
+// *   content: 11cm;
+// * }
+
+// @return {Number} - The half of the given number. If the input has
+// * a unit, the result will also have the same unit.
+
+@use "sass:meta";
+@use "sass:math";
+@use "sass:string";
+@use "./cut-unit" as LibFunc;
+@use "@sass-pire/handlers" as Error;
+
+@function half($number) {
+    @if meta.type-of($number) != number {
+        @return Error.throw("The parameter of half function must be in a number type.");
+    }
+
+    @if LibFunc.cut-unit($number) == 0 {
+        @return 0;
+    }
+
+    @if not math.is-unitless($number) {
+        $num-after-cut-unit: LibFunc.cut-unit($number);
+        $unit-of-number: math.unit($number);
+
+        @return string.unquote("#{calc($num-after-cut-unit / 2)}#{$unit-of-number}");
+    }
+
+    @return calc($number / 2);
+}
