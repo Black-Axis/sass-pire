@@ -39,9 +39,3 @@
 // * We mean that: remove the spaces from start and end of string.
 // @see trim-string
 @forward "trim-string";
-
-// * forwarding the "clamped" module.
-// * The "clamped" module likely contains a function to return
-// * the clamped function to be used in fluid typography.
-// @see clamped
-@forward "clamped";
