@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 // @description
-// * last mixin.
+// * last-of mixin.
 // * This mixin provides a convenient way to select the last child
 // * of element(s) in the current context.
 
@@ -9,21 +9,21 @@
 
 // @version 1.0.0
 
+// @license MIT
+
 // @author Lucas Bonomi
 // @link: https://github.com/LukyVj/family.scss
 
-// @license MIT
+// @package @sass-pire/family
+
+// @library sass-pire
 
 // @repository: https://github.com/Black-Axis/sass-pire
 
-// @namespace children
-
-// @module children/last
-
 // @dependencies:
 // * - meta.type-of (SASS function).
-// * - LibFunc.cut-unit (function).
-// * - Error.throw (function).
+// * - Func.cut-unit (package's function).
+// * - Error.throw (handlers package's function).
 
 // @update
 // * We updated the mixin with validations
@@ -37,7 +37,7 @@
 // @example
 // * .example {
 // *   .child {
-// *     @include last(10) {
+// *     @include last-of(10) {
 // *        background-color: #212121;
 // *        color: #ffffff;
 // *     };
@@ -52,15 +52,15 @@
 
 @use "sass:meta";
 @use "sass:math";
-@use "../../functions/global/cut-unit" as LibFunc;
-@use "../../development-utils/toggle-error-message" as Error;
+@use "@sass-pire/functions" as Func;
+@use "@sass-pire/handlers" as Error;
 
-@mixin last($num: 1) {
+@mixin last-of($num: 1) {
     @if meta.type-of($num) != number {
-        content: Error.throw("The parameter of last mixin must be in a number type.");
+        content: Error.throw("The parameter of last-of mixin must be in a number type.");
     }
 
-    $num-without-unit: LibFunc.cut-unit($num);
+    $num-without-unit: Func.cut-unit($num);
 
     @if $num-without-unit == 1 {
         &:last-child {
