@@ -23,9 +23,3 @@
 // * two error messages when development and testing environment.
 // @see toggle-error-message
 @forward "toggle-error-message";
-
-// * forwarding the "approximation-number" module.
-// * The "approximation-number" module likely contains function for
-// * returning a value after approximation as you want.
-// @see approximation-number
-@forward "approximation-numbers";

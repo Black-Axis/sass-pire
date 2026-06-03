@@ -5,9 +5,9 @@
 // * This function accepts an number for approximation it with
 // * the number of digits you want.
 
-// @access private
+// @access public
 
-// @version 1.2.0
+// @version 1.0.0
 
 // @author Takeru Suzuki
 // @link: https://gist.github.com/terkel/4373420
@@ -16,10 +16,6 @@
 
 // @repository: https://github.com/Black-Axis/sass-pire
 
-// @namespace development-utils
-
-// @module development-utils/approx
-
 // @dependencies:
 // * - meta.type-of (SASS function).
 // * - math.div (SASS function).
@@ -27,8 +23,8 @@
 // * - math.math.is-unitless (SASS function).
 // * - math.ceil (SASS function).
 // * - math.floor (SASS function).
-// * - LibFunc.cut-unit (function).
-// * - Error.throw (function).
+// * - Func.cut-unit (function).
+// * - Error.throw (handlers package's function).
 
 // @update We updated the function with validations
 
@@ -59,24 +55,17 @@
 // *   content: 12.36vh;
 // * }
 
-// @note
-// * There are two functions in this file.
-// * The first is the (approx) function and second is (of) function.
-// * The second one is for only simplicity when using (approx) function.
-// * The core logic of (of) function is to call the first one.
-// * You can use one of them as you want.
-
 // @return {String} - Returns the provided output after approximation.
 
 @use "sass:meta";
 @use "sass:math";
-@use "../functions/global/cut-unit" as LibFunc;
-@use "../development-utils/toggle-error-message" as Error;
+@use "./cut-unit" as Func;
+@use "@sass-pire/handlers" as Error;
 
 @function approx($num, $digits: 3, $mode: round) {
     $node: 1;
     $num-unit: "";
-    $num-without-unit: LibFunc.cut-unit($num);
+    $num-without-unit: Func.cut-unit($num);
     $mode-values: (round, ceil, floor) !default;
 
     @if meta.type-of($num) != number or meta.type-of($digits) != number {
@@ -106,8 +95,4 @@
     } @else {
         @return Error.throw("The mode parameter of approx function must be one of these values: (#{$mode-values}).");
     }
-}
-
-@function of($num, $digits: 3, $mode: round) {
-    @return approx($num, $digits, $mode);
 }
