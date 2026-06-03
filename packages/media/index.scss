@@ -15,4 +15,6 @@
 
 // @library sass-pire
 
-@forward "./src";
+@forward "./src/layout/container-query";
+
+@forward "./src/layout/media-query";
