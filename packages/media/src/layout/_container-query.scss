@@ -22,6 +22,8 @@
 // * - map.has-key (SASS function).
 // * - map.get (SASS function).
 // * - var.$breakpoints (package's variable).
+// * - var.$breakpoints-types (package's variable).
+// * - var.$breakpoints-dimensions (package's variable).
 // * - Func.is-in-list (lists package's function).
 // * - Error.throw (handlers package's function).
 
@@ -54,9 +56,9 @@
 // stylelint-disable media-query-no-invalid
 
 @use "sass:map";
+@use "./settings" as var;
 @use "@sass-pire/lists" as Func;
 @use "@sass-pire/handlers" as Error;
-@use "./breakpoint" as var;
 
 @mixin cq($type: min, $dimension: w, $breakpoint-name: md, $container-name: "") {
     @if Func.is-in-list(var.$breakpoints-types, $type) {
