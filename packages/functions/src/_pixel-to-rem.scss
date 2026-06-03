@@ -6,7 +6,7 @@
 
 // @access public
 
-// @version 1.2.0
+// @version 1.0.0
 
 // @author Khaled Mohamed
 
@@ -14,17 +14,12 @@
 
 // @repository: https://github.com/Black-Axis/sass-pire
 
-// @namespace converters
-
-// @module converters/px-to-rem
-
 // @dependencies:
 // * - meta.type-of (SASS function).
 // * - math.unit (SASS function).
-// * - Config.$base-font-size (config variable).
-// * - LibFunc.cut-unit (function).
-// * - Approx.approx (function).
-// * - Error.throw (function).
+// * - Func1.cut-unit (function).
+// * - Func2.approx (function).
+// * - Error.throw (handlers package's function).
 
 // @param {Number} $px-val
 // * The value in pixel unit to convert.
@@ -47,10 +42,9 @@
 
 @use "sass:meta";
 @use "sass:math";
-@use "../../abstract/config" as Config;
-@use "../../functions/global/cut-unit" as LibFunc;
-@use "../../development-utils/approximation-numbers" as Approx;
-@use "../../development-utils/toggle-error-message" as Error;
+@use "@sass-pire/handlers" as Error;
+@use "./cut-unit" as Func1;
+@use "./approximation-number" as Func2;
 
 @function px-to-rem($px-val) {
     @if meta.type-of($px-val) != number {
@@ -66,5 +60,5 @@
         @return Error.throw("The parameter does not need a unit if it equals to zero.");
     }
 
-    @return Approx.of(calc(LibFunc.cut-unit($px-val) / Config.$base-font-size)) + rem;
+    @return Func2.approx(calc(Func1.cut-unit($px-val) / 16)) + rem;
 }
