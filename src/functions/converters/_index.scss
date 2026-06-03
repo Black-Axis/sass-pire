@@ -12,42 +12,6 @@
 
 // @namespace functions/converters
 
-// * centimeter to inches forward.
-// * forwarding the functionality to convert centimeters to inches.
-// * please see the `cm-to-in` function for details.
-// @see cm-to-in
-@forward "centimeter-to-inches";
-
-// * centimeter to pixel forward.
-// * forwarding the functionality to convert centimeters to pixels.
-// * please see the `cm-to-px` function for details.
-// @see cm-to-px
-@forward "centimeter-to-pixel";
-
-// * inches to centimeter forward.
-// * forwarding the functionality to convert inches to centimeters.
-// * please see the `in-to-cm` function for details.
-// @see in-to-cm
-@forward "inches-to-centimeter";
-
-// * inches to pixel forward.
-// * forwarding the functionality to convert inches to pixels.
-// * please see the `in-to-px` function for details.
-// @see in-to-px
-@forward "inches-to-px";
-
-// * pixel to centimeter forward.
-// * forwarding the functionality to convert pixels to centimeters.
-// * please see the `px-to-cm` function for details.
-// @see px-to-cm
-@forward "pixel-to-centimeter";
-
-// * pixel to inches forward.
-// * forwarding the functionality to convert pixels to inches.
-// * please see the `px-to-in` function for details.
-// @see px-to-in
-@forward "pixel-to-inches";
-
 // * pixel to rem forward.
 // * forwarding the functionality to convert pixels to rem.
 // * please see the `px-to-rem` function for details.
@@ -65,9 +29,3 @@
 // * please see the `decimal-to-percentage` function for details.
 // @see dec-to-ptg
 @forward "decimal-to-percentage";
-
-// * string to boolean forward.
-// * forwarding the functionality to convert string to boolean.
-// * please see the `str-to-bool` function for details.
-// @see string-to-boolean
-@forward "string-to-boolean";
