@@ -7,26 +7,26 @@
 
 // @access public
 
-// @version 1.1.1
-
-// @author Khaled Mohamed
+// @version 1.0.0
 
 // @license MIT
 
+// @author Khaled Mohamed
+
+// @package @sass-pire/media
+
+// @library sass-pire
+
 // @repository: https://github.com/Black-Axis/sass-pire
-
-// @reference: https://developer.mozilla.org/en-US/docs/Web/CSS/@media
-
-// @namespace general
-
-// @module screens/mq-general
 
 // @dependencies:
 // * - map.has-key (SASS function).
 // * - map.get (SASS function).
-// * - var.$breakpoints (variable).
-// * - LibFunc.is-in-list (function).
-// * - Error.throw (function).
+// * - var.$breakpoints (package's variable).
+// * - var.$breakpoints-types (package's variable).
+// * - var.$breakpoints-dimensions (package's variable).
+// * - Func.is-in-list (lists package's function).
+// * - Error.throw (handlers package's function).
 
 // @param {String} $type
 // * The type of query you want (min | max).
@@ -61,16 +61,13 @@
 // stylelint-disable media-query-no-invalid
 
 @use "sass:map";
-@use "../../../abstract/global-variables" as var;
-@use "../../../functions/global/is-in-list" as LibFunc;
-@use "../../../development-utils//toggle-error-message" as Error;
+@use "./settings" as var;
+@use "@sass-pire/lists" as Func;
+@use "@sass-pire/handlers" as Error;
 
-@mixin mq-general($type: min, $dimension: w, $breakpoint-name: md) {
-    $main-mq-types: (min, max) !default;
-    $main-dimensions: (width, w, height, h) !default;
-
-    @if LibFunc.is-in-list($main-mq-types, $type) {
-        @if LibFunc.is-in-list($main-dimensions, $dimension) {
+@mixin mq($type: min, $dimension: w, $breakpoint-name: md) {
+    @if Func.is-in-list(var.$breakpoints-types, $type) {
+        @if Func.is-in-list(var.$breakpoints-dimensions, $dimension) {
             @if map.has-key(var.$breakpoints, $breakpoint-name) {
                 $actual-dimension: map.get(var.$breakpoints, $breakpoint-name);
 
@@ -95,11 +92,5 @@
         }
     } @else {
         content: Error.throw("The type parameter of mq-general mixin must be one of: (#{$main-mq-types}).");
-    }
-}
-
-@mixin mq-gen($type: min, $dimension: w, $breakpoint-name: md) {
-    @include mq-general($type, $dimension, $breakpoint-name) {
-        @content;
     }
 }

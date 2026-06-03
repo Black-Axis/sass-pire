@@ -17,9 +17,3 @@
 // * styling and layout.
 // @see general
 @forward "general";
-
-// * forwarding the "media-queries" module.
-// * The "media-queries" module may contain various modules for
-// * media queries for all needed devices.
-// @see general
-@forward "media-queries";
