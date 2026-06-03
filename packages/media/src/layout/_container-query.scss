@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+// @description
+// * cq mixin.
+// * Generate a media query with specified type, dimension, and breakpoint.
+
+// @access public
+
+// @version 1.0.0
+
+// @license MIT
+
+// @author Khaled Mohamed
+
+// @package @sass-pire/media
+
+// @library sass-pire
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @dependencies:
+// * - map.has-key (SASS function).
+// * - map.get (SASS function).
+// * - var.$breakpoints (package's variable).
+// * - Func.is-in-list (lists package's function).
+// * - Error.throw (handlers package's function).
+
+// @param {String} $type
+// * The type of query you want (min | max).
+
+// @param {String} $dimension
+// * The dimension you want, which can be width, height, w, or h.
+
+// @param {String} $breakpoint-name
+// * Specify the breakpoint name from the breakpoints map.
+
+// @param {String} $container-name:
+// * Specify the container name.
+
+// @example
+// * .example {
+// *   @include cq($type: max, $dimension: w, $breakpoint-name: lg) {
+// *     width: 100px;
+// *   }
+// * }
+
+// @output
+// * @container (max-width: 1199px) {
+// *   .example {
+// *     width: 100px;
+// *   }
+// * }
+
+// stylelint-disable media-query-no-invalid
+
+@use "sass:map";
+@use "@sass-pire/lists" as Func;
+@use "@sass-pire/handlers" as Error;
+@use "./breakpoint" as var;
+
+@mixin cq($type: min, $dimension: w, $breakpoint-name: md, $container-name: "") {
+    @if Func.is-in-list(var.$breakpoints-types, $type) {
+        @if Func.is-in-list(var.$breakpoints-dimensions, $dimension) {
+            @if map.has-key(var.$breakpoints, $breakpoint-name) {
+                $actual-dimension: map.get(var.$breakpoints, $breakpoint-name);
+
+                @if $type == max {
+                    $actual-dimension: $actual-dimension - 1px;
+                }
+
+                @if $dimension == width or $dimension == w {
+                    @container #{$container-name} (#{$type}-width: #{$actual-dimension}) {
+                        @content;
+                    }
+                } @else if $dimension == height or $dimension == h {
+                    @container #{$container-name} (#{$type}-height: #{$actual-dimension}) {
+                        @content;
+                    }
+                }
+            } @else {
+                content: Error.throw("Please, Enter the valid breakpoint. #{$breakpoint-name} does not exist in (#{var.$breakpoints})");
+            }
+        } @else {
+            content: Error.throw("The dimension parameter of align-items mixin must be one of: (#{var.$breakpoints-dimensions}).");
+        }
+    } @else {
+        content: Error.throw("The type parameter of cq mixin must be one of: (#{var.$breakpoints-types}).");
+    }
+}

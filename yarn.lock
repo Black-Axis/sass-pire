@@ -1435,9 +1435,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sass-pire/lists@workspace:packages/lists":
+"@sass-pire/lists@workspace:*, @sass-pire/lists@workspace:packages/lists":
   version: 0.0.0-use.local
   resolution: "@sass-pire/lists@workspace:packages/lists"
+  languageName: unknown
+  linkType: soft
+
+"@sass-pire/media@workspace:packages/media":
+  version: 0.0.0-use.local
+  resolution: "@sass-pire/media@workspace:packages/media"
+  dependencies:
+    "@sass-pire/handlers": "workspace:*"
+    "@sass-pire/lists": "workspace:*"
   languageName: unknown
   linkType: soft
 
