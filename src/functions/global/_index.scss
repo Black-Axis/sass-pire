@@ -19,13 +19,6 @@
 // @see has-pos
 @forward "has-position";
 
-// * forwarding the "trim-start" module.
-// * The "trim-start" module likely contains a function to trim
-// * the string from the start positions.
-// * We mean that: remove the spaces from start of string.
-// @see trim-start
-@forward "trim-start";
-
 // * forwarding the "trim-end" module.
 // * The "trim-end" module likely contains a function to trim
 // * the string from the end positions.

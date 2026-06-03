@@ -1451,6 +1451,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@sass-pire/strings@workspace:packages/strings":
+  version: 0.0.0-use.local
+  resolution: "@sass-pire/strings@workspace:packages/strings"
+  dependencies:
+    "@sass-pire/handlers": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
 "@sass-pire/type-guard@workspace:packages/type-guard":
   version: 0.0.0-use.local
   resolution: "@sass-pire/type-guard@workspace:packages/type-guard"

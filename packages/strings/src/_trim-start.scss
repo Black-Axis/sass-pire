@@ -8,22 +8,22 @@
 
 // @version 1.0.0
 
+// @license MIT
+
 // @author roydukkey
 // @link https://github.com/roydukkey/sass-fairy/blob/master/packages/string/src/_trim-start.sass
 
-// @license MIT
+// @package @sass-pire/strings
+
+// @library sass-pire
 
 // @repository: https://github.com/Black-Axis/sass-pire
-
-// @namespace global
-
-// @module global/trim-start
 
 // @dependencies:
 // * - meta.type-of (SASS function).
 // * - string.index (SASS function).
 // * - string.slice (SASS function).
-// * - Error.throw (function).
+// * - Error.throw (handlers package's function).
 
 // @update We updated the core of trim-start function and converted it
 // * to SCSS language.
@@ -49,7 +49,7 @@
 @use "sass:meta";
 @use "sass:list";
 @use "sass:string";
-@use "../../development-utils/toggle-error-message" as Error;
+@use "@sass-pire/handlers" as Error;
 
 @function trim-start($str-value) {
     @if meta.type-of($str-value) != "string" {

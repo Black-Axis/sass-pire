@@ -70,13 +70,15 @@
         "dev:family": "yarn workspace @sass-pire/family dev",
         "dev:media": "yarn workspace @sass-pire/media dev",
         "dev:viewports": "yarn workspace @sass-pire/viewports dev",
+        "dev:strings": "yarn workspace @sass-pire/strings dev",
         "test:fonts": "jest ./packages/fonts/tests/sass.test.js --watchAll",
         "test:colors": "jest ./packages/colors/tests/sass.test.js --watchAll",
         "test:lists": "jest ./packages/lists/tests/sass.test.js --watchAll",
         "test:functions": "jest ./packages/functions/tests/sass.test.js --watchAll",
         "test:family": "jest ./packages/family/tests/sass.test.js --watchAll",
         "test:media": "jest ./packages/media/tests/sass.test.js --watchAll",
-        "test:viewports": "jest ./packages/viewports/tests/sass.test.js --watchAll"
+        "test:viewports": "jest ./packages/viewports/tests/sass.test.js --watchAll",
+        "test:strings": "jest ./packages/strings/tests/sass.test.js --watchAll"
     },
     "dependencies": {
         "reset-zone": "^2.4.2",

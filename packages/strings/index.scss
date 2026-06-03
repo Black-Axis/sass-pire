@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+// @description
+// * This file forwards modules related to the strings package.
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @package @sass-pire/strings
+
+// @version 1.0.0
+
+// @library sass-pire
+
+// stylelint-disable scss/dollar-variable-empty-line-before
+
+@forward "./src/trim-start";
