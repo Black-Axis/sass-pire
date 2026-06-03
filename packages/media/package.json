@@ -41,6 +41,7 @@
     },
     "devDependencies": {
         "@sass-pire/handlers": "workspace:*",
-        "@sass-pire/lists": "workspace:*"
+        "@sass-pire/lists": "workspace:*",
+        "@sass-pire/viewports": "workspace:*"
     }
 }

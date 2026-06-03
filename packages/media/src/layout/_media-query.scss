@@ -22,24 +22,24 @@
 // @dependencies:
 // * - map.has-key (SASS function).
 // * - map.get (SASS function).
-// * - var.$breakpoints (package's variable).
-// * - var.$breakpoints-types (package's variable).
-// * - var.$breakpoints-dimensions (package's variable).
+// * - Var.$viewports (viewports package's variable).
+// * - Var.$viewports-types (viewports package's variable).
+// * - Var.$viewports-dimensions (viewports package's variable).
 // * - Func.is-in-list (lists package's function).
 // * - Error.throw (handlers package's function).
 
-// @param {String} $type
+// @param {String} $mode
 // * The type of query you want (min | max).
 
-// @param {String} $dimension
+// @param {String} $prop
 // * The dimension you want, which can be width, height, w, or h.
 
-// @param {String} $breakpoint-name
-// * Specify the breakpoint name from the breakpoints map.
+// @param {String} $viewport-name
+// * Specify the viewport name from the $viewports map in viewports package.
 
 // @example
 // * .example {
-// *   @include mq-general($type: max, $dimension: h, $breakpoint-name: lg) {
+// *   @include mq-general($mode: max, $prop: h, $viewport-name: lg) {
 // *     width: 100px;
 // *   }
 // * }
@@ -51,46 +51,39 @@
 // *   }
 // * }
 
-// @note
-// * There are two mixins in this file.
-// * The first is the (mq-general) mixin and second is (mq-gen) mixin.
-// * The second one is for only simplicity when using (mq-general) mixin.
-// * The core logic of (mq-gen) mixin is to call the first one.
-// * You can use one of them as you want.
-
 // stylelint-disable media-query-no-invalid
 
 @use "sass:map";
-@use "./settings" as var;
+@use "@sass-pire/viewports" as Var;
 @use "@sass-pire/lists" as Func;
 @use "@sass-pire/handlers" as Error;
 
-@mixin mq($type: min, $dimension: w, $breakpoint-name: md) {
-    @if Func.is-in-list(var.$breakpoints-types, $type) {
-        @if Func.is-in-list(var.$breakpoints-dimensions, $dimension) {
-            @if map.has-key(var.$breakpoints, $breakpoint-name) {
-                $actual-dimension: map.get(var.$breakpoints, $breakpoint-name);
+@mixin mq($mode: min, $prop: w, $viewport-name: md) {
+    @if Func.is-in-list(Var.$viewports-modes, $mode) {
+        @if Func.is-in-list(Var.$viewports-props, $prop) {
+            @if map.has-key(Var.$viewports, $viewport-name) {
+                $actual-dimension: map.get(Var.$viewports, $viewport-name);
 
-                @if $type == max {
+                @if $mode == max {
                     $actual-dimension: $actual-dimension - 1px;
                 }
 
-                @if $dimension == width or $dimension == w {
-                    @media only screen and (#{$type}-width: #{$actual-dimension}) {
+                @if $prop == width or $prop == w {
+                    @media only screen and (#{$mode}-width: #{$actual-dimension}) {
                         @content;
                     }
-                } @else if $dimension == height or $dimension == h {
-                    @media only screen and (#{$type}-height: #{$actual-dimension}) {
+                } @else if $prop == height or $prop == h {
+                    @media only screen and (#{$mode}-height: #{$actual-dimension}) {
                         @content;
                     }
                 }
             } @else {
-                content: Error.throw("Please, Enter a valid breakpoint! #{$breakpoint-name} does not exist in (#{var.$breakpoints})");
+                content: Error.throw("Please, Enter a valid viewport name! #{$viewport-name} does not exist in (#{Var.$viewports})");
             }
         } @else {
-            content: Error.throw("The parameter of mq-general (or mq-gen) mixin must be one of: (#{$main-dimensions}).");
+            content: Error.throw("The parameter of mq-general (or mq-gen) mixin must be one of: (#{Var.$viewports-props}).");
         }
     } @else {
-        content: Error.throw("The type parameter of mq-general mixin must be one of: (#{$main-mq-types}).");
+        content: Error.throw("The type parameter of mq-general mixin must be one of: (#{Var.$viewports-modes}).");
     }
 }

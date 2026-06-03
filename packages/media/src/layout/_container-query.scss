@@ -21,27 +21,27 @@
 // @dependencies:
 // * - map.has-key (SASS function).
 // * - map.get (SASS function).
-// * - var.$breakpoints (package's variable).
-// * - var.$breakpoints-types (package's variable).
-// * - var.$breakpoints-dimensions (package's variable).
+// * - Var.$viewports (viewports package's variable).
+// * - Var.$viewports-types (viewports package's variable).
+// * - Var.$viewports-dimensions (viewports package's variable).
 // * - Func.is-in-list (lists package's function).
 // * - Error.throw (handlers package's function).
 
-// @param {String} $type
+// @param {String} $mode
 // * The type of query you want (min | max).
 
-// @param {String} $dimension
+// @param {String} $prop
 // * The dimension you want, which can be width, height, w, or h.
 
-// @param {String} $breakpoint-name
-// * Specify the breakpoint name from the breakpoints map.
+// @param {String} $viewport-name
+// * Specify the viewport name from the $viewports map in viewports package.
 
 // @param {String} $container-name:
 // * Specify the container name.
 
 // @example
 // * .example {
-// *   @include cq($type: max, $dimension: w, $breakpoint-name: lg) {
+// *   @include cq($mode: max, $prop: w, $viewport-name: lg) {
 // *     width: 100px;
 // *   }
 // * }
@@ -56,36 +56,36 @@
 // stylelint-disable media-query-no-invalid
 
 @use "sass:map";
-@use "./settings" as var;
+@use "@sass-pire/viewports" as Var;
 @use "@sass-pire/lists" as Func;
 @use "@sass-pire/handlers" as Error;
 
-@mixin cq($type: min, $dimension: w, $breakpoint-name: md, $container-name: "") {
-    @if Func.is-in-list(var.$breakpoints-types, $type) {
-        @if Func.is-in-list(var.$breakpoints-dimensions, $dimension) {
-            @if map.has-key(var.$breakpoints, $breakpoint-name) {
-                $actual-dimension: map.get(var.$breakpoints, $breakpoint-name);
+@mixin cq($mode: min, $prop: w, $viewport-name: md, $container-name: "") {
+    @if Func.is-in-list(Var.$viewports-modes, $mode) {
+        @if Func.is-in-list(Var.$viewports-props, $prop) {
+            @if map.has-key(Var.$viewports, $viewport-name) {
+                $actual-dimension: map.get(Var.$viewports, $viewport-name);
 
-                @if $type == max {
+                @if $mode == max {
                     $actual-dimension: $actual-dimension - 1px;
                 }
 
-                @if $dimension == width or $dimension == w {
-                    @container #{$container-name} (#{$type}-width: #{$actual-dimension}) {
+                @if $prop == width or $prop == w {
+                    @container #{$container-name} (#{$mode}-width: #{$actual-dimension}) {
                         @content;
                     }
-                } @else if $dimension == height or $dimension == h {
-                    @container #{$container-name} (#{$type}-height: #{$actual-dimension}) {
+                } @else if $prop == height or $prop == h {
+                    @container #{$container-name} (#{$mode}-height: #{$actual-dimension}) {
                         @content;
                     }
                 }
             } @else {
-                content: Error.throw("Please, Enter the valid breakpoint. #{$breakpoint-name} does not exist in (#{var.$breakpoints})");
+                content: Error.throw("Please, Enter the valid viewport name! #{$viewport-name} does not exist in (#{Var.$viewports})");
             }
         } @else {
-            content: Error.throw("The dimension parameter of align-items mixin must be one of: (#{var.$breakpoints-dimensions}).");
+            content: Error.throw("The dimension parameter of align-items mixin must be one of: (#{Var.$viewports-props}).");
         }
     } @else {
-        content: Error.throw("The type parameter of cq mixin must be one of: (#{var.$breakpoints-types}).");
+        content: Error.throw("The type parameter of cq mixin must be one of: (#{Var.$viewports-modes}).");
     }
 }
