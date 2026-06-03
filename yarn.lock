@@ -1447,6 +1447,7 @@ __metadata:
   dependencies:
     "@sass-pire/handlers": "workspace:*"
     "@sass-pire/lists": "workspace:*"
+    "@sass-pire/viewports": "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -1455,6 +1456,12 @@ __metadata:
   resolution: "@sass-pire/type-guard@workspace:packages/type-guard"
   dependencies:
     "@sass-pire/handlers": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
+"@sass-pire/viewports@workspace:*, @sass-pire/viewports@workspace:packages/viewports":
+  version: 0.0.0-use.local
+  resolution: "@sass-pire/viewports@workspace:packages/viewports"
   languageName: unknown
   linkType: soft
 

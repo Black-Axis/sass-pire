@@ -1,0 +1,62 @@
+@charset "UTF-8";
+
+// @description
+// The default viewport viewports map (`!default`) provided below helps
+// you standardize responsive design viewports across your project.
+// You can override any of the maps with your project's custom viewports by
+// defining it before this file is loaded via `@use` or `@forward`.
+// These keys and values are meant to cover a wide range of devices, from small
+// mobile screens to 4K displays. Adjust or extend any of the maps as needed to suit
+// your design system.
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @package @sass-pire/viewport
+
+// @version 1.0.0
+
+// @library sass-pire
+
+// stylelint-disable scss/dollar-variable-empty-line-before
+
+$viewports: (
+    "x-small": 240px,
+    "small": 280px,
+    "mob-min": 320px,
+    "mob": 400px,
+    "mob-wide": 480px,
+    "xs": 576px,
+    "sm-tab": 640px,
+    "sm": 767px,
+    "sm-wide": 870px,
+    "sm-max": 930px,
+    "md": 991px,
+    "md-tab": 1024px,
+    "md-max": 1150px,
+    "lg": 1200px,
+    "lg-max": 1300px,
+    "xl-1": 1400px,
+    "xl-2": 1550px,
+    "xl-3": 1900px,
+    "xxl-1": 2400px,
+    "xxl-2": 2560px,
+    "xxl-3": 2800px,
+    "xxl-4": 3000px,
+    "x4k": 3840px,
+) !default;
+
+$viewports-modes: (
+    min,
+    max
+) !default;
+
+$viewports-props: (
+    width,
+    w,
+    height,
+    h
+) !default;
