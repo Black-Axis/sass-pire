@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+// @description
+// * trim function.
+// * This module tests a functionality of trim function.
+
+// @access private
+
+// @version 1.0.0
+
+// @license MIT
+
+// @author Khaled Mohamed
+
+// @package @sass-pire/strings
+
+// @library sass-pire
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @dependencies:
+// * - True.describe (true function).
+// * - True.it (true function).
+// * - True.assert-equal (true function).
+// * - Func.trim (package's function).
+
+// stylelint-disable function-name-case
+
+@use "true" as *;
+@use "../../src/trim" as Func;
+
+$test-cases-trim-map: (
+    "    Just an example   ": "Just an example",
+    "hello": "hello",
+    "": "",
+    "   ": "",
+    "\0009\000A  text\0009\000A  ": "text",
+);
+
+@each $case, $result in $test-cases-trim-map {
+    @include describe("[Function] trim(#{$case}), Result: #{$result}") {
+        @include it("trim of (#{$case}).") {
+            @include assert-equal(Func.trim($case), $result);
+        }
+    }
+}
