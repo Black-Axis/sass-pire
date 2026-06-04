@@ -24,10 +24,14 @@
     ],
     "exports": {
         ".": "./index.scss",
-        "./scss": "./index.scss",
-        "./css": "./dist/index.css",
-        "./css/min": "./dist/index.min.css"
+        "./scss": "./index.scss"
     },
+    "files": [
+        "src",
+        "index.scss",
+        "LICENSE.md",
+        "README.md"
+    ],
     "sideEffects": [
         "*.css",
         "*.scss"

@@ -23,5 +23,5 @@ index.html
 
 docs/
 
-dist/index.compiled.css
-dist/index.compiled.min.css
+dist
+dist/**
