@@ -22,4 +22,5 @@ index.html
 
 docs/
 
-dist/
+dist
+dist/**
