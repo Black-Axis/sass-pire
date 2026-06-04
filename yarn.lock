@@ -1429,7 +1429,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sass-pire/handlers@workspace:*, @sass-pire/handlers@workspace:packages/handlers":
+"@sass-pire/handlers@npm:^1.0.0, @sass-pire/handlers@workspace:*, @sass-pire/handlers@workspace:packages/handlers":
   version: 0.0.0-use.local
   resolution: "@sass-pire/handlers@workspace:packages/handlers"
   languageName: unknown
@@ -1455,7 +1455,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sass-pire/strings@workspace:packages/strings"
   dependencies:
-    "@sass-pire/handlers": "workspace:*"
+    "@sass-pire/handlers": "npm:^1.0.0"
   languageName: unknown
   linkType: soft
 

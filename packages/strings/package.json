@@ -25,6 +25,12 @@
         "./css": "./dist/index.css",
         "./css/min": "./dist/index.min.css"
     },
+    "files": [
+        "index.scss",
+        "src",
+        "LICENSE.md",
+        "README.md"
+    ],
     "sideEffects": [
         "*.css",
         "*.scss"
@@ -39,7 +45,7 @@
         "sass:watch": "sass --load-path=../../node_modules ./index.scss:dist/index.compiled.css --watch",
         "sass:comp": "sass --load-path=../../node_modules ./index.scss:dist/index.compiled.min.css --watch --style=compressed"
     },
-    "devDependencies": {
-        "@sass-pire/handlers": "workspace:*"
+    "dependencies": {
+        "@sass-pire/handlers": "^1.0.0"
     }
 }
