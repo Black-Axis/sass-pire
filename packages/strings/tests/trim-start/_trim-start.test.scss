@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+// @description
+// * trim-start function.
+// * This module tests a functionality of trim-start function.
+
+// @access private
+
+// @version 1.0.0
+
+// @license MIT
+
+// @author Khaled Mohamed
+
+// @package @sass-pire/strings
+
+// @library sass-pire
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @dependencies:
+// * - True.describe (true function).
+// * - True.it (true function).
+// * - True.assert-equal (true function).
+// * - Func.trim-start (package's function).
+
+@use "true" as *;
+@use "../../src/trim-start" as Func;
+
+$test-cases-trim-start-map: (
+    "   Just an example   ": "Just an example   ",
+    "hello": "hello",
+    "": "",
+    "   ": "",
+    "\0009\000A  text": "text",
+);
+
+@each $case, $result in $test-cases-trim-start-map {
+    @include describe("[Function] trim-start(#{$case}), Result: #{$result}") {
+        @include it("trim-start of (#{$case}).") {
+            @include assert-equal(Func.trim-start($case), $result);
+        }
+    }
+}
