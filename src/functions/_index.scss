@@ -16,9 +16,3 @@
 // * This module likely contains functions for unit conversions.
 // @see converters
 @forward "converters";
-
-// * forwarding the "map" module.
-// * This module likely contains functions for checking the type of
-// * Sass values.
-// @see map
-@forward "map";
