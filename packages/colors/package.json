@@ -30,10 +30,10 @@
     "files": [
         "src",
         "index.scss",
-        "./dist/index.css",
-        "./dist/index.css.map",
-        "./dist/index.min.css",
-        "./dist/index.min.css.map",
+        "dist/index.css",
+        "dist/index.css.map",
+        "dist/index.min.css",
+        "dist/index.min.css.map",
         "LICENSE.md",
         "README.md"
     ],
