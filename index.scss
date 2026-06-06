@@ -18,17 +18,3 @@
 // * The "mixins" module probably contains reusable Sass mixins.
 // @see mixins
 @forward "./src/mixins";
-
-// * forwarding the "development-utils" module.
-// * The "development-utils" module might contain utilities helpful
-// * during development.
-// @see development-utils
-@forward "./src/development-utils";
-
-// * There is a utility module for the sass-pire library
-// * We need to import it to use the sass-pire library
-// * But we don't want to import it in the sass-pire.scss file
-// * because it will be rendered when import the sass-pire.scss file
-// * You can use the following command to import the sass-pire utility module
-// * @use "sass-pire/utils";
-// * You can also import it to use in CSS layers easily.
