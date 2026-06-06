@@ -11,12 +11,6 @@
 
 // @namespace mixins
 
-// * forwarding the "colors" module.
-// * The "colors" module likely provides a test cases for
-// * colors to be used as CSS custom properties (variables).
-// @see colors
-@forward "colors";
-
 // * forwarding the "general" module.
 // * The "general" module likely provides a test cases for
 // * general module.
