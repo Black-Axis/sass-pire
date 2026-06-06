@@ -46,7 +46,7 @@
     "scripts": {
         "upgrade": "ncu --upgrade",
         "upgrade:package": "ncu -i",
-        "lint": "npx stylelint ./src/**/*.scss",
+        "lint": "npx stylelint ./**/*.scss",
         "cmt": "cz",
         "tags:github": "git push repo --tags",
         "tags:gitlab": "git push gitlab --tags",
