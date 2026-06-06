@@ -4760,13 +4760,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm-check-updates@npm:^17.1.11":
-  version: 17.1.18
-  resolution: "npm-check-updates@npm:17.1.18"
+"npm-check-updates@npm:^22.2.3":
+  version: 22.2.3
+  resolution: "npm-check-updates@npm:22.2.3"
   bin:
     ncu: build/cli.js
     npm-check-updates: build/cli.js
-  checksum: 10/4a124bd8e18c990329177d2fd0a7c85c7c015e46ec8c8d3d553b2d9218a895250138d8c716f5e412a232af9fdc6194d1434f4349b10c5dff0d7e638034cc79ee
+  checksum: 10/cd1c57a2f473b2845543bdc149caacd703cfa715997a86cf0f0341d872f49504e7fd2a898b47ad7c938ce66decfc709805abed4793701c4033cf81e880cc7a8c
   languageName: node
   linkType: hard
 
@@ -5337,7 +5337,7 @@ __metadata:
     jest: "npm:^29.7.0"
     jest-scss-transform: "npm:^1.0.4"
     nodemon: "npm:^3.1.7"
-    npm-check-updates: "npm:^17.1.11"
+    npm-check-updates: "npm:^22.2.3"
     sass: "npm:^1.100.0"
     sass-true: "npm:^8.1.0"
     stylelint: "npm:^16.10.0"

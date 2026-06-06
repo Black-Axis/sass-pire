@@ -62,12 +62,13 @@
         "dev:type-guard": "yarn workspace @sass-pire/type-guard dev",
         "dev:viewports": "yarn workspace @sass-pire/viewports dev",
         "test:viewports": "jest ./packages/viewports/tests/sass.test.js --watchAll",
-        "upgrade": "ncu --upgrade",
-        "upgrade:package": "ncu -i",
-        "lint": "npx stylelint ./**/*.scss",
-        "cmt": "cz",
+        "check:updates": "npx ncu",
+        "upgrade:all": "npx ncu --upgrade",
+        "up:package": "npx ncu -i",
         "tags:github": "git push repo --tags",
         "tags:gitlab": "git push gitlab --tags",
+        "lint": "npx stylelint ./**/*.scss",
+        "cmt": "cz",
         "log": "changelog generate"
     },
     "dependencies": {
@@ -82,7 +83,7 @@
         "jest": "^29.7.0",
         "jest-scss-transform": "^1.0.4",
         "nodemon": "^3.1.7",
-        "npm-check-updates": "^17.1.11",
+        "npm-check-updates": "^22.2.3",
         "sass-true": "^8.1.0",
         "stylelint": "^16.10.0",
         "stylelint-config-standard-scss": "^13.1.0"
