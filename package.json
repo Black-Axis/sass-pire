@@ -45,7 +45,6 @@
     },
     "scripts": {
         "dev": "concurrently --prefix-colors=\"cyan,yellow\" \"yarn run sass:watch\" \"yarn run sass:comp\" \"yarn run watch:version\"",
-        "build": "node build/index.js",
         "watch:version": "nodemon --watch package.json --watch build/index.js --exec \"node build/index.js\"",
         "dev:test": "concurrently --prefix-colors=\"cyan,yellow,red\" \"yarn run sass:watch\" \"yarn run sass:comp\" \"yarn run test\"",
         "sass:watch": "sass --no-source-map --load-path=./src/ ./index.scss:dist/styles.css --watch",

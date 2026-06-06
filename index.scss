@@ -14,12 +14,6 @@
 
 // @version 5.0.0
 
-// * forwarding the "abstract" module.
-// * The "abstract" module may contain abstract styles or variables used
-// * throughout the project.
-// @see abstract
-@forward "./src/abstract";
-
 // * forwarding the "mixins" module.
 // * The "mixins" module probably contains reusable Sass mixins.
 // @see mixins
