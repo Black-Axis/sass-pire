@@ -20,12 +20,6 @@
 // @see abstract
 @forward "./src/abstract";
 
-// * forwarding the "functions" module.
-// * The "functions" module likely contains custom Sass functions for use
-// * in stylesheets.
-// @see functions
-@forward "./src/functions";
-
 // * forwarding the "mixins" module.
 // * The "mixins" module probably contains reusable Sass mixins.
 // @see mixins
