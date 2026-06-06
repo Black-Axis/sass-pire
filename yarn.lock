@@ -5185,13 +5185,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"reset-zone@npm:^2.4.2":
-  version: 2.4.4
-  resolution: "reset-zone@npm:2.4.4"
-  checksum: 10/c6f231583ba82c624a31146d5ab6b68183906263169669a4b3d5c2fcff1fc576177213e490606307305de5f85e9b16274faf373f25f839a2b0f0bd7d65a94016
-  languageName: node
-  linkType: hard
-
 "resolve-cwd@npm:^3.0.0":
   version: 3.0.0
   resolution: "resolve-cwd@npm:3.0.0"
@@ -5345,7 +5338,6 @@ __metadata:
     jest-scss-transform: "npm:^1.0.4"
     nodemon: "npm:^3.1.7"
     npm-check-updates: "npm:^17.1.11"
-    reset-zone: "npm:^2.4.2"
     sass: "npm:^1.100.0"
     sass-true: "npm:^8.1.0"
     stylelint: "npm:^16.10.0"

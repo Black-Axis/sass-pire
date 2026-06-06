@@ -81,7 +81,6 @@
         "test:strings": "jest ./packages/strings/tests/sass.test.js --watchAll"
     },
     "dependencies": {
-        "reset-zone": "^2.4.2",
         "sass": "^1.100.0"
     },
     "devDependencies": {
