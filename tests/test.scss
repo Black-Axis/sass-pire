@@ -25,12 +25,6 @@
 // @see true
 @use "true" as True;
 
-// * forwarding the "functions" module.
-// * The "functions" module contains functions which will be used
-// * during testing.
-// @see functions
-@use "./functions" as *;
-
 // * forwarding the "mixins" module.
 // * The "mixins" module contains mixins which will be used
 // * during testing.

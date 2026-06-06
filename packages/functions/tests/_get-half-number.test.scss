@@ -8,28 +8,27 @@
 
 // @version 1.0.0
 
-// @author Khaled Mohamed
-
 // @license MIT
 
+// @author Khaled Mohamed
+
+// @package @sass-pire/functions
+
+// @library sass-pire
+
 // @repository: https://github.com/Black-Axis/sass-pire
-
-// @namespace global
-
-// @module global/get-half-number.test
 
 // @dependencies:
 // * - True.describe (true function).
 // * - True.it (true function).
 // * - True.assert-equal (true function).
-// * - Dev.err (function).
+// * - Func.half (function).
 
 // stylelint-disable number-max-precision
 // stylelint-disable function-name-case
 
 @use "true" as *;
-@use "../../../src/functions/global/get-half-number" as LibFunc;
-@use "../../../src/development-utils/error" as Dev;
+@use "../src/get-half-number" as Func;
 
 $test-cases-half-map: (
     0: 0,
@@ -40,16 +39,16 @@ $test-cases-half-map: (
     80px: "40px",
     5.82px: "2.91px",
     212px: "106px",
-    "Just a number": Dev.err("The parameter of half function must be in a number type."),
-    true: Dev.err("The parameter of half function must be in a number type."),
-    false: Dev.err("The parameter of half function must be in a number type."),
-    (1, 2, 4): Dev.err("The parameter of half function must be in a number type.")
+    "Just a number": "❌ Error: The parameter of half function must be in a number type.",
+    true: "❌ Error: The parameter of half function must be in a number type.",
+    false: "❌ Error: The parameter of half function must be in a number type.",
+    (1, 2, 4): "❌ Error: The parameter of half function must be in a number type.",
 );
 
 @each $case, $result in $test-cases-half-map {
     @include describe("[Function] half(#{$case}), Result: #{$result}") {
         @include it("half of (#{$case}) value.") {
-            @include assert-equal(LibFunc.half($case), $result);
+            @include assert-equal(Func.half($case), $result);
         }
     }
 }
