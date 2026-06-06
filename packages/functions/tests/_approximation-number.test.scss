@@ -1,0 +1,115 @@
+@charset "UTF-8";
+
+// @description
+// * approx function.
+// * This module tests a functionality of approx function.
+
+// @access private
+
+// @version 1.0.0
+
+// @license MIT
+
+// @author Khaled Mohamed
+
+// @package @sass-pire/functions
+
+// @library sass-pire
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @dependencies:
+// * - True.describe (true function).
+// * - True.it (true function).
+// * - True.assert-equal (true function).
+// * - Func.approx (function).
+
+// stylelint-disable number-max-precision
+// stylelint-disable function-name-case
+// stylelint-disable scss/at-if-no-null
+
+@use "sass:map";
+@use "true" as *;
+@use "../src/approximation-number" as Func;
+
+$test-cases-approx-map: (
+    1: (
+        "num": 12.36154vh,
+        "digits": 2,
+        "mode": round,
+        "expected": "12.36vh",
+    ),
+    2: (
+        "num": 12.36154vh,
+        "digits": 2,
+        "mode": ceil,
+        "expected": "12.37vh",
+    ),
+    3: (
+        "num": 12.36154vh,
+        "digits": 2,
+        "mode": floor,
+        "expected": "12.36vh",
+    ),
+    4: (
+        "num": 1.23456,
+        "digits": 3,
+        "mode": round,
+        "expected": "1.235",
+    ),
+    5: (
+        "num": 5.826px,
+        "digits": 2,
+        "mode": round,
+        "expected": "5.83px",
+    ),
+    6: (
+        "num": 0,
+        "digits": 2,
+        "mode": round,
+        "expected": "0",
+    ),
+    7: (
+        "num": "Just a number",
+        "expected": "❌ Error: The parameters of approx function must be in a number type.",
+    ),
+    8: (
+        "num": 1,
+        "digits": "two",
+        "mode": round,
+        "expected": "❌ Error: The parameters of approx function must be in a number type.",
+    ),
+    9: (
+        "num": 1,
+        "digits": 2,
+        "mode": 123,
+        "expected": "❌ Error: The mode parameter of approx function must be in a string type.",
+    ),
+    10: (
+        "num": 1,
+        "digits": 2,
+        "mode": "invalid",
+        "expected": "❌ Error: The mode parameter of approx function must be one of these values: (round, ceil, floor).",
+    ),
+);
+
+@each $case, $inner in $test-cases-approx-map {
+    $num-value: map.get($inner, "num");
+    $digits-value: map.get($inner, "digits");
+    $mode-value: map.get($inner, "mode");
+    $expected-value: map.get($inner, "expected");
+
+    @if $digits-value == null {
+        $digits-value: 3;
+    }
+
+    @if $mode-value == null {
+        $mode-value: round;
+    }
+
+    @include describe("[Function] approx(#{$num-value}, #{$digits-value}, #{$mode-value}), Result: #{$expected-value}") {
+        @include it("approx of (#{$num-value}) with #{$digits-value} digits and #{$mode-value} mode.") {
+            @include assert-equal(Func.approx($num-value, $digits-value, $mode-value), $expected-value);
+        }
+    }
+}
