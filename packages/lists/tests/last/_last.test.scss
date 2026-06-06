@@ -32,12 +32,12 @@
 
 $test-cases-get-last-map: (
     (1, 2, 4): 4,
-    344px: 344px,
+    344px: "❌ Error: The parameter of the get-last function must be of a list type.",
     (69, 48, 54, (32, (11, 43))): 43,
     ((true, false), (0, "Just a text"), (2, 32, 4)): 4,
     (89, 48, 54, (32, (11, 43, (21, (11, "Yes"))))): "Yes",
-    true: true,
-    false: false,
+    true: "❌ Error: The parameter of the get-last function must be of a list type.",
+    false: "❌ Error: The parameter of the get-last function must be of a list type.",
     ("Just a number", "Just a text"): "Just a text",
 );
 
