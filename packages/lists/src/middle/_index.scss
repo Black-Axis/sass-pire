@@ -32,7 +32,7 @@
 
 // @example
 // * .example {
-// *   content: middle((1, (2, 3), 4, 5)); // 1
+// *   content: middle((1, (2, 3), 4, 5)); // 3
 // *   content: middle((1, 2, 3, 4, 5, (6, 7, 12, 43, 5, (3213, 321, 65, 87, 3)))); // 12
 // * }
 
@@ -40,13 +40,11 @@
 @use "sass:list";
 @use "sass:math";
 @use "../flatten" as Func;
+@use "@sass-pire/handlers" as Error;
 
 @function middle($list: ()) {
     @if meta.type-of($list) != list {
-        // stylelint-disable-next-line scss/operator-no-newline-after
-        @warn "⚠️  The parameter of the middle function must be of a list type. " +
-              "So, we converted the parameter to a list type.";
-        @return ($list, );
+        @return Error.throw("The parameter of middle function must be in a list type.");
     }
 
     $flatten-list: Func.flatten($list);
