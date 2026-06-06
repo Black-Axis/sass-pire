@@ -32,11 +32,11 @@
 
 $test-cases-flatten-map: (
     (1, 2, 4): (1, 2, 4),
-    344px: (344px,),
-    true: (true,),
+    344px: "❌ Error: The parameter of the flatten function must be of a list type.",
+    true: "❌ Error: The parameter of the flatten function must be of a list type.",
     (69, 48, 54, (32, (11, 43))): (69, 48, 54, 32, 11, 43),
     (69, 48, 54, (32, (11, 43, (21, (11, "Yes"))))): (69, 48, 54, 32, 11, 43, 21, 11, "Yes"),
-    "Just a number": ("Just a number",),
+    "Just a number": "❌ Error: The parameter of the flatten function must be of a list type.",
     ((true, false), (0, "Just a text"), (2, 32, 4)): (true, false, 0, "Just a text", 2, 32, 4),
 );
 
