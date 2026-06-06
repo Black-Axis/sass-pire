@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+// @description
+// * sum function.
+// * This module tests a functionality of sum function.
+
+// @access private
+
+// @version 1.0.0
+
+// @license MIT
+
+// @author Khaled Mohamed
+
+// @package @sass-pire/lists
+
+// @library sass-pire
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @dependencies:
+// * - True.describe (true function).
+// * - True.it (true function).
+// * - True.assert-equal (true function).
+// * - Func.sum (function).
+
+// stylelint-disable function-name-case
+
+@use "sass:map";
+@use "true" as *;
+@use "../../src/sum" as Func;
+
+$test-cases-sum-map: (
+    (1, 2, 3): 6,
+    0: "❌ Error: The parameter of sum function must be in a list type.",
+    344px: "❌ Error: The parameter of sum function must be in a list type.",
+    -0.5px: "❌ Error: The parameter of sum function must be in a list type.",
+    -92px: "❌ Error: The parameter of sum function must be in a list type.",
+    (94vh, 12, 3px): "❌ Error: Values of the list must has one unit only.",
+    (80px, 2px, 3px): 85px,
+    (80rem, 2rem, 3px): "❌ Error: Values of the list must has one unit only.",
+    "Just a number": "❌ Error: The parameter of sum function must be in a list type.",
+    true: "❌ Error: The parameter of sum function must be in a list type.",
+    false: "❌ Error: The parameter of sum function must be in a list type.",
+    (1, 2, 4): 7,
+);
+
+@each $case, $result in $test-cases-sum-map {
+    @include describe("[Function] sum(#{$case}), Result: #{$result}") {
+        @include it("sum(#{$case}) value.") {
+            @include assert-equal(Func.sum($case), $result);
+        }
+    }
+}
