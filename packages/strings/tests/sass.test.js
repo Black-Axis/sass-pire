@@ -10,5 +10,5 @@ const sassFile = path.join(__dirname, 'test.scss');
 const repoRoot = path.join(__dirname, '../../..');
 
 sassTrue.runSass({ describe, it }, sassFile, {
-    loadPaths: [path.join(repoRoot, 'node_modules')],
+  loadPaths: [path.join(repoRoot, 'node_modules')],
 });
