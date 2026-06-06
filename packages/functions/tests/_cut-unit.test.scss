@@ -8,28 +8,27 @@
 
 // @version 1.0.0
 
-// @author Khaled Mohamed
-
 // @license MIT
 
+// @author Khaled Mohamed
+
+// @package @sass-pire/functions
+
+// @library sass-pire
+
 // @repository: https://github.com/Black-Axis/sass-pire
-
-// @namespace global
-
-// @module global/cut-unit.test
 
 // @dependencies:
 // * - True.describe (true function).
 // * - True.it (true function).
 // * - True.assert-equal (true function).
-// * - Dev.err (function).
+// * - Func.cut-unit (function).
 
 // stylelint-disable number-max-precision
 // stylelint-disable function-name-case
 
 @use "true" as *;
-@use "../../../src/functions/global/cut-unit" as LibFunc;
-@use "../../../src/development-utils/error" as Dev;
+@use "../src/cut-unit" as Func;
 
 $test-cases-cut-unit-map: (
     0: 0,
@@ -40,16 +39,16 @@ $test-cases-cut-unit-map: (
     80px: 80,
     5.82px: 5.82,
     212px: 212,
-    "Just a number": Dev.err("The parameter of cut-unit function must be in a number type."),
-    true: Dev.err("The parameter of cut-unit function must be in a number type."),
-    false: Dev.err("The parameter of cut-unit function must be in a number type."),
-    (1, 2, 4): Dev.err("The parameter of cut-unit function must be in a number type.")
+    "Just a number": "❌ Error: The parameter of cut-unit function must be in a number type.",
+    true: "❌ Error: The parameter of cut-unit function must be in a number type.",
+    false: "❌ Error: The parameter of cut-unit function must be in a number type.",
+    (1, 2, 4): "❌ Error: The parameter of cut-unit function must be in a number type.",
 );
 
 @each $case, $result in $test-cases-cut-unit-map {
     @include describe("[Function] cut-unit(#{$case}), Result: #{$result}") {
         @include it("Cut the unit of (#{$case}) value.") {
-            @include assert-equal(LibFunc.cut-unit($case), $result);
+            @include assert-equal(Func.cut-unit($case), $result);
         }
     }
 }
