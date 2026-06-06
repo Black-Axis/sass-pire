@@ -39,14 +39,13 @@
 @use "sass:meta";
 @use "sass:list";
 @use "../flatten" as Func;
+@use "@sass-pire/handlers" as Error;
 
 @function get-first($list: ()) {
     $flatten-list: ();
 
     @if meta.type-of($list) != list {
-        // stylelint-disable-next-line scss/operator-no-newline-after
-        @warn "⚠️  The parameter of the get-first function must be of a list type. " +
-              "So, we converted the parameter to a list type.";
+        @return Error.throw("The parameter of the get-first function must be of a list type.");
     }
 
     $flatten-list: Func.flatten($list);
