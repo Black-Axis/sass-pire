@@ -22,9 +22,13 @@
 // * - meta.type-of (SASS function).
 // * - list.join (SASS function).
 // * - Func.flatten (function).
+// * - Error.throw (handlers package's function).
 
 // @param {List} $list...
 // * A group of lists that may contain nested lists.
+
+// @throw {Exception}
+// * Throws an exception if any argument is not a list.
 
 // @return {List} - Returns a merged list.
 
@@ -37,8 +41,15 @@
 @use "sass:meta";
 @use "sass:list";
 @use "../flatten" as Func;
+@use "@sass-pire/handlers" as Error;
 
 @function merge($lists...) {
+    @each $list in $lists {
+        @if meta.type-of($list) != list {
+            @return Error.throw("Each parameter of merge function must be in a list type.");
+        }
+    }
+
     @if list.length($lists) == 0 {
         @return null;
     }
