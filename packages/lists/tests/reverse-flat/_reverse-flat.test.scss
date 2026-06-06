@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+// @description
+// * reverse-flat function.
+// * This module tests a functionality of reverse-flat function.
+
+// @access private
+
+// @version 1.0.0
+
+// @license MIT
+
+// @author Khaled Mohamed
+
+// @package @sass-pire/lists
+
+// @library sass-pire
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @dependencies:
+// * - True.describe (true function).
+// * - True.it (true function).
+// * - True.assert-equal (true function).
+// * - Func.reverse (function).
+
+// stylelint-disable function-name-case
+
+@use "sass:map";
+@use "true" as *;
+@use "../../src/reverse-flat" as Func;
+
+$test-cases-reverse-flat-map: (
+    (1 2 4): (4 2 1),
+    344px: "❌ Error: The parameter of reverse-flat function must be in a list type.",
+    (69, 48, 54, (32, (11, 43))): (43, 11, 32, 54, 48, 69),
+    ((true, false), (0, "Just a text"), (2, 32, 4)): (4, 32, 2, "Just a text", 0, false, true),
+    (89 48 54 (32 (11 43 (21 (11 "Yes"))))): ("Yes" 11 21 43 11 32 54 48 89),
+    true: "❌ Error: The parameter of reverse-flat function must be in a list type.",
+    "Just a number": "❌ Error: The parameter of reverse-flat function must be in a list type.",
+);
+
+@each $case, $result in $test-cases-reverse-flat-map {
+    @include describe("[Function] reverse(#{$case}), Result: #{$result}") {
+        @include it("reverse(#{$case}).") {
+            @include assert-equal(Func.reverse-flat($case), $result);
+        }
+    }
+}
