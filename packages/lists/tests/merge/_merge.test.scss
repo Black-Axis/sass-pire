@@ -31,11 +31,14 @@
 @use "../../src/merge" as Func;
 
 $test-cases-merge-map: (
+    "Just a text": "❌ Error: Each parameter of merge function must be in a list type.",
     (1, 2, 4): (1, 2, 4),
     (69, 48, 54, (32, (11, 43))): (69, 48, 54, 32, 11, 43),
     ((true, false), (0, "Just a text"), (2, ((32)), 4)): (true, false, 0, "Just a text", 2, 32, 4),
+    true: "❌ Error: Each parameter of merge function must be in a list type.",
     (89, 48, 54, (32, (11, 43, (21, (11, "Yes"))))): (89, 48, 54, 32, 11, 43, 21, 11, "Yes"),
     ("first", ("second", "third")): ("first", "second", "third"),
+    56: "❌ Error: Each parameter of merge function must be in a list type.",
 );
 
 @each $case, $result in $test-cases-merge-map {
