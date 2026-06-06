@@ -44,11 +44,6 @@
         "type": "git"
     },
     "scripts": {
-        "dev": "concurrently --prefix-colors=\"cyan,yellow\" \"yarn run sass:watch\" \"yarn run sass:comp\" \"yarn run watch:version\"",
-        "watch:version": "nodemon --watch package.json --watch build/index.js --exec \"node build/index.js\"",
-        "dev:test": "concurrently --prefix-colors=\"cyan,yellow,red\" \"yarn run sass:watch\" \"yarn run sass:comp\" \"yarn run test\"",
-        "sass:watch": "sass --no-source-map --load-path=./src/ ./index.scss:dist/styles.css --watch",
-        "sass:comp": "sass --no-source-map --load-path=./src/ ./index.scss:dist/styles.min.css --watch --style=compressed",
         "upgrade": "ncu --upgrade",
         "upgrade:package": "ncu -i",
         "lint": "npx stylelint ./src/**/*.scss",
