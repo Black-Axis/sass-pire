@@ -8,29 +8,28 @@
 
 // @version 1.0.0
 
-// @author Khaled Mohamed
-
 // @license MIT
 
+// @author Khaled Mohamed
+
+// @package @sass-pire/lists
+
+// @library sass-pire
+
 // @repository: https://github.com/Black-Axis/sass-pire
-
-// @namespace global
-
-// @module global/is-in-list.test
 
 // @dependencies:
 // * - True.describe (true function).
 // * - True.it (true function).
 // * - True.assert-equal (true function).
-// * - Dev.err (function).
+// * - Func.is-in-list (function).
 
 // stylelint-disable number-max-precision
 // stylelint-disable function-name-case
 
 @use "sass:map";
 @use "true" as *;
-@use "../../../src/functions/global/is-in-list" as LibFunc;
-@use "../../../src/development-utils/error" as Dev;
+@use "../../src/is-in-list" as Func;
 
 $test-cases-is-in-list-map: (
     1: (
@@ -46,28 +45,28 @@ $test-cases-is-in-list-map: (
     3: (
         "list": 45,
         "given": 17,
-        "expected": Dev.err("The first parameter of is-in-list function must be in a list type.")
+        "expected": "❌ Error: The first parameter of is-in-list function must be in a list type."
     ),
     4: (
         "list": "Just a list",
         "given": true,
-        "expected": Dev.err("The first parameter of is-in-list function must be in a list type.")
+        "expected": "❌ Error: The first parameter of is-in-list function must be in a list type."
     ),
     5: (
         "list": "Just a list",
         "given": "Just a value",
-        "expected": Dev.err("The first parameter of is-in-list function must be in a list type.")
+        "expected": "❌ Error: The first parameter of is-in-list function must be in a list type."
     ),
     6: (
         "list": false,
         "given": (true, 1),
-        "expected": Dev.err("The first parameter of is-in-list function must be in a list type.")
+        "expected": "❌ Error: The first parameter of is-in-list function must be in a list type."
     ),
     7: (
         "list": (13, 54, 43, (32, 675, 21)),
         "given": true,
         "expected": false
-    )
+    ),
 );
 
 @each $case, $inner in $test-cases-is-in-list-map {
@@ -77,7 +76,7 @@ $test-cases-is-in-list-map: (
 
     @include describe("[Function] is-in-list(#{$list-value}, #{$given-value}), Result: #{$expected-value}") {
         @include it("is-in-list(#{$list-value}, #{$given-value}) value.") {
-            @include assert-equal(LibFunc.is-in-list($list-value, $given-value), $expected-value);
+            @include assert-equal(Func.is-in-list($list-value, $given-value), $expected-value);
         }
     }
 }

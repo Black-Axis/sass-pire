@@ -17,6 +17,9 @@
 
 @use "true" as True;
 
+// * Load handlers in test mode first so Error.throw returns strings (not @error).
+@use "@sass-pire/handlers" with ($dev-env: false);
+
 @use "./flatten/flatten.test" as *;
 
 @use "./first/first.test" as *;
@@ -24,6 +27,8 @@
 @use "./last/last.test" as *;
 
 @use "./merge/merge.test" as *;
+
+@use "./is-in-list/is-in-list.test" as *;
 
 // * There is a `$catch-errors` variable set to `true` by default.
 // * If you want to disable it, set it to `false`.
