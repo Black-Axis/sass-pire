@@ -36,13 +36,11 @@
 
 @use "sass:meta";
 @use "sass:list";
+@use "@sass-pire/handlers" as Error;
 
 @function reverse($list: ()) {
     @if meta.type-of($list) != list {
-        // stylelint-disable-next-line scss/operator-no-newline-after
-        @warn "⚠️  The parameter of the reverse function must be of a list type. " +
-              "So, we converted the parameter to a list type.";
-        @return ($list, );
+        @return Error.throw("The parameter of reverse function must be in a list type.");
     }
 
     $separator: list.separator($list);
