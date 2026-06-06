@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+// @description
+// * middle function.
+// * This module tests a functionality of middle function.
+
+// @access private
+
+// @version 1.0.0
+
+// @license MIT
+
+// @author Khaled Mohamed
+
+// @package @sass-pire/lists
+
+// @library sass-pire
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @dependencies:
+// * - True.describe (true function).
+// * - True.it (true function).
+// * - True.assert-equal (true function).
+// * - Func.middle (function).
+
+// stylelint-disable function-name-case
+
+@use "sass:map";
+@use "true" as *;
+@use "../../src/middle" as Func;
+
+$test-cases-middle-map: (
+    (1, 2, 4): 2,
+    344px: "❌ Error: The parameter of middle function must be in a list type.",
+    (69, 48, 54, (32, (11, 43))): 54,
+    ((true, false), (0, "Just a text"), (2, 32, 4)): "Just a text",
+    (69, 48, 54, (32, (11, 43, (21, (11, "Yes"))))): 11,
+    true: "❌ Error: The parameter of middle function must be in a list type.",
+    "Just a number": "❌ Error: The parameter of middle function must be in a list type.",
+);
+
+@each $case, $result in $test-cases-middle-map {
+    @include describe("[Function] middle(#{$case}), Result: #{$result}") {
+        @include it("middle(#{$case}).") {
+            @include assert-equal(Func.middle($case), $result);
+        }
+    }
+}

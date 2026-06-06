@@ -1410,8 +1410,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sass-pire/family@workspace:packages/family"
   dependencies:
-    "@sass-pire/functions": "workspace:*"
-    "@sass-pire/handlers": "workspace:*"
+    "@sass-pire/functions": "npm:^1.0.0"
+    "@sass-pire/handlers": "npm:^1.0.0"
   languageName: unknown
   linkType: soft
 
@@ -1421,7 +1421,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sass-pire/functions@workspace:*, @sass-pire/functions@workspace:packages/functions":
+"@sass-pire/functions@npm:^1.0.0, @sass-pire/functions@workspace:packages/functions":
   version: 0.0.0-use.local
   resolution: "@sass-pire/functions@workspace:packages/functions"
   dependencies:
@@ -1438,6 +1438,8 @@ __metadata:
 "@sass-pire/lists@workspace:*, @sass-pire/lists@workspace:packages/lists":
   version: 0.0.0-use.local
   resolution: "@sass-pire/lists@workspace:packages/lists"
+  dependencies:
+    "@sass-pire/handlers": "npm:^1.0.0"
   languageName: unknown
   linkType: soft
 

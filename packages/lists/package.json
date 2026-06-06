@@ -36,5 +36,8 @@
     "scripts": {
         "dev": "concurrently --prefix-lists=\"cyan,yellow,green,magenta\" \"yarn sass:watch\"",
         "sass:watch": "sass --load-path=../../node_modules ./index.scss:dist/index.compiled.css --watch"
+    },
+    "dependencies": {
+        "@sass-pire/handlers": "^1.0.0"
     }
 }
