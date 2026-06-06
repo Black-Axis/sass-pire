@@ -8,28 +8,27 @@
 
 // @version 1.0.0
 
-// @author Khaled Mohamed
-
 // @license MIT
 
+// @author Khaled Mohamed
+
+// @package @sass-pire/functions
+
+// @library sass-pire
+
 // @repository: https://github.com/Black-Axis/sass-pire
-
-// @namespace converters
-
-// @module converters/px-to-rem.test
 
 // @dependencies:
 // * - True.describe (true function).
 // * - True.it (true function).
 // * - True.assert-equal (true function).
-// * - Dev.err (function).
+// * - Func.px-to-rem (function).
 
 // stylelint-disable number-max-precision
 // stylelint-disable function-name-case
 
 @use "true" as *;
-@use "../../../src/functions/converters/pixel-to-rem" as LibFunc;
-@use "../../../src/development-utils/error" as Dev;
+@use "../src/pixel-to-rem" as Func;
 
 $test-cases-px-to-rem-map: (
     344px: "21.5rem",
@@ -38,16 +37,16 @@ $test-cases-px-to-rem-map: (
     80px: "5rem",
     5.82px: "0.364rem",
     212px: "13.25rem",
-    "Just a number": Dev.err("The parameter of px-to-rem function must be in a number type."),
-    true: Dev.err("The parameter of px-to-rem function must be in a number type."),
-    false: Dev.err("The parameter of px-to-rem function must be in a number type."),
-    (1, 2, 4): Dev.err("The parameter of px-to-rem function must be in a number type.")
+    "Just a number": "❌ Error: The parameter of px-to-rem function must be in a number type.",
+    true: "❌ Error: The parameter of px-to-rem function must be in a number type.",
+    false: "❌ Error: The parameter of px-to-rem function must be in a number type.",
+    (1, 2, 4): "❌ Error: The parameter of px-to-rem function must be in a number type.",
 );
 
 @each $case, $result in $test-cases-px-to-rem-map {
     @include describe("[Function] px-to-rem(#{$case}), Result: #{$result}") {
         @include it("Convert a value in pixel to rem.") {
-            @include assert-equal(LibFunc.px-to-rem($case), $result);
+            @include assert-equal(Func.px-to-rem($case), $result);
         }
     }
 }
