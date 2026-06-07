@@ -1,7 +1,4 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable object-curly-spacing */
-
-const path = require('path');
+import path from "node:path";
 
 const sassTrue = require('sass-true');
 

@@ -1,6 +1,3 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable object-curly-spacing */
-
 const path = require('path');
 
 const sassTrue = require('sass-true');
