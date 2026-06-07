@@ -15,6 +15,7 @@
         "packages/**/index.scss"
     ],
     "rules": {
+        "container-name-pattern": null,
         "no-duplicate-selectors": true,
         "no-duplicate-at-import-rules": true,
         "declaration-no-important": true,
