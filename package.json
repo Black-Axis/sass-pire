@@ -7,7 +7,7 @@
     "markdown": "github",
     "license": "MIT",
     "organizationName": "Black Axis",
-    "packageManager": "yarn@4.5.0",
+    "packageManager": "yarn@4.15.0",
     "workspaces": [
         "packages/*"
     ],
