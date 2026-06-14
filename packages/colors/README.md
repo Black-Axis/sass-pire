@@ -2,21 +2,17 @@
 
 Color utilities and configuration for the sass-pire design system.
 
+Part of the [sass-pire monorepo](../../README.md) (v6). See the root README for the full package list and migration from legacy `sass-pire`.
+
 ## Table of Contents
 
 - [📦 Installation](#-installation)
 - [🚀 Usage](#-usage)
   - [SCSS Import](#scss-import)
+  - [Sass Load Path](#sass-load-path)
   - [Using Neutral Color Utilities](#using-neutral-color-utilities)
   - [Using Red Color Utilities](#using-red-color-utilities)
-  - [Using Blue Color Utilities](#using-blue-color-utilities)
-  - [Using Orange Color Utilities](#using-orange-color-utilities)
-  - [Using Green Color Utilities](#using-green-color-utilities)
-  - [Using Yellow Color Utilities](#using-yellow-color-utilities)
-  - [Using Violet Color Utilities](#using-violet-color-utilities)
-  - [Using Cyan Color Utilities](#using-cyan-color-utilities)
-  - [Using Pink Color Utilities](#using-pink-color-utilities)
-  - [Using Indigo Color Utilities](#using-indigo-color-utilities)
+  - [Palette Reference](#palette-reference)
   - [Complete Example](#complete-example)
 - [🎨 Using Pre-compiled CSS](#-using-pre-compiled-css)
 - [🛠️ Development](#️-development)
@@ -43,7 +39,7 @@ Or add it manually to your package's `package.json`:
 ```json
 {
   "dependencies": {
-    "@sass-pire/colors": "workspace:*"
+    "@sass-pire/colors": "last-version-of-colors-package"
   }
 }
 ```
@@ -69,7 +65,7 @@ npm install @sass-pire/colors
 pnpm add @sass-pire/colors
 ```
 
-[↑ Back to Top](#table-of-contents)
+[↑ Back to Table of Contents](#table-of-contents)
 
 ## 🚀 Usage
 
@@ -78,7 +74,7 @@ pnpm add @sass-pire/colors
 Import the package in your SCSS files to access color utilities:
 
 ```scss
-// Import all color utilities (neutral, red, blue, and orange)
+// Import all color utilities (all 10 palettes)
 @use '@sass-pire/colors' as colors;
 
 // Or import specific modules
@@ -94,7 +90,17 @@ Import the package in your SCSS files to access color utilities:
 @use '@sass-pire/colors/src/indigo' as indigo;
 ```
 
-[↑ Back to Top](#table-of-contents)
+[↑ Back to Table of Contents](#table-of-contents)
+
+### Sass Load Path
+
+When using the Sass CLI, add `--load-path=node_modules` so scoped packages resolve correctly:
+
+```json
+"scripts": {
+  "watch:sass": "sass --load-path=node_modules --watch ./src/index.scss"
+}
+```
 
 ### Using Neutral Color Utilities
 
@@ -114,25 +120,25 @@ The package provides a comprehensive neutral color scale using CSS custom proper
 
 ```css
 :root {
-    --sp-neutral-50: hsl(0deg 0% 100%);
-    --sp-neutral-100: hsl(0deg 0% 95%);
-    --sp-neutral-150: hsl(0deg 0% 90%);
-    --sp-neutral-200: hsl(0deg 0% 85%);
-    --sp-neutral-250: hsl(0deg 0% 80%);
-    --sp-neutral-300: hsl(0deg 0% 75%);
-    --sp-neutral-350: hsl(0deg 0% 70%);
-    --sp-neutral-400: hsl(0deg 0% 65%);
-    --sp-neutral-450: hsl(0deg 0% 60%);
-    --sp-neutral-500: hsl(0deg 0% 55%);
-    --sp-neutral-550: hsl(0deg 0% 50%);
-    --sp-neutral-600: hsl(0deg 0% 45%);
-    --sp-neutral-650: hsl(0deg 0% 40%);
+    --sp-neutral-50: hsl(0deg 0% 97%);
+    --sp-neutral-100: hsl(0deg 0% 92%);
+    --sp-neutral-150: hsl(0deg 0% 87%);
+    --sp-neutral-200: hsl(0deg 0% 83%);
+    --sp-neutral-250: hsl(0deg 0% 77%);
+    --sp-neutral-300: hsl(0deg 0% 72%);
+    --sp-neutral-350: hsl(0deg 0% 66%);
+    --sp-neutral-400: hsl(0deg 0% 61%);
+    --sp-neutral-450: hsl(0deg 0% 55%);
+    --sp-neutral-500: hsl(0deg 0% 50%);
+    --sp-neutral-550: hsl(0deg 0% 46%);
+    --sp-neutral-600: hsl(0deg 0% 42%);
+    --sp-neutral-650: hsl(0deg 0% 38%);
     --sp-neutral-700: hsl(0deg 0% 35%);
-    --sp-neutral-750: hsl(0deg 0% 30%);
-    --sp-neutral-800: hsl(0deg 0% 25%);
-    --sp-neutral-850: hsl(0deg 0% 20%);
-    --sp-neutral-900: hsl(0deg 0% 15%);
-    --sp-neutral-950: hsl(0deg 0% 10%);
+    --sp-neutral-750: hsl(0deg 0% 31%);
+    --sp-neutral-800: hsl(0deg 0% 28%);
+    --sp-neutral-850: hsl(0deg 0% 24%);
+    --sp-neutral-900: hsl(0deg 0% 21%);
+    --sp-neutral-950: hsl(0deg 0% 15%);
 }
 ```
 
@@ -209,439 +215,26 @@ The package provides a comprehensive red color scale using CSS custom properties
 
 [↑ Back to Table of Contents](#table-of-contents)
 
-### Using Blue Color Utilities
-
-The package provides a comprehensive blue color scale using CSS custom properties:
-
-```scss
-@use '@sass-pire/colors/src/blue' as *;
-
-// Include the blue colors mixin to generate CSS custom properties
-@include sp-get-blue(); // Generates variables on :root by default
-
-// Or target a specific selector
-@include sp-get-blue('.my-component');
-```
-
-**Generated CSS Custom Properties:**
-
-```css
-:root {
-    --sp-blue-50: hsl(210deg 100% 97%);
-    --sp-blue-100: hsl(210deg 95% 92%);
-    --sp-blue-150: hsl(210deg 93% 87%);
-    --sp-blue-200: hsl(210deg 90% 83%);
-    --sp-blue-250: hsl(210deg 88% 77%);
-    --sp-blue-300: hsl(210deg 85% 72%);
-    --sp-blue-350: hsl(210deg 83% 66%);
-    --sp-blue-400: hsl(210deg 80% 61%);
-    --sp-blue-450: hsl(210deg 78% 55%);
-    --sp-blue-500: hsl(210deg 75% 50%);
-    --sp-blue-550: hsl(210deg 73% 46%);
-    --sp-blue-600: hsl(210deg 70% 42%);
-    --sp-blue-650: hsl(210deg 68% 38%);
-    --sp-blue-700: hsl(210deg 65% 35%);
-    --sp-blue-750: hsl(210deg 63% 31%);
-    --sp-blue-800: hsl(210deg 60% 28%);
-    --sp-blue-850: hsl(210deg 58% 24%);
-    --sp-blue-900: hsl(210deg 55% 21%);
-    --sp-blue-950: hsl(210deg 50% 15%);
-}
-```
-
-**Using in Your Styles:**
-
-```css
-.info-box {
-  background-color: var(--sp-blue-50);
-  border: 1px solid var(--sp-blue-200);
-  color: var(--sp-blue-800);
-}
-```
-
-[↑ Back to Table of Contents](#table-of-contents)
-
-### Using Orange Color Utilities
-
-The package provides a comprehensive orange color scale using CSS custom properties:
-
-```scss
-@use '@sass-pire/colors/src/orange' as *;
-
-// Include the orange colors mixin to generate CSS custom properties
-@include sp-get-orange(); // Generates variables on :root by default
-
-// Or target a specific selector
-@include sp-get-orange('.my-component');
-```
-
-**Generated CSS Custom Properties:**
-
-```css
-:root {
-    --sp-orange-50: hsl(30deg 100% 97%);
-    --sp-orange-100: hsl(30deg 95% 92%);
-    --sp-orange-150: hsl(30deg 93% 87%);
-    --sp-orange-200: hsl(30deg 90% 83%);
-    --sp-orange-250: hsl(30deg 88% 77%);
-    --sp-orange-300: hsl(30deg 85% 72%);
-    --sp-orange-350: hsl(30deg 83% 66%);
-    --sp-orange-400: hsl(30deg 80% 61%);
-    --sp-orange-450: hsl(30deg 78% 55%);
-    --sp-orange-500: hsl(30deg 75% 50%);
-    --sp-orange-550: hsl(30deg 73% 46%);
-    --sp-orange-600: hsl(30deg 70% 42%);
-    --sp-orange-650: hsl(30deg 68% 38%);
-    --sp-orange-700: hsl(30deg 65% 35%);
-    --sp-orange-750: hsl(30deg 63% 31%);
-    --sp-orange-800: hsl(30deg 60% 28%);
-    --sp-orange-850: hsl(30deg 58% 24%);
-    --sp-orange-900: hsl(30deg 55% 21%);
-    --sp-orange-950: hsl(30deg 50% 15%);
-}
-```
-
-**Using in Your Styles:**
-
-```css
-.warning-toast {
-  background-color: var(--sp-orange-100);
-  border-left: 4px solid var(--sp-orange-500);
-  color: var(--sp-orange-900);
-}
-```
-
-[↑ Back to Table of Contents](#table-of-contents)
-
-### Using Green Color Utilities
-
-The package provides a comprehensive green color scale with high saturation using CSS custom properties:
-
-```scss
-@use '@sass-pire/colors/src/green' as *;
-
-// Include the green colors mixin to generate CSS custom properties
-@include sp-get-green(); // Generates variables on :root by default
-
-// Or target a specific selector
-@include sp-get-green('.my-component');
-```
-
-**Generated CSS Custom Properties:**
-
-```css
-:root {
-    --sp-green-50: hsl(150deg 100% 97%);
-    --sp-green-100: hsl(150deg 95% 92%);
-    --sp-green-150: hsl(150deg 93% 87%);
-    --sp-green-200: hsl(150deg 90% 83%);
-    --sp-green-250: hsl(150deg 88% 77%);
-    --sp-green-300: hsl(150deg 85% 72%);
-    --sp-green-350: hsl(150deg 83% 66%);
-    --sp-green-400: hsl(150deg 80% 61%);
-    --sp-green-450: hsl(150deg 78% 55%);
-    --sp-green-500: hsl(150deg 75% 50%);
-    --sp-green-550: hsl(150deg 73% 46%);
-    --sp-green-600: hsl(150deg 70% 42%);
-    --sp-green-650: hsl(150deg 68% 38%);
-    --sp-green-700: hsl(150deg 65% 35%);
-    --sp-green-750: hsl(150deg 63% 31%);
-    --sp-green-800: hsl(150deg 60% 28%);
-    --sp-green-850: hsl(150deg 58% 24%);
-    --sp-green-900: hsl(150deg 55% 21%);
-    --sp-green-950: hsl(150deg 50% 15%);
-}
-```
-
-**Using in Your Styles:**
-
-```css
-.success-bg {
-  background-color: var(--sp-green-50);
-  border: 1px solid var(--sp-green-200);
-}
-
-.success-text {
-  color: var(--sp-green-700);
-}
-```
-
-[↑ Back to Table of Contents](#table-of-contents)
-
-### Using Yellow Color Utilities
-
-The package provides a comprehensive yellow color scale with high saturation in dark shades to maintain vibrancy:
-
-```scss
-@use '@sass-pire/colors/src/yellow' as *;
-
-// Include the yellow colors mixin to generate CSS custom properties
-@include sp-get-yellow(); // Generates variables on :root by default
-
-// Or target a specific selector
-@include sp-get-yellow('.my-component');
-```
-
-**Generated CSS Custom Properties:**
-
-```css
-:root {
-    --sp-yellow-50: hsl(48deg 100% 96%);
-    --sp-yellow-100: hsl(48deg 100% 92%);
-    --sp-yellow-150: hsl(48deg 100% 87%);
-    --sp-yellow-200: hsl(48deg 100% 83%);
-    --sp-yellow-250: hsl(48deg 100% 77%);
-    --sp-yellow-300: hsl(48deg 100% 72%);
-    --sp-yellow-350: hsl(48deg 100% 66%);
-    --sp-yellow-400: hsl(48deg 100% 61%);
-    --sp-yellow-450: hsl(48deg 100% 55%);
-    --sp-yellow-500: hsl(48deg 100% 50%);
-    --sp-yellow-550: hsl(48deg 100% 46%);
-    --sp-yellow-600: hsl(48deg 100% 42%);
-    --sp-yellow-650: hsl(48deg 100% 38%);
-    --sp-yellow-700: hsl(48deg 100% 35%);
-    --sp-yellow-750: hsl(48deg 100% 31%);
-    --sp-yellow-800: hsl(48deg 100% 28%);
-    --sp-yellow-850: hsl(48deg 100% 24%);
-    --sp-yellow-900: hsl(48deg 100% 21%);
-    --sp-yellow-950: hsl(48deg 100% 15%);
-}
-```
-
-**Using in Your Styles:**
-
-```css
-.card-highlight {
-  background-color: var(--sp-yellow-50);
-  border: 1px solid var(--sp-yellow-300);
-}
-
-.on-yellow-dark {
-  color: var(--sp-neutral-50);
-  background-color: var(--sp-yellow-700);
-}
-```
-
-[↑ Back to Table of Contents](#table-of-contents)
-
-### Using Violet Color Utilities
-
-The package provides a comprehensive violet color scale using CSS custom properties:
-
-```scss
-@use '@sass-pire/colors/src/violet' as *;
-
-// Include the violet colors mixin to generate CSS custom properties
-@include sp-get-violet(); // Generates variables on :root by default
-
-// Or target a specific selector
-@include sp-get-violet('.my-component');
-```
-
-**Generated CSS Custom Properties:**
-
-```css
-:root {
-    --sp-violet-50: hsl(270deg 100% 97%);
-    --sp-violet-100: hsl(270deg 95% 92%);
-    --sp-violet-150: hsl(270deg 93% 87%);
-    --sp-violet-200: hsl(270deg 90% 83%);
-    --sp-violet-250: hsl(270deg 88% 77%);
-    --sp-violet-300: hsl(270deg 85% 72%);
-    --sp-violet-350: hsl(270deg 83% 66%);
-    --sp-violet-400: hsl(270deg 80% 61%);
-    --sp-violet-450: hsl(270deg 78% 55%);
-    --sp-violet-500: hsl(270deg 75% 50%);
-    --sp-violet-550: hsl(270deg 73% 46%);
-    --sp-violet-600: hsl(270deg 70% 42%);
-    --sp-violet-650: hsl(270deg 68% 38%);
-    --sp-violet-700: hsl(270deg 65% 35%);
-    --sp-violet-750: hsl(270deg 63% 31%);
-    --sp-violet-800: hsl(270deg 60% 28%);
-    --sp-violet-850: hsl(270deg 58% 24%);
-    --sp-violet-900: hsl(270deg 55% 21%);
-    --sp-violet-950: hsl(270deg 50% 15%);
-}
-```
-
-**Using in Your Styles:**
-
-```css
-.sidebar-active {
-  background-color: var(--sp-violet-50);
-  color: var(--sp-violet-700);
-}
-
-.brand-accent {
-  background-color: var(--sp-violet-500);
-}
-```
-
-[↑ Back to Table of Contents](#table-of-contents)
-
-### Using Cyan Color Utilities
-
-The package provides a comprehensive cyan color scale using CSS custom properties:
-
-```scss
-@use '@sass-pire/colors/src/cyan' as *;
-
-// Include the cyan colors mixin to generate CSS custom properties
-@include sp-get-cyan(); // Generates variables on :root by default
-
-// Or target a specific selector
-@include sp-get-cyan('.my-component');
-```
-
-**Generated CSS Custom Properties:**
-
-```css
-:root {
-    --sp-cyan-50: hsl(180deg 100% 97%);
-    --sp-cyan-100: hsl(180deg 95% 92%);
-    --sp-cyan-150: hsl(180deg 93% 87%);
-    --sp-cyan-200: hsl(180deg 90% 83%);
-    --sp-cyan-250: hsl(180deg 88% 77%);
-    --sp-cyan-300: hsl(180deg 85% 72%);
-    --sp-cyan-350: hsl(180deg 83% 66%);
-    --sp-cyan-400: hsl(180deg 80% 61%);
-    --sp-cyan-450: hsl(180deg 78% 55%);
-    --sp-cyan-500: hsl(180deg 75% 50%);
-    --sp-cyan-550: hsl(180deg 73% 46%);
-    --sp-cyan-600: hsl(180deg 70% 42%);
-    --sp-cyan-650: hsl(180deg 68% 38%);
-    --sp-cyan-700: hsl(180deg 65% 35%);
-    --sp-cyan-750: hsl(180deg 63% 31%);
-    --sp-cyan-800: hsl(180deg 60% 28%);
-    --sp-cyan-850: hsl(180deg 58% 24%);
-    --sp-cyan-900: hsl(180deg 55% 21%);
-    --sp-cyan-950: hsl(180deg 50% 15%);
-}
-```
-
-**Using in Your Styles:**
-
-```css
-.hero-secondary {
-  background-color: var(--sp-cyan-50);
-  color: var(--sp-cyan-800);
-}
-
-.action-cyan {
-  background-color: var(--sp-cyan-500);
-}
-```
-
-[↑ Back to Table of Contents](#table-of-contents)
-
-### Using Pink Color Utilities
-
-The package provides a comprehensive pink color scale using CSS custom properties:
-
-```scss
-@use '@sass-pire/colors/src/pink' as *;
-
-// Include the pink colors mixin to generate CSS custom properties
-@include sp-get-pink(); // Generates variables on :root by default
-
-// Or target a specific selector
-@include sp-get-pink('.my-component');
-```
-
-**Generated CSS Custom Properties:**
-
-```css
-:root {
-    --sp-pink-50: hsl(330deg 100% 97%);
-    --sp-pink-100: hsl(330deg 95% 92%);
-    --sp-pink-150: hsl(330deg 93% 87%);
-    --sp-pink-200: hsl(330deg 90% 83%);
-    --sp-pink-250: hsl(330deg 88% 77%);
-    --sp-pink-300: hsl(330deg 85% 72%);
-    --sp-pink-350: hsl(330deg 83% 66%);
-    --sp-pink-400: hsl(330deg 80% 61%);
-    --sp-pink-450: hsl(330deg 78% 55%);
-    --sp-pink-500: hsl(330deg 75% 50%);
-    --sp-pink-550: hsl(330deg 73% 46%);
-    --sp-pink-600: hsl(330deg 70% 42%);
-    --sp-pink-650: hsl(330deg 68% 38%);
-    --sp-pink-700: hsl(330deg 65% 35%);
-    --sp-pink-750: hsl(330deg 63% 31%);
-    --sp-pink-800: hsl(330deg 60% 28%);
-    --sp-pink-850: hsl(330deg 58% 24%);
-    --sp-pink-900: hsl(330deg 55% 21%);
-    --sp-pink-950: hsl(330deg 50% 15%);
-}
-```
-
-**Using in Your Styles:**
-
-```css
-.event-badge {
-  background-color: var(--sp-pink-50);
-  color: var(--sp-pink-700);
-}
-
-.primary-accent-pink {
-  background-color: var(--sp-pink-500);
-}
-```
-
-[↑ Back to Table of Contents](#table-of-contents)
-
-### Using Indigo Color Utilities
-
-The package provides a comprehensive indigo color scale using CSS custom properties:
-
-```scss
-@use '@sass-pire/colors/src/indigo' as *;
-
-// Include the indigo colors mixin to generate CSS custom properties
-@include sp-get-indigo(); // Generates variables on :root by default
-
-// Or target a specific selector
-@include sp-get-indigo('.my-component');
-```
-
-**Generated CSS Custom Properties:**
-
-```css
-:root {
-    --sp-indigo-50: hsl(240deg 100% 97%);
-    --sp-indigo-100: hsl(240deg 95% 92%);
-    --sp-indigo-150: hsl(240deg 93% 87%);
-    --sp-indigo-200: hsl(240deg 90% 83%);
-    --sp-indigo-250: hsl(240deg 88% 77%);
-    --sp-indigo-300: hsl(240deg 85% 72%);
-    --sp-indigo-350: hsl(240deg 83% 66%);
-    --sp-indigo-400: hsl(240deg 80% 61%);
-    --sp-indigo-450: hsl(240deg 78% 55%);
-    --sp-indigo-500: hsl(240deg 75% 50%);
-    --sp-indigo-550: hsl(240deg 73% 46%);
-    --sp-indigo-600: hsl(240deg 70% 42%);
-    --sp-indigo-650: hsl(240deg 68% 38%);
-    --sp-indigo-700: hsl(240deg 65% 35%);
-    --sp-indigo-750: hsl(240deg 63% 31%);
-    --sp-indigo-800: hsl(240deg 60% 28%);
-    --sp-indigo-850: hsl(240deg 58% 24%);
-    --sp-indigo-900: hsl(240deg 55% 21%);
-    --sp-indigo-950: hsl(240deg 50% 15%);
-}
-```
-
-**Using in Your Styles:**
-
-```css
-.sidebar-link {
-  color: var(--sp-indigo-700);
-}
-
-.on-indigo-dark {
-  color: var(--sp-neutral-50);
-  background-color: var(--sp-indigo-800);
-}
-```
-
+### Palette Reference
+
+All palettes share the same `$selector` API and 21-step scale (50–950). Each mixin generates CSS custom properties on `:root` by default, or on a custom selector when passed as an argument.
+
+| Palette | Mixin | Import path | Hue | Source |
+|---|---|---|---|---|
+| Neutral | `sp-get-neutral()` | `@sass-pire/colors/src/neutral` | `0deg` (grayscale) | [src/neutral/_index.scss](src/neutral/_index.scss) |
+| Red | `sp-get-red()` | `@sass-pire/colors/src/red` | `0deg` | [src/red/_index.scss](src/red/_index.scss) |
+| Blue | `sp-get-blue()` | `@sass-pire/colors/src/blue` | `210deg` | [src/blue/_index.scss](src/blue/_index.scss) |
+| Orange | `sp-get-orange()` | `@sass-pire/colors/src/orange` | `30deg` | [src/orange/_index.scss](src/orange/_index.scss) |
+| Green | `sp-get-green()` | `@sass-pire/colors/src/green` | `150deg` | [src/green/_index.scss](src/green/_index.scss) |
+| Yellow | `sp-get-yellow()` | `@sass-pire/colors/src/yellow` | `48deg` | [src/yellow/_index.scss](src/yellow/_index.scss) |
+| Violet | `sp-get-violet()` | `@sass-pire/colors/src/violet` | `270deg` | [src/violet/_index.scss](src/violet/_index.scss) |
+| Cyan | `sp-get-cyan()` | `@sass-pire/colors/src/cyan` | `180deg` | [src/cyan/_index.scss](src/cyan/_index.scss) |
+| Pink | `sp-get-pink()` | `@sass-pire/colors/src/pink` | `330deg` | [src/pink/_index.scss](src/pink/_index.scss) |
+| Indigo | `sp-get-indigo()` | `@sass-pire/colors/src/indigo` | `240deg` | [src/indigo/_index.scss](src/indigo/_index.scss) |
+
+> **Note:** The yellow palette uses high saturation across all shades (including dark tones) to maintain vibrancy. See [src/yellow/_index.scss](src/yellow/_index.scss) for details.
+
+For the full token values of any palette, refer to its source file above or the pre-compiled [dist/index.css](dist/index.css).
 
 [↑ Back to Table of Contents](#table-of-contents)
 
@@ -737,6 +330,22 @@ If you prefer to use CSS directly without SCSS compilation:
 <link rel="stylesheet" href="node_modules/@sass-pire/colors/dist/index.min.css">
 ```
 
+The package also exposes pre-compiled CSS through `package.json` exports:
+
+| Export | Path |
+|---|---|
+| `@sass-pire/colors` | `./index.scss` |
+| `@sass-pire/colors/scss` | `./index.scss` |
+| `@sass-pire/colors/css` | `./dist/index.css` |
+| `@sass-pire/colors/css/min` | `./dist/index.min.css` |
+
+In SCSS or a bundler that resolves package exports:
+
+```scss
+@use "@sass-pire/colors/css";
+@use "@sass-pire/colors/css/min";
+```
+
 [↑ Back to Table of Contents](#table-of-contents)
 
 ## 🛠️ Development
@@ -753,13 +362,17 @@ yarn dev:colors
 
 This will watch for changes and compile SCSS files automatically.
 
-### Available Scripts
 
-- `yarn dev` - Run all watchers concurrently
-- `yarn sass:watch` - Watch and compile SCSS to CSS (uncompressed)
-- `yarn sass:comp` - Watch and compile SCSS to CSS (compressed)
-- `yarn css:watch` - Watch and compile styles to CSS (uncompressed)
-- `yarn css:comp` - Watch and compile styles to CSS (compressed)
+### Testing
+
+All 10 palettes have sass-true tests under `tests/`:
+
+```bash
+# From the monorepo root
+yarn test:colors
+```
+
+Tests run via the root Jest config ([jest.config.js](../../jest.config.js)); there is no `test` script in this package's own `package.json`.
 
 [↑ Back to Table of Contents](#table-of-contents)
 
@@ -788,17 +401,23 @@ This will watch for changes and compile SCSS files automatically.
 │   │   └── _index.scss       # Pink color utilities
 │   └── indigo/
 │       └── _index.scss       # Indigo color utilities
-├── styles/
-│   └── index.scss             # CSS output generator
+├── tests/                     # sass-true tests (dev only, not published)
+│   ├── neutral/
+│   ├── red/
+│   └── ...
+├── styles/                    # CSS generator source (dev only, not published)
+│   └── index.scss
 ├── dist/
-│   ├── index.css              # Compiled CSS (uncompressed)
-│   ├── index.min.css          # Compiled CSS (compressed)
-│   ├── index.compiled.css     # SCSS compiled output
-│   └── index.compiled.min.css # SCSS compiled output (compressed)
+│   ├── index.css              # Compiled CSS (uncompressed, published)
+│   ├── index.min.css          # Compiled CSS (compressed, published)
+│   ├── index.compiled.css     # SCSS compile output (dev only, not published)
+│   └── index.compiled.min.css # SCSS compile output (dev only, not published)
 ├── index.scss                 # Main entry point
 ├── package.json
 └── README.md
 ```
+
+Dev-only artifacts (`tests/`, `styles/`, `dist/index.compiled.css`, `dist/index.compiled.min.css`) are excluded from npm publish via [.npmignore](.npmignore).
 
 [↑ Back to Table of Contents](#table-of-contents)
 
@@ -940,7 +559,7 @@ Generates indigo color CSS custom properties.
 
 ## 🤝 Contributing
 
-This package is part of the [sass-pire](https://github.com/Black-Axis/sass-pire) monorepo. Please refer to the main repository for contribution guidelines.
+This package is part of the [sass-pire](https://github.com/Black-Axis/sass-pire) monorepo. See [CONTRIBUTING.md](../../CONTRIBUTING.md) for contribution guidelines.
 
 [↑ Back to Table of Contents](#table-of-contents)
 
