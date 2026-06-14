@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+// @description
+// * between mixin.
+// * This is a test cases for the between mixin.
+
+// @access private
+
+// @version 1.0.0
+
+// @license MIT
+
+// @author Khaled Mohamed
+
+// @package @sass-pire/family
+
+// @library sass-pire
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @dependencies:
+// * - map.get (SASS function).
+// * - True.describe (mixin function).
+// * - True.it (true mixin).
+// * - True.assert (true mixin).
+// * - True.output (true mixin).
+// * - True.expect (true mixin).
+// * - LibMixin.between (mixin).
+
+@use "sass:map";
+@use "true" as *;
+@use "../src/between" as LibMixin;
+
+$test-cases-between-map: (
+    "test-case-1": (
+        selector: ".test-between-1",
+        first-num: 4,
+        last-num: 10,
+        expected: (
+            nth-child: "nth-child(n+4):nth-child(-n+10)",
+        ),
+    ),
+    "test-case-2": (
+        selector: ".test-between-2",
+        first-num: 6,
+        last-num: 8,
+        expected: (
+            nth-child: "nth-child(n+6):nth-child(-n+8)",
+        ),
+    ),
+    "test-case-3": (
+        selector: ".test-between-3",
+        first-num: 1,
+        last-num: 100,
+        expected: (
+            nth-child: "nth-child(n+1):nth-child(-n+100)",
+        ),
+    ),
+    "test-case-4": (
+        selector: ".test-between-4",
+        first-num: 12,
+        last-num: 50,
+        expected: (
+            nth-child: "nth-child(n+12):nth-child(-n+50)",
+        ),
+    ),
+    "test-case-5": (
+        selector: ".test-between-5",
+        first-num: 1,
+        last-num: 2,
+        expected: (
+            nth-child: "nth-child(n+1):nth-child(-n+2)",
+        ),
+    ),
+);
+
+@each $case-name, $case-data in $test-cases-between-map {
+    @include describe("[Mixin] between for #{$case-name}") {
+        @include it("Should result a selector between two numbers") {
+            @include assert {
+                @include output {
+                    #{map.get($case-data, selector)} {
+                        @include LibMixin.between(map.get($case-data, first-num), map.get($case-data, last-num)) {
+                            --sp-example-between: done;
+                        }
+                    }
+                }
+                @include expect {
+                    #{map.get($case-data, selector)}:#{map.get(map.get($case-data, expected), nth-child)} {
+                        --sp-example-between: done;
+                    }
+                }
+            }
+        }
+    }
+}
