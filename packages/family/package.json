@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "description": "Family is of one of package of sass-pire packages.",
     "license": "MIT",
+    "type": "module",
     "author": "Khaled Mohamed <k.mohamed.11.98@gmail.com> (https://github.com/krypton225)",
     "contributors": [
         "Khaled Mohamed"

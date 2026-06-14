@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+// @description
+// * This file forwards all mixin test modules for the family package.
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @package @sass-pire/family
+
+// @version 1.0.0
+
+// stylelint-disable at-rule-empty-line-before
+
+@use "true" as True;
+
+@use "./after-first.test" as *;
+
+// * There is a `$catch-errors` variable set to `true` by default.
+// * If you want to disable it, set it to `false`.
+// * It comes from `sass-true` $catch-errors and we override it here.
+$catch-errors: true;
+
+@include True.report;
