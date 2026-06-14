@@ -4,19 +4,19 @@
 // * all-but mixin.
 // * This is a test cases for the all-but mixin.
 
-// @access public
+// @access private
 
 // @version 1.0.0
 
-// @author Khaled Mohamed
-
 // @license MIT
 
+// @author Khaled Mohamed
+
+// @package @sass-pire/family
+
+// @library sass-pire
+
 // @repository: https://github.com/Black-Axis/sass-pire
-
-// @namespace children
-
-// @module children/all-but
 
 // @dependencies:
 // * - map.get (SASS function).
@@ -29,7 +29,7 @@
 
 @use "sass:map";
 @use "true" as *;
-@use "../../../src/mixins/children/all-but" as LibMixin;
+@use "../src/all-but" as LibMixin;
 
 $test-cases-all-but-map: (
     "test-case-1": (
