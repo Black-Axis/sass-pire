@@ -1,8 +1,8 @@
 @charset "UTF-8";
 
 // @description
-// * first mixin.
-// * This is a test cases for the first mixin.
+// * first-of mixin.
+// * This is a test cases for the first-of mixin.
 
 // @access private
 
@@ -25,7 +25,7 @@
 // * - True.assert (true mixin).
 // * - True.output (true mixin).
 // * - True.expect (true mixin).
-// * - LibMixin.first (mixin).
+// * - LibMixin.first-of (mixin).
 
 @use "sass:map";
 @use "true" as *;
@@ -33,35 +33,35 @@
 
 $test-cases-first-of-map: (
     "test-case-1": (
-        selector: ".test-first-1",
+        selector: ".test-first-of-1",
         num: 1,
         expected: (
             nth-child: "1",
         ),
     ),
     "test-case-2": (
-        selector: ".test-first-2",
+        selector: ".test-first-of-2",
         num: 2,
         expected: (
             nth-child: "-n+2",
         ),
     ),
     "test-case-3": (
-        selector: ".test-first-3",
+        selector: ".test-first-of-3",
         num: 10,
         expected: (
             nth-child: "-n+10",
         ),
     ),
     "test-case-4": (
-        selector: ".test-first-4",
+        selector: ".test-first-of-4",
         num: 50,
         expected: (
             nth-child: "-n+50",
         ),
     ),
     "test-case-5": (
-        selector: ".test-first-5",
+        selector: ".test-first-of-5",
         num: 200,
         expected: (
             nth-child: "-n+200",
