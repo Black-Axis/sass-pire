@@ -4,19 +4,19 @@
 // * every mixin.
 // * This is a test cases for the every mixin.
 
-// @access public
+// @access private
 
 // @version 1.0.0
 
-// @author Khaled Mohamed
-
 // @license MIT
 
+// @author Khaled Mohamed
+
+// @package @sass-pire/family
+
+// @library sass-pire
+
 // @repository: https://github.com/Black-Axis/sass-pire
-
-// @namespace children
-
-// @module children/every
 
 // @dependencies:
 // * - map.get (SASS function).
@@ -29,7 +29,7 @@
 
 @use "sass:map";
 @use "true" as *;
-@use "../../../src/mixins/children/every" as LibMixin;
+@use "../src/every" as LibMixin;
 
 $test-cases-every-map: (
     "test-case-1": (
