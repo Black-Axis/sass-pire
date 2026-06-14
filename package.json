@@ -3,7 +3,7 @@
     "aliasName": "sp",
     "private": true,
     "type": "module",
-    "version": "5.0.0",
+    "version": "6.0.0",
     "description": "Just a more mixins and functions with SCSS for more productive projects.",
     "markdown": "github",
     "license": "MIT",
