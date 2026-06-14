@@ -1,22 +1,22 @@
 @charset "UTF-8";
 
 // @description
-// * last mixin.
-// * This is a test cases for the last mixin.
+// * last-of mixin.
+// * This is a test cases for the last-of mixin.
 
-// @access public
+// @access private
 
 // @version 1.0.0
 
-// @author Khaled Mohamed
-
 // @license MIT
 
+// @author Khaled Mohamed
+
+// @package @sass-pire/family
+
+// @library sass-pire
+
 // @repository: https://github.com/Black-Axis/sass-pire
-
-// @namespace children
-
-// @module children/last
 
 // @dependencies:
 // * - map.get (SASS function).
@@ -25,43 +25,43 @@
 // * - True.assert (true mixin).
 // * - True.output (true mixin).
 // * - True.expect (true mixin).
-// * - LibMixin.last (mixin).
+// * - LibMixin.last-of (mixin).
 
 @use "sass:map";
 @use "true" as *;
-@use "../../../src/mixins/children/last" as LibMixin;
+@use "../src/last-of" as LibMixin;
 
-$test-cases-last-map: (
+$test-cases-last-of-map: (
     "test-case-1": (
-        selector: ".test-last-1",
+        selector: ".test-last-of-1",
         num: 4,
         expected: (
             nth-child: "-n+4",
         ),
     ),
     "test-case-2": (
-        selector: ".test-last-2",
+        selector: ".test-last-of-2",
         num: 2,
         expected: (
             nth-child: "-n+2",
         ),
     ),
     "test-case-3": (
-        selector: ".test-last-3",
+        selector: ".test-last-of-3",
         num: 10,
         expected: (
             nth-child: "-n+10",
         ),
     ),
     "test-case-4": (
-        selector: ".test-last-4",
+        selector: ".test-last-of-4",
         num: 50,
         expected: (
             nth-child: "-n+50",
         ),
     ),
     "test-case-5": (
-        selector: ".test-last-5",
+        selector: ".test-last-of-5",
         num: 200,
         expected: (
             nth-child: "-n+200",
@@ -69,21 +69,21 @@ $test-cases-last-map: (
     ),
 );
 
-@each $case-name, $case-data in $test-cases-last-map {
-    @include describe("[Mixin] last for #{$case-name}") {
+@each $case-name, $case-data in $test-cases-last-of-map {
+    @include describe("[Mixin] last-of for #{$case-name}") {
         @include it("should apply styles to nth-last-child elements") {
             @include assert {
                 @include output {
                     #{map.get($case-data, selector)} {
-                        @include LibMixin.last(map.get($case-data, num)) {
-                            --sp-example-last: done;
+                        @include LibMixin.last-of(map.get($case-data, num)) {
+                            --sp-example-last-of: done;
                         }
                     }
                 }
 
                 @include expect {
                     #{map.get($case-data, selector)}:nth-last-child(#{map.get(map.get($case-data, expected), nth-child)}) {
-                        --sp-example-last: done;
+                        --sp-example-last-of: done;
                     }
                 }
             }
