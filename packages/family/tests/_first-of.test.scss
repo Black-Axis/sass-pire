@@ -4,19 +4,19 @@
 // * first mixin.
 // * This is a test cases for the first mixin.
 
-// @access public
+// @access private
 
 // @version 1.0.0
 
-// @author Khaled Mohamed
-
 // @license MIT
 
+// @author Khaled Mohamed
+
+// @package @sass-pire/family
+
+// @library sass-pire
+
 // @repository: https://github.com/Black-Axis/sass-pire
-
-// @namespace children
-
-// @module children/first
 
 // @dependencies:
 // * - map.get (SASS function).
@@ -29,9 +29,9 @@
 
 @use "sass:map";
 @use "true" as *;
-@use "../../../src/mixins/children/first" as LibMixin;
+@use "../src/first-of" as LibMixin;
 
-$test-cases-first-map: (
+$test-cases-first-of-map: (
     "test-case-1": (
         selector: ".test-first-1",
         num: 1,
@@ -69,14 +69,14 @@ $test-cases-first-map: (
     ),
 );
 
-@each $case-name, $case-data in $test-cases-first-map {
-    @include describe("[Mixin] first for #{$case-name}") {
+@each $case-name, $case-data in $test-cases-first-of-map {
+    @include describe("[Mixin] first-of for #{$case-name}") {
         @include it("should apply styles to nth-first-child elements") {
             @include assert {
                 @include output {
                     #{map.get($case-data, selector)} {
-                        @include LibMixin.first(map.get($case-data, num)) {
-                            --sp-example-first: done;
+                        @include LibMixin.first-of(map.get($case-data, num)) {
+                            --sp-example-first-of: done;
                         }
                     }
                 }
@@ -84,11 +84,11 @@ $test-cases-first-map: (
                 @include expect {
                     @if map.get($case-data, num) == 1 {
                         #{map.get($case-data, selector)}:first-child {
-                            --sp-example-first: done;
+                            --sp-example-first-of: done;
                         }
                     } @else {
                         #{map.get($case-data, selector)}:nth-child(#{map.get(map.get($case-data, expected), nth-child)}) {
-                            --sp-example-first: done;
+                            --sp-example-first-of: done;
                         }
                     }
                 }
