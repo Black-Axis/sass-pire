@@ -1,22 +1,17 @@
 {
     "name": "sass-pire",
-    "aliasName": "sp",
     "private": true,
     "type": "module",
     "version": "6.0.0",
     "description": "Just a more mixins and functions with SCSS for more productive projects.",
-    "markdown": "github",
+    "homepage": "https://github.com/Black-Axis/sass-pire#readme",
     "license": "MIT",
-    "organizationName": "Black Axis",
-    "packageManager": "yarn@4.16.0",
+    "packageManager": "yarn@4.18.0",
+    "engines": {
+        "node": ">=24"
+    },
     "workspaces": [
         "packages/*"
-    ],
-    "licenses": [
-        {
-            "type": "MIT",
-            "url": "https://opensource.org/license/mit/"
-        }
     ],
     "author": "Khaled Mohamed <k.mohamed.11.98@gmail.com> (https://github.com/krypton225)",
     "contributors": [
