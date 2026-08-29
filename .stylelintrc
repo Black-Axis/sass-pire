@@ -12,7 +12,9 @@
         "packages/**/dist/*.compiled.css.map",
         "packages/**/dist/*.compiled.min.css",
         "packages/**/dist/*.compiled.min.css.map",
-        "packages/**/index.scss"
+        "packages/**/index.scss",
+        "playground/dist/*.css",
+        "playground/dist/*.map.css"
     ],
     "rules": {
         "container-name-pattern": null,

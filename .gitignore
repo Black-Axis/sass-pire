@@ -10,6 +10,8 @@ node_modules
 /dist
 index.html
 
+playground/dist
+
 packages/**/index.html
 packages/**/dist/**.compiled.css
 packages/**/dist/**.compiled.css.map

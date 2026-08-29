@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>sass-pire playground</title>
+
+    <link rel="stylesheet" href="./dist/main.css" />
+
+    <style>
+        body {
+            margin: 0;
+            padding: 2rem;
+            font-family: system-ui, sans-serif;
+            color: var(--sp-neutral-900);
+            background-color: var(--sp-neutral-50);
+        }
+
+        h1 {
+            font-size: var(--sp-fs-9);
+            font-weight: var(--sp-fw-700);
+            letter-spacing: var(--sp-ls-1);
+        }
+
+        section {
+            margin-block: 2rem;
+            padding: 1rem;
+            border: 1px solid var(--sp-neutral-300);
+            border-radius: 0.5rem;
+        }
+
+        h2 {
+            margin-block-start: 0;
+            font-size: var(--sp-fs-5);
+            color: var(--sp-blue-600);
+        }
+
+        .swatches {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .swatch {
+            inline-size: 4rem;
+            block-size: 4rem;
+            border-radius: 0.25rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>sass-pire playground</h1>
+
+    <p>
+        Every <code>@sass-pire/*</code> package compiled into one stylesheet.
+        Run <code>yarn dev:playground</code> from the repo root, then open this file.
+    </p>
+
+    <section>
+        <h2>@sass-pire/colors</h2>
+
+        <div class="swatches">
+            <div class="swatch" style="background-color: var(--sp-red-500)"></div>
+            <div class="swatch" style="background-color: var(--sp-orange-500)"></div>
+            <div class="swatch" style="background-color: var(--sp-yellow-500)"></div>
+            <div class="swatch" style="background-color: var(--sp-green-500)"></div>
+            <div class="swatch" style="background-color: var(--sp-cyan-500)"></div>
+            <div class="swatch" style="background-color: var(--sp-blue-500)"></div>
+            <div class="swatch" style="background-color: var(--sp-indigo-500)"></div>
+            <div class="swatch" style="background-color: var(--sp-violet-500)"></div>
+            <div class="swatch" style="background-color: var(--sp-pink-500)"></div>
+            <div class="swatch" style="background-color: var(--sp-neutral-500)"></div>
+        </div>
+    </section>
+
+    <section>
+        <h2>@sass-pire/functions</h2>
+
+        <p class="demo-functions">
+            px-to-rem, half, approx and cut-unit applied to this paragraph.
+        </p>
+    </section>
+
+    <section>
+        <h2>@sass-pire/lists</h2>
+
+        <p class="demo-lists">
+            get-first, get-last, middle and sum applied to this paragraph.
+        </p>
+    </section>
+
+    <section>
+        <h2>@sass-pire/strings</h2>
+
+        <p class="demo-strings"></p>
+    </section>
+
+    <section>
+        <h2>@sass-pire/type-guard</h2>
+
+        <div class="demo-type-guard">
+            <span>is-int and has-abs-unit gate these declarations.</span>
+        </div>
+    </section>
+
+    <section>
+        <h2>@sass-pire/media + @sass-pire/viewports</h2>
+
+        <div class="demo-media">
+            <div>1 column on mobile</div>
+            <div>2 columns from md</div>
+            <div>4 columns from lg</div>
+            <div>resize the window</div>
+        </div>
+    </section>
+
+    <section>
+        <h2>@sass-pire/family</h2>
+
+        <div class="demo-family">
+            <p>first item</p>
+            <p>second item</p>
+            <p>third item</p>
+            <p>fourth item</p>
+            <p>fifth item</p>
+            <p>sixth item</p>
+        </div>
+    </section>
+
+</body>
+
+</html>

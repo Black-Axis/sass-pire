@@ -1,0 +1,125 @@
+@charset "UTF-8";
+
+// @description:
+// Local preview entry point for every @sass-pire/* package.
+// This workspace is private and never published — it exists so the
+// packages can be exercised together in a browser during development.
+
+// @author Khaled Mohamed
+
+// @license MIT
+
+// @repository: https://github.com/Black-Axis/sass-pire
+
+// @package @sass-pire/playground
+
+// @version 0.0.0
+
+// @library sass-pire
+
+@use "@sass-pire/colors" as Colors;
+@use "@sass-pire/fonts" as Fonts;
+@use "@sass-pire/functions" as Func;
+@use "@sass-pire/lists" as Lists;
+@use "@sass-pire/strings" as Str;
+@use "@sass-pire/type-guard" as Guard;
+@use "@sass-pire/media" as Media;
+@use "@sass-pire/family" as Family;
+
+// @note
+// * @sass-pire/handlers is consumed transitively by the packages above.
+// * It is not used directly here because throw() raises a compile error
+// * while $dev-env is true.
+
+// @section @sass-pire/colors — emits the --sp-*-* custom properties on :root.
+
+@include Colors.sp-get-neutral;
+@include Colors.sp-get-red;
+@include Colors.sp-get-orange;
+@include Colors.sp-get-yellow;
+@include Colors.sp-get-green;
+@include Colors.sp-get-cyan;
+@include Colors.sp-get-blue;
+@include Colors.sp-get-indigo;
+@include Colors.sp-get-violet;
+@include Colors.sp-get-pink;
+
+// @section @sass-pire/fonts — emits the --sp-fs/fw/lh/ls custom properties.
+
+@include Fonts.sp-get-fs;
+@include Fonts.sp-get-fw;
+@include Fonts.sp-get-lh;
+@include Fonts.sp-get-ls;
+
+// @section @sass-pire/functions — unit maths.
+
+.demo-functions {
+    font-size: Func.px-to-rem(18px);
+    line-height: Func.half(3);
+    margin-block: Func.approx(1.235rem, 2);
+    padding-inline: Func.cut-unit(24px) * 1px;
+}
+
+// @section @sass-pire/lists — list helpers.
+
+$demo-spacing: (4px, 8px, 16px, 32px);
+
+.demo-lists {
+    gap: Lists.get-first($demo-spacing);
+    margin-block-end: Lists.get-last($demo-spacing);
+    padding-block: Lists.middle($demo-spacing);
+    inline-size: Lists.sum($demo-spacing);
+}
+
+// @section @sass-pire/strings — string trimming.
+
+.demo-strings::after {
+    content: Str.trim("   trimmed by @sass-pire/strings   ");
+}
+
+// @section @sass-pire/type-guard — compile-time value checks.
+
+$demo-columns: 4;
+
+.demo-type-guard {
+    @if Guard.is-int($demo-columns) {
+        grid-template-columns: repeat($demo-columns, 1fr);
+    }
+
+    @if Guard.has-abs-unit(16px) {
+        border-width: 16px * 0.125;
+    }
+}
+
+// @section @sass-pire/media + @sass-pire/viewports — responsive queries.
+
+.demo-media {
+    display: grid;
+    gap: 8px;
+
+    @include Media.mq(min, w, md) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include Media.mq(min, w, lg) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+// @section @sass-pire/family — nth-child selector helpers.
+
+.demo-family {
+    > * {
+        @include Family.first-of(2) {
+            font-weight: 700;
+        }
+
+        @include Family.every(3) {
+            text-decoration: underline;
+        }
+
+        @include Family.all-but(1) {
+            opacity: 0.75;
+        }
+    }
+}

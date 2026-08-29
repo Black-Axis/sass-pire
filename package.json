@@ -60,6 +60,10 @@
         "dev:type-guard": "yarn workspace @sass-pire/type-guard dev",
         "dev:viewports": "yarn workspace @sass-pire/viewports dev",
         "test:viewports": "jest ./packages/viewports/tests/sass.test.js --watchAll",
+        "playground": "concurrently --prefix-colors=\"cyan,magenta\" --names=\"sass,serve\" \"yarn playground:css\" \"yarn playground:serve\"",
+        "playground:css": "sass --load-path=node_modules playground/main.scss:playground/dist/main.css --watch",
+        "playground:serve": "browser-sync start --server playground --files \"playground/index.html\" \"playground/dist/main.css\" --no-notify",
+        "playground:build": "sass --load-path=node_modules playground/main.scss:playground/dist/main.css",
         "check:updates": "npx ncu",
         "upgrade:all": "npx ncu --upgrade",
         "up:package": "npx ncu -i",
@@ -75,6 +79,7 @@
     },
     "devDependencies": {
         "@eslint/js": "^10.0.1",
+        "browser-sync": "^3.0.4",
         "concurrently": "^10.0.3",
         "cz-conventional-changelog": "^3.3.0",
         "eslint": "^10.5.0",
