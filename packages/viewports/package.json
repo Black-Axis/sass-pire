@@ -40,7 +40,7 @@
     },
     "scripts": {
         "dev": "concurrently --prefix-colors=\"cyan,yellow,green,magenta\" \"yarn sass:watch\" \"yarn sass:comp\"",
-        "sass:watch": "sass ./index.scss:dist/index.compiled.css --watch",
-        "sass:comp": "sass ./index.scss:dist/index.compiled.min.css --watch --style=compressed"
+        "sass:watch": "sass --load-path=../../node_modules ./index.scss:dist/index.compiled.css --watch",
+        "sass:comp": "sass --load-path=../../node_modules ./index.scss:dist/index.compiled.min.css --watch --style=compressed"
     }
 }
