@@ -32,7 +32,7 @@
         "directory": "packages/lists"
     },
     "scripts": {
-        "dev": "concurrently --prefix-lists=\"cyan,yellow,green,magenta\" \"yarn sass:watch\"",
+        "dev": "concurrently --prefix-colors=\"cyan\" \"yarn sass:watch\"",
         "sass:watch": "sass --load-path=../../node_modules ./index.scss:dist/index.compiled.css --watch"
     },
     "dependencies": {
