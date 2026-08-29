@@ -31,9 +31,7 @@
         "dist/index.min.css",
         "dist/index.min.css.map",
         "LICENSE.md",
-        "README.md",
-        "!styles",
-        "!styles/**"
+        "README.md"
     ],
     "sideEffects": [
         "*.css",

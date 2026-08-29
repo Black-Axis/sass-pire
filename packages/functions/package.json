@@ -25,9 +25,7 @@
         "index.scss",
         "src",
         "LICENSE.md",
-        "README.md",
-        "!dist",
-        "!dist/**"
+        "README.md"
     ],
     "sideEffects": [
         "*.css",
