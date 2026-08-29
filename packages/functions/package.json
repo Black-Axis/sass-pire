@@ -22,8 +22,8 @@
         "./scss": "./index.scss"
     },
     "files": [
-        "index.scss",
         "src",
+        "index.scss",
         "LICENSE.md",
         "README.md"
     ],
