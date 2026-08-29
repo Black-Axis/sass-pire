@@ -2,7 +2,7 @@
     "name": "@sass-pire/strings",
     "version": "1.0.0",
     "description": "Strings is a package of sass-pire packages to wrap all strings functions you need for your project.",
-    "homepage": "https://github.com/Black-Axis/sass-pire/tree/main/packages/strings#readme",
+    "homepage": "https://github.com/Black-Axis/sass-pire/tree/HEAD/packages/strings#readme",
     "license": "MIT",
     "author": "Khaled Mohamed <k.mohamed.11.98@gmail.com> (https://github.com/krypton225)",
     "contributors": [

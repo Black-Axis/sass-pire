@@ -2,7 +2,7 @@
     "name": "@sass-pire/viewports",
     "version": "1.0.0",
     "description": "Viewports is a package of sass-pire packages to wrap all breakpoints you need for media queries.",
-    "homepage": "https://github.com/Black-Axis/sass-pire/tree/main/packages/viewports#readme",
+    "homepage": "https://github.com/Black-Axis/sass-pire/tree/HEAD/packages/viewports#readme",
     "license": "MIT",
     "author": "Khaled Mohamed <k.mohamed.11.98@gmail.com> (https://github.com/krypton225)",
     "contributors": [

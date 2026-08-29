@@ -2,7 +2,7 @@
     "name": "@sass-pire/media",
     "version": "1.0.0",
     "description": "Media is of one of package of sass-pire packages.",
-    "homepage": "https://github.com/Black-Axis/sass-pire/tree/main/packages/media#readme",
+    "homepage": "https://github.com/Black-Axis/sass-pire/tree/HEAD/packages/media#readme",
     "license": "MIT",
     "author": "Khaled Mohamed <k.mohamed.11.98@gmail.com> (https://github.com/krypton225)",
     "contributors": [

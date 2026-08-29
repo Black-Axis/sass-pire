@@ -2,7 +2,7 @@
     "name": "@sass-pire/functions",
     "version": "1.0.0",
     "description": "Functions for sass-pire package.",
-    "homepage": "https://github.com/Black-Axis/sass-pire/tree/main/packages/functions#readme",
+    "homepage": "https://github.com/Black-Axis/sass-pire/tree/HEAD/packages/functions#readme",
     "license": "MIT",
     "author": "Khaled Mohamed <k.mohamed.11.98@gmail.com> (https://github.com/krypton225)",
     "contributors": [

@@ -2,7 +2,7 @@
     "name": "@sass-pire/fonts",
     "version": "1.0.0",
     "description": "Font utilities and configuration for the sass-pire design system.",
-    "homepage": "https://github.com/Black-Axis/sass-pire/tree/main/packages/fonts#readme",
+    "homepage": "https://github.com/Black-Axis/sass-pire/tree/HEAD/packages/fonts#readme",
     "license": "MIT",
     "author": "Khaled Mohamed <k.mohamed.11.98@gmail.com> (https://github.com/krypton225)",
     "contributors": [
