@@ -66,6 +66,16 @@ Import the package in your SCSS files to access media query utilities:
 @use '@sass-pire/media' as *;
 ```
 
+### Sass Load Path
+
+When using the Sass CLI, add `--load-path=node_modules` so scoped packages resolve correctly:
+
+```json
+"scripts": {
+  "watch:sass": "sass --load-path=node_modules --watch ./src/index.scss"
+}
+```
+
 ### Using Media Query Utilities
 
 The `mq` mixin generates responsive `@media` queries using viewport names from [`@sass-pire/viewports`](../viewports):

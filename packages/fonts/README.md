@@ -61,6 +61,16 @@ Import the package in your SCSS files to access font utilities:
 @use '@sass-pire/fonts/src/line-height' as line-height;
 ```
 
+### Sass Load Path
+
+When using the Sass CLI, add `--load-path=node_modules` so scoped packages resolve correctly:
+
+```json
+"scripts": {
+  "watch:sass": "sass --load-path=node_modules --watch ./src/index.scss"
+}
+```
+
 ### Using Font Size Utilities
 
 The package provides responsive font sizes using CSS custom properties with `clamp()` for fluid typography:

@@ -73,6 +73,16 @@ All configuration maps are declared with `!default`, so you can override them wh
 );
 ```
 
+### Sass Load Path
+
+When using the Sass CLI, add `--load-path=node_modules` so scoped packages resolve correctly:
+
+```json
+"scripts": {
+  "watch:sass": "sass --load-path=node_modules --watch ./src/index.scss"
+}
+```
+
 ### Using the Viewport Map
 
 The `$viewports` map holds named pixel values for common device sizes — from small mobile screens to 4K displays:

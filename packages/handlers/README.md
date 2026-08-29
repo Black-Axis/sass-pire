@@ -7,6 +7,7 @@ Error handling utilities for the sass-pire.
 - [📦 Installation](#installation)
 - [🚀 Usage](#usage)
   - [SCSS Import](#scss-import)
+  - [Sass Load Path](#sass-load-path)
   - [Configuration](#configuration)
   - [Throwing Errors](#throwing-errors)
 - [📁 Package Structure](#package-structure)
@@ -55,6 +56,18 @@ Import the package in your SCSS files to access the error handling utilities:
 // Or import specific styles
 @use '@sass-pire/handlers/index' as throw;
 ```
+
+### Sass Load Path
+
+When using the Sass CLI, add `--load-path=node_modules` so scoped packages resolve correctly:
+
+```json
+"scripts": {
+  "watch:sass": "sass --load-path=node_modules --watch ./src/index.scss"
+}
+```
+
+[↑ Back to Table of Contents](#table-of-contents)
 
 ### Configuration
 

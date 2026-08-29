@@ -9,6 +9,7 @@ This package provides Sass functions for strings.
 - [📦 Installation](#-installation)
 - [🚀 Usage](#-usage)
   - [SCSS Import](#scss-import)
+  - [Sass Load Path](#sass-load-path)
   - [Using `trim-start($str-value)`](#using-trim-startstr-value)
   - [Using `trim-end($str-value)`](#using-trim-endstr-value)
   - [Using `trim($str-value)`](#using-trimstr-value)
@@ -78,6 +79,16 @@ Import the package in your SCSS files to access string utilities:
 
 // Or import all into the global namespace
 @use '@sass-pire/strings' as *;
+```
+
+### Sass Load Path
+
+When using the Sass CLI, add `--load-path=node_modules` so scoped packages resolve correctly:
+
+```json
+"scripts": {
+  "watch:sass": "sass --load-path=node_modules --watch ./src/index.scss"
+}
 ```
 
 ### Using `trim-start($str-value)`

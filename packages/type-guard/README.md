@@ -59,6 +59,16 @@ Import the package in your SCSS files to access type-guard functions:
 @use '@sass-pire/type-guard/src/is-integer' as int;
 ```
 
+### Sass Load Path
+
+When using the Sass CLI, add `--load-path=node_modules` so scoped packages resolve correctly:
+
+```json
+"scripts": {
+  "watch:sass": "sass --load-path=node_modules --watch ./src/index.scss"
+}
+```
+
 ### Using Type Guard Functions
 
 The package provides functions to check if a value has a specific unit or type. These functions are typically used in mixins or other functions to validate input arguments.

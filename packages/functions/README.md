@@ -7,6 +7,7 @@ Sass utility functions and helpers for the `sass-pire` package.
 - [📦 Installation](#-installation)
 - [🚀 Usage](#-usage)
   - [SCSS Import](#scss-import)
+  - [Sass Load Path](#sass-load-path)
   - [Using `cut-unit($num)`](#using-cut-unitnum)
   - [Using `half($number)`](#using-halfnumber)
   - [Using `approx($num, $digits, $mode)`](#using-approxnum-digits-mode)
@@ -79,6 +80,18 @@ Import the package in your SCSS files to access functions:
 @use "@sass-pire/functions/src/get-half-number" as half;
 @use "@sass-pire/functions/src/approximation-number" as approx;
 @use "@sass-pire/functions/src/pixel-to-rem" as px;
+```
+
+[↑ Back to Table of Contents](#table-of-contents)
+
+### Sass Load Path
+
+When using the Sass CLI, add `--load-path=node_modules` so scoped packages resolve correctly:
+
+```json
+"scripts": {
+  "watch:sass": "sass --load-path=node_modules --watch ./src/index.scss"
+}
 ```
 
 [↑ Back to Table of Contents](#table-of-contents)

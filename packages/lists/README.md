@@ -7,6 +7,7 @@ List utilities and configuration for the sass-pire design system.
 - [📦 Installation](#-installation)
 - [🚀 Usage](#-usage)
   - [SCSS Import](#scss-import)
+  - [Sass Load Path](#sass-load-path)
   - [Using Flatten Function](#using-flatten-function)
   - [Using Merge Function](#using-merge-function)
   - [Using Get First Function](#using-get-first-function)
@@ -14,6 +15,8 @@ List utilities and configuration for the sass-pire design system.
   - [Using Middle Function](#using-middle-function)
   - [Using Reverse Function](#using-reverse-function)
   - [Using Reverse Flat Function](#using-reverse-flat-function)
+  - [Using Is In List Function](#using-is-in-list-function)
+  - [Using Sum Function](#using-sum-function)
 - [🛠️ Development](#️-development)
 - [📁 Package Structure](#-package-structure)
 - [🔗 API Reference](#-api-reference)
@@ -64,7 +67,7 @@ npm install @sass-pire/lists
 pnpm add @sass-pire/lists
 ```
 
-[↑ Back to Top](#table-of-contents)
+[↑ Back to Table of Contents](#table-of-contents)
 
 ## 🚀 Usage
 
@@ -84,9 +87,23 @@ Import the package in your SCSS files to access list utilities:
 @use '@sass-pire/lists/src/middle' as *;
 @use '@sass-pire/lists/src/reverse' as *;
 @use '@sass-pire/lists/src/reverse-flat' as *;
+@use '@sass-pire/lists/src/is-in-list' as *;
+@use '@sass-pire/lists/src/sum' as *;
 ```
 
-[↑ Back to Top](#table-of-contents)
+[↑ Back to Table of Contents](#table-of-contents)
+
+### Sass Load Path
+
+When using the Sass CLI, add `--load-path=node_modules` so scoped packages resolve correctly:
+
+```json
+"scripts": {
+  "watch:sass": "sass --load-path=node_modules --watch ./src/index.scss"
+}
+```
+
+[↑ Back to Table of Contents](#table-of-contents)
 
 ### Using Flatten Function
 
@@ -329,6 +346,76 @@ reverse-flat($list)
 
 [↑ Back to Table of Contents](#table-of-contents)
 
+### Using Is In List Function
+
+The `is-in-list` function checks whether a value exists in a list. The list is flattened first, so values nested at any depth are found.
+
+**Signature:**
+
+```scss
+is-in-list($list-name, $value)
+```
+
+**Parameters:**
+- `$list-name` (List): The list to search in.
+- `$value` (Any): The value to search for.
+
+**Returns:**
+- (Boolean): `true` when the value is found, `false` otherwise.
+
+**Throws:**
+- Throws an error via `@sass-pire/handlers` when `$list-name` is not a list.
+
+**Examples:**
+
+```scss
+@use '@sass-pire/lists/src/is-in-list' as *;
+
+.example {
+  content: is-in-list((1, 2, 3), 2);        // true
+  content: is-in-list((1, 2, 3), 9);        // false
+  content: is-in-list(((1, 2), (3, 4)), 4); // true — nested values are found
+}
+```
+
+[↑ Back to Table of Contents](#table-of-contents)
+
+### Using Sum Function
+
+The `sum` function adds every number in a list. The list is flattened first, so nested lists are summed too. All values must share a single unit.
+
+**Signature:**
+
+```scss
+sum($args: ())
+```
+
+**Parameters:**
+- `$args` (List): The list of numbers to add. Default: `()`.
+
+**Returns:**
+- (Number): The total, carrying the shared unit. An empty list returns `0`.
+
+**Throws:**
+- Throws an error via `@sass-pire/handlers` when `$args` is not a list.
+- Throws when the list mixes units (e.g. `10px` and `2rem`).
+- Throws when any value is not a number.
+
+**Examples:**
+
+```scss
+@use '@sass-pire/lists/src/sum' as *;
+
+.example {
+  content: sum((1, 2, 3));          // 6
+  content: sum((10px, 20px, 30px)); // 60px
+  content: sum(((1, 2), (3, 4)));   // 10 — nested lists are flattened
+  content: sum(());                 // 0
+}
+```
+
+[↑ Back to Table of Contents](#table-of-contents)
+
 ## 🛠️ Development
 
 ### Running the Development Server
@@ -357,8 +444,8 @@ This will watch for changes and compile SCSS files automatically.
 ├── src/
 │   ├── flatten/
 │   │   └── _index.scss       # Flatten function source
-│   └── merge/
-│       └── _index.scss       # Merge function source
+│   ├── merge/
+│   │   └── _index.scss       # Merge function source
 │   ├── first/
 │   │   └── _index.scss       # Get-first function source
 │   ├── last/
@@ -367,8 +454,12 @@ This will watch for changes and compile SCSS files automatically.
 │   │   └── _index.scss       # Middle function source
 │   ├── reverse/
 │   │   └── _index.scss       # Reverse function source
-│   └── reverse-flat/
-│       └── _index.scss       # Reverse-flat function source
+│   ├── reverse-flat/
+│   │   └── _index.scss       # Reverse-flat function source
+│   ├── is-in-list/
+│   │   └── _index.scss       # Is-in-list function source
+│   └── sum/
+│       └── _index.scss       # Sum function source
 ├── dist/
 │   ├── index.css             # Compiled CSS
 │   ├── index.min.css         # Minified CSS
