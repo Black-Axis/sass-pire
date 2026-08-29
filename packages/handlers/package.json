@@ -34,6 +34,6 @@
     },
     "scripts": {
         "dev": "concurrently --prefix-colors=\"magenta\" \"yarn sass:watch\"",
-        "sass:watch": "sass ./index.scss:dist/handlers.compiled.css --watch"
+        "sass:watch": "sass ./index.scss:dist/index.compiled.css --watch"
     }
 }
