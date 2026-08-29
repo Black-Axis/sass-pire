@@ -18,3 +18,5 @@ packages/**/dist/**.compiled.min.css.map
 
 /.vscode/*
 !.vscode/settings.json
+
+.idea
