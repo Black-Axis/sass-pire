@@ -9,6 +9,8 @@ Sass utility functions and helpers for the `sass-pire` package.
   - [SCSS Import](#scss-import)
   - [Using `cut-unit($num)`](#using-cut-unitnum)
   - [Using `half($number)`](#using-halfnumber)
+  - [Using `approx($num, $digits, $mode)`](#using-approxnum-digits-mode)
+  - [Using `px-to-rem($px-val)`](#using-px-to-rempx-val)
   - [Complete Example](#complete-example)
 - [🛠️ Development](#️-development)
 - [📁 Package Structure](#-package-structure)
@@ -60,7 +62,7 @@ npm install @sass-pire/functions
 pnpm add @sass-pire/functions
 ```
 
-[↑ Back to Top](#table-of-contents)
+[↑ Back to Table of Contents](#table-of-contents)
 
 ## 🚀 Usage
 
@@ -75,9 +77,11 @@ Import the package in your SCSS files to access functions:
 // Or import a specific module
 @use "@sass-pire/functions/src/cut-unit" as cut;
 @use "@sass-pire/functions/src/get-half-number" as half;
+@use "@sass-pire/functions/src/approximation-number" as approx;
+@use "@sass-pire/functions/src/pixel-to-rem" as px;
 ```
 
-[↑ Back to Top](#table-of-contents)
+[↑ Back to Table of Contents](#table-of-contents)
 
 ### Using `cut-unit($num)`
 
@@ -108,15 +112,66 @@ Returns half of the given number. If the input has a unit, the result keeps the 
 @use "@sass-pire/functions" as fn;
 
 .example {
-  content: fn.half(12);     // calc(12 / 2)
-  content: fn.half(130rem); // "calc(130 / 2)rem"
-  content: fn.half(22cm);   // "calc(22 / 2)cm"
+  content: fn.half(12);     // 6
+  content: fn.half(130rem); // 65rem
+  content: fn.half(22cm);   // 11cm
+  content: fn.half(0);      // 0
 }
 ```
 
 **Validation behavior:**
 
 - Passing a **non-number** is an error.
+
+[↑ Back to Table of Contents](#table-of-contents)
+
+### Using `approx($num, $digits, $mode)`
+
+Rounds a number to a fixed number of decimal digits, preserving the unit.
+
+```scss
+@use "@sass-pire/functions" as fn;
+
+.example {
+  content: fn.approx(12.36154vh, 2, round); // 12.36vh
+  content: fn.approx(3.14159);              // 3.142
+  content: fn.approx(3.14159, 2, ceil);     // 3.15
+  content: fn.approx(3.14159, 2, floor);    // 3.14
+}
+```
+
+**Parameters:**
+
+- `$num` (Number) - The number to approximate.
+- `$digits` (Number, optional) - Decimal digits to keep. Default: `3`.
+- `$mode` (String, optional) - Rounding mode: `round`, `ceil`, or `floor`. Default: `round`.
+
+**Validation behavior:**
+
+- Passing a **non-number** as `$num` or `$digits` is an error.
+- Passing a **non-string** `$mode` is an error.
+- Passing a `$mode` outside `round`, `ceil`, `floor` is an error.
+
+[↑ Back to Table of Contents](#table-of-contents)
+
+### Using `px-to-rem($px-val)`
+
+Converts a pixel value to `rem`, assuming a `16px` root font size. The result is passed through `approx()`, so it carries at most 3 decimal digits.
+
+```scss
+@use "@sass-pire/functions" as fn;
+
+.example {
+  content: fn.px-to-rem(12px); // 0.75rem
+  content: fn.px-to-rem(24px); // 1.5rem
+  content: fn.px-to-rem(0);    // 0
+}
+```
+
+**Validation behavior:**
+
+- Passing a **non-number** is an error.
+- Passing **`0` with a unit** (`0px`) is an error; use unitless `0`, which returns `0`.
 
 [↑ Back to Table of Contents](#table-of-contents)
 
@@ -160,8 +215,10 @@ This will watch for changes and compile SCSS files automatically.
 ```
 @sass-pire/functions/
 ├── src/
-│   ├── _cut-unit.scss         # cut-unit($num)
-│   └── _get-half-number.scss  # half($number)
+│   ├── _cut-unit.scss              # cut-unit($num)
+│   ├── _get-half-number.scss       # half($number)
+│   ├── _approximation-number.scss  # approx($num, $digits, $mode)
+│   └── _pixel-to-rem.scss          # px-to-rem($px-val)
 ├── dist/
 │   ├── index.compiled.css     # SCSS compiled output (uncompressed)
 │   └── index.compiled.min.css # SCSS compiled output (compressed)
@@ -208,7 +265,45 @@ Returns half of the given number. Keeps the unit when present.
 @use "@sass-pire/functions" as fn;
 
 .example {
-  content: fn.half(22cm); // "calc(22 / 2)cm"
+  content: fn.half(22cm); // 11cm
+}
+```
+
+#### `approx($num, $digits: 3, $mode: round)`
+
+Rounds a number to a fixed number of decimal digits, preserving the unit.
+
+**Parameters:**
+
+- `$num` (Number) - The number to approximate.
+- `$digits` (Number, optional) - Decimal digits to keep. Default: `3`.
+- `$mode` (String, optional) - Rounding mode: `round`, `ceil`, or `floor`. Default: `round`.
+
+**Example:**
+
+```scss
+@use "@sass-pire/functions" as fn;
+
+.example {
+  content: fn.approx(12.36154vh, 2, round); // 12.36vh
+}
+```
+
+#### `px-to-rem($px-val)`
+
+Converts a pixel value to `rem` against a `16px` root font size. Delegates to `approx()`, so the result carries at most 3 decimal digits.
+
+**Parameters:**
+
+- `$px-val` (Number) - The pixel value to convert. Unitless `0` returns `0`.
+
+**Example:**
+
+```scss
+@use "@sass-pire/functions" as fn;
+
+.example {
+  content: fn.px-to-rem(12px); // 0.75rem
 }
 ```
 
@@ -235,6 +330,6 @@ Report issues at: [https://github.com/Black-Axis/sass-pire/issues](https://githu
 
 ---
 
-**Part of the sass-pire package**
+**Part of the sass-pire design system** 🔥
 
 [↑ Back to Table of Contents](#table-of-contents)
