@@ -27,7 +27,23 @@ If you're working within the sass-pire monorepo, you can reference this package 
 
 ```bash
 # From the root of the monorepo
-yarn workspace your-package-name add @sass-pire/handlers
+yarn workspace your-package-name add -D @sass-pire/handlers
+```
+
+Or add it manually to your package's `package.json`:
+
+```json
+{
+  "devDependencies": {
+    "@sass-pire/handlers": "workspace:*"
+  }
+}
+```
+
+Then run:
+
+```bash
+yarn install
 ```
 
 ### As a Standalone Package
@@ -40,7 +56,12 @@ yarn add -D @sass-pire/handlers
 
 # Using npm
 npm install -D @sass-pire/handlers
+
+# Using pnpm
+pnpm add -D @sass-pire/handlers
 ```
+
+> `@sass-pire/handlers` is only needed at SCSS compile time, so it belongs in `devDependencies`.
 
 [↑ Back to Table of Contents](#table-of-contents)
 
