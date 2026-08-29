@@ -47,7 +47,8 @@
         "mixins-colors"
     ],
     "cSpell.words": [
-        "Giraudel"
+        "Giraudel",
+        "viewports"
     ],
     "chatgpt.commentCodeLensEnabled": false
 }
