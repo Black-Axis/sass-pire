@@ -316,6 +316,17 @@ This will watch for changes and compile SCSS files automatically.
 - `yarn css:watch` - Watch and compile styles to CSS (uncompressed)
 - `yarn css:comp` - Watch and compile styles to CSS (compressed)
 
+### Testing
+
+All 4 font modules have sass-true tests under `tests/` (10 assertions):
+
+```bash
+# From the monorepo root
+yarn test:fonts
+```
+
+Tests run via the root Jest config ([jest.config.js](../../jest.config.js)); there is no `test` script in this package's own `package.json`.
+
 ## 📁 Package Structure
 
 ```

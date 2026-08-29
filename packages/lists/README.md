@@ -435,6 +435,17 @@ This will watch for changes and compile SCSS files automatically.
 - `yarn dev` - Run sass compilation in watch mode.
 - `yarn sass:watch` - Watch and compile SCSS to CSS.
 
+### Testing
+
+All 9 functions have sass-true tests under `tests/` (73 assertions):
+
+```bash
+# From the monorepo root
+yarn test:lists
+```
+
+Tests run via the root Jest config ([jest.config.js](../../jest.config.js)); there is no `test` script in this package's own `package.json`.
+
 [↑ Back to Table of Contents](#table-of-contents)
 
 ## 📁 Package Structure

@@ -185,6 +185,17 @@ This will watch for changes and compile SCSS files automatically.
 - `yarn sass:watch` - Watch and compile SCSS to CSS (uncompressed)
 - `yarn sass:comp` - Watch and compile SCSS to CSS (compressed)
 
+### Testing
+
+All 3 trim functions have sass-true tests under `tests/` (15 assertions):
+
+```bash
+# From the monorepo root
+yarn test:strings
+```
+
+Tests run via the root Jest config ([jest.config.js](../../jest.config.js)); there is no `test` script in this package's own `package.json`.
+
 ## 📁 Package Structure
 
 ```

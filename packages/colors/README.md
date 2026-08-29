@@ -365,7 +365,7 @@ This will watch for changes and compile SCSS files automatically.
 
 ### Testing
 
-All 10 palettes have sass-true tests under `tests/`:
+All 10 palettes have sass-true tests under `tests/` (32 assertions):
 
 ```bash
 # From the monorepo root
