@@ -2,6 +2,7 @@
     "name": "@sass-pire/colors",
     "version": "1.0.0",
     "description": "Color utilities and configuration for the sass-pire design system.",
+    "homepage": "https://github.com/Black-Axis/sass-pire/tree/main/packages/colors#readme",
     "license": "MIT",
     "author": "Khaled Mohamed <k.mohamed.11.98@gmail.com> (https://github.com/krypton225)",
     "contributors": [
