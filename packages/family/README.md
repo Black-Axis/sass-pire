@@ -63,13 +63,13 @@ If you're using this package outside the monorepo:
 
 ```bash
 # Using yarn
-yarn add @sass-pire/family
+yarn add -D @sass-pire/family
 
 # Using npm
-npm install @sass-pire/family
+npm install -D @sass-pire/family
 
 # Using pnpm
-pnpm add @sass-pire/family
+pnpm add -D @sass-pire/family
 ```
 
 `@sass-pire/functions` and `@sass-pire/handlers` are installed automatically as dependencies.

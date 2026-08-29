@@ -112,6 +112,8 @@ yarn add -D @sass-pire/colors @sass-pire/media
 npm install -D @sass-pire/colors @sass-pire/media
 ```
 
+> **`-D` or not?** Most `@sass-pire/*` packages are SCSS-only and are consumed while Sass compiles, so `-D` is right. `@sass-pire/colors` and `@sass-pire/fonts` also ship compiled CSS under `dist/`; if you serve that CSS directly rather than importing the SCSS, install them as regular dependencies instead.
+
 ### Import
 
 ```scss

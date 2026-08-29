@@ -27,14 +27,14 @@ If you're working within the sass-pire monorepo, you can reference this package 
 
 ```bash
 # From the root of the monorepo
-yarn workspace your-package-name add -D @sass-pire/handlers
+yarn workspace your-package-name add @sass-pire/handlers
 ```
 
 Or add it manually to your package's `package.json`:
 
 ```json
 {
-  "devDependencies": {
+  "dependencies": {
     "@sass-pire/handlers": "workspace:*"
   }
 }
@@ -61,7 +61,7 @@ npm install -D @sass-pire/handlers
 pnpm add -D @sass-pire/handlers
 ```
 
-> `@sass-pire/handlers` is only needed at SCSS compile time, so it belongs in `devDependencies`.
+> **Which dependency type?** In an application, `@sass-pire/handlers` is only needed while Sass compiles, so `-D` (devDependencies) is right. In another `@sass-pire/*` package whose published SCSS `@use`s it, it must go in `dependencies` so consumers get it transitively.
 
 [↑ Back to Table of Contents](#table-of-contents)
 

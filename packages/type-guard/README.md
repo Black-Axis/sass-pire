@@ -35,13 +35,13 @@ If you're using this package outside the monorepo:
 
 ```bash
 # Using yarn
-yarn add @sass-pire/type-guard
+yarn add -D @sass-pire/type-guard
 
 # Using npm
-npm install @sass-pire/type-guard
+npm install -D @sass-pire/type-guard
 
 # Using pnpm
-pnpm add @sass-pire/type-guard
+pnpm add -D @sass-pire/type-guard
 ```
 
 ## 🚀 Usage

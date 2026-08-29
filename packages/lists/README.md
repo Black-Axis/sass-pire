@@ -58,13 +58,13 @@ If you're using this package outside the monorepo:
 
 ```bash
 # Using yarn
-yarn add @sass-pire/lists
+yarn add -D @sass-pire/lists
 
 # Using npm
-npm install @sass-pire/lists
+npm install -D @sass-pire/lists
 
 # Using pnpm
-pnpm add @sass-pire/lists
+pnpm add -D @sass-pire/lists
 ```
 
 [↑ Back to Table of Contents](#table-of-contents)

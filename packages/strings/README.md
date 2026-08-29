@@ -55,13 +55,13 @@ If you're using this package outside the monorepo:
 
 ```bash
 # Using yarn
-yarn add @sass-pire/strings
+yarn add -D @sass-pire/strings
 
 # Using npm
-npm install @sass-pire/strings
+npm install -D @sass-pire/strings
 
 # Using pnpm
-pnpm add @sass-pire/strings
+pnpm add -D @sass-pire/strings
 ```
 
 ## 🚀 Usage

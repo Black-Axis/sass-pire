@@ -54,13 +54,13 @@ If you're using this package outside the monorepo:
 
 ```bash
 # Using yarn
-yarn add @sass-pire/functions
+yarn add -D @sass-pire/functions
 
 # Using npm
-npm install @sass-pire/functions
+npm install -D @sass-pire/functions
 
 # Using pnpm
-pnpm add @sass-pire/functions
+pnpm add -D @sass-pire/functions
 ```
 
 [↑ Back to Table of Contents](#table-of-contents)

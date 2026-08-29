@@ -39,13 +39,13 @@ If you're using this package outside the monorepo:
 
 ```bash
 # Using yarn
-yarn add @sass-pire/media
+yarn add -D @sass-pire/media
 
 # Using npm
-npm install @sass-pire/media
+npm install -D @sass-pire/media
 
 # Using pnpm
-pnpm add @sass-pire/media
+pnpm add -D @sass-pire/media
 ```
 
 ## 🚀 Usage

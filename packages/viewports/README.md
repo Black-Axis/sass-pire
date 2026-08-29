@@ -37,13 +37,13 @@ If you're using this package outside the monorepo:
 
 ```bash
 # Using yarn
-yarn add @sass-pire/viewports
+yarn add -D @sass-pire/viewports
 
 # Using npm
-npm install @sass-pire/viewports
+npm install -D @sass-pire/viewports
 
 # Using pnpm
-pnpm add @sass-pire/viewports
+pnpm add -D @sass-pire/viewports
 ```
 
 ## 🚀 Usage
