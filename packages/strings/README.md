@@ -297,4 +297,4 @@ Report issues at: [https://github.com/Black-Axis/sass-pire/issues](https://githu
 
 ---
 
-**Part of the sass-pire packages** 🔥
+**Part of the sass-pire design system** 🔥

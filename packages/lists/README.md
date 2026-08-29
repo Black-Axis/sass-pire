@@ -408,4 +408,8 @@ If you encounter any issues or have suggestions, please [report them here](https
 
 For any questions or inquiries, please contact us at [black_axis@outlook.com](mailto:black_axis@outlook.com).
 
+---
+
+**Part of the sass-pire design system** 🔥
+
 [↑ Back to Table of Contents](#table-of-contents)
