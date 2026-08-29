@@ -96,8 +96,8 @@ Use the `throw()` function to handle validation or logic errors in your function
 
 ```
 @sass-pire/handlers/
-├── dist/
-│   └── handlers.compiled.css  # Compiled CSS output (for dev/tests)
+├── dist/                      # Local compile output (dev only, not published)
+│   └── index.compiled.css     # SCSS compiled output
 ├── index.scss                 # Main entry point (throw function & $dev-env)
 ├── package.json
 ├── LICENSE.md
@@ -141,7 +141,7 @@ A robust wrapper for Sass error handling that includes type validation for the m
 ### Available Scripts
 
 - `yarn dev` - Watch and compile the handlers entry point.
-- `yarn sass:watch` - Compile `index.scss` to `dist/handlers.compiled.css` with a watcher.
+- `yarn sass:watch` - Compile `index.scss` to `dist/index.compiled.css` with a watcher.
 
 [↑ Back to Table of Contents](#table-of-contents)
 
