@@ -46,5 +46,8 @@
         "mixins-children",
         "mixins-colors"
     ],
-    "cSpell.words": ["Giraudel"]
+    "cSpell.words": [
+        "Giraudel"
+    ],
+    "chatgpt.commentCodeLensEnabled": false
 }
